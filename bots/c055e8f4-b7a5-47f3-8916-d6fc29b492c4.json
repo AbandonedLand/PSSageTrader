@@ -1,0 +1,2071 @@
+{
+  "stableX": false,
+  "id": "c055e8f4-b7a5-47f3-8916-d6fc29b492c4",
+  "token_x": {
+    "id": "xch",
+    "denom": 1000000000000,
+    "name": "XCH",
+    "code": "XCH"
+  },
+  "token_y": {
+    "name": "Base warp.green USDC",
+    "id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "77b5178d32f66932dc9e48157f029b8a96bfed577ee877d2b22cd73d6799e424",
+    "tibet_pair_id": "054f10bd1baefdbc6c87880d445640084332d072a68fcebf810045784e54c39e",
+    "code": "wUSDC.b"
+  },
+  "token_x_id": "xch",
+  "token_y_id": "wUSDC.b",
+  "token_x_amount": {
+    "amount": 19.0,
+    "mojo": {}
+  },
+  "token_y_amount": {
+    "amount": 0.0,
+    "mojo": {}
+  },
+  "starting_price": 0.0,
+  "min_price": 10.0,
+  "max_price": 11.2,
+  "steps": 38,
+  "step_size": 0.0,
+  "step_amount": 0.0,
+  "percentage": 0.0035,
+  "grid": [
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.0,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 4982
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5018
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.032,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 4998
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5034
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.065,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5014
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5050
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.097,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5030
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5066
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.13,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5047
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5083
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.162,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5063
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5099
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.195,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5080
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5116
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.227,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5096
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5132
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.259,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5112
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5148
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.292,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5128
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5164
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.324,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5144
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5180
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.357,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5160
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5196
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.389,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5176
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5212
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.422,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5193
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5229
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.454,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5209
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5245
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.486,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5225
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5261
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.519,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5242
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5278
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 18,
+      "price": 10.551,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5258
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5294
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.584,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5273
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5311
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.616,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5289
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5327
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.649,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5305
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5343
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.681,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5321
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5359
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.714,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5338
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5376
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.746,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5354
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5392
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.778,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5370
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5408
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.811,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5387
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5425
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.843,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5403
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5441
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.876,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5419
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5457
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.908,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5435
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch16q8srtgq5cks9jlt37ydv8eufhn595uz6l3qds9es4zumkavs5fsfghe72"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5473
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch16q8srtgq5cks9jlt37ydv8eufhn595uz6l3qds9es4zumkavs5fsfghe72"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.941,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5451
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1gdgctlps6knsqxpmwk6wd97gn42t76m2tyetfgx90q85txaymwlsgjxqj0"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5489
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1gdgctlps6knsqxpmwk6wd97gn42t76m2tyetfgx90q85txaymwlsgjxqj0"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 10.973,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5467
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1fe58xdgtu6f7wg5ajy92uzyn89gq6d6rgzek4wf7msf9323g7v9s5s6l08"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5505
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1fe58xdgtu6f7wg5ajy92uzyn89gq6d6rgzek4wf7msf9323g7v9s5s6l08"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 11.005,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5483
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch16geeleq9drp3suvll3xz77ukwzhf0khvnfu9taewsx0ylgweehpsut94un"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5521
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch16geeleq9drp3suvll3xz77ukwzhf0khvnfu9taewsx0ylgweehpsut94un"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 11.038,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5500
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1uqd4wgfk8etplqpdvtt6c02utvkpzah4s499nr60ylhmf6vdrwwq7eqknn"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5538
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1uqd4wgfk8etplqpdvtt6c02utvkpzah4s499nr60ylhmf6vdrwwq7eqknn"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 11.07,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5516
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1uzdxprnk49nlwh2yhcc249y8ffvvdvgadzftjuszqccaj5l5zqkq093lgq"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5554
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1uzdxprnk49nlwh2yhcc249y8ffvvdvgadzftjuszqccaj5l5zqkq093lgq"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 11.103,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5533
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1r4sppgvhnz3637888j58l5z4dyr9vuccc0epdkg4vmdkt5vymmaqu9su6p"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5571
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1r4sppgvhnz3637888j58l5z4dyr9vuccc0epdkg4vmdkt5vymmaqu9su6p"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 19,
+      "price": 11.135,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5549
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1lrg6mcsnhuvgtzzasz3sv0dtyltv4jncwvls0w0u0jeemk0lrg5qv8rcvz"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5587
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1lrg6mcsnhuvgtzzasz3sv0dtyltv4jncwvls0w0u0jeemk0lrg5qv8rcvz"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 20,
+      "price": 11.168,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5564
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1j3ruhrk9v9mjwdqcnyresa6ufh76aetdm2pm5zhyvwcts0saqjzqcentn5"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5604
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1j3ruhrk9v9mjwdqcnyresa6ufh76aetdm2pm5zhyvwcts0saqjzqcentn5"
+      }
+    },
+    {
+      "xch": 500000000000,
+      "x_fee": 0,
+      "y_fee": 20,
+      "price": 11.2,
+      "ask": {
+        "requested_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5580
+            }
+          ],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1l52rndxa6949w6s769cqvg7kmked52wyqksvr4wl5fmmuh8n8enqdq7yy3"
+      },
+      "bid": {
+        "requested_assets": {
+          "xch": 0,
+          "cats": [
+            {
+              "asset_id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+              "amount": 5620
+            }
+          ],
+          "nfts": []
+        },
+        "offered_assets": {
+          "xch": 500000000000,
+          "cats": [],
+          "nfts": []
+        },
+        "fee": 0,
+        "receive_address": "xch1l52rndxa6949w6s769cqvg7kmked52wyqksvr4wl5fmmuh8n8enqdq7yy3"
+      }
+    }
+  ],
+  "active_offers": [
+    {
+      "offer_id": "b38c7fd9cdf5348f10cab31247b250f88701056a9b8e0e2507c27a32d16c3ee6",
+      "price": 10.0,
+      "index": 0,
+      "side": "ask"
+    },
+    {
+      "offer_id": "a8128a1971a4ab436cc370fa5b37f5c87b43bcb9d38666b991459ed3444d86d2",
+      "price": 10.032,
+      "index": 1,
+      "side": "ask"
+    },
+    {
+      "offer_id": "979f83884d390c69b7401035a6c49ad9cfe0e12f1dbc7295ba7cd6862d114367",
+      "price": 10.065,
+      "index": 2,
+      "side": "ask"
+    },
+    {
+      "offer_id": "88a0dfae771a9e45f735d0e1a5ce5c9f62199b71eb31cf193d6dfe8401d62ad3",
+      "price": 10.097,
+      "index": 3,
+      "side": "ask"
+    },
+    {
+      "offer_id": "692a41993b3d2789ebd658264b8135265fc04f2151b71b4358740792d3fd2c0a",
+      "price": 10.13,
+      "index": 4,
+      "side": "ask"
+    },
+    {
+      "offer_id": "318322b6eb4a1846c322b49797a2c4ddd5cc5723e5b66471cc0a3c140c5d79e9",
+      "price": 10.162,
+      "index": 5,
+      "side": "ask"
+    },
+    {
+      "offer_id": "70a3ca4a98cc75a909b37050c441405db6c981741f82a5b5610bc23512451c01",
+      "price": 10.195,
+      "index": 6,
+      "side": "ask"
+    },
+    {
+      "offer_id": "08a8b41ab9d47b75a59bbbfccc121e95da65a1427e11d7c2fe198894a649996a",
+      "price": 10.227,
+      "index": 7,
+      "side": "ask"
+    },
+    {
+      "offer_id": "404ef692e1863aad723e4edef0b1b9810ea0020e0b81a8a7fbcd956be0872080",
+      "price": 10.259,
+      "index": 8,
+      "side": "ask"
+    },
+    {
+      "offer_id": "3a348d7130c4a43c17172252bd78eb41b6554044ebe83c6a6137f6aef8812870",
+      "price": 10.292,
+      "index": 9,
+      "side": "ask"
+    },
+    {
+      "offer_id": "66a4853158778e3947489243307bb38425332ec1653906d0b53f3a4064bd46b2",
+      "price": 10.324,
+      "index": 10,
+      "side": "ask"
+    },
+    {
+      "offer_id": "47568b404689674282b589108b1d115013bef0567cd3038d682cddf85fda3d46",
+      "price": 10.357,
+      "index": 11,
+      "side": "ask"
+    },
+    {
+      "offer_id": "660690b58396eec4455384b631f8abebfdb6d713a62eeb8778953789799bfb96",
+      "price": 10.389,
+      "index": 12,
+      "side": "ask"
+    },
+    {
+      "offer_id": "bde79e45c322a9c49193285dbc579ee42d88f6a20cbeb5a7cbcdefeb3f1d13aa",
+      "price": 10.422,
+      "index": 13,
+      "side": "ask"
+    },
+    {
+      "offer_id": "757fd0b58c5cb052aa7cd9ca2a4c7e71ee32dd05964e8cd94d3eab23ef138f2a",
+      "price": 10.454,
+      "index": 14,
+      "side": "ask"
+    },
+    {
+      "offer_id": "9a6cc228ff08b1a7315652b40f605288bbc6807929ebb2f005cb2b68e3cc29ee",
+      "price": 10.486,
+      "index": 15,
+      "side": "ask"
+    },
+    {
+      "offer_id": "23534d0cda155d518c0b51fa83fc5c8a71f6dcb47465e2cbf7f10787e469bf10",
+      "price": 10.519,
+      "index": 16,
+      "side": "ask"
+    },
+    {
+      "offer_id": "f08f24af66c69a697187b82156efab5e3957ce71f4b789134922a7dfadeb77c2",
+      "price": 10.551,
+      "index": 17,
+      "side": "ask"
+    },
+    {
+      "offer_id": "18a187dc46bf6d22c26651827cbe5dd3043c00a253158561b5256b8b670a517e",
+      "price": 10.584,
+      "index": 18,
+      "side": "ask"
+    },
+    {
+      "offer_id": "e1a4a82af64270d8c45043afc164646706953584e73957401c3d2287cb6f7393",
+      "price": 10.616,
+      "index": 19,
+      "side": "ask"
+    },
+    {
+      "offer_id": "15e6a7b3e79e859c61d68b0ea8799b00bef3dae9210be6f42ec6427076ee63b9",
+      "price": 10.649,
+      "index": 20,
+      "side": "ask"
+    },
+    {
+      "offer_id": "d91619df10cfce8957dd426ce9cbdc1c0f4eba22f0535a2e47cb97bda70fc2bd",
+      "price": 10.681,
+      "index": 21,
+      "side": "ask"
+    },
+    {
+      "offer_id": "8b8a70d453dd30afa1ba2ba99b6579c35542a8de89b08f24da27c75c711caf9d",
+      "price": 10.714,
+      "index": 22,
+      "side": "ask"
+    },
+    {
+      "offer_id": "8a0dcc7ed89ca7bcd2b7eb894fe85c683090aaee5a6865d39cef7d2ac8cdaab8",
+      "price": 10.746,
+      "index": 23,
+      "side": "ask"
+    },
+    {
+      "offer_id": "3386866223d381369f6d9ca048f3f45d8f9aca28ec3e0a52cb51bd87a0f02f28",
+      "price": 10.778,
+      "index": 24,
+      "side": "ask"
+    },
+    {
+      "offer_id": "72b47b331d66318a927ee98cbd72621a4f6682237fd76cdab456ca2535b7e6f2",
+      "price": 10.811,
+      "index": 25,
+      "side": "ask"
+    },
+    {
+      "offer_id": "9cce16b9407517820b59b9ffe27e654faf483fa351a59b1211f112bab5d2dbc2",
+      "price": 10.843,
+      "index": 26,
+      "side": "ask"
+    },
+    {
+      "offer_id": "1303504240a49ddd9e08a30871575d58df319a1546b975da1a0b2c6172cdb73d",
+      "price": 10.876,
+      "index": 27,
+      "side": "ask"
+    },
+    {
+      "price": 10.908,
+      "index": 28,
+      "offer_id": "d69de3609a573f5d4fe32e829afb0db2dba2ef3a3b85f72e4ecfbe0cb63f9f55",
+      "side": "ask"
+    },
+    {
+      "side": "ask",
+      "index": 29,
+      "offer_id": "06a49696315ec5265fe275a4953aff09a54a4b4e23044f82a817750577d37fdd",
+      "price": 10.941
+    },
+    {
+      "side": "ask",
+      "index": 30,
+      "offer_id": "6a1e8c2c878890e9dbabdc1ec6d472189c6dd313b29a439b6ac6d1b25d734adf",
+      "price": 10.973
+    },
+    {
+      "side": "ask",
+      "index": 31,
+      "offer_id": "35ff9fb7e6d1e610465adf58481a0135ae8adb94483e5ee36afb8f970b906ddf",
+      "price": 11.005
+    },
+    {
+      "side": "ask",
+      "index": 32,
+      "offer_id": "1c77274545bced5de10a24715ff3e37245dc54a060992d2f053dab31bae97ab1",
+      "price": 11.038
+    },
+    {
+      "price": 11.103,
+      "side": "ask",
+      "index": 34,
+      "offer_id": "a3788682b4d6794ec97fb4d77b821dfa6b7e1246f6bc49abf085e75655c0e3ce"
+    },
+    {
+      "price": 11.07,
+      "side": "ask",
+      "index": 33,
+      "offer_id": "f79228a768861174a90920d6e3034caee9e384baaf742cca312ece2907dbb312"
+    },
+    {
+      "price": 11.135,
+      "side": "ask",
+      "index": 35,
+      "offer_id": "9e376fbc5d09af1216ecb15acdc13067ef09b4d962cd1aa0de204d1080be4d23"
+    },
+    {
+      "price": 11.168,
+      "side": "ask",
+      "index": 36,
+      "offer_id": "38df32ed07f253972f47919d670534f3872d3df16f1762fbf367de16e93bc3f6"
+    },
+    {
+      "price": 11.2,
+      "side": "ask",
+      "index": 37,
+      "offer_id": "fec419c629d870ac60b03c93823803b74ebe8ad8f1181f38a5fd8b085dd2f4f7"
+    }
+  ],
+  "completed_offers": [
+    null,
+    {
+      "offer_id": "de7ebe504aaadc0b1af6d9b5ccbdc1513fe6fc8e9d37988ccaabb0aa02162e53",
+      "price": 11.135,
+      "index": 35,
+      "side": "ask"
+    },
+    {
+      "offer_id": "dd32296b8cf25ea048a8893e3c48eca88ff4b7e0b315a4d0d8667262a0d9deed",
+      "price": 11.168,
+      "index": 36,
+      "side": "ask"
+    },
+    {
+      "offer_id": "d09b8277231f0f5df3218e5c4fcaac1ab7bdd3d2b4bbae66ef999033544dd832",
+      "price": 11.2,
+      "index": 37,
+      "side": "ask"
+    },
+    {
+      "offer_id": "57bd1aaabba2a9168bae814b2798b3961e69583b8a2b4b01cc0c89dcc02d2870",
+      "price": 11.103,
+      "index": 34,
+      "side": "ask"
+    },
+    {
+      "offer_id": "0fc556671e1437939fe2ec6c63bb8127cf233573d7235da527c1484eb3ee08a0",
+      "price": 11.07,
+      "index": 33,
+      "side": "ask"
+    },
+    {
+      "offer_id": "8c2801a8276fa1ff0616547095d4568a44fba5fb40b55b2dd4fd04a97f3164bc",
+      "price": 11.038,
+      "index": 32,
+      "side": "ask"
+    },
+    {
+      "offer_id": "0cb108e939284c0288200606bd426df0dd38b84b60db0f528739f18a81227780",
+      "price": 11.005,
+      "index": 31,
+      "side": "ask"
+    },
+    {
+      "offer_id": "5347f903bb346b124a6af265c4526db811bd1feb276b21c6c45e11c00e085132",
+      "price": 10.908,
+      "index": 28,
+      "side": "ask"
+    },
+    {
+      "offer_id": "785742eb43be68a3b53ac7fabc9c3a093bae08d23ca6055502e822d10716ff9a",
+      "price": 10.941,
+      "index": 29,
+      "side": "ask"
+    },
+    {
+      "offer_id": "907b7e35683599677d63e95eaa02a6229ae2fa6846debdb058aa82bd3edc3ed5",
+      "price": 10.973,
+      "index": 30,
+      "side": "ask"
+    },
+    {
+      "price": 10.908,
+      "index": 28,
+      "offer_id": "f5336ed7592a231df86768032a602637ad916b6f507dad9438d20881fe21fed7",
+      "side": "bid"
+    },
+    {
+      "price": 10.908,
+      "index": 28,
+      "offer_id": "67c0f825cebd302a5203ab74e9fa212b8665601637c64b1244e2fdb879442de3",
+      "side": "ask"
+    },
+    {
+      "price": 10.908,
+      "index": 28,
+      "offer_id": "5be1ad7d7f63bb57445abc69eaec8c5a191a4522381f8851cacde6708ff6dc2f",
+      "side": "bid"
+    },
+    {
+      "price": 10.941,
+      "index": 29,
+      "offer_id": "b766b20442ece707e7613d2e4f229c1c0b25c65834884d7d958043da7a84d970",
+      "side": "bid"
+    },
+    {
+      "price": 10.973,
+      "index": 30,
+      "offer_id": "9f08cddab5b1497c0164bfad10791f2bb865838f1420ca6830d57456d8e907a0",
+      "side": "bid"
+    },
+    {
+      "price": 11.005,
+      "index": 31,
+      "offer_id": "abf731cd6237d044a9302ea6cf354debe94ce7e59c307ce4200dd8d78dbd2707",
+      "side": "bid"
+    },
+    {
+      "price": 11.038,
+      "index": 32,
+      "offer_id": "e5807cb5b1cefa9e99ad28ed84bd6e62fb38738434278607cca54513da3c1113",
+      "side": "bid"
+    },
+    {
+      "price": 11.135,
+      "index": 35,
+      "offer_id": "1be6fdbc600a6ac19b08d9b016ba459eaee67ca7f5ddd1cf4f3a9b8be7ab6b56",
+      "side": "bid"
+    },
+    {
+      "price": 11.168,
+      "index": 36,
+      "offer_id": "282d26ababde9c8b125f59ea92971cdfdacab451166a8ba229f726498ebae663",
+      "side": "bid"
+    },
+    {
+      "price": 11.103,
+      "index": 34,
+      "offer_id": "da8adc6c409c34492e7f4ccdcc764d324a464732d9663ba843c6b71178e83998",
+      "side": "bid"
+    },
+    {
+      "price": 11.07,
+      "index": 33,
+      "offer_id": "c25b8ac342a162021984673676bc3e7a87aa25573a262ce79fc3c461e406f9b6",
+      "side": "bid"
+    },
+    {
+      "price": 11.2,
+      "index": 37,
+      "offer_id": "76131bcdaaa6e01dff958b3d3461ec39a7338c7e14d2bea88bba0f050db46163",
+      "side": "bid"
+    },
+    {
+      "price": 11.2,
+      "side": "ask",
+      "index": 37,
+      "offer_id": "197d26c967fa144e3d32cabd02b5ac10fa7588abc6163901566a601a95b097d0"
+    },
+    {
+      "price": 11.168,
+      "side": "ask",
+      "index": 36,
+      "offer_id": "93e966d741e6e9b7043c96647f934d653026c3fd32a22ed7eb08a8b049dde7ad"
+    },
+    {
+      "price": 11.135,
+      "side": "ask",
+      "index": 35,
+      "offer_id": "244ed7e69a05ba39c961646cdccabc3c29a68534cc1dfa45dd8846f21146d3fe"
+    },
+    {
+      "price": 11.135,
+      "side": "bid",
+      "index": 35,
+      "offer_id": "4f58021b2782472d26a4fbba530cf5bfcfbae4ea01d515430f0ef70c22a449f5"
+    },
+    {
+      "price": 11.135,
+      "side": "ask",
+      "index": 35,
+      "offer_id": "7b298d96092bbba313bc15867e7b6e1bd6a0416d5a381bad3cf8d515cb526fc6"
+    },
+    {
+      "price": 11.135,
+      "side": "bid",
+      "index": 35,
+      "offer_id": "f8f5c0e2790e98410aa903705ce753289850a68207705f9cbf5e98d9cffbd468"
+    },
+    {
+      "price": 11.168,
+      "side": "bid",
+      "index": 36,
+      "offer_id": "244436cb7f937a81482ae8c21817e8a3fb9423623e98d27980fbf78e6b5b0c0d"
+    },
+    {
+      "price": 11.2,
+      "side": "bid",
+      "index": 37,
+      "offer_id": "5ee0d4c44046c9ab93c003e018d7714a4f5f51697ecf209084d07b2c4675e244"
+    }
+  ],
+  "offer_structure": null,
+  "transaction_fee": 0,
+  "tibet_pair_id": "",
+  "fingerprint": null,
+  "cancelled_offers": null
+}

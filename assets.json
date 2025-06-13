@@ -1,0 +1,4540 @@
+{
+  "TIBET-$CHIA-XCH": {
+    "id": "abdeaa3009745478d1aa4ce462b574d1e433b1a12942dc83789fbcaf36144a5e",
+    "denom": 1000,
+    "name": "TibetSwap LP $CHIA-XCH",
+    "code": "TIBET-$CHIA-XCH"
+  },
+  "FMX": {
+    "id": "ab1634e50e891771672bd3094c1c57a1a2187b2a8c7a1545f3d4b06b5608f4e8",
+    "denom": 1000,
+    "name": "FarmX",
+    "code": "FMX"
+  },
+  "FART": {
+    "id": "08beac6f8ae466d12e3bb710b775626549e11998d2f79d89708acee497aef1ba",
+    "denom": 1000,
+    "name": "Fartbucks",
+    "code": "FART"
+  },
+  "GGG": {
+    "id": "0b597916bbb1c223407accc5ea44753b6c726c3cef45cdd7e65b84347bd74029",
+    "denom": 1000,
+    "name": "Grinning Goblins Gold",
+    "code": "GGG"
+  },
+  "TIBET-BIGD-XCH": {
+    "id": "e896692067d08edd0f1538a370b8d74a5a21b89c25837c3f03abb63b55fdb82f",
+    "denom": 1000,
+    "name": "TibetSwap LP BIGD-XCH",
+    "code": "TIBET-BIGD-XCH"
+  },
+  "D210": {
+    "id": "7a0b3df66ba4eddbcdbb8071b9eba266cd3cb8a38d24f5b4e211e9a8bae0767f",
+    "denom": 1000,
+    "name": "DUBAI Token",
+    "code": "D210"
+  },
+  "RADIQ": {
+    "id": "946ebdd5828503a5239bbefdee10e3b933c92b48f84a0b4ba5c69a7007c402d5",
+    "denom": 1000,
+    "name": "RADICOLA IQ CAPS",
+    "code": "RADIQ"
+  },
+  "TIBET-POTT-XCH": {
+    "id": "abdf87384471882b33e41bbb0b09c0d46f51b34ae1eaae713d9afe6828f441a4",
+    "denom": 1000,
+    "name": "TibetSwap LP POTT-XCH",
+    "code": "TIBET-POTT-XCH"
+  },
+  "STAKE": {
+    "id": "450d89e992449b10ff510dde612488046ec9560e4b5559a48d343a6b75a4b427",
+    "denom": 1000,
+    "name": "STAKE 2.0",
+    "code": "STAKE"
+  },
+  "DUCK": {
+    "name": "🦆",
+    "id": "82bd24df4a320d3324dc3aa259b2934ac887b32e00f09dac3eebba22128eb84f",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "f8c63d8a23b3311ca520a8157a8341b6488d112ba61a7aa5b4a39f024d5d5be9",
+    "tibet_pair_id": "7cd1f44d2658ac5b4c3db167d16d569c67d2f70725f18a8c4332f2c64c58aee2",
+    "code": "DUCK"
+  },
+  "DWB": {
+    "name": "DWB",
+    "id": "b0495abe70851d43d8444f785daa4fb2aaa8dae6312d596ee318d2b5834cc987",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "91caa456661a58e1f953e8850138ed3419a00e286e2b8f36edd77a52de60e9d9",
+    "tibet_pair_id": "174ce34f420c13a025416ec3377ed8095bcc8383cf2234152b4e5d53fbb1c0c6",
+    "code": "DWB"
+  },
+  "GG": {
+    "id": "ccbb3643aef0282727e9a3f3d6d6a7e1c7ebdf4a2b7f18372b19558e18277121",
+    "denom": 1000,
+    "name": "Goblin Gold",
+    "code": "GG"
+  },
+  "PAW": {
+    "name": "🐾",
+    "id": "93f61c25eece661130a4a94bf9ab31e2894e02bb21d57f5ff36a7554fbfee179",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "7b502f7638c2dd95849546f585ef6013c52ff0b70ccd1c6ffc13b965fc88d89a",
+    "tibet_pair_id": "1a513891551eb0c5a9c8ff7f296c884e55ece24d70d9d30d27b24e77fb155700",
+    "code": "PAW"
+  },
+  "TIBET-SPACE-XCH": {
+    "id": "18396fd18e52cf5ecad4a3509ea2482c55b58a614c540bb95d1ecb3e85a3d723",
+    "denom": 1000,
+    "name": "TibetSwap LP SPACE-XCH",
+    "code": "TIBET-SPACE-XCH"
+  },
+  "ZOMBIE": {
+    "name": "ZOMBIE",
+    "id": "4d38ad9998bd93d3a424a788884f2386fbe076b9edcd36580ae02844388d23af",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "a3f472b7fcc11cb5881510fe5cae232ca0e662e79d3cb2e4a39b7bb908e35e02",
+    "tibet_pair_id": "2b01c9d76a3e3e58d5d1cbe825a20415211120f1ceb16fe9a771d8e232c15794",
+    "code": "ZOMBIE"
+  },
+  "TIBET-boden-XCH": {
+    "id": "0fe22b51e5a2e641a6153f7d4e56245d2865a16cb13ec207e7504128fa954204",
+    "denom": 1000,
+    "name": "TibetSwap LP boden-XCH",
+    "code": "TIBET-boden-XCH"
+  },
+  "CHEEZE": {
+    "name": "CheeZe for SpaceRatZNFT",
+    "id": "d92268a1df8aa91aa410fcfaaa57583562bdfe9bacb458453f3518c4a3256124",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ce80d0a2d478cbc090cbe82460315d0eabfae610a15035ea055d93d7a9dbabaa",
+    "tibet_pair_id": "8a8da4d09327026a45382ccdee527fd0abb06a15e98ed9db1ee5becb430124cf",
+    "code": "CHEEZE"
+  },
+  "BCAP": {
+    "name": "Bottle cap",
+    "id": "f7495302b0598cb5004377a364bef89fd17575a2c6a1653ac7a68cb304fb980f",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "52decef5bfacacb99a5f4f4df8872e83204dfa8f8e446520bbdafbbdbf171f84",
+    "tibet_pair_id": "1ef098fd609c689b744575577d1082a1075e18eee158082f581a2392d19417f1",
+    "code": "BCAP"
+  },
+  "TIBET-42-XCH": {
+    "id": "bf13e218f980c513ef6445aff25800997628599398f3a37c00308645cf1a3615",
+    "denom": 1000,
+    "name": "TibetSwap LP 42-XCH",
+    "code": "TIBET-42-XCH"
+  },
+  "ECO.181.2022": {
+    "id": "4a168910b533e6bb9ddf82a776f8d6248308abd3d56b6f4423a3e1de88f466e7",
+    "denom": 1000,
+    "name": "Agricultural Reforestation Project 2022",
+    "code": "ECO.181.2022"
+  },
+  "TIME": {
+    "id": "fa18661ee38d938858bf2d1ecf2c8ad5cbed972e09ff6c55f62293d0eaedd1ae",
+    "denom": 1000,
+    "name": "Time",
+    "code": "TIME"
+  },
+  "BRAM": {
+    "id": "7d9e10895f967c7fb67eb9b6f866b636d73a336eb50b4097260cad0be70e5b97",
+    "denom": 1000,
+    "name": "Bram Coin",
+    "code": "BRAM"
+  },
+  "SHD": {
+    "name": "Shard",
+    "id": "7a99007d5db1e757a4bab4339f24f76b6619b2a2769a65936f4918e9bee17c60",
+    "denom": 1,
+    "tibet_liquidity_asset_id": "ab485f45382ad2e15ff56e2240dc30f209cd9fa69adcd6af2038a177e47fd92b",
+    "tibet_pair_id": "371b1daea44178ecfe02662e43028fded3b63ef3c0bf3acf09ac159ddaadf19e",
+    "code": "SHD"
+  },
+  "XCHINA": {
+    "id": "660bb2ab6c885276fd6bfdd7c54c038b4cc08b324f20137635bd482fa7c414e2",
+    "denom": 1000,
+    "name": "Chia in China",
+    "code": "XCHINA"
+  },
+  "YKY": {
+    "name": "Yippee Ki Yay",
+    "id": "f930c6c02e8bb72e3d06eabb61483fbd4bbbc41906336e4db49c81affa51df81",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "aa6e21b39fe65c47ffbc22c8a5bbaa1ccd52687f988264c3294b7cdc554f4979",
+    "tibet_pair_id": "2c74b4bcafdd8cff05f5f7b11013e33d23e44c10c078edef31efce6377601d2c",
+    "code": "YKY"
+  },
+  "TIBET-NINJA-XCH": {
+    "id": "3df660e538e935331a39a1c986ebda7111af06647ace0e9c345daba2b92ddf05",
+    "denom": 1000,
+    "name": "TibetSwap LP NINJA-XCH",
+    "code": "TIBET-NINJA-XCH"
+  },
+  "DATAW": {
+    "id": "be666a56d3b62f32ee83cc0cc03b2cb8f714751e0f37186a1be32c75d26c23e0",
+    "denom": 1000,
+    "name": "Data Wheel Token",
+    "code": "DATAW"
+  },
+  "TIBET-whoren-XCH": {
+    "id": "96a7cb7f9872f84d6471dd3a2442f05deaf59df46197b877cd8afc32e872267d",
+    "denom": 1000,
+    "name": "TibetSwap LP whoren-XCH",
+    "code": "TIBET-whoren-XCH"
+  },
+  "HEAD": {
+    "id": "1397080ca3d0b477b2f6a5ed06750a63b6eea11931e948ee074ad12307fe782e",
+    "denom": 1000,
+    "name": "CoinHead",
+    "code": "HEAD"
+  },
+  "MBX": {
+    "name": "Moonbucks",
+    "id": "e0005928763a7253a9c443d76837bdfab312382fc47cab85dad00be23ae4e82f",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "db7454c93c26b84a147bb011b2252a7f66a9e24549b507604c842ed8089bf106",
+    "tibet_pair_id": "9bc819b5f6daf4111c865d3e110599a7c2984e3ddae8f24f7c0325105f67916f",
+    "code": "MBX"
+  },
+  "KEK": {
+    "name": "feels good man",
+    "id": "7eba2dfb8b0be8a91bcee8416f70d5d2f15466de5f8604622fee5dc37a8da237",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "a20150452b619a45cf2a7d3a1cb39587af6e9a50f2ae1d3e558751b59d619179",
+    "tibet_pair_id": "938a491c6c5ef3a387e7ef3305d1e70e9a596a48890c93121dcfc79c27dc6e16",
+    "code": "KEK"
+  },
+  "TIBET-CHNN-XCH": {
+    "id": "7f83b8c04aa42aac4c00c6cec630a7753763a5dbb3f22619994316ae96c736d4",
+    "denom": 1000,
+    "name": "TibetSwap LP CHNN-XCH",
+    "code": "TIBET-CHNN-XCH"
+  },
+  "CMTG": {
+    "id": "9c09a4ca57065cadce8f3194f985056773360968a1e90a70dbe37f3630deff1e",
+    "denom": 1000,
+    "name": "CMT Gold",
+    "code": "CMTG"
+  },
+  "TIBET-CHAD-XCH": {
+    "id": "8093fcd312eceb63fcac9306d83e257a43f8a6bed628ba0c9dacd853cfd37413",
+    "denom": 1000,
+    "name": "TibetSwap LP CHAD-XCH",
+    "code": "TIBET-CHAD-XCH"
+  },
+  "TIBET-CIC-XCH": {
+    "id": "8f282ef9b7486ed68a4e5e5cf40627a2b6f6cdfd69a18898f73dec52e416c9b5",
+    "denom": 1000,
+    "name": "TibetSwap LP CIC-XCH",
+    "code": "TIBET-CIC-XCH"
+  },
+  "XCHIN": {
+    "name": "XCHICKEN",
+    "id": "5c8eab03c9f7e58881539363c15afedbfe884e3b3d57fa96d2607780d7b0b419",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "68e2d5c01ef319196af1325b342dba68321ce54b50d252a058ceb103911de9a7",
+    "tibet_pair_id": "a410b00a8cd2ab1a07b6266a595fb6452b3390771d2890c4a6ce7bab278a7cb7",
+    "code": "XCHIN"
+  },
+  "KALI": {
+    "name": "Kali",
+    "id": "83314b078d6247e4974faf6d63b8c37a1dd83cc667c74e5c58240223c4f5e4cc",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "c2295c8490df7aeae2a60ec9dfc70ea92d39fd0fc1bc8fbe1cdf6907b2523183",
+    "tibet_pair_id": "318aedf674c73f41d6f3ce85016853e70f869a4d757b8ddfa7eebef46cc7baf8",
+    "code": "KALI"
+  },
+  "TIBET-OEN-XCH": {
+    "id": "df33004689a08608af3c8dfee1c6b8c80f3c0a60688e80547fe6d378e3547914",
+    "denom": 1000,
+    "name": "TibetSwap LP OEN-XCH",
+    "code": "TIBET-OEN-XCH"
+  },
+  "XPA": {
+    "id": "92ee34a9728f12e889e79da5ccfa13267ca106e85e57ebf3f27232992c80c2e0",
+    "denom": 1000,
+    "name": "XChangeNFT ProofofAddress",
+    "code": "XPA"
+  },
+  "GIFT": {
+    "id": "cdd97d5bb1aa1e069590d29a61278fd0e659dcf35fbc11e8f3f70ed4659a640c",
+    "denom": 1000,
+    "name": "GIFT Token",
+    "code": "GIFT"
+  },
+  "CNAR": {
+    "name": "CNAR Token",
+    "id": "dee835fbd92ea63fe8f192a6f94b80ae5bad7443284d1347c73143cd25a94293",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ae53cf713749d347cb50a9bc92dae69348bb52e02a7c3cfd189a09ab434b8250",
+    "tibet_pair_id": "17e93ba6dbdcf2007b17c1bf15fc41720c66ac79e88ead531d916baa8452507e",
+    "code": "CNAR"
+  },
+  "TIBET-wEURC.b-XCH": {
+    "id": "78cf127de2ce653ed234d0857f1fbc09ec81c92b50cb32c85afe15d3707578d3",
+    "denom": 1000,
+    "name": "TibetSwap LP wEURC.b-XCH",
+    "code": "TIBET-wEURC.b-XCH"
+  },
+  "NKDE": {
+    "name": "Naked Emperor",
+    "id": "c5741ee5b3dd911f86c52952797c6a6f4c6024f7c0027f1c65ec89af01d8ed30",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "eb46a60914727af0ff616a6d8e1db1fe73daa2ff6c4261287c9170bd495408a4",
+    "tibet_pair_id": "05d5aac3c69938775d4cac563fbae11ac9959ce0e7d36eeef3d15f2f4507fc3e",
+    "code": "NKDE"
+  },
+  "wmilliETH": {
+    "name": "Ethereum warp.green milliETH",
+    "id": "4cb15a8ecc85068fb1f98c09a5e489d1ad61b2af79690ce00f9fc4803c8b597f",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "c3ff7a26e3b4f17a0450804177f6c06ab6e309f4d4b4439fc782fac00b4bbd74",
+    "tibet_pair_id": "626a6fc69558c5e69d3fc709f84a0e11793cc004a42376f722dc7c4fef075524",
+    "code": "wmilliETH"
+  },
+  "TIBET-CAPES-XCH": {
+    "id": "58895ce446f35c806bd15b2b32698f1172fc24783cb07cccdcd4ca2f83320ba3",
+    "denom": 1000,
+    "name": "TibetSwap LP CAPES-XCH",
+    "code": "TIBET-CAPES-XCH"
+  },
+  "TIBET-KUT-XCH": {
+    "id": "3ffa2b25c2b646a0ffc4eb345402ae158eb78c7e1d855f76a6538a33bc61b7ef",
+    "denom": 1000,
+    "name": "TibetSwap LP KUT-XCH",
+    "code": "TIBET-KUT-XCH"
+  },
+  "LETSGO": {
+    "id": "f55fd6a4bc7339e31305e5c23444a7805920110a473cbb2777ff42013eee2cbf",
+    "denom": 1000,
+    "name": "Let's Coin",
+    "code": "LETSGO"
+  },
+  "RMDT": {
+    "id": "a06791271e9b3a8d262aeb1f688aa10adbd60b33e1df24fa057c1172dd0e8214",
+    "denom": 1000,
+    "name": "RMD Fan Token",
+    "code": "RMDT"
+  },
+  "MRBL": {
+    "name": "MarbleCoin",
+    "id": "3edb0b2199b913135f722eb5b9d590a2a9ad86885380830c0a84d53dea034804",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "1e8cbe903032fd32fbf5ced44ba0f9576b4903160d8b67e02c25f5ea5b8fde86",
+    "tibet_pair_id": "6a26b21e13b44a4b4cbff499323cce44fbae274d3eb45e995e833f233fd53892",
+    "code": "MRBL"
+  },
+  "MBT": {
+    "id": "af305e93a1d7e4f13aebc20a5e8aacdf38a98261d4e6ec07922b9aff5a2c7509",
+    "denom": 1000,
+    "name": "MEMEBET",
+    "code": "MBT"
+  },
+  "TIBET-PUMP-XCH": {
+    "id": "822d7ccfea53bb54350f76ea985979d131871e7dcf3edd6f9ee60e8610e5653e",
+    "denom": 1000,
+    "name": "TibetSwap LP PUMP-XCH",
+    "code": "TIBET-PUMP-XCH"
+  },
+  "SMOON": {
+    "name": "Soon to moon",
+    "id": "2ed236fe3fa979eaad87d89d10f9156539526f8b6c60d6f341f9de5b1f7c19f5",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "fec8226dae85a86da1c81b6567625542acd8a6fea6c68452cf73f31ed93844e4",
+    "tibet_pair_id": "b85b33d6f76683ad7b31b6a3da537d9d8d73ebf19c6fb6b2871f5b04bc51d296",
+    "code": "SMOON"
+  },
+  "EVG02": {
+    "id": "c22914961cd7dc043276c129acb1414cd8f26b32144497dbe071155a5687f430",
+    "denom": 1000,
+    "name": "Batch 2 Token",
+    "code": "EVG02"
+  },
+  "USDSC": {
+    "name": "Stably USDS Classic ⚠️",
+    "id": "6d95dae356e32a71db5ddcb42224754a02524c615c5fc35f568c2af04774e589",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "be6b283c7010616c7d2ed18cd7950d42a35d932a47bed38727e2411f25cee4dd",
+    "tibet_pair_id": "b7772fbcb3a297555f2dd75368ee85069c50d294902b408b16f2e7b593cbb7ce",
+    "code": "USDSC"
+  },
+  "HODL": {
+    "id": "1b894664dbdf9eae44d9ede9c8071402ffed19b6fd672bf36e3085df42cdf2f1",
+    "denom": 1000,
+    "name": "HODL Coin",
+    "code": "HODL"
+  },
+  "TIBET-KEK-XCH": {
+    "id": "a20150452b619a45cf2a7d3a1cb39587af6e9a50f2ae1d3e558751b59d619179",
+    "denom": 1000,
+    "name": "TibetSwap LP KEK-XCH",
+    "code": "TIBET-KEK-XCH"
+  },
+  "TIBET-BWF-XCH": {
+    "id": "b51efc0f20039fe1ff47dbd6ce73267ecb3e929c639c060f5dfa7be13ec3084d",
+    "denom": 1000,
+    "name": "TibetSwap LP BWF-XCH",
+    "code": "TIBET-BWF-XCH"
+  },
+  "TIBET-wmilliETH-XCH": {
+    "id": "c3ff7a26e3b4f17a0450804177f6c06ab6e309f4d4b4439fc782fac00b4bbd74",
+    "denom": 1000,
+    "name": "TibetSwap LP wmilliETH-XCH",
+    "code": "TIBET-wmilliETH-XCH"
+  },
+  "TIBET-STNK-XCH": {
+    "id": "41d04f9a89f12ae3b12f26f5019a6c26ed78f50f79e48e22a5063ce561bc052e",
+    "denom": 1000,
+    "name": "TibetSwap LP STNK-XCH",
+    "code": "TIBET-STNK-XCH"
+  },
+  "GTH": {
+    "id": "eb461b8af32975adbdf426d22e77e41547a7081a28663da61fd07fae2933c393",
+    "denom": 1000,
+    "name": "GRAND THEFT HARDDRIVE",
+    "code": "GTH"
+  },
+  "TIBET-INCL4-XCH": {
+    "id": "721be932b8a7313c3a0d0ee0df3820cef124cdf0154ef0cd701288445de2d238",
+    "denom": 1000,
+    "name": "TibetSwap LP INCL4-XCH",
+    "code": "TIBET-INCL4-XCH"
+  },
+  "TIBET-BCAP-XCH": {
+    "id": "52decef5bfacacb99a5f4f4df8872e83204dfa8f8e446520bbdafbbdbf171f84",
+    "denom": 1000,
+    "name": "TibetSwap LP BCAP-XCH",
+    "code": "TIBET-BCAP-XCH"
+  },
+  "SQRT1": {
+    "id": "5a1ddb8379d9547e68a71e870103f9a5cfb049dbf83eec309e4df9e166a01b98",
+    "denom": 1000,
+    "name": "SquirrelRat NFT",
+    "code": "SQRT1"
+  },
+  "TIBET-HOA-XCH": {
+    "name": "TibetSwap LP HOA-XCH",
+    "id": "7ccf260808c1c3b8d87e02ea2f8df9cf71d793b62c6cb42bd654aa289410f9b5",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "5d3a24241258965791e3e4fed17dd0d119940dbe3b3310f48a4a041c9801efd1",
+    "tibet_pair_id": "d0d75fd4833f5ae70c3aca23b4fbda206d7bc69e2577c97fc1b08f3331ba7640",
+    "code": "TIBET-HOA-XCH"
+  },
+  "TIBET-NIOG-XCH": {
+    "id": "fd702a16b14ebb47ca4c3a8bceb25dac68e6fad2257ad4b47fdc0f148659dda8",
+    "denom": 1000,
+    "name": "TibetSwap LP NIOG-XCH",
+    "code": "TIBET-NIOG-XCH"
+  },
+  "USPP": {
+    "id": "d773501c5a28b57d465d6b36fdd7562766460950f745ce88b3a611101d6227ce",
+    "denom": 1000,
+    "name": "Unidentified Space Phenom",
+    "code": "USPP"
+  },
+  "POR5": {
+    "id": "443005e9430528b29586bc0164f2b4159b588c22f99bb029abe7e685de985035",
+    "denom": 1000,
+    "name": "Poor Man's Chia Farm 500",
+    "code": "POR5"
+  },
+  "BONUS": {
+    "id": "b9aef34a93278955a976bb71b3916ab67f50797cd9a4cb6c5c3dbbc7b14af665",
+    "denom": 1000,
+    "name": "Big fan NFT token 2.0",
+    "code": "BONUS"
+  },
+  "BCRED": {
+    "id": "26c29cff746d8d0c01550cebc305b8f9fa4f236dc70fdcdb71dcfbc39e2b71d0",
+    "denom": 1000,
+    "name": "BCAP RED",
+    "code": "BCRED"
+  },
+  "CATMS": {
+    "id": "86290de455ae081dfe44c099743cb8eae18c705f461922280d138c24ac8c3110",
+    "denom": 1000,
+    "name": "Catmosphere",
+    "code": "CATMS"
+  },
+  "GRAPE": {
+    "name": "APULIA GRAPE",
+    "id": "0570076f3c2cd8d6e65f9b56f96ab92079d3ce7ab7372c751e1c19fdb42b25d4",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "71bacd4db2e7f46cc54a0a52c7584b3e376a1c09e1323a7a420e1713dbdd0743",
+    "tibet_pair_id": "f66c95821d4be6b99f6ee3affd22a139d44f7c70faa4f9f8fb3a4a6663bc9d87",
+    "code": "GRAPE"
+  },
+  "G$b": {
+    "name": "Gene$baby",
+    "id": "d5d153d346f835cd2284306e783e193ac598dc56309a7b76b90a76cbe3c2ad56",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "440879faa061603be94b340f4041aac35081e5f4d7a7671c9b5fd0b1d914bd7d",
+    "tibet_pair_id": "93a6eb868779c7b55fde2089f4be0b1bc791ccca72b205a087a6e8e0ee0fa4ee",
+    "code": "G$b"
+  },
+  "wEURC.b": {
+    "name": "Base warp.green EURC",
+    "id": "31ffd54c5b38bb33352dc0be0ebf9cf4f29a6329156dd4811d6f4254f85c8200",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "78cf127de2ce653ed234d0857f1fbc09ec81c92b50cb32c85afe15d3707578d3",
+    "tibet_pair_id": "ce9cbd0bf10153b60be411fe71a7268a6be5c25f2a7d617634b2beb73e41b86d",
+    "code": "wEURC.b"
+  },
+  "BIKER": {
+    "name": "BIKER",
+    "id": "652829318a1cecc6c640ccb0aba8947833a80ca2274708f90ab44b14b8d74e32",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "566530baf6b7d44a3990841595c4370f2dae1d477b00fb8b0492ff0903b279f2",
+    "tibet_pair_id": "5ec3d0b661a7d43b7c11820b4386b8be24c5463cf5a9ace575263253c91ae11d",
+    "code": "BIKER"
+  },
+  "XFRUT": {
+    "id": "3421ebd1b4bc6617973f165744b49c956ab7a58782062744cc2e451bea894fe5",
+    "denom": 1000,
+    "name": "XFRUIT",
+    "code": "XFRUT"
+  },
+  "TIBET-CROAK-XCH": {
+    "id": "6ab843d28de9f679e1340aafdcfa3fb56d4b05a9bba64af98db1ebed52769ccd",
+    "denom": 1000,
+    "name": "TibetSwap LP CROAK-XCH",
+    "code": "TIBET-CROAK-XCH"
+  },
+  "LLBT": {
+    "id": "14b40962dfef81d954ac0d92b51ec21ce7acd8c62dd9fef9303aa51c615cb495",
+    "denom": 1000,
+    "name": "LLC Burn Token",
+    "code": "LLBT"
+  },
+  "TRPC": {
+    "id": "98be421bf2afd03bbaa71d7217216837790a9ea7a710f0b684cc9a4cc9f6f153",
+    "denom": 1000,
+    "name": "Transporter Credits",
+    "code": "TRPC"
+  },
+  "CBDC": {
+    "name": "Chiabatta Backed Dangerous Cash",
+    "id": "85dc4ba6b903f440c8915b5edbe04dbbf0ec8864a9abbaa1bdeeaaa625a1f4b9",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "173ea1f42bea14966e9b08d24587aa80e14c7b6bc36bf98ce1e1fc0e977cd519",
+    "tibet_pair_id": "ef40c5f367704bf0e46260ae38f29cce8af65db28ef2b15adc6455412dd5bf85",
+    "code": "CBDC"
+  },
+  "TIBET-ZEN-XCH": {
+    "id": "8456727ec39de3baafa7fd1432feada91d5796d12e1a241f836ea343b92da54a",
+    "denom": 1000,
+    "name": "TibetSwap LP ZEN-XCH",
+    "code": "TIBET-ZEN-XCH"
+  },
+  "TIBET-MANA-XCH": {
+    "id": "4d25c455307adbd056b128dc60cf6b36a2c5e437837f018999b9a317f79662c8",
+    "denom": 1000,
+    "name": "TibetSwap LP MANA-XCH",
+    "code": "TIBET-MANA-XCH"
+  },
+  "TIBET-BTCSC-XCH": {
+    "id": "94cc0fc3b49fa8bcec178b494dfd776ee321979839a9332d7ee87056d9f76cff",
+    "denom": 1000,
+    "name": "TibetSwap LP BTCSC-XCH",
+    "code": "TIBET-BTCSC-XCH"
+  },
+  "HEM": {
+    "id": "e15ff5b5936d6397840f1394123a9fcf2df10b5630c069a319b6202476f91017",
+    "denom": 1000,
+    "name": "Hem",
+    "code": "HEM"
+  },
+  "FDAO": {
+    "id": "30abf6a6b8faf714201fb6a7167463b429e4a795308668976f70e94697f87619",
+    "denom": 1000,
+    "name": "Four DAO",
+    "code": "FDAO"
+  },
+  "COW": {
+    "name": "🐮",
+    "id": "271b8779e8454aeb4b0e0dd2b09900e1976161f58b88ad6682529870b312b81d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "46d05ace386e1deb1bbf1886a26e65e55bdd0c9fb508b2fd5bf98c0fa17c446b",
+    "tibet_pair_id": "6cb68f092b9c4e084091fabae9c59c3c37d2990e8f8a886aefbc96267c501fd7",
+    "code": "COW"
+  },
+  "TIBET-ENIGMA-XCH": {
+    "id": "8df7d606644abc6b0f23d8e12e10b4e57b6824f26135e2b00b88afa7706e03d2",
+    "denom": 1000,
+    "name": "TibetSwap LP ENIGMA-XCH",
+    "code": "TIBET-ENIGMA-XCH"
+  },
+  "WLBF42": {
+    "name": "WizardLittleBearFriends42HoffCohen",
+    "id": "0f5867e44ff5ae301e924c8b654a1005d4a1a961c1fd1d0c0e0b328cacd8ca51",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "326d17b08162c32c5042496b00e7cdb760d84cad53a5aafd47acb28ab507158d",
+    "tibet_pair_id": "dea795b39c33d3b3e621b984229b1e37d27fe7be4df07eb559d28ac01f6eadd7",
+    "code": "WLBF42"
+  },
+  "XPC": {
+    "id": "1a8bd94ce5b26ef7fdedec6a21748a747fc8d1f05972efd248b63298c3e5be96",
+    "denom": 1000,
+    "name": "Pool Coin",
+    "code": "XPC"
+  },
+  "XMEAT": {
+    "id": "9841225e2372fb4a32791dd96ca231b25e4f7d14e9b59d217b8881a82f858806",
+    "denom": 1000,
+    "name": "XMEAT",
+    "code": "XMEAT"
+  },
+  "XIP": {
+    "name": "Fools Gold",
+    "id": "287b633167f822353444492c96030db71ee78e6ac33897ea4c572623aa4c94d2",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "497f43630802f7f3482c36221d114d6f13dd660a228f2b4ed93f9c881983aed4",
+    "tibet_pair_id": "8a7af35b572591c95594e61abae4dd1164a9a283f6ae4ba65b80a011a067ae5d",
+    "code": "XIP"
+  },
+  "XFUEL": {
+    "name": "XFUEL",
+    "id": "c06ee27f9bd92f751987e9d43b1709ef664e6aee0df63f040d00605826b54a67",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "df5178d61b8ccdf5539456fbe3f0cb86884bbe55502dbd457b868e2891a09fdd",
+    "tibet_pair_id": "5a9e423e5d8b9b6474e2d5b945ae9dd7bf804a8c117d2875e3087507c4e4ffdf",
+    "code": "XFUEL"
+  },
+  "CTK": {
+    "name": "Catkchi",
+    "id": "482b49902d310c53065c3531d398d41808f1390590d566815d67040f6a32d124",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "1c0bc24766f94b98ba88c9752d2b488ded14c97b85665eac42cf65feada468d6",
+    "tibet_pair_id": "db4384bbfb8f45608f03776aa89ac2e8ce7cbded5655822aa1cdf6ef8f13abcf",
+    "code": "CTK"
+  },
+  "JOCK": {
+    "name": "JOCK",
+    "id": "3b19b64418682ad60c6278d85f8076a108c9fb4ca385d401c6d41ba2bfa9612e",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "de1bf7ecfb1a64b01c84bfec3578b7eaf7dd68e006fdbd4785c732743c468507",
+    "tibet_pair_id": "7ae4bf0efe11481e1e732ac112f0de6c6a58ce16570992f1754eb0a0e1ddbc2d",
+    "code": "JOCK"
+  },
+  "TIBET-SHROOM-XCH": {
+    "id": "01e88bf48c96294b6f29435bfcb7f907b47bcaf736d4f128b120d2775013cbf3",
+    "denom": 1000,
+    "name": "TibetSwap LP SHROOM-XCH",
+    "code": "TIBET-SHROOM-XCH"
+  },
+  "xch": {
+    "id": "xch",
+    "denom": 1000000000000,
+    "name": "XCH",
+    "code": "XCH"
+  },
+  "XCS": {
+    "name": "Cesium",
+    "id": "5ba3334d0fdf14cf0e64b49e7d0b19b34e049a083bf40f84a70c8e39cddd867d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "aca38d438bbe5279832f8d6e7bad54301d9c58b8a4225007614a3ef2008d6e66",
+    "tibet_pair_id": "e0eca91633d1430a0945e99890851903795125bfbcc8b9b6f840928eaa803921",
+    "code": "XCS"
+  },
+  "BALLZ": {
+    "name": "Ballzcoin",
+    "id": "13f1e28d66064a17fe5b7155e17927c491493b9d42717debaaf9e219bf58fc9a",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "9a5909a155459ef7af9c83bdc2e5176c84e03060c075a19ce56d4fe3d27b3a6b",
+    "tibet_pair_id": "fa6e480cec0ed7960524bcfeaf8d00ad7a459b3e9d2b6bdeb3783ddd1a4f44f6",
+    "code": "BALLZ"
+  },
+  "TIBET-ZIG-XCH": {
+    "id": "18b3cee443eadc1bd72ca0486ade9113a066c008348bec6cd8a5008f7e4d434b",
+    "denom": 1000,
+    "name": "TibetSwap LP ZIG-XCH",
+    "code": "TIBET-ZIG-XCH"
+  },
+  "LISA": {
+    "id": "6431a89ee450e0844a3f2a243725a0707b9fbd3f0fef349f485d2de7ecaf3ea9",
+    "denom": 1000,
+    "name": "The Lisa",
+    "code": "LISA"
+  },
+  "TIBET-CGLC-XCH": {
+    "id": "450d102874843616d9016e534397f29d7f91a57a50d27e96cee06fb72904917c",
+    "denom": 1000,
+    "name": "TibetSwap LP CGLC-XCH",
+    "code": "TIBET-CGLC-XCH"
+  },
+  "WAR3": {
+    "id": "d36ed081c23d30e9bacd77a0cfdca5a6b40624115c83d306c6444a32cbcab3b9",
+    "denom": 1000,
+    "name": "Web War 3",
+    "code": "WAR3"
+  },
+  "PLOT": {
+    "id": "0a039f753ba4387869fc001771518d802bff1123d2aad5a885cca57a78492241",
+    "denom": 1000,
+    "name": "Farmer Diamonds - Plot",
+    "code": "PLOT"
+  },
+  "TIBET-STR-XCH": {
+    "id": "e515bcb9a2627680c6755c66cbbd8ee270844e9eab2cc6e8f7d92a72d16ae5c4",
+    "denom": 1000,
+    "name": "TibetSwap LP STR-XCH",
+    "code": "TIBET-STR-XCH"
+  },
+  "wUSDT": {
+    "name": "Ethereum warp.green USDT",
+    "id": "634f9f0de1a6c39a2189948b8e61b6852fbf774f73b0e36e143e841c49a0798c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "f79205d06f40dc66cb04bf9369c31a307d70e2fab5a39e4fdce6e475ab33b575",
+    "tibet_pair_id": "b1c2b818bb4dacdd451eaa5d84693253ef886af6fdff5591ef4114d0c1fa4ad8",
+    "code": "wUSDT"
+  },
+  "CRU": {
+    "id": "fe65842a8b4f20c212360e22ad3da51d3b30020b29fd0a7b395ae60fcc6f6321",
+    "denom": 1000,
+    "name": "Collectible Resource Unit",
+    "code": "CRU"
+  },
+  "ARA": {
+    "name": "from Africa",
+    "id": "c9bc89cd1366db4f831f7876dd8cdc2f5c589b1dc7ef0bd448f69b650be7ad67",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "36e3d311420e92ecda11c711395b9a2f78d0168a735fefc59617c95cc9165836",
+    "tibet_pair_id": "c891511eb5df2f395a222fee6715993fbeccd8f1c43b01e9d2a4b4d765e9ce25",
+    "code": "ARA"
+  },
+  "GWT": {
+    "name": "Green Wallet Token",
+    "id": "7108b478ac51f79b6ebf8ce40fa695e6eb6bef654a657d2694f1183deb78cc02",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "33b24e48d33ff65bdf5eb4e90780cb5510e9c132e57636d31a2b75f44255ac2e",
+    "tibet_pair_id": "fb1e7029563d4f4ec8de4b1f7ce261c6bd585345499ea49aa938021ae32dd30f",
+    "code": "GWT"
+  },
+  "TIBET-ALWEAP-XCH": {
+    "id": "2964aead53ded9f630682014520b6c2b674a963be8be1e8d252e8a432b7d6be0",
+    "denom": 1000,
+    "name": "TibetSwap LP ALWEAP-XCH",
+    "code": "TIBET-ALWEAP-XCH"
+  },
+  "TT22M": {
+    "id": "70fa530ab1f8ed49a5cf93bfbe44bb842d4fbd837a84c1eee377bcfb8f438672",
+    "denom": 1000,
+    "name": "2022 Mojos",
+    "code": "TT22M"
+  },
+  "SPACES": {
+    "name": "🚀",
+    "id": "53dae588ec454844bf6aa48045baa5629e5d5b87f5035119f03cad33b4477bba",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "2c6ff33a981d89330d882bcfeee148a14b0de8b0308ef71b90269ac9c1adeebc",
+    "tibet_pair_id": "a9ca89470ff4a7cfab18470936be0d35944d18160c4a00fcb26f6a5fd1e294ab",
+    "code": "SPACES"
+  },
+  "WTF2": {
+    "name": "WTF2 att-adj-tok",
+    "id": "ef9df6c687ed9a325369f32ba38eb6dc83a1bd081e159a9b2dddfe6159e2ecf0",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "dbec36ff11f1141598f5f9eabe3073cd2ddf13091f75b2f8079999e34166a16b",
+    "tibet_pair_id": "897c594034bcec32c1c35d7a5e1eb96a9f1ef29009b5cade8660df50c74f0763",
+    "code": "WTF2"
+  },
+  "XCC": {
+    "id": "04e28f2f24e1a8ba8290b30293976cdee933d1683220014316da6f8ee7753920",
+    "denom": 1000,
+    "name": "Chiania Coin",
+    "code": "XCC"
+  },
+  "BISSE": {
+    "id": "44a7a9e4666c82465e3429a4600748848e122e55a3de0fbb0bb33caf42b4188a",
+    "denom": 1000,
+    "name": "Erikoiskalja",
+    "code": "BISSE"
+  },
+  "MZ": {
+    "name": "Monkeyzoo Token",
+    "id": "b8edcc6a7cf3738a3806fdbadb1bbcfc2540ec37f6732ab3a6a4bbcd2dbec105",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "db55c0aafaa830a0ba4cbbd1d07211b291f925fe4a41580c6da087145c0dcb31",
+    "tibet_pair_id": "784878b9a8a0b1f10ee051c3b17dae412989b39b6d4d2c5a7a9d45fb8bbffe33",
+    "code": "MZ"
+  },
+  "TIBET-CC-XCH": {
+    "id": "96a914615cbf6adb9ba7b120b7577545826147a3b72517429d74418ef6c72776",
+    "denom": 1000,
+    "name": "TibetSwap LP CC-XCH",
+    "code": "TIBET-CC-XCH"
+  },
+  "XHAY": {
+    "id": "00535a3707d006d91221cb70eaa00f4b707bcd8ddf01b2a8bc4498875559832a",
+    "denom": 1000,
+    "name": "XHAY",
+    "code": "XHAY"
+  },
+  "WARP": {
+    "name": "Warp",
+    "id": "563c883b801c4e6c736994d09ec69c94c9c6482612b4655b76097282b8d2fae6",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "4793260e9118425a32db6aabc8c8e11b1eeb536ca41ead21a85fa84403354b9a",
+    "tibet_pair_id": "683b39c5ec58b7870e33aeab4ecdd7c33596e5526184fa68a43a58396370a81e",
+    "code": "WARP"
+  },
+  "TIBET-MOG-XCH": {
+    "id": "715108d993c0b296d7754a8361222f1ace66f115cd0a2b943550471365d1670b",
+    "denom": 1000,
+    "name": "TibetSwap LP MOG-XCH",
+    "code": "TIBET-MOG-XCH"
+  },
+  "MOTO": {
+    "id": "3d597f5dd9d9249be84b515dcb22442a773afa2aa210c27624ce3bc612e9c3d3",
+    "denom": 1000,
+    "name": "$moto",
+    "code": "MOTO"
+  },
+  "OFAS": {
+    "id": "1a3c66a4cd6aed6b5bf37342f4b59d5d61d50737d4fc8916dd314817810b8db9",
+    "denom": 1000,
+    "name": "Outer Fields | Starter Pack",
+    "code": "OFAS"
+  },
+  "TIBET-wLOVE-XCH": {
+    "id": "83ef7c5620a25e05949ba096f55e269b2b8fd0d675a2698f1e8d9ce15fb9d467",
+    "denom": 1000,
+    "name": "TibetSwap LP wLOVE-XCH",
+    "code": "TIBET-wLOVE-XCH"
+  },
+  "CGT": {
+    "id": "57138565da3cd7346097bb27ab05e4da3fd588188a6d4ae255fbb84262aae56d",
+    "denom": 1000,
+    "name": "Collector's Guild Token",
+    "code": "CGT"
+  },
+  "TIBET-ALEXP-XCH": {
+    "id": "9fada1bb28ab17a051b87a9b8392e08058a85b80f418651badecef7a92ef8824",
+    "denom": 1000,
+    "name": "TibetSwap LP ALEXP-XCH",
+    "code": "TIBET-ALEXP-XCH"
+  },
+  "TIBET-SNAP-XCH": {
+    "id": "8baae48bf827d4fc7412565b1055c2ffb3daaa90374d5c1c04b05d435e4ff765",
+    "denom": 1000,
+    "name": "TibetSwap LP SNAP-XCH",
+    "code": "TIBET-SNAP-XCH"
+  },
+  "MANT": {
+    "id": "3490208d3c2048b3f6efbc46cf65de7732ed5a1dd8dd5fcfe02a829a61273230",
+    "denom": 1000,
+    "name": "MAN Fan Token",
+    "code": "MANT"
+  },
+  "TIBET-DPLY5-XCH": {
+    "id": "4d114914b01b1411897fe3ccd4a1c2e69377c3ace7fd0c57095100bfbb729e33",
+    "denom": 1000,
+    "name": "TibetSwap LP DPLY5-XCH",
+    "code": "TIBET-DPLY5-XCH"
+  },
+  "SBC": {
+    "name": "Spaceballs: The Coloring Book",
+    "id": "d11680ca2eae38854d3940a3ad59d1018bc762b8acbccdcaa4496e2887ca227b",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "dc80c49bebc4981ec4b548b5ee3f1299efd93ce2f6924653926a906aab95a7cc",
+    "tibet_pair_id": "8d7a3e9366db48f176b55cc2907a116fc4b70e15a95948b4f433e9b7bb6d9019",
+    "code": "SBC"
+  },
+  "AK-47": {
+    "id": "84e8664b6273cc4d5f30f0240b605cfdbaa9bae13deb3aad3170c3f5120247f0",
+    "denom": 1000,
+    "name": "Automatic Kalashnikov 47",
+    "code": "AK-47"
+  },
+  "TRZ": {
+    "name": "Torogoz",
+    "id": "478b66e6f3c033a12ad43e354329a2f54c187503a4025abdb3b3824f92ca0819",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "cf988b566e3fd52e7dac329e29063e681c477772518173aab78f28f7ec012365",
+    "tibet_pair_id": "0f2f5723194e3740c9d7f5fb5bd495785ef53a5cce7c3686a4240ea88f83e7e0",
+    "code": "TRZ"
+  },
+  "TIBET-GEN-XCH": {
+    "id": "367a314417bd8f938dbf3203219b31b934ddc33a8edb4b06d7685709750b2659",
+    "denom": 1000,
+    "name": "TibetSwap LP GEN-XCH",
+    "code": "TIBET-GEN-XCH"
+  },
+  "SBX": {
+    "name": "Spacebucks",
+    "id": "a628c1c2c6fcb74d53746157e438e108eab5c0bb3e5c80ff9b1910b3e4832913",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "fbe2694f6fbc63a4d9c8a598dc70f8b6fdf468e8e595ca4c6efee5a2f1ec71a4",
+    "tibet_pair_id": "1a6d4f404766f984d014a3a7cab15021e258025ff50481c73ea7c48927bd28af",
+    "code": "SBX"
+  },
+  "TIBET-MBX-XCH": {
+    "id": "db7454c93c26b84a147bb011b2252a7f66a9e24549b507604c842ed8089bf106",
+    "denom": 1000,
+    "name": "TibetSwap LP MBX-XCH",
+    "code": "TIBET-MBX-XCH"
+  },
+  "wmilliETH.b": {
+    "name": "Base warp.green milliETH",
+    "id": "f322a205c034fe28681829fa5a2e483ac421f0952eb1292945c8db06e0a471a6",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "75832d4f278b27f9e0f2d52d21e653b00ae9aa143db53f585e3a08f987c73e99",
+    "tibet_pair_id": "74f0589b2ba1ee609ae8c575fcd9bbdea11d0a4376fe0737d9b6ba84e49b539d",
+    "code": "wmilliETH.b"
+  },
+  "WOW": {
+    "name": "WOWATCH",
+    "id": "d060556eb72208cfa0f78394cbe431dabfbba95752dcbca34cbb7d8848c12b09",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "0a0c42b14418562db48d12928940e2b9a9d6a76a36e58f727372b8c2f428bf56",
+    "tibet_pair_id": "14f3c79658ca60867994d622f6b4eea832ff559756990ad2e7952d3307bb664e",
+    "code": "WOW"
+  },
+  "wUSDC.b": {
+    "name": "Base warp.green USDC",
+    "id": "fa4a180ac326e67ea289b869e3448256f6af05721f7cf934cb9901baa6b7a99d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "77b5178d32f66932dc9e48157f029b8a96bfed577ee877d2b22cd73d6799e424",
+    "tibet_pair_id": "054f10bd1baefdbc6c87880d445640084332d072a68fcebf810045784e54c39e",
+    "code": "wUSDC.b"
+  },
+  "TIBET-DAT-XCH": {
+    "id": "74d0141c75654ba350a57a28f84a887258c272487e855aef078ac0f794d9f571",
+    "denom": 1000,
+    "name": "TibetSwap LP DAT-XCH",
+    "code": "TIBET-DAT-XCH"
+  },
+  "OXC": {
+    "name": "Oxygen Cash",
+    "id": "d93a7f55dfb95139ab5b4d0bed200eafcc85ce4901c60fb3f04397e9daa70f37",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "1ea65224cb4d464424c297a6a8a68768f6f2512b9130c2397cd9f9e27e23a354",
+    "tibet_pair_id": "9237340e295ca85a272ea367eb58da71234d75a6c1a88a1d9582d4dd6ff01116",
+    "code": "OXC"
+  },
+  "CHILLGUY": {
+    "name": "CHILL GUY",
+    "id": "cbc75ea1c0840e55fa948d7bcf256f368ea8047c7eb9390fd790eebfcfac0cf4",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "19823a33c11d6707ed6ea9481f8104947a4d8b817dc78366a328402177959e62",
+    "tibet_pair_id": "4f35bb247e57496800c6806782c965cf8a9dc8de560a8295e3d88cdeaa84a5d8",
+    "code": "CHILLGUY"
+  },
+  "TIBET-HonK-XCH": {
+    "id": "5364c7e938cb8ed78630008ee844d9c6688dd0729fb7c72e138b277c3af19a06",
+    "denom": 1000,
+    "name": "TibetSwap LP HonK-XCH",
+    "code": "TIBET-HonK-XCH"
+  },
+  "BEPE": {
+    "name": "BEPE",
+    "id": "ccda69ff6c44d687994efdbee30689be51d2347f739287ab4bb7b52344f8bf1d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ba9750db89ef16feb3eabadbfb199509e3e1290851188e5625d0956ca1354b85",
+    "tibet_pair_id": "30a37ab26511c142e48c22a6de3141140e66b45135b85ff0b5b3c3ec7a62c271",
+    "code": "BEPE"
+  },
+  "{WC}": {
+    "name": "WhalesCoin {WC}🍀",
+    "id": "76f8a24339230dcf8f83d79a6d7823929671f9dcc564583ae17f5aafaeceb68c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "15ad8f8e45be4bfc2397107e1df30d685819eab05f545367ffc694b9cb2e400a",
+    "tibet_pair_id": "93f980ef2cdd6e0aadd055651c69c153e73ec20c35781b5a55e0a4195e7a42e9",
+    "code": "{WC}"
+  },
+  "QGC": {
+    "id": "009feb6bfa505c023a3d7e127e8ef1cf8631ff8e919c66ecf504588df17b3c28",
+    "denom": 1000,
+    "name": "Quirky Giraffes Coin",
+    "code": "QGC"
+  },
+  "TIBET-TANG-XCH": {
+    "id": "9871568c71fdab47f634673f10a539f47eb074e32920e7275c0b223a9d8d176f",
+    "denom": 1000,
+    "name": "TibetSwap LP TANG-XCH",
+    "code": "TIBET-TANG-XCH"
+  },
+  "RUN": {
+    "id": "32f9989569a6d457c5d2e8c72957709c4e1d7adb186f18b0963c93a9eac5c402",
+    "denom": 1000,
+    "name": "Run NFT 2.0",
+    "code": "RUN"
+  },
+  "PUMP": {
+    "name": "PUMP",
+    "id": "444bddca5815027bf4118da0501a619aab689bb707b895f3e576e94f2c55195c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "822d7ccfea53bb54350f76ea985979d131871e7dcf3edd6f9ee60e8610e5653e",
+    "tibet_pair_id": "deaf7451a97b1920c2b74053987561869e6ea7d9a91caada5ac8d0b6d03134f5",
+    "code": "PUMP"
+  },
+  "CRX": {
+    "id": "6beb251f216d8e5a8e6fb0466d76f0c3085d94cd1e5d84aa5b778a9fa7406598",
+    "denom": 1000,
+    "name": "ChiRex Token",
+    "code": "CRX"
+  },
+  "TIBET-BBT-XCH": {
+    "id": "c62e20ed883b79d852cba3da7bbff06542101f8b7888c3aa47ca52439fb55a79",
+    "denom": 1000,
+    "name": "TibetSwap LP BBT-XCH",
+    "code": "TIBET-BBT-XCH"
+  },
+  "PEPE": {
+    "name": "PepeCoin",
+    "id": "ec9d874e152e888231024c72e391fc484e8b6a1cf744430a322a0544e207bf46",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "a36680b5ac48be3bb816ff99a0e64b278061c193242d6d60622c70b0c6fe80b7",
+    "tibet_pair_id": "b62577aed2b09182f3db8b21049d687b597f1526fb88268c1b4f4dec4add28ec",
+    "code": "PEPE"
+  },
+  "CGLC": {
+    "name": "CatGurlCoin",
+    "id": "099e11465ef07b31b69ecea19589f84502755c4f93d1f74a0e817881065b8f87",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "450d102874843616d9016e534397f29d7f91a57a50d27e96cee06fb72904917c",
+    "tibet_pair_id": "0906396efe9a5358fb3f345f9c6360e72621862887f5a02ff4f04f014a46a889",
+    "code": "CGLC"
+  },
+  "WINE": {
+    "id": "061cc6609d58b443abc4a34f0b77b3fb95215b37024128e39838335c21c226d4",
+    "denom": 1000,
+    "name": "APULIA WINE",
+    "code": "WINE"
+  },
+  "TIBET-BALLZ-XCH": {
+    "id": "9a5909a155459ef7af9c83bdc2e5176c84e03060c075a19ce56d4fe3d27b3a6b",
+    "denom": 1000,
+    "name": "TibetSwap LP BALLZ-XCH",
+    "code": "TIBET-BALLZ-XCH"
+  },
+  "BEER": {
+    "name": "BEER coin",
+    "id": "3aa444277876543e8e643697010d25341b256c400ed7bbd1cafe58cabd2b0038",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "1fa352483aad7d9fa6574525866054da9b9739bf97fe71d9129ccfd24bdc08b7",
+    "tibet_pair_id": "e0b1e9e119d41d3bb57ff4b9bcd425e73ccd8b421754e93f786e47db955059cb",
+    "code": "BEER"
+  },
+  "TIBET-BEER-XCH": {
+    "id": "1fa352483aad7d9fa6574525866054da9b9739bf97fe71d9129ccfd24bdc08b7",
+    "denom": 1000,
+    "name": "TibetSwap LP BEER-XCH",
+    "code": "TIBET-BEER-XCH"
+  },
+  "TIBET-DPLY6-XCH": {
+    "id": "d67bf92b0da177775466cb5c5b282befda772e965022612cd0be12aaeee16c76",
+    "denom": 1000,
+    "name": "TibetSwap LP DPLY6-XCH",
+    "code": "TIBET-DPLY6-XCH"
+  },
+  "TIBET-THW-XCH": {
+    "id": "358bfe761cc7a5d4810d74b48cc9509e3bea58ea01ca7631670fd794183e0446",
+    "denom": 1000,
+    "name": "TibetSwap LP THW-XCH",
+    "code": "TIBET-THW-XCH"
+  },
+  "TL": {
+    "name": "Timelord",
+    "id": "582e5e9684210d2ce64e6dec63d526e8f8df0492a8eef591b9afc6bbf96971ff",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "a2fa900d1afc3d8bba427cefb8e6cad09c1eb8796223b35341c7ebc81929183a",
+    "tibet_pair_id": "fbc684c9b8ee1c674f1a82720d9c4414a5bdd5c9395bb76d62ac24923393bdcc",
+    "code": "TL"
+  },
+  "TIBET-DPR-XCH": {
+    "id": "ff3cde048d8d3d38c207a3bedcc7d57a3af47c33573e3749a43b68a91d5b8022",
+    "denom": 1000,
+    "name": "TibetSwap LP DPR-XCH",
+    "code": "TIBET-DPR-XCH"
+  },
+  "HG": {
+    "id": "c40c46a1b7238c4a7b68ce3f5967281759349aa340e948e2009ef146628a8a73",
+    "denom": 1000,
+    "name": "Hugo",
+    "code": "HG"
+  },
+  "ROCKS": {
+    "id": "d0b6098e494db061bf0c28a5c7d94de6c06de23dddd705b29d7857c420b123a2",
+    "denom": 1000,
+    "name": "ROCKS",
+    "code": "ROCKS"
+  },
+  "TIBET-SMOON-XCH": {
+    "id": "fec8226dae85a86da1c81b6567625542acd8a6fea6c68452cf73f31ed93844e4",
+    "denom": 1000,
+    "name": "TibetSwap LP SMOON-XCH",
+    "code": "TIBET-SMOON-XCH"
+  },
+  "YOTT": {
+    "id": "5a7c011e1bea52a87fc72952dfafad0d82fcde0448a2a4fa7fa0bd53d9a4e1c9",
+    "denom": 1000,
+    "name": "Year of the Tiger",
+    "code": "YOTT"
+  },
+  "NUTS": {
+    "id": "39527b8859d3acfb2dcad3956106207d880c2020c3deb0960ab88c337f6dc14a",
+    "denom": 1000,
+    "name": "Nuts",
+    "code": "NUTS"
+  },
+  "ALWORK": {
+    "name": "Abandoned Land - Work",
+    "id": "9995f30b83e7d3f3ea0eec7e450dbcade83f76516da79daa9a84a9daafec2329",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "4512de10cbe18be75694aa97d8a47e6e52f3a7421e6888741ec4a2740e9ade19",
+    "tibet_pair_id": "a4ec64ad1a6e84fe60e39d7897c46ce635f681cc3e6719926fb3ecf7c734d091",
+    "code": "ALWORK"
+  },
+  "CF1": {
+    "id": "a82b3a2d2b9bb4d9fbdb4bd3bfce4bf56a1d1859a366e56fecf95790aed49094",
+    "denom": 1000,
+    "name": "Cassandre Fairies Club",
+    "code": "CF1"
+  },
+  "FISH": {
+    "name": "🐟",
+    "id": "a1f6b48d2ba5b8b405c4c5ed8ec5a1787238efdb81270ed21cda21508ec2f149",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "769ba7250524b17ce00ec265587872f0c5bca943110aee5a149c02b199219e85",
+    "tibet_pair_id": "9b7bedfc8efc4685d1fead11df16f279253379f02e26b110e4c4698085ceabf6",
+    "code": "FISH"
+  },
+  "TIBET-LFG-XCH": {
+    "id": "2b9f2ab9e2e7d87d2d9cc5724feb0f46fbc418d6c9c6f23434b1fc5e40921ac1",
+    "denom": 1000,
+    "name": "TibetSwap LP LFG-XCH",
+    "code": "TIBET-LFG-XCH"
+  },
+  "TIBET-DUCK-XCH": {
+    "id": "f8c63d8a23b3311ca520a8157a8341b6488d112ba61a7aa5b4a39f024d5d5be9",
+    "denom": 1000,
+    "name": "TibetSwap LP DUCK-XCH",
+    "code": "TIBET-DUCK-XCH"
+  },
+  "🔥": {
+    "name": "FireCoin",
+    "id": "61ab1f8ad006196c1166b92ef3f298812d5b9d32c1b78a80410b2e81673970c8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": [
+      "48752d01d52f5f49f5709f92a2630b83ef766d43175be89c198ffc7d3b6018fe",
+      "f6b332157bbd97455f5921fe9bf0fb6b8fd601cb7155545efcc0b21f83d5a393"
+    ],
+    "tibet_pair_id": [
+      "07af0f7e965e7903cd7d6767eb27162f116703e83f73fc43d932297dfd12ff2b",
+      "d30d2d9757d67d34653f89d3857a2abb778c91664eabc07c310539820c28564d"
+    ],
+    "code": "🔥"
+  },
+  "XPIG": {
+    "name": "XPIG",
+    "id": "367c6b0d8df5d86e5a06da7e57dc1f339a684516435c6bc86f69af1ec1adddb6",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "e21dcf058e8f1d8b2bd145c6f4891b9b16967384acd1af0c76b110cf02372f81",
+    "tibet_pair_id": "b527ef653a73a9b1aa8f5deea0eb68f44de09b9aa274b67fc6dcf5714fd3b59d",
+    "code": "XPIG"
+  },
+  "TANG": {
+    "name": "Tanginium",
+    "id": "97357cdd797c101739a0e0415809fb2f25958e59117ebcb1c21ee0c7c5cc4ef0",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "9871568c71fdab47f634673f10a539f47eb074e32920e7275c0b223a9d8d176f",
+    "tibet_pair_id": "5b005d2aa2a9ab0a6df9645cda3ceca297b53c03af172dfe3b923299af8421d3",
+    "code": "TANG"
+  },
+  "TIBET-TIBET-BEPE-XCH-XCH": {
+    "id": "d43b348a62185b6e31743d56a5ebf58bd8171f5ab879479bb0fe419b9501c565",
+    "denom": 1000,
+    "name": "TibetSwap LP TIBET-BEPE-XCH-XCH",
+    "code": "TIBET-TIBET-BEPE-XCH-XCH"
+  },
+  "GDN": {
+    "id": "0bfbc7095597df453a6e8ab24b2d544f5f288d7e4613e2e0a79c11171572dbea",
+    "denom": 1000,
+    "name": "Garden",
+    "code": "GDN"
+  },
+  "$TVL": {
+    "id": "c09a612af3332491f8c44bb6a9dcbcdf1b20e214515bcd556be26ec078ab523f",
+    "denom": 1000,
+    "name": "ThiccValueLocked",
+    "code": "$TVL"
+  },
+  "CMA": {
+    "name": "Chia Meme Academy",
+    "id": "429793b1d0e25c115da34bc7a23809d4b4981e8b99d2c2282b186e743be43844",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "36e61f3bac9b6240ce12164acec40b7321147eb780d5c9db420def9a67713d20",
+    "tibet_pair_id": "4879766e4f27a7f8d3b37b954d8bf8e80b7f2578920825c7dc17c94cfdbc8bd7",
+    "code": "CMA"
+  },
+  "YEBIGA": {
+    "name": "YEBI GA",
+    "id": "6784015939685cacd6bc01b16309a1cfb33977be7811bb0545326a074d97f47e",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "46161485996570b82faebe7504a369c23fc98cbe748110ff51275e3710d16835",
+    "tibet_pair_id": "d19e7670c38e12dd69dc9c9ce757fe4907b7035e87767c0bf882e11b74a6a6b8",
+    "code": "YEBIGA"
+  },
+  "TIBET-C2R-XCH": {
+    "id": "66bce98d19045fe686d133c55bc9731abed7a71a311161d79de017700fa20f0f",
+    "denom": 1000,
+    "name": "TibetSwap LP C2R-XCH",
+    "code": "TIBET-C2R-XCH"
+  },
+  "MECH": {
+    "name": "MECH",
+    "id": "001f4b4f03e1b5bdae1e4a757e9b3d7e5a62032332fb89887c5262bd736f0d68",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "9c341110ea40779a26de81616fbf95dec3dec5e3ee5cc4479aea99dfa8ccecae",
+    "tibet_pair_id": "b4c0b39be4feaadef1e44701c5939397cfc5b5d108dc1224b043c049f113514a",
+    "code": "MECH"
+  },
+  "HOA": {
+    "name": "HOA COIN",
+    "id": "e816ee18ce2337c4128449bc539fbbe2ecfdd2098c4e7cab4667e223c3bdc23d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "7ccf260808c1c3b8d87e02ea2f8df9cf71d793b62c6cb42bd654aa289410f9b5",
+    "tibet_pair_id": "ad79860e5020dcdac84336a5805537cbc05f954c44caf105336226351d2902c0",
+    "code": "HOA"
+  },
+  "whoren": {
+    "name": "delizabath whoren",
+    "id": "99fc775b37ca4fe4665b424afc2e2f8337244dbd3109adf140918ae183ebe277",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "96a7cb7f9872f84d6471dd3a2442f05deaf59df46197b877cd8afc32e872267d",
+    "tibet_pair_id": "0af961b4231a6ae14e27cb015a489f727e1350767348ef37461dd6a8fe5baf64",
+    "code": "whoren"
+  },
+  "HP": {
+    "name": "HippopotamusArt",
+    "id": "35dc1493baac0efeda494cb8599c3815ab0537eb7743b81425dcde8e3bde199e",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "baa5da2d0726bb184673c9f5ec68a92499e5f164bab82461f5267dc1d65a3f23",
+    "tibet_pair_id": "59a6daffc609906c4444941adffcb8ce6b7a85f5161e008ac7503a38bc855f83",
+    "code": "HP"
+  },
+  "ANGEL": {
+    "name": "ANGEL",
+    "id": "49f84392fa4dd3b5b9ab4dda821550c3a06ad0681ec074636a44cf9821a63e71",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "9870e1db85db9b03fc64272ad5b402b92c61a3ed3a72f046666da4355ebdb8f9",
+    "tibet_pair_id": "ba8dffffeec7a0af37ddfba6d005ce376b7bb8d1ac5399ccfe4f00471156b65a",
+    "code": "ANGEL"
+  },
+  "TIBET-SBC-XCH": {
+    "id": "dc80c49bebc4981ec4b548b5ee3f1299efd93ce2f6924653926a906aab95a7cc",
+    "denom": 1000,
+    "name": "TibetSwap LP SBC-XCH",
+    "code": "TIBET-SBC-XCH"
+  },
+  "TIBET-wUSDC.b-XCH": {
+    "id": "77b5178d32f66932dc9e48157f029b8a96bfed577ee877d2b22cd73d6799e424",
+    "denom": 1000,
+    "name": "TibetSwap LP wUSDC.b-XCH",
+    "code": "TIBET-wUSDC.b-XCH"
+  },
+  "CBT": {
+    "id": "69035ab8661905af95760b6099267fc51b1e5f6b2ed5afd46dfafafb7f0bf651",
+    "denom": 1000,
+    "name": "Chibear Token",
+    "code": "CBT"
+  },
+  "TIBET-DEVIL-XCH": {
+    "id": "46fcff7c26a9a8ebb3fd201c8c473e84de0628c50b1277ac9fddb79fc92df4ef",
+    "denom": 1000,
+    "name": "TibetSwap LP DEVIL-XCH",
+    "code": "TIBET-DEVIL-XCH"
+  },
+  "TIBET-TIBET-LOVE-XCH-XCH": {
+    "id": "258a2aaf40fbbe73d968df4a478092160e9e6a72ff20090dc6f50871a83e4f39",
+    "denom": 1000,
+    "name": "TibetSwap LP TIBET-LOVE-XCH-XCH",
+    "code": "TIBET-TIBET-LOVE-XCH-XCH"
+  },
+  "AZZ": {
+    "name": "AZZ Token",
+    "id": "aa937ec8694be546e967642d7a2191d7bf01cc98f736f908a5a74fd39de92b8e",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "c0ae895b3a9ee28403efc1754e4e7e4f539a71082bb0237762ef0b75fa9df7b0",
+    "tibet_pair_id": "b84729812115b9c029b1076f2d6c06df8e3c260ab4cdc28bbe0a95c1ffe91f62",
+    "code": "AZZ"
+  },
+  "WOOD": {
+    "id": "109ccae6e0ff923c080e31bebc61c2663d79d0e6b47735d32811d0c3e42a5283",
+    "denom": 1000,
+    "name": "OfferWars WOOD",
+    "code": "WOOD"
+  },
+  "MGKB": {
+    "id": "1698907709fcf295b7771a27a5dff24fa9d817a8f70889a413ede07cd9eb8507",
+    "denom": 1000,
+    "name": "Magickal Billys",
+    "code": "MGKB"
+  },
+  "XSEED": {
+    "id": "4275bd94b6913028adc4b183288a873c7cabf65c163e6db7d5686e4ccdc0bb35",
+    "denom": 1000,
+    "name": "XSEED",
+    "code": "XSEED"
+  },
+  "TIBET-KBX-XCH": {
+    "id": "609f36bfa050bd1d387a8c5acb236bb65563c991533ab29c93b5d4cbfa17be44",
+    "denom": 1000,
+    "name": "TibetSwap LP KBX-XCH",
+    "code": "TIBET-KBX-XCH"
+  },
+  "CHM": {
+    "id": "1af35863d6b110eb70150b10f6bb1f72863a79934d6851cdbf3315bb0a258c20",
+    "denom": 1000,
+    "name": "ChakMoon",
+    "code": "CHM"
+  },
+  "💧": {
+    "name": "WaterCoin",
+    "id": "b3816771b634b015280eea37f854ceb6ae905c8b82f5d277e181d7c4f2635c19",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "d96a2cee1aec7d05b493292adfd6475896747334a9cb4c2da5e71de7566717ec",
+    "tibet_pair_id": "bc44e623cb6286ec8f09ff41784677430cb8e0ad98411f23b0e196025c641792",
+    "code": "💧"
+  },
+  "STRAIN": {
+    "id": "d810d81a2562900641ae21798289ec5b5b3c7341fc0029c3d6ef4a486abde97c",
+    "denom": 1000,
+    "name": "The Strain",
+    "code": "STRAIN"
+  },
+  "NOT1": {
+    "id": "0fe711bf57d0222603a8d3e13df54b29382373ab2b05261c69667360a5738d64",
+    "denom": 1000,
+    "name": "Sappho Lyric",
+    "code": "NOT1"
+  },
+  "XLNG": {
+    "id": "91b049f4d96ed30215c2548b0933fd382eaebe248ad3b25026e78017f6f63649",
+    "denom": 1000,
+    "name": "Chialing",
+    "code": "XLNG"
+  },
+  "TIBET-SPACES-XCH": {
+    "id": "2c6ff33a981d89330d882bcfeee148a14b0de8b0308ef71b90269ac9c1adeebc",
+    "denom": 1000,
+    "name": "TibetSwap LP SPACES-XCH",
+    "code": "TIBET-SPACES-XCH"
+  },
+  "TIBET-BTC-XCH": {
+    "id": "650fad74542be77115ad1bcc3b3e59001eacb86fbfb01aa016319dc932748eae",
+    "denom": 1000,
+    "name": "TibetSwap LP BTC-XCH",
+    "code": "TIBET-BTC-XCH"
+  },
+  "EVG05": {
+    "id": "efe7422b247b43107970bcffda4c88bf7ae9766984e67430ce969e5aa3f4fada",
+    "denom": 1000,
+    "name": "Batch 5 Token",
+    "code": "EVG05"
+  },
+  "TWV": {
+    "name": "TWV",
+    "id": "36029c0e2f17c2021c5f078a85917bbb10a006cd9431da74d26344723fc3679e",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "5bc69ae002eb3cf9a5acbd21af320d49292962755446595417c9d63922fbacab",
+    "tibet_pair_id": "390b844bcdf6e8393cf07e7e0654a1083d9fb2d890301183b711ac12f5b576c0",
+    "code": "TWV"
+  },
+  "TIBET-INGDP-XCH": {
+    "id": "2fba9ce94b1b27c94a003d782eafde654ca991651ef97acac5c956777dff54d7",
+    "denom": 1000,
+    "name": "TibetSwap LP INGDP-XCH",
+    "code": "TIBET-INGDP-XCH"
+  },
+  "TIBET-SLOW-XCH": {
+    "id": "32f08162c1cd03cb8b4ffae586bc13303dac01d495ff51f63a079af3acfb4d3c",
+    "denom": 1000,
+    "name": "TibetSwap LP SLOW-XCH",
+    "code": "TIBET-SLOW-XCH"
+  },
+  "RAD": {
+    "id": "ea3e045df9fe9a7844cbb56f500bd146354d9e6f8c970b2ff8f8842d77442e97",
+    "denom": 1000,
+    "name": "RADICOLA CAPS",
+    "code": "RAD"
+  },
+  "TIBET-USDSC-XCH": {
+    "id": "be6b283c7010616c7d2ed18cd7950d42a35d932a47bed38727e2411f25cee4dd",
+    "denom": 1000,
+    "name": "TibetSwap LP USDSC-XCH",
+    "code": "TIBET-USDSC-XCH"
+  },
+  "CISAG": {
+    "id": "a3e3820f0c80723c1a504c8acb56f4c560938b6eb85584c36de09a83fb6c2397",
+    "denom": 1000,
+    "name": "XCH CISAG",
+    "code": "CISAG"
+  },
+  "CCC": {
+    "id": "88c30463dbc67745c3eb85f0a8b3df1bf4b7ae117926d7dc77042e04ad367077",
+    "denom": 1000,
+    "name": "CCC",
+    "code": "CCC"
+  },
+  "POA": {
+    "id": "79344c6df333dc75da4568495dc61a557a00552a0839012345b53e170e24010a",
+    "denom": 1000,
+    "name": "ProofOfAnything",
+    "code": "POA"
+  },
+  "TIBET-MJO-XCH": {
+    "id": "ededc8a0a3210bc6b3f607a67855038ed05219a35577d30498c9762659792db8",
+    "denom": 1000,
+    "name": "TibetSwap LP MJO-XCH",
+    "code": "TIBET-MJO-XCH"
+  },
+  "PS": {
+    "id": "ad0406a6f9aac4b4682cec430f728d6002401330c326cb0a99ab496c32924093",
+    "denom": 1000,
+    "name": "PawnShop",
+    "code": "PS"
+  },
+  "BBUX": {
+    "id": "3a80cd9e78201cc103647b4cae86616b7b85908a1db2839c8d543531fc660b7d",
+    "denom": 1000,
+    "name": "Billybux",
+    "code": "BBUX"
+  },
+  "TIBET-💧-XCH": {
+    "id": "d96a2cee1aec7d05b493292adfd6475896747334a9cb4c2da5e71de7566717ec",
+    "denom": 1000,
+    "name": "TibetSwap LP 💧-XCH",
+    "code": "TIBET-💧-XCH"
+  },
+  "BEATS": {
+    "name": "BEATS",
+    "id": "791b0bd5c1ca39038469c3f7346881889e81185a8e02aea84f2a8d61ee1d9e6b",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "6dd9ddbdc0f7ff9510177e49ff2407593faf5618eb4381feafd451a00965c6d1",
+    "tibet_pair_id": "29de8a62fde052c714aff98429664481d5b6b97eb4279f72a949fef17a71a735",
+    "code": "BEATS"
+  },
+  "CO8": {
+    "id": "948b43068a09895cdfdf3a3eae857eec450a34677fe69fc5ce39df36b3a40fec",
+    "denom": 1000,
+    "name": "Crew of Eight",
+    "code": "CO8"
+  },
+  "TIBET-WAR-XCH": {
+    "id": "8e3d0fde796c57138d46c20d1cb04ea59bc4030456788914b5e5c127258be7f5",
+    "denom": 1000,
+    "name": "TibetSwap LP WAR-XCH",
+    "code": "TIBET-WAR-XCH"
+  },
+  "TIBET-MRMT-XCH": {
+    "id": "0b6e3a7edf997d69d15bab7627855d09b2dababdf92552b843002ca873b8f497",
+    "denom": 1000,
+    "name": "TibetSwap LP MRMT-XCH",
+    "code": "TIBET-MRMT-XCH"
+  },
+  "NIOC": {
+    "name": "NioCoin",
+    "id": "79f6313fdb6ba66347a5bcad4af6878ac07bf5fafedeb384c3b350d913c8b6b6",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "118abe6c8398f4ebac0eab0f8221244276f17335ad8df85ce31798ba75933fd3",
+    "tibet_pair_id": "9c6d37a7979572a7e5598f535246309ccef8b37188b632ee5521dd0520dd1fbd",
+    "code": "NIOC"
+  },
+  "TIBET-ROCKY-XCH": {
+    "id": "dbce1ddf7a9294a3f96ff3bd27d3221d5b494f09a1353a1229d98ab19f4b839c",
+    "denom": 1000,
+    "name": "TibetSwap LP ROCKY-XCH",
+    "code": "TIBET-ROCKY-XCH"
+  },
+  "TIBET-0000-XCH": {
+    "id": "83c4c586ed0943dbe301ca31d7d50f60415e49ed76db01ad2e0a99981a99d59b",
+    "denom": 1000,
+    "name": "TibetSwap LP 0000-XCH",
+    "code": "TIBET-0000-XCH"
+  },
+  "ECTC": {
+    "id": "a8d60e4861f4472d88a82bcdf565fbed633dac508be60722b0be3f5808c73b32",
+    "denom": 1000,
+    "name": "ECTS Cash",
+    "code": "ECTC"
+  },
+  "ZF": {
+    "id": "3c9ff6027993982cdc2787e5c4ea59ff327f53fef0502b33e4185b7bc7179c4c",
+    "denom": 1000,
+    "name": "ZESTYFLUFF",
+    "code": "ZF"
+  },
+  "POTT": {
+    "name": "Proof Of Treasure Coin",
+    "id": "5fd27391e6385e5d4bdc5b7b2df67b2e8698e337d49b94302a3551deda565e58",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "abdf87384471882b33e41bbb0b09c0d46f51b34ae1eaae713d9afe6828f441a4",
+    "tibet_pair_id": "3bc9b0bbd4c0495df056cf130b2b1dacbfc5b665515755a9ebbd93e75ee42a31",
+    "code": "POTT"
+  },
+  "OUTR": {
+    "name": "Outer Fields | OUTR Token",
+    "id": "15e436bc1d59221bd5331ce6cfdfd5bae6aa827347bb7304284c62972a3f4c97",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "588b9f46b82c98546b466549c77ac68f8e5855a03c0441f64c6f1db09cdf24a1",
+    "tibet_pair_id": "8a604d28131a5e40a1787c47b201b8689097da4c3c1f0febb2e9772d778fca36",
+    "code": "OUTR"
+  },
+  "TIBET-{WC}-XCH": {
+    "id": "15ad8f8e45be4bfc2397107e1df30d685819eab05f545367ffc694b9cb2e400a",
+    "denom": 1000,
+    "name": "TibetSwap LP {WC}-XCH",
+    "code": "TIBET-{WC}-XCH"
+  },
+  "TIBET-PEPE-XCH": {
+    "name": "TibetSwap LP PEPE-XCH",
+    "id": "a36680b5ac48be3bb816ff99a0e64b278061c193242d6d60622c70b0c6fe80b7",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "08ea9e7a0f7a57fe617a03404f2912b1ba073ea4ebb7789a57ba1c2bf42d5486",
+    "tibet_pair_id": "170d7c30fcc642146b9847fb86c6f0524f05e6fefde1b7d6b7403c8f3eb3a1bd",
+    "code": "TIBET-PEPE-XCH"
+  },
+  "FLXB": {
+    "id": "c81ce4f5875ec8a898ed325a2ea472b9cb06fd5093d99926685a8cbd124a2a78",
+    "denom": 1000,
+    "name": "Felix Blue",
+    "code": "FLXB"
+  },
+  "TIBET-XIP-XCH": {
+    "id": "497f43630802f7f3482c36221d114d6f13dd660a228f2b4ed93f9c881983aed4",
+    "denom": 1000,
+    "name": "TibetSwap LP XIP-XCH",
+    "code": "TIBET-XIP-XCH"
+  },
+  "TIBET-COW-XCH": {
+    "id": "46d05ace386e1deb1bbf1886a26e65e55bdd0c9fb508b2fd5bf98c0fa17c446b",
+    "denom": 1000,
+    "name": "TibetSwap LP COW-XCH",
+    "code": "TIBET-COW-XCH"
+  },
+  "TIBET-DPLY-XCH": {
+    "id": "b30027a8bf56260cf40366e0d1e2755e15d8508cb4f6a0f186206a011ca22cc9",
+    "denom": 1000,
+    "name": "TibetSwap LP DPLY-XCH",
+    "code": "TIBET-DPLY-XCH"
+  },
+  "TIBET-ALWORK-XCH": {
+    "id": "4512de10cbe18be75694aa97d8a47e6e52f3a7421e6888741ec4a2740e9ade19",
+    "denom": 1000,
+    "name": "TibetSwap LP ALWORK-XCH",
+    "code": "TIBET-ALWORK-XCH"
+  },
+  "TIBET-CTK-XCH": {
+    "id": "1c0bc24766f94b98ba88c9752d2b488ded14c97b85665eac42cf65feada468d6",
+    "denom": 1000,
+    "name": "TibetSwap LP CTK-XCH",
+    "code": "TIBET-CTK-XCH"
+  },
+  "BOO": {
+    "id": "1d3c0c66804da57f0ef64dd61048be2c52a2fae38b6eb129b1d9e7686b0f8dde",
+    "denom": 1000,
+    "name": "Ghost Token",
+    "code": "BOO"
+  },
+  "NORM!": {
+    "id": "dd1fc964af97877cc992cccac1a50f5173043e559c0c0998256874902c11d94c",
+    "denom": 1000,
+    "name": "NORM! coin",
+    "code": "NORM!"
+  },
+  "STR": {
+    "name": "StarBits",
+    "id": "8c77de1427156b98fb15cce77d908f79bd69f6b4b8e3a60d8e051dac481b5365",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "e515bcb9a2627680c6755c66cbbd8ee270844e9eab2cc6e8f7d92a72d16ae5c4",
+    "tibet_pair_id": "34efa5a810aa20db25ea119788b4c7343bbec2a8cb04a5e1776c76ef65a57048",
+    "code": "STR"
+  },
+  "TIBET-TRZ-XCH": {
+    "id": "cf988b566e3fd52e7dac329e29063e681c477772518173aab78f28f7ec012365",
+    "denom": 1000,
+    "name": "TibetSwap LP TRZ-XCH",
+    "code": "TIBET-TRZ-XCH"
+  },
+  "XPCD": {
+    "id": "0f8676bd61b83d8cc8543cf75a54bb6963ea7c9465eb2da4b84901778ad37d3f",
+    "denom": 1000,
+    "name": "XCHPool Discount Coupon",
+    "code": "XPCD"
+  },
+  "KEY": {
+    "id": "80f3eea06bdb757c219e164eb66a305daf84e97d2954f9e3ea4fc50080af2e46",
+    "denom": 1000,
+    "name": "Friends Key",
+    "code": "KEY"
+  },
+  "CHIEF": {
+    "name": "CHIEF",
+    "id": "42c6e84ae069d15113f90fe9617e539a891adbfdbc0639495afe6686036dd34a",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8f93ddb54dcc52f8c03a786d18756d6f1bd1689eb89b509b57d57c4a8af89323",
+    "tibet_pair_id": "19eb4071c56b7a6cfee6e445e46cf5af6de32527695d2cda39c5b2a38a4ee163",
+    "code": "CHIEF"
+  },
+  "FBX": {
+    "name": "Farmer Bucks",
+    "id": "f1f44ff3da039ae26709ed636d6d91c4b2b2e34e8ab974bd5ec862e380fd266b",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "623ee5ec5a082747154cfe60a4bffc3d0491472940c4a81d676e40f7c9d9a0dd",
+    "tibet_pair_id": "63cd6428ed42e6fc97ea3a7abc38d27e2f7a4f86e1d8c65bf4ee60a1d19944dd",
+    "code": "FBX"
+  },
+  "CC": {
+    "name": "Caesar Coin",
+    "id": "ea830317f831a23b178aa653e50484568d30d2c5b34d8140e71247ead05961c7",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "96a914615cbf6adb9ba7b120b7577545826147a3b72517429d74418ef6c72776",
+    "tibet_pair_id": "80cff2eda48f926da4244a983adde57dea03c8cb814427bc19d4663183604ba1",
+    "code": "CC"
+  },
+  "AIG": {
+    "name": "AI Agent",
+    "id": "206a46714efaddda2b09a90720f3a1ad7f6d9dac3902939d0ab974f98f89e8e6",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "5cc3d3797aea0f6f80fb1b095c4a56e042d8846c30ccced06837539c54f3aa23",
+    "tibet_pair_id": "52341cfdd19612e03bf577cc398cc87587fb22d75326fa6d122fb6b877586174",
+    "code": "AIG"
+  },
+  "wLOVE": {
+    "name": "Love",
+    "id": "35abeeabdc079ed3ecb8eb8ac3c424f593a047078635c18b96b97576d3ca963b",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "83ef7c5620a25e05949ba096f55e269b2b8fd0d675a2698f1e8d9ce15fb9d467",
+    "tibet_pair_id": "8cf155d080f74523571f3737417e8e4af3f9ca4bc61e6d51ff4fe163570f0d4c",
+    "code": "wLOVE"
+  },
+  "🐈": {
+    "name": "PUSSY",
+    "id": "3c6da5ae38438db6299426402dc23f9436ee085270ed76f8fc7f9e6b4136dca2",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "d6faa42c5a554c9323f0b1de604f021d966c5ffec251adf97907f312279c1d9f",
+    "tibet_pair_id": "802be5ffc1594975016a7bbccf84f65702b8dfe55bf833a3f04cd5901e2ff214",
+    "code": "🐈"
+  },
+  "🌱": {
+    "name": "SPROUT",
+    "id": "ab558b1b841365a24d1ff2264c55982e55664a8b6e45bc107446b7e667bb463b",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "f3132ae74e11ffda309b22a204b7f106425420885ad812facda7b908d3a7bbf4",
+    "tibet_pair_id": "a9d44416433842c719b7c56478dca965a877c0db03f58e9fb0e4cc3d134afa98",
+    "code": "🌱"
+  },
+  "TIBET-TIBET-🍕-XCH-XCH": {
+    "id": "794095e659d9529d36dd22425ad0e6aa983efb37ee8b8f10dfedc18941029efd",
+    "denom": 1000,
+    "name": "TibetSwap LP TIBET-🍕-XCH-XCH",
+    "code": "TIBET-TIBET-🍕-XCH-XCH"
+  },
+  "PUNK": {
+    "name": "PUNK",
+    "id": "6ae636f1eb6f00b72ff015f64bb86af4f46343697ce576173359b329c89f01a8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "4af2d229d02d233ac8e53c66b9808593774694344729e732f0370c04064707a1",
+    "tibet_pair_id": "ae1f4f01a62346a75ff4806f4381d5cc0f0884693a709db6b696361baa7fcbbe",
+    "code": "PUNK"
+  },
+  "XWOOD": {
+    "id": "b0eee4ddb9e5c4dd868fb834ae987d504f0faa46becc79db6968ffe248422d35",
+    "denom": 1000,
+    "name": "XWOOD",
+    "code": "XWOOD"
+  },
+  "SDT": {
+    "id": "5a4743ac88b052f387c1b5f969938c0d122f248616c769bb075dfecbe88ea471",
+    "denom": 1000,
+    "name": "Stardust",
+    "code": "SDT"
+  },
+  "GEN": {
+    "name": "Green Energy",
+    "id": "ee495b3795eebe47c5cbf3cd6e47a2e418e6dc65ce493c626c0cc140fcd2dcf1",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "367a314417bd8f938dbf3203219b31b934ddc33a8edb4b06d7685709750b2659",
+    "tibet_pair_id": "c20090648be09810473304afc47252f96024569351ded965d6f023a1cf4db748",
+    "code": "GEN"
+  },
+  "TIBET-VAL-XCH": {
+    "id": "cd87e746371697552d2d70e88b7b25a1be761417b434e33d11071b1a26055384",
+    "denom": 1000,
+    "name": "TibetSwap LP VAL-XCH",
+    "code": "TIBET-VAL-XCH"
+  },
+  "GANG": {
+    "name": "Gang",
+    "id": "fb52035b9e2f64d54210e56b2d3ef0940d5203c1bf25a7a055d1f01e6e13f72d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "5264772cacc3258fee98f60963cea56c46bd4dfc83c94cf75137bcb5e86f895f",
+    "tibet_pair_id": "590224534d635e1de71a153881db49dd395db8e8a896ce7d2a95ba744d55ebe7",
+    "code": "GANG"
+  },
+  "TIBET-BEPE-XCH": {
+    "name": "TibetSwap LP BEPE-XCH",
+    "id": "ba9750db89ef16feb3eabadbfb199509e3e1290851188e5625d0956ca1354b85",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "d43b348a62185b6e31743d56a5ebf58bd8171f5ab879479bb0fe419b9501c565",
+    "tibet_pair_id": "c8d6ab6b329698fca5a8ba651b0a1a9a55d1ff5caee0e4fa61f939e26f6775e8",
+    "code": "TIBET-BEPE-XCH"
+  },
+  "MJO": {
+    "name": "MoJo•JoJo",
+    "id": "ec25b77bc54df637392d6a0f542de65f45020405d0f36ced723bff2870c378b1",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ededc8a0a3210bc6b3f607a67855038ed05219a35577d30498c9762659792db8",
+    "tibet_pair_id": "0fe46dd66f966559f6612a08f02e4ee25e76e69bc0b7875d4b5a23b4dcec4714",
+    "code": "MJO"
+  },
+  "DMT": {
+    "name": "DAT MEME TOKEN",
+    "id": "bbbedf8bd9c7b1c2ef8fb211f28eccb84c498809d453a1df6ee494da872be281",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "688c28ca0bfdd917162ecba4abeb9a370115573412dcbc1d2e5a1cf93be4857f",
+    "tibet_pair_id": "56c720f01fba2d48026cc6d8a642fae21008cb4f02e72b5ad4d2c401641e9043",
+    "code": "DMT"
+  },
+  "HERO": {
+    "id": "b866c8075501879ec421062f065467092d20cbbd8cb4b0d3fccba220a16f0656",
+    "denom": 1000,
+    "name": "Hero 2.0",
+    "code": "HERO"
+  },
+  "DBX": {
+    "name": "dexie bucks",
+    "id": "db1a9020d48d9d4ad22631b66ab4b9ebd3637ef7758ad38881348c5d24c38f20",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "f7a975340fe224ed6e32467e4cf7ce544c9ddfc1079fc6d0e34e960dc64dbb90",
+    "tibet_pair_id": "c0952d9c3761302a5545f4c04615a855396b1570be5c61bfd073392466d2a973",
+    "code": "DBX"
+  },
+  "EVG03": {
+    "id": "aa15228b460f978dba6342bf95ad69a137cdc5e9826ddc6d05ca084ffc51238f",
+    "denom": 1000,
+    "name": "Batch 3 Token",
+    "code": "EVG03"
+  },
+  "42": {
+    "name": "42",
+    "id": "bcee35d7043f02480107a70203e8b483b8404b2eec08efd30ce612bd23343373",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "bf13e218f980c513ef6445aff25800997628599398f3a37c00308645cf1a3615",
+    "tibet_pair_id": "ebfae93e9e86d0300c2745d65f1eea225639b230646702493e6ddf2c6831fec5",
+    "code": "42"
+  },
+  "TIBET-BIKER-XCH": {
+    "id": "566530baf6b7d44a3990841595c4370f2dae1d477b00fb8b0492ff0903b279f2",
+    "denom": 1000,
+    "name": "TibetSwap LP BIKER-XCH",
+    "code": "TIBET-BIKER-XCH"
+  },
+  "TIBET-GRAPE-XCH": {
+    "id": "71bacd4db2e7f46cc54a0a52c7584b3e376a1c09e1323a7a420e1713dbdd0743",
+    "denom": 1000,
+    "name": "TibetSwap LP GRAPE-XCH",
+    "code": "TIBET-GRAPE-XCH"
+  },
+  "TIBET-XFUEL-XCH": {
+    "id": "df5178d61b8ccdf5539456fbe3f0cb86884bbe55502dbd457b868e2891a09fdd",
+    "denom": 1000,
+    "name": "TibetSwap LP XFUEL-XCH",
+    "code": "TIBET-XFUEL-XCH"
+  },
+  "BWF": {
+    "name": "Be W Free",
+    "id": "9db189e76bafe22487cae5ce122eadb0b6217f169f9c5db07a4eeaec27a39a6a",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "b51efc0f20039fe1ff47dbd6ce73267ecb3e929c639c060f5dfa7be13ec3084d",
+    "tibet_pair_id": "3252e726be826787288fd98fe49027abbf5230c50f317bed9e33eda0551baf19",
+    "code": "BWF"
+  },
+  "MMT": {
+    "id": "c4f87b1666b8974907e3a8f3cdfcfc32b0dd820324d7c3302405373e999681e0",
+    "denom": 1000,
+    "name": "Marvelous Marmot Ticket",
+    "code": "MMT"
+  },
+  "JAR": {
+    "id": "3b27617d821428052f00199e7a06b1ab666d58a59901540455fe71d36451a00c",
+    "denom": 1000,
+    "name": "Hairy Bear Honey Jars",
+    "code": "JAR"
+  },
+  "IND": {
+    "name": "Indigo",
+    "id": "d1f935cf4c42742fe60e9b10ad21d8f4805e888e1145b0a95e34a4b50b0770b8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "a7b739313f893e26a34677fe3de43def80552faaf3b123f15864580d64920582",
+    "tibet_pair_id": "3525b39b2beca750b06c60674a77b0246a7e2ddc450633cec4a8c9fbc4e8974f",
+    "code": "IND"
+  },
+  "DGM": {
+    "id": "2b5cb14992f19cc37508854b14defb7a16fead8ab502925e9bbbdd1ae4d53b56",
+    "denom": 1000,
+    "name": "Digital Mine",
+    "code": "DGM"
+  },
+  "DAT": {
+    "name": "DAT GOVERNANCE TOKEN",
+    "id": "d12fbf63bb015fa0e988509b971ad4c9da7cc5fc30f2499d3aab38c3fadc531c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "74d0141c75654ba350a57a28f84a887258c272487e855aef078ac0f794d9f571",
+    "tibet_pair_id": "51f7d12b42283959623ab5d1d88443b8673c88f98ccd7f99f76e55f8e94a7846",
+    "code": "DAT"
+  },
+  "TIBET-CH21-XCH": {
+    "id": "3a90944e478d6bcc3d45bb5ce8b9f1edbdf1d2fb6f1106466f650a5bc22632f4",
+    "denom": 1000,
+    "name": "TibetSwap LP CH21-XCH",
+    "code": "TIBET-CH21-XCH"
+  },
+  "TIBET-MZ-XCH": {
+    "id": "db55c0aafaa830a0ba4cbbd1d07211b291f925fe4a41580c6da087145c0dcb31",
+    "denom": 1000,
+    "name": "TibetSwap LP MZ-XCH",
+    "code": "TIBET-MZ-XCH"
+  },
+  "$CHIA": {
+    "name": "VersaceFerrariVegasApartmentPatek9000Inu",
+    "id": "69326954fe16117cd6250e929748b2a1ab916347598bc8180749279cfae21ddb",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "abdeaa3009745478d1aa4ce462b574d1e433b1a12942dc83789fbcaf36144a5e",
+    "tibet_pair_id": "e10d0bdde69e7ca440b5f6e54a167b1d6c85e5cd678c025d50d3a0b6c89d6be2",
+    "code": "$CHIA"
+  },
+  "TIBET-WOW-XCH": {
+    "id": "0a0c42b14418562db48d12928940e2b9a9d6a76a36e58f727372b8c2f428bf56",
+    "denom": 1000,
+    "name": "TibetSwap LP WOW-XCH",
+    "code": "TIBET-WOW-XCH"
+  },
+  "TCHST": {
+    "id": "9f65e250eae02e8a64f1d89952431f369fd667386c19acce95dc217878b2e134",
+    "denom": 1000,
+    "name": "Treasure Chest",
+    "code": "TCHST"
+  },
+  "TIBET-KALI-XCH": {
+    "id": "c2295c8490df7aeae2a60ec9dfc70ea92d39fd0fc1bc8fbe1cdf6907b2523183",
+    "denom": 1000,
+    "name": "TibetSwap LP KALI-XCH",
+    "code": "TIBET-KALI-XCH"
+  },
+  "GENE": {
+    "id": "dc5c2bde27d1f73f655b360eceab68150b28c335d81b4fc1a1069ee6441ef886",
+    "denom": 1000,
+    "name": "Gene",
+    "code": "GENE"
+  },
+  "TIBET-SHD-XCH": {
+    "id": "ab485f45382ad2e15ff56e2240dc30f209cd9fa69adcd6af2038a177e47fd92b",
+    "denom": 1000,
+    "name": "TibetSwap LP SHD-XCH",
+    "code": "TIBET-SHD-XCH"
+  },
+  "🌳": {
+    "name": "tREE31000",
+    "id": "a84a40fec6d65fc97ea42e46ff7b2ea66ad66ab49b02d1673539d91d54fabae2",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "b31aaec8f44a46c72980527d53fe7c560a9c07e17480dc32cd4c2d4428d3eeb6",
+    "tibet_pair_id": "496b8270c43cec740f6c188a4cc978815e7ad78ddc37c69e1fe274ead8702c87",
+    "code": "🌳"
+  },
+  "tremp": {
+    "name": "doland tremp",
+    "id": "dd21263fd013000774dcb76db32a4a3b57e3c4760c42769bf286589f23d34efb",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "895593f0b575975cb15e092e5a06249286a6f8263e0edbf9f4f5bf8ce1709eac",
+    "tibet_pair_id": "7b8c46864facd64f2170ee1f8bbeeeefee79959bb1f922bdeaeff00232280636",
+    "code": "tremp"
+  },
+  "TIBET-ALTOOL-XCH": {
+    "id": "318424dd2529fe52c52cad579685aa35782d459f2aefe2587d8c41a1ade85116",
+    "denom": 1000,
+    "name": "TibetSwap LP ALTOOL-XCH",
+    "code": "TIBET-ALTOOL-XCH"
+  },
+  "BGPL": {
+    "id": "054e8c7e593d0e7bab9ec83daa50a3b099e366097d445a0f125eb800c0370e44",
+    "denom": 1000,
+    "name": "Brick of GP Latinum",
+    "code": "BGPL"
+  },
+  "PSGT": {
+    "id": "5b0b3a7022db6efc4a104d44ca7847845bbaac30d810e60733c792b61b9706b7",
+    "denom": 1000,
+    "name": "PSG Fan Token",
+    "code": "PSGT"
+  },
+  "MPC": {
+    "id": "8cf1c0d1a196d307dc63d0bc1a8be1d996847c0f81756f8b6e6ae2bae0ecc50a",
+    "denom": 1000,
+    "name": "Megaparsec",
+    "code": "MPC"
+  },
+  "DUMB": {
+    "name": "DUMB",
+    "id": "6878179772274846a7d8298597250ed2b6386549365c27577a45fa1a8f996361",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "3d28ba2b0f8f1c6bd71db0fbe3bfcb8177eb56d9003f3b14f2060f40aec42470",
+    "tibet_pair_id": "f7b04e0292ae76fd554406cf1f63617d43ec43da28b5d5a907da69917ff545e7",
+    "code": "DUMB"
+  },
+  "CHAD": {
+    "name": "Chad",
+    "id": "0941dc178e75d3699fab42a002034cae455ba5dfc91a9a9f58b62c48c9cea754",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8093fcd312eceb63fcac9306d83e257a43f8a6bed628ba0c9dacd853cfd37413",
+    "tibet_pair_id": "e8e69e71718463533c3a15530ffe76621a7e82099f8b8c007e9733d3195c816b",
+    "code": "CHAD"
+  },
+  "STDG": {
+    "name": "StellaCoin",
+    "id": "64d1e7e794464053858763f2082eb595ed4416976bed72ca679a553839ff189c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "b0eb1fbe92edae487377b75d38ac0778b7fe67af868c061245230ff13cf8c106",
+    "tibet_pair_id": "9124c0198ed1109fdc3b41d193b67fe06135b82a3f00129d66650f47ff51151b",
+    "code": "STDG"
+  },
+  "TIBET-NIOC-XCH": {
+    "id": "118abe6c8398f4ebac0eab0f8221244276f17335ad8df85ce31798ba75933fd3",
+    "denom": 1000,
+    "name": "TibetSwap LP NIOC-XCH",
+    "code": "TIBET-NIOC-XCH"
+  },
+  "TIBET-DACH-XCH": {
+    "id": "49e041a0d3735343e3cfa47a885f65812862695bcd0a304c7b59c701306af103",
+    "denom": 1000,
+    "name": "TibetSwap LP DACH-XCH",
+    "code": "TIBET-DACH-XCH"
+  },
+  "TIBET-INCL3-XCH": {
+    "name": "TibetSwap LP INCL3-XCH",
+    "id": "dd06261ba264dd38c2b601ec06694a3fe1ab0fbc83683d3700e1ecc457c962bb",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "721be932b8a7313c3a0d0ee0df3820cef124cdf0154ef0cd701288445de2d238",
+    "tibet_pair_id": "7f7e7b65d0faa83810627601bb4f2c21f8037658f1b407d1a3f911a4a506a3bf",
+    "code": "TIBET-INCL3-XCH"
+  },
+  "LOVE": {
+    "name": "LOVE",
+    "id": "70010d83542594dd44314efbae75d82b3d9ae7d946921ed981a6cd08f0549e50",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "26f25ea7538617f038d644dcdfaa7c055561ec6c1bbf32ad7db6e457217f9f25",
+    "tibet_pair_id": "9a56175d0923a0ccae30c3cdb92662f0fdcec67ac09f54266e05c1b048c15ebc",
+    "code": "LOVE"
+  },
+  "TIBET-WARP-XCH": {
+    "id": "4793260e9118425a32db6aabc8c8e11b1eeb536ca41ead21a85fa84403354b9a",
+    "denom": 1000,
+    "name": "TibetSwap LP WARP-XCH",
+    "code": "TIBET-WARP-XCH"
+  },
+  "TIBET-TWV-XCH": {
+    "id": "5bc69ae002eb3cf9a5acbd21af320d49292962755446595417c9d63922fbacab",
+    "denom": 1000,
+    "name": "TibetSwap LP TWV-XCH",
+    "code": "TIBET-TWV-XCH"
+  },
+  "WAT": {
+    "id": "48d3f1627c3576a73af4d969b235300af741ac9fbc4e172c8bea9fdf94d3390e",
+    "denom": 1000,
+    "name": "WATxCH",
+    "code": "WAT"
+  },
+  "ECO.49.2022": {
+    "id": "9720fcb8333984c72f914fc5090509ae9f7b1ff72eff2ed6825d944d7a571066",
+    "denom": 1000,
+    "name": "Antioquia and Caldas Reforestation 2022",
+    "code": "ECO.49.2022"
+  },
+  "TIBET-JOCK-XCH": {
+    "id": "de1bf7ecfb1a64b01c84bfec3578b7eaf7dd68e006fdbd4785c732743c468507",
+    "denom": 1000,
+    "name": "TibetSwap LP JOCK-XCH",
+    "code": "TIBET-JOCK-XCH"
+  },
+  "TIBET-CHILLGUY-XCH": {
+    "id": "19823a33c11d6707ed6ea9481f8104947a4d8b817dc78366a328402177959e62",
+    "denom": 1000,
+    "name": "TibetSwap LP CHILLGUY-XCH",
+    "code": "TIBET-CHILLGUY-XCH"
+  },
+  "AGIC": {
+    "id": "125ef688c3200d4a82248c31f6dcfe2dc45d549b779c0b3b1ef35568fea840b6",
+    "denom": 1000,
+    "name": "A Golden Caesar",
+    "code": "AGIC"
+  },
+  "BGCI": {
+    "id": "22945c6c10f2c1be9f4b2484652768498cf1e4153c015a7bf981913a6b21430a",
+    "denom": 1000,
+    "name": "Board Game Crypto Intro",
+    "code": "BGCI"
+  },
+  "DPR": {
+    "name": "Dred Pirate Roberts",
+    "id": "a1b036efdc6767f612dc2c8f9a1107c7e879f7d02881c67085ba37f79ef23536",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ff3cde048d8d3d38c207a3bedcc7d57a3af47c33573e3749a43b68a91d5b8022",
+    "tibet_pair_id": "c4659680f2e4e9dfebeec22b9da2947cb2527fe47783283e0928a50f2a115d2b",
+    "code": "DPR"
+  },
+  "INGDP": {
+    "name": "Inverse NGDP Coin",
+    "id": "bb1de510a86d52a950b56158d1125cda66638221d1335d7d1dd2fcc2ad5cdb2b",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "2fba9ce94b1b27c94a003d782eafde654ca991651ef97acac5c956777dff54d7",
+    "tibet_pair_id": "27cd2e4f1c72bb1b481e76b5b9bc264fc4937f14785c6f381d853985685fabc0",
+    "code": "INGDP"
+  },
+  "TIBET-XCHIN-XCH": {
+    "id": "68e2d5c01ef319196af1325b342dba68321ce54b50d252a058ceb103911de9a7",
+    "denom": 1000,
+    "name": "TibetSwap LP XCHIN-XCH",
+    "code": "TIBET-XCHIN-XCH"
+  },
+  "NGDPLT": {
+    "name": "US NGDP Coin",
+    "id": "97bd6d179cedfff84f4a0e82982765dfeab0eec7c1cef7ead0b5f23360de7a63",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "607fb74ee321225d42da8896c95764ff37103300fee3c0607edc5efa5d5245ba",
+    "tibet_pair_id": "8174e2e38c85ef200fdd8c926b0531966ffdc9a9a352ba80c75180989d13e195",
+    "code": "NGDPLT"
+  },
+  "TIBET-STRRO-XCH": {
+    "id": "c1a01edd117f0a2bddffcbac6ee044eb1023034c119a3e31cec5d1ea45a3ec39",
+    "denom": 1000,
+    "name": "TibetSwap LP STRRO-XCH",
+    "code": "TIBET-STRRO-XCH"
+  },
+  "SPRIGF": {
+    "id": "2e28b8334c17ce291a29159be092dd7723d59534eab41a0a0b974e6db1183e5a",
+    "denom": 1000,
+    "name": "Spriggan Founder",
+    "code": "SPRIGF"
+  },
+  "🌎": {
+    "name": "EarthCoin",
+    "id": "ba0505e9955be82a9a9239e657d4e9397e7124d7e7960fef66212e861a35ffbf",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "254a6ba2033ce9369ddebca5617ab3beb6db01c3dee744b8946286ca93d41552",
+    "tibet_pair_id": "7e36d2c5df940bc55e9d323e5a32de4f59828491ccf518d5e54b77ee8d9ef853",
+    "code": "🌎"
+  },
+  "B$b": {
+    "id": "478e7d8f8fe01b7f671cd4d8149cac1d502e598866e22b8c39ea6e7e40859e58",
+    "denom": 1000,
+    "name": "Bran$baby",
+    "code": "B$b"
+  },
+  "MIO": {
+    "name": "Marmots.io",
+    "id": "1dadf5b097d2e1257d375759aaa15298ed3e0f70b6de275d9c70dc2f7eca14a8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "71765f6ad4747e8fc7349411ff887c5d5abcc17a537f723fc3a296062b043996",
+    "tibet_pair_id": "c5343024633df7074a0ba8da91fdbbf25cf06ab8e3b118c38cd51b5a8e7bf2f2",
+    "code": "MIO"
+  },
+  "CAT": {
+    "name": "ChiaAssetToken",
+    "id": "086287bab372e0fcf2ce36b43e4eab3e0ad0c6fcf6e1a326612e5240a2a8abb5",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "0290cc08748796ebe6fcf4e44b4833da10dda85068987bab7c8e32dfe87f9e88",
+    "tibet_pair_id": "b08b6169c936da16374661a439bf426b9f2d4c77a5c078ed479ca50e1146d6cf",
+    "code": "CAT"
+  },
+  "GCC": {
+    "id": "5391cc933ee1b2d56483b90f4db82f78ef26d7b8f1aeedb14af11eb28e919d1b",
+    "denom": 1000,
+    "name": "Gaerax Custom Characters",
+    "code": "GCC"
+  },
+  "NIOG": {
+    "name": "NioGold",
+    "id": "f471706d40b3d1938ebf2afd9afb3a8efcf1d6c7f3f68ba8b8c76371e220ee20",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "fd702a16b14ebb47ca4c3a8bceb25dac68e6fad2257ad4b47fdc0f148659dda8",
+    "tibet_pair_id": "384f0b4a9b1e2da19d1fdf197401cf9b6d880f53b5a565a96a81eba54f0a7688",
+    "code": "NIOG"
+  },
+  "boden": {
+    "name": "jeo boden",
+    "id": "a8e913a16952f68a4e8a6b4ec65686ec7456dc5c9045b6c7e0dd9a4656f72ccd",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "0fe22b51e5a2e641a6153f7d4e56245d2865a16cb13ec207e7504128fa954204",
+    "tibet_pair_id": "b81854b98469f98a0f789a8fd0704cee75effffbf66383c81c446e52f86b83a8",
+    "code": "boden"
+  },
+  "69": {
+    "id": "7b123d847de71db929e863b66c886517fe46fc1260f4fae78fc35afe296aec02",
+    "denom": 1000,
+    "name": "Studio 69",
+    "code": "69"
+  },
+  "INCL1": {
+    "name": "Inception Liquidity L1",
+    "id": "a30ce6074671db2926e00a077ba1471782fb36eb9e2c8072082fb239474b96a7",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "2ed7adfeeb594cd115ab0d50d25b06c7ff5aeefded58af336aa910a63846e714",
+    "tibet_pair_id": "0ffade4feeb527bd900371fefb3257f9e51a74a491c1807ef85e55d7862cbe9e",
+    "code": "INCL1"
+  },
+  "CCFO": {
+    "id": "f3f2b8a1d1480c1d7d241e0fc5e5e3b8a346cb861474fb0b55b512e6f26184e7",
+    "denom": 1000,
+    "name": "Compassion CAT - Founder",
+    "code": "CCFO"
+  },
+  "wUSDC": {
+    "name": "Ethereum warp.green USDC",
+    "id": "bbb51b246fbec1da1305be31dcf17151ccd0b8231a1ec306d7ce9f5b8c742b9e",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "4ea9037096cb1eb0fbed37bc301cdfc80c41e25d787b2afdec078392ca980988",
+    "tibet_pair_id": "cc38e270761f1d0f32e7b3b3e1e09176f06962ca3f247dfbc37c93ad3ecc107f",
+    "code": "wUSDC"
+  },
+  "TIBET-HP-XCH": {
+    "id": "baa5da2d0726bb184673c9f5ec68a92499e5f164bab82461f5267dc1d65a3f23",
+    "denom": 1000,
+    "name": "TibetSwap LP HP-XCH",
+    "code": "TIBET-HP-XCH"
+  },
+  "WHC": {
+    "id": "f2770d78cdc92f311613db98df81f5cdccd61317d1e838c35d64ef332b4d44da",
+    "denom": 1000,
+    "name": "WishCoin",
+    "code": "WHC"
+  },
+  "ENIGMA": {
+    "name": "ENIGMA",
+    "id": "c2cd1406e2a3700b016f978b56040efff44071d23bda4614c1978f3f5bfc4e7b",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8df7d606644abc6b0f23d8e12e10b4e57b6824f26135e2b00b88afa7706e03d2",
+    "tibet_pair_id": "39d7470389748c9279466e8fc83be5357cea20e0208b9f34297e4f7b29431bf6",
+    "code": "ENIGMA"
+  },
+  "$DUMB": {
+    "name": "$DUMB",
+    "id": "42d298d75fb6400c7ea18f9b6a5a006580c3f43e47a625583cec4aafb9148a10",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "31a5a5f1947979ebe64b5c742e368c0b79c442d3d331db6abad97986ab86200a",
+    "tibet_pair_id": "03d98ea802cab3be4476126615b7c198bbab7fa10d2fedc784d4394330d471d3",
+    "code": "$DUMB"
+  },
+  "ROCKY": {
+    "name": "ROCKY STABLE TOKEN",
+    "id": "cad26bfe4f41d76b6f2de417d91e4e4090c6e7ceafe519a818c1f1033a6d6ef1",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "dbce1ddf7a9294a3f96ff3bd27d3221d5b494f09a1353a1229d98ab19f4b839c",
+    "tibet_pair_id": "bd6e067a3983b0987d37eb027483dd81d9560a52ba106243a7675b55631a3bc2",
+    "code": "ROCKY"
+  },
+  "FHW": {
+    "name": "FHW",
+    "id": "dc77ba1f5599fa63c126b8e512573eacd3496b3e4f6712d1252b119f1e6bec2d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "f1381ce3175277be107b38e40f4078c125adebe4888f3ef74178d653af7b8a04",
+    "tibet_pair_id": "25a02a81a03886153edfcaace09c6c9b3829dbf73ddf04661a7865117b4d0422",
+    "code": "FHW"
+  },
+  "TIBET-GANG-XCH": {
+    "id": "5264772cacc3258fee98f60963cea56c46bd4dfc83c94cf75137bcb5e86f895f",
+    "denom": 1000,
+    "name": "TibetSwap LP GANG-XCH",
+    "code": "TIBET-GANG-XCH"
+  },
+  "TIBET-DPLY2-XCH": {
+    "id": "b5e6abc3f398a4f90ef30e6f3c0469b391a33c5f9ca2a632bb452104b2b9271d",
+    "denom": 1000,
+    "name": "TibetSwap LP DPLY2-XCH",
+    "code": "TIBET-DPLY2-XCH"
+  },
+  "TIBET-MELT-XCH": {
+    "id": "7051e62d3dcd418cc89f4be15ed6e68c102640b90dbbe829419dc3139b9b73a5",
+    "denom": 1000,
+    "name": "TibetSwap LP MELT-XCH",
+    "code": "TIBET-MELT-XCH"
+  },
+  "DSC": {
+    "id": "2053459a8f479b11cd57c54bdce4818b10b3a4ccea2267e5ab1ff7ae281f5649",
+    "denom": 1000,
+    "name": "Discount Token",
+    "code": "DSC"
+  },
+  "VAL": {
+    "name": "Valentine",
+    "id": "4ec438355a6b7506cb85e7d330e758d7b30d0bcf44021517f094ed878f74afe0",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "cd87e746371697552d2d70e88b7b25a1be761417b434e33d11071b1a26055384",
+    "tibet_pair_id": "30af5a038b299e748dd16f9c6c70b2b9d37c4ae0e3cca3167e982fc15227ce86",
+    "code": "VAL"
+  },
+  "TIBET-ALWOOD-XCH": {
+    "id": "fc55fd71d19ff358ab33f668ad7150740b5b932c953abdf531916106e942f600",
+    "denom": 1000,
+    "name": "TibetSwap LP ALWOOD-XCH",
+    "code": "TIBET-ALWOOD-XCH"
+  },
+  "TIBET-ROSS-XCH": {
+    "id": "ee972a13138c48165b1b325189c74af9d195e6b44e721fc1e047663ed81614a2",
+    "denom": 1000,
+    "name": "TibetSwap LP ROSS-XCH",
+    "code": "TIBET-ROSS-XCH"
+  },
+  "TIBET-GOLD-XCH": {
+    "id": "46efa82f52027a741714066db2293bffdc88dae793658432d1604c644d334379",
+    "denom": 1000,
+    "name": "TibetSwap LP GOLD-XCH",
+    "code": "TIBET-GOLD-XCH"
+  },
+  "TIBET-TTT2-XCH": {
+    "id": "2e5181759cfee4399530b66d524d9b20a75415d0e1b6f056c2cebd7ec46cae34",
+    "denom": 1000,
+    "name": "TibetSwap LP TTT2-XCH",
+    "code": "TIBET-TTT2-XCH"
+  },
+  "PIX": {
+    "id": "afefb47c852838c9f66d5c116f11f1b655371377f6671d952f8253ce828461d0",
+    "denom": 1000,
+    "name": "Pixel",
+    "code": "PIX"
+  },
+  "TWC": {
+    "id": "d00472f8a4f38efdc41e2f594a9bd6543a1c32a58c98210fbc921817046efd2e",
+    "denom": 1000,
+    "name": "TWC",
+    "code": "TWC"
+  },
+  "TAU": {
+    "name": "TAU Token",
+    "id": "1c009be94c996222ef28d4f7a2c1e38f8699542ee14ef9d26a853ff0a9540a6d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "0d595bef07becc2878f59f6e88168a11cb27a29c3ac6404b60a5d06708391ed7",
+    "tibet_pair_id": "69d0f791323d9501b8d7c3565d53e176275953510975a3b745faba45cb086242",
+    "code": "TAU"
+  },
+  "TIBET-TICA-XCH": {
+    "id": "75602bcb965c2e6fd513b23a740f8a9eabd3dfc8a84fff8a20b49a149d58c33e",
+    "denom": 1000,
+    "name": "TibetSwap LP TICA-XCH",
+    "code": "TIBET-TICA-XCH"
+  },
+  "TIBET-YKY-XCH": {
+    "id": "aa6e21b39fe65c47ffbc22c8a5bbaa1ccd52687f988264c3294b7cdc554f4979",
+    "denom": 1000,
+    "name": "TibetSwap LP YKY-XCH",
+    "code": "TIBET-YKY-XCH"
+  },
+  "RDx": {
+    "id": "15d397bb558152652ce94f5933c77100e5d425a7f7bf4c5a3a18d2752f6ea3b7",
+    "denom": 1000,
+    "name": "RODx",
+    "code": "RDx"
+  },
+  "TIBET-G$b-XCH": {
+    "id": "440879faa061603be94b340f4041aac35081e5f4d7a7671c9b5fd0b1d914bd7d",
+    "denom": 1000,
+    "name": "TibetSwap LP G$b-XCH",
+    "code": "TIBET-G$b-XCH"
+  },
+  "NAME": {
+    "id": "4c4380af7d15c896d9e6266f322ac494c398803032eef56f2ab65877956d007f",
+    "denom": 1000,
+    "name": "Namesdao NAME",
+    "code": "NAME"
+  },
+  "ALTOOL": {
+    "name": "Abandoned Land - Tool",
+    "id": "593c68c3f0c2061ea384ff30d9f3bef15039c6d5fbd46b555c73b2e9b490fca5",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "318424dd2529fe52c52cad579685aa35782d459f2aefe2587d8c41a1ade85116",
+    "tibet_pair_id": "12219f79767574e35977c1721771a7880cc2c8228a990b7ad716e96f8a28705f",
+    "code": "ALTOOL"
+  },
+  "SPACE": {
+    "name": "SPACE",
+    "id": "d4f1f6d29e6392c477b84dc65a4379eaba570d29f7930895d89148ab5ed4b343",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "18396fd18e52cf5ecad4a3509ea2482c55b58a614c540bb95d1ecb3e85a3d723",
+    "tibet_pair_id": "0a81618097f3ec82f305e73e1a71827412f02c5e4a2f4d50da6f787469be91c2",
+    "code": "SPACE"
+  },
+  "MB": {
+    "id": "0e3db26887c5d8659baba5e42c1c47c99580112e42a343c42357d4fa5e07a222",
+    "denom": 1000,
+    "name": "MarmotBox",
+    "code": "MB"
+  },
+  "STC": {
+    "id": "08410d6db9addd81b7c1342c104b27444c1491f51394b6eb6860fe7de3877532",
+    "denom": 1000,
+    "name": "Space Time Cats",
+    "code": "STC"
+  },
+  "TIBET-GOAT-XCH": {
+    "id": "b6f058290720ce1d84384e7b5ae5165c3b355cb2bd1b5ac0772f1956d726cd29",
+    "denom": 1000,
+    "name": "TibetSwap LP GOAT-XCH",
+    "code": "TIBET-GOAT-XCH"
+  },
+  "TIBET-LSD-XCH": {
+    "id": "57b6e11cc866845b9ded1d25fbd3c19cd934997b506635c4fe82087e111e791c",
+    "denom": 1000,
+    "name": "TibetSwap LP LSD-XCH",
+    "code": "TIBET-LSD-XCH"
+  },
+  "MANA": {
+    "name": "🧙‍♂️",
+    "id": "1653a1df583f3ae6a822ab214b74d2a08fb4309025d54f2db140e5e6bc06e9da",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "4d25c455307adbd056b128dc60cf6b36a2c5e437837f018999b9a317f79662c8",
+    "tibet_pair_id": "a1f99262af55fc6fb67df2b7f9fadabf495078be35223f5baf0df81777d9d968",
+    "code": "MANA"
+  },
+  "XIPM": {
+    "name": "Mystery Coin",
+    "id": "8f27f8b6aa31e07f4de43e12eea854ab450d56afdd65be4328928f5bd2fa80cb",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "d44a36523c9163452968d7ce1d20b29a23085a4896aa0065a7fab979fe186cdc",
+    "tibet_pair_id": "17fec8e94a510f3409eab409295c653a378966da9a69fb59d6b91312e754e61c",
+    "code": "XIPM"
+  },
+  "TIBET-ASON-XCH": {
+    "id": "4163cb4b370da9001750b00395702914806dc4c43c3bf9fdbd412fdeef42615d",
+    "denom": 1000,
+    "name": "TibetSwap LP ASON-XCH",
+    "code": "TIBET-ASON-XCH"
+  },
+  "MPLOT": {
+    "id": "12cc4ab2ce7ea00fc154456614265a624535e64dccb26fad7d2243ce9a83e973",
+    "denom": 1000,
+    "name": "Multiplots",
+    "code": "MPLOT"
+  },
+  "XIVI": {
+    "id": "940613a8af071d5ad8feb65e1eef5aaa3813e5091988734c75689cb2dd1c272b",
+    "denom": 1000,
+    "name": "XIVI",
+    "code": "XIVI"
+  },
+  "SWLT": {
+    "id": "3f8fc05ff6fd799fc49d7616a7d8440435796d95b8f5a80d83a9935130c43e8c",
+    "denom": 1000,
+    "name": "SeasonsWhiteListToken",
+    "code": "SWLT"
+  },
+  "TIBET-XCHC-XCH": {
+    "id": "ca7e396f76b0e7acee31bdce6ac70ca714fc9366f48f471e081c97443f4e456e",
+    "denom": 1000,
+    "name": "TibetSwap LP XCHC-XCH",
+    "code": "TIBET-XCHC-XCH"
+  },
+  "TIBET-ZOMBIE-XCH": {
+    "id": "a3f472b7fcc11cb5881510fe5cae232ca0e662e79d3cb2e4a39b7bb908e35e02",
+    "denom": 1000,
+    "name": "TibetSwap LP ZOMBIE-XCH",
+    "code": "TIBET-ZOMBIE-XCH"
+  },
+  "VALG": {
+    "id": "8e97db7777b127a6a13b7ecb33206fd99d82fb59cb4fc456df93633ce00da4ec",
+    "denom": 1000,
+    "name": "Valentine Gold",
+    "code": "VALG"
+  },
+  "MELT": {
+    "name": "MELT",
+    "id": "216475ebcf59f28e0fb2f99f9a742a59f42e7906ccaff353e535aa83af3c83bb",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "7051e62d3dcd418cc89f4be15ed6e68c102640b90dbbe829419dc3139b9b73a5",
+    "tibet_pair_id": "00fda87c04221bd1210303182e3114cfb687c9733fbd4573933a744fd05098df",
+    "code": "MELT"
+  },
+  "GPC": {
+    "id": "048b1495819237bc5ef3dddf3872f3c2143771066530ea847302cc235c9b219f",
+    "denom": 1000,
+    "name": "Gigaparsec",
+    "code": "GPC"
+  },
+  "ACID": {
+    "name": "Acidium",
+    "id": "91154f2515698723f5f2f1a41f6ebd0a0b0ce87d3737a163f696d33655d91c8a",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "eee3acd94cf44f8c545f2c40f5b6254d6cd610f535c707ddf3a25ea51820d04c",
+    "tibet_pair_id": "1118ea2f723c387ce68f0fb65450ec819b63b864d395c1de4d610734fa8dfe68",
+    "code": "ACID"
+  },
+  "ALORE": {
+    "name": "Abandoned Land - Ore",
+    "id": "7d176bff0ac2e15fe6e5f57352e7c3a467b476a798dd38f30e39af7ef6cc52b4",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "545d961ea53b05dae7e3779ae06dc48aac050a8f80b8e9b1eb4629cb9d425f8e",
+    "tibet_pair_id": "e98513400623cdd03911fe1ed6b811f59217f1036b131f7fa3d4f9486926edc7",
+    "code": "ALORE"
+  },
+  "XMM8": {
+    "id": "ce3e3a641461be16571944ac597a179fa0ed75fbd0ed48ec1e45cdc8eb0943d7",
+    "denom": 1000,
+    "name": "Million Minus 8",
+    "code": "XMM8"
+  },
+  "TIBET-MWIF-XCH": {
+    "id": "59441bb99a2765cca75fcf435a017cfe942d3131f7f68abd344ed3d8b273d0e2",
+    "denom": 1000,
+    "name": "TibetSwap LP MWIF-XCH",
+    "code": "TIBET-MWIF-XCH"
+  },
+  "DATG": {
+    "id": "58d525df69cd72ec149266eae04ef7f57a6a9cce64bd42742242e31c8d6ea1c5",
+    "denom": 1000,
+    "name": "DAT GOLD",
+    "code": "DATG"
+  },
+  "FCBT": {
+    "id": "0b3dc46f825f7d0ce0f47879e6d39312a95da956e61446317ce5fe5af564442e",
+    "denom": 1000,
+    "name": "FCB Fan Token",
+    "code": "FCBT"
+  },
+  "TRTG": {
+    "id": "e0ed5a8e325a7dbadfefd760533afb37e89d17a3ffa05e681b1c4b897d5e86b7",
+    "denom": 1000,
+    "name": "Too Rich GOLD",
+    "code": "TRTG"
+  },
+  "DEVIL": {
+    "name": "DEVIL",
+    "id": "2444e71c79fcb69339cc4768445b9a14e85805bfcc09b0b05b7824e4706bc908",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "46fcff7c26a9a8ebb3fd201c8c473e84de0628c50b1277ac9fddb79fc92df4ef",
+    "tibet_pair_id": "fcf8ebedb9c5f0df4c269da86a1ff0a1492a84918c1776317a04dcda4c3bf40f",
+    "code": "DEVIL"
+  },
+  "SGPL": {
+    "id": "2135d12899cffd0085c49e1c1eb5296e35565bf66cfda1ef2df8d6a7ea08f4aa",
+    "denom": 1000,
+    "name": "Slip of GP Latinum",
+    "code": "SGPL"
+  },
+  "TIBET-CNS-XCH": {
+    "id": "3f30f8b50ae20a48e344ebb18e6cbb72bbed394f581fa9b1f973da5ae538383f",
+    "denom": 1000,
+    "name": "TibetSwap LP CNS-XCH",
+    "code": "TIBET-CNS-XCH"
+  },
+  "TIBET-BNNCN-XCH": {
+    "id": "d67bc228bf7a0b910af43b12102637bb0364bd8601daf2028ae2565a5348769a",
+    "denom": 1000,
+    "name": "TibetSwap LP BNNCN-XCH",
+    "code": "TIBET-BNNCN-XCH"
+  },
+  "NIOT": {
+    "id": "89f3f718cd4077f1685f338974ec7ee7850444d4e2fb9b5c4dcf02e40e12663f",
+    "denom": 1000,
+    "name": "NioMint",
+    "code": "NIOT"
+  },
+  "TY": {
+    "name": "THANK YOU",
+    "id": "730a00819224b961ae0fb9a639a93e5d668a4d66dca40d6b3671b694169764ea",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "819740b6134ecfbbd75f59fbf394040c9acc5ad415ea3bbb2edb9c36a8b5a31e",
+    "tibet_pair_id": "9ded7ca25f26623053b44934b562aef956c86328060dba5be9b932f6a2112107",
+    "code": "TY"
+  },
+  "ECO.29.2022": {
+    "id": "9d9264c542c2a3108c7b8f74cad82b60dcbb6e50b328e9cdbaa7acb468a5707f",
+    "denom": 1000,
+    "name": "Smallholder Reforestation Project 2022",
+    "code": "ECO.29.2022"
+  },
+  "CF3": {
+    "id": "1db8e4e1d9c7493b880df398444f8c6d4bd976e6de3c1f74181dd071a9e2d498",
+    "denom": 1000,
+    "name": "Cassandre Fairies Club",
+    "code": "CF3"
+  },
+  "C1MT": {
+    "id": "b3867458a6af107794a09b6083e3f0f05fbece0adae328f4df9ade53a60ca1b3",
+    "denom": 1000,
+    "name": "CAT1 Memorial Token",
+    "code": "C1MT"
+  },
+  "DIAS": {
+    "id": "209fd79450d51856eaa980af5d14bbc0d4312e692817f6c014820733d5902ba7",
+    "denom": 1000,
+    "name": "Farmer Diamonds",
+    "code": "DIAS"
+  },
+  "HELP": {
+    "id": "3857a99b531acdebca632c48111d811bafde58b093658efbf1a9d8e09521926d",
+    "denom": 1000,
+    "name": "Help Ukraine NFT 2.0",
+    "code": "HELP"
+  },
+  "TIBET-🌱-XCH": {
+    "name": "TibetSwap LP 🌱-XCH",
+    "id": "f3132ae74e11ffda309b22a204b7f106425420885ad812facda7b908d3a7bbf4",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "db45c586aa57f72023e1755f9ed84ae5628de27cdcf7f1b0a4a5238bf603f120",
+    "tibet_pair_id": "744ff7d69cb09fdd9b879d62424375c23f1292f30c6140e001a73ab1b8e58045",
+    "code": "TIBET-🌱-XCH"
+  },
+  "TIBET-CHEEZE-XCH": {
+    "id": "ce80d0a2d478cbc090cbe82460315d0eabfae610a15035ea055d93d7a9dbabaa",
+    "denom": 1000,
+    "name": "TibetSwap LP CHEEZE-XCH",
+    "code": "TIBET-CHEEZE-XCH"
+  },
+  "TIBET-TY-XCH": {
+    "id": "819740b6134ecfbbd75f59fbf394040c9acc5ad415ea3bbb2edb9c36a8b5a31e",
+    "denom": 1000,
+    "name": "TibetSwap LP TY-XCH",
+    "code": "TIBET-TY-XCH"
+  },
+  "BEARD": {
+    "id": "319ad6d73f87f62f446765b03c55af860e2c3dcac9105a78532038f4056a9160",
+    "denom": 1000,
+    "name": "YELLOWBEARD",
+    "code": "BEARD"
+  },
+  "TIBET-KING-XCH": {
+    "id": "de85d93ed91d70a0327a793cfd8c155090a3c126ac78bde0e64909a890084b5e",
+    "denom": 1000,
+    "name": "TibetSwap LP KING-XCH",
+    "code": "TIBET-KING-XCH"
+  },
+  "EVG04": {
+    "id": "afc15038e0bc7226c4ebd37f7dd642f5d6a8f3f27075b70877273e126ec6939f",
+    "denom": 1000,
+    "name": "Batch 4 Token",
+    "code": "EVG04"
+  },
+  "AIR": {
+    "id": "824c71e37ac660006e03f7884561e7a124d930460ae1506a9c234c06ebc6aa1d",
+    "denom": 1000,
+    "name": "AIR",
+    "code": "AIR"
+  },
+  "CHNN": {
+    "name": "Chianon",
+    "id": "38e3d82b22b52258232d77a4d9a62a526200cb2c721d31e8738c93a0abec03c3",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "7f83b8c04aa42aac4c00c6cec630a7753763a5dbb3f22619994316ae96c736d4",
+    "tibet_pair_id": "d00fa82122f53d3c9a0c151865eeab424aa40bdb741d3a98a9dc1a0d5b3a72ec",
+    "code": "CHNN"
+  },
+  "TIBET-MPNY-XCH": {
+    "id": "54f4bf70c2219965982b9bcea4184285415353e9844167625ce08161e07f3068",
+    "denom": 1000,
+    "name": "TibetSwap LP MPNY-XCH",
+    "code": "TIBET-MPNY-XCH"
+  },
+  "MMW": {
+    "name": "MegaMeow",
+    "id": "f090423b386cad6d7d64376397a5503026dc63ea164349c9998b5e3734ea2dce",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ae158989c0837aff20afd03a21143eb2ca51c09570dec90d7844e5d76a88b339",
+    "tibet_pair_id": "d3c8f8ca7935aeaa0a55bd43d0285fa98b1bab9c47988db1f641be2092f7950f",
+    "code": "MMW"
+  },
+  "DCH": {
+    "id": "51ef89a35fa316c0f2747696b2483c9203da3155b603ea3f194640ada374907f",
+    "denom": 1000,
+    "name": "farmingDCH",
+    "code": "DCH"
+  },
+  "TIBET-NGDPLT-XCH": {
+    "id": "607fb74ee321225d42da8896c95764ff37103300fee3c0607edc5efa5d5245ba",
+    "denom": 1000,
+    "name": "TibetSwap LP NGDPLT-XCH",
+    "code": "TIBET-NGDPLT-XCH"
+  },
+  "SILVER💫": {
+    "id": "6733f1b8d4ff22e5634accb40c0981d8c3cc14506ab4a935d3980be0ec2f0d5c",
+    "denom": 1000,
+    "name": "Silver",
+    "code": "SILVER💫"
+  },
+  "CNS": {
+    "name": "Chia Name Service",
+    "id": "ba36df73e5f4ddd5c298bba7030678ebc1bbc5d4431663cffd0747099f81d8bb",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "3f30f8b50ae20a48e344ebb18e6cbb72bbed394f581fa9b1f973da5ae538383f",
+    "tibet_pair_id": "214c25f59652d9d79c5adcde47edcfb06c1ffb9e010984d2744cbf5fbfa4a0e3",
+    "code": "CNS"
+  },
+  "OEN": {
+    "name": "OENOMAUS",
+    "id": "92f9457654ca2808440587c3347ac923f8e41c05764b45da3454b210ce4268b7",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "df33004689a08608af3c8dfee1c6b8c80f3c0a60688e80547fe6d378e3547914",
+    "tibet_pair_id": "81cc5cabda2f1bec1ee8e2f6d74e5109d4153997541a2ff8dbf3497ec933842c",
+    "code": "OEN"
+  },
+  "TIBET-BEAR-XCH": {
+    "id": "8e2cc7adf5e2096fb76dbb15ec399539bdd5affa86a8690037708efae5dac68e",
+    "denom": 1000,
+    "name": "TibetSwap LP BEAR-XCH",
+    "code": "TIBET-BEAR-XCH"
+  },
+  "TIBET-🌳-XCH": {
+    "id": "b31aaec8f44a46c72980527d53fe7c560a9c07e17480dc32cd4c2d4428d3eeb6",
+    "denom": 1000,
+    "name": "TibetSwap LP 🌳-XCH",
+    "code": "TIBET-🌳-XCH"
+  },
+  "SBF": {
+    "name": "Spaceballs: The Flamethrower",
+    "id": "9f81bc1e1fbdc4027a08ef19923f3835c87311b70e897968c72fd20b2cc266b9",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "e4546d755d65e22ad430d8183f08370e4f51c7e2bc9a6ddd9c147a6074e56ac7",
+    "tibet_pair_id": "2a12a0d03370b4882e0393b210829c627cd608bdc75be96c2bd902552760cb12",
+    "code": "SBF"
+  },
+  "TIBET-MIO-XCH": {
+    "id": "71765f6ad4747e8fc7349411ff887c5d5abcc17a537f723fc3a296062b043996",
+    "denom": 1000,
+    "name": "TibetSwap LP MIO-XCH",
+    "code": "TIBET-MIO-XCH"
+  },
+  "TIBET-AZZ-XCH": {
+    "id": "c0ae895b3a9ee28403efc1754e4e7e4f539a71082bb0237762ef0b75fa9df7b0",
+    "denom": 1000,
+    "name": "TibetSwap LP AZZ-XCH",
+    "code": "TIBET-AZZ-XCH"
+  },
+  "KBX": {
+    "name": "K Bucks",
+    "id": "bc70aaacf4d807677b2c5933792eb626d22c4aed1f0ef3f2df7d5b35a6720230",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "609f36bfa050bd1d387a8c5acb236bb65563c991533ab29c93b5d4cbfa17be44",
+    "tibet_pair_id": "14aa13e7a9920bb2a8f090754d1f8345f4241f3570e1d0664bfa8637cd37207a",
+    "code": "KBX"
+  },
+  "TIBET-🍪-XCH": {
+    "id": "7e882e3eb390635ab660c452747c9a352f991ac066b071d02f889974047e8499",
+    "denom": 1000,
+    "name": "TibetSwap LP 🍪-XCH",
+    "code": "TIBET-🍪-XCH"
+  },
+  "TIBET-TIBET-PEPE-XCH-XCH": {
+    "id": "08ea9e7a0f7a57fe617a03404f2912b1ba073ea4ebb7789a57ba1c2bf42d5486",
+    "denom": 1000,
+    "name": "TibetSwap LP TIBET-PEPE-XCH-XCH",
+    "code": "TIBET-TIBET-PEPE-XCH-XCH"
+  },
+  "CECT": {
+    "id": "407002a9b1c3917b1d3d0cc79f622c22a9b91fa56990cbee56af6384fca2fd46",
+    "denom": 1000,
+    "name": "Counter-Economics Capital Token",
+    "code": "CECT"
+  },
+  "TIBET-MMW-XCH": {
+    "id": "ae158989c0837aff20afd03a21143eb2ca51c09570dec90d7844e5d76a88b339",
+    "denom": 1000,
+    "name": "TibetSwap LP MMW-XCH",
+    "code": "TIBET-MMW-XCH"
+  },
+  "TIBET-ANGEL-XCH": {
+    "id": "9870e1db85db9b03fc64272ad5b402b92c61a3ed3a72f046666da4355ebdb8f9",
+    "denom": 1000,
+    "name": "TibetSwap LP ANGEL-XCH",
+    "code": "TIBET-ANGEL-XCH"
+  },
+  "TIBET-DPLY4-XCH": {
+    "id": "ed687a33542ecc3262d366b3ecace6ec5ef91ab2e127464e374475b9a1e75353",
+    "denom": 1000,
+    "name": "TibetSwap LP DPLY4-XCH",
+    "code": "TIBET-DPLY4-XCH"
+  },
+  "MOJO": {
+    "name": "DBC Art Coin",
+    "id": "dbc10b12861b0ba902bb14a8feeb75df6bf014a0ef14716d6242b9ada3a34de3",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "56de7231a70a27e3137b4362214d0037d1817ff075be604be63238382b1935d1",
+    "tibet_pair_id": "132511cfb1854ee199a678667cc1df5fa9e573d2b5af430d060ecfc125241dcc",
+    "code": "MOJO"
+  },
+  "TIBET-INCL1-XCH": {
+    "name": "TibetSwap LP INCL1-XCH",
+    "id": "2ed7adfeeb594cd115ab0d50d25b06c7ff5aeefded58af336aa910a63846e714",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "a05880b37d4a1e5152e6398f4d66e91757924aeab13435143e747a1e6edd00dd",
+    "tibet_pair_id": "37ac943a894a4fb2c32ca252080808fa9c7bdc9c755d7a975958b97f84c91d5f",
+    "code": "TIBET-INCL1-XCH"
+  },
+  "LBSS": {
+    "name": "LAMBOSS COIN",
+    "id": "cf62db954959f58f6db511e928d8c23cd7561676023bbbdbd790bfc7b7626b0f",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "da13224bb2805034b192fd79b29f925087d1beef87fbfa3515978d0812542dc8",
+    "tibet_pair_id": "31274611d2e7eb731f701f865b83985ef5be6032dce8122261ba6ed10f546a02",
+    "code": "LBSS"
+  },
+  "TIBET-XPIG-XCH": {
+    "id": "e21dcf058e8f1d8b2bd145c6f4891b9b16967384acd1af0c76b110cf02372f81",
+    "denom": 1000,
+    "name": "TibetSwap LP XPIG-XCH",
+    "code": "TIBET-XPIG-XCH"
+  },
+  "FAITH": {
+    "id": "699ed0a27560ce47130c906f3ce8ffaf9b7009637446d04c21220bef615622bc",
+    "denom": 1000,
+    "name": "Faith",
+    "code": "FAITH"
+  },
+  "TIBET-NKDE-XCH": {
+    "id": "eb46a60914727af0ff616a6d8e1db1fe73daa2ff6c4261287c9170bd495408a4",
+    "denom": 1000,
+    "name": "TibetSwap LP NKDE-XCH",
+    "code": "TIBET-NKDE-XCH"
+  },
+  "TIBET-💨-XCH": {
+    "id": "0d3cdcf5e7a1a8c240e55f43e709d9ac516f53daad470150f78f742919a68d72",
+    "denom": 1000,
+    "name": "TibetSwap LP 💨-XCH",
+    "code": "TIBET-💨-XCH"
+  },
+  "TIBET-ALFOOD-XCH": {
+    "id": "d1b161790df06e2339f9e1b7c550919731a0bc009fccbc87898ae12c494df652",
+    "denom": 1000,
+    "name": "TibetSwap LP ALFOOD-XCH",
+    "code": "TIBET-ALFOOD-XCH"
+  },
+  "SKULLY": {
+    "id": "265bd83e40da62ba95330c737be25245255c9b5a0c3102daa35c60ba01acfe06",
+    "denom": 1000,
+    "name": "Skully",
+    "code": "SKULLY"
+  },
+  "TIBET-$WLBF42-XCH": {
+    "id": "326d17b08162c32c5042496b00e7cdb760d84cad53a5aafd47acb28ab507158d",
+    "denom": 1000,
+    "name": "TibetSwap LP $WLBF42-XCH",
+    "code": "TIBET-$WLBF42-XCH"
+  },
+  "SCC": {
+    "id": "ed1594af7c0d4ba7685afbe328129481e885cb8adda3ef280f3f499e5015ced2",
+    "denom": 1000,
+    "name": "Seasons Club Coin",
+    "code": "SCC"
+  },
+  "GYATT": {
+    "id": "6188396ebb38365be3f7aad1d5c0310d1b6ce66180d8847e5da096e2ce33ba1a",
+    "denom": 1000,
+    "name": "GYATT",
+    "code": "GYATT"
+  },
+  "TIBET-OXC-XCH": {
+    "id": "1ea65224cb4d464424c297a6a8a68768f6f2512b9130c2397cd9f9e27e23a354",
+    "denom": 1000,
+    "name": "TibetSwap LP OXC-XCH",
+    "code": "TIBET-OXC-XCH"
+  },
+  "KINGBEAR": {
+    "name": "KINGBEAR",
+    "id": "6c0af0c08407cb16da6f7021b6e6c1ab49dddc641645a2c28d178e896ec5379e",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "de85d93ed91d70a0327a793cfd8c155090a3c126ac78bde0e64909a890084b5e",
+    "tibet_pair_id": "e38f991238cd8489499c613517e63479d62085c8a01ce499958dfe45fa216b14",
+    "code": "KINGBEAR"
+  },
+  "MRMT": {
+    "name": "Marmot Coin",
+    "id": "8ebf855de6eb146db5602f0456d2f0cbe750d57f821b6f91a8592ee9f1d4cf31",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "0b6e3a7edf997d69d15bab7627855d09b2dababdf92552b843002ca873b8f497",
+    "tibet_pair_id": "d0db528d64e9442e189bf80cd24f71b3b01e802a7dbac17ed2330da474f82592",
+    "code": "MRMT"
+  },
+  "SNAP": {
+    "name": "Seedsnapp",
+    "id": "c85c0d96a746965f16f41a2ef83283d4a526ad2387198d977e03568e2a3a4ce0",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8baae48bf827d4fc7412565b1055c2ffb3daaa90374d5c1c04b05d435e4ff765",
+    "tibet_pair_id": "5a97f14a968c1fd455b04d54c4699d56246a6e800bab6594ad1f9a053180cc30",
+    "code": "SNAP"
+  },
+  "XEG": {
+    "name": "XEG Green Token",
+    "id": "8b82932596d543ee08fe3945a9a436879d7f5051bcfed08e28f4048cb4cc5a07",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "1129f39816dc92bd225cd7eba883f07bb35ecdc639ecfc07bf4db7e58c8cfbb1",
+    "tibet_pair_id": "034badfa28b7d27048b7db3c2c3a78f7740915080522e8559f34c3265f0f0295",
+    "code": "XEG"
+  },
+  "BUNCH": {
+    "name": "APULIA GRAPES",
+    "id": "d332339b36c8ddd329a5e471a279c4f689395723c8d73ae81537fae5937184fd",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "7119038b7d7fc1e5f042fc82d44363b12f3c460229d6e361290bbe1e78115e67",
+    "tibet_pair_id": "b07712c9c0f3bffbea2552f0c6f1606d959cc59fc53ec9fc46b05aa479488d84",
+    "code": "BUNCH"
+  },
+  "OLUT": {
+    "id": "1d0d63d3f3384605cb22866a48b7a855938572c5ef02fdbe2f14210ee4c03e0e",
+    "denom": 1000,
+    "name": "Kaljaviikko",
+    "code": "OLUT"
+  },
+  "XL20": {
+    "id": "1959758d650caff790f6e8b430aed7cd3854a93875c293dbc7cc9ee4841d3f50",
+    "denom": 1000,
+    "name": "Chialing Twenties",
+    "code": "XL20"
+  },
+  "TIBET-🔥-XCH": {
+    "id": "48752d01d52f5f49f5709f92a2630b83ef766d43175be89c198ffc7d3b6018fe",
+    "denom": 1000,
+    "name": "TibetSwap LP 🔥-XCH",
+    "code": "TIBET-🔥-XCH"
+  },
+  "TIBET-DEGEN-XCH": {
+    "id": "0f3acd842a1723d67f382a2e59875f2c1a45f86b6a3d5b7fb1682f1b8410b123",
+    "denom": 1000,
+    "name": "TibetSwap LP DEGEN-XCH",
+    "code": "TIBET-DEGEN-XCH"
+  },
+  "TIBET-ETHSC-XCH": {
+    "id": "265df5ddcd033ee3aa4c9fd29b99056175382d73a5618237ca9e08ace4b67313",
+    "denom": 1000,
+    "name": "TibetSwap LP ETHSC-XCH",
+    "code": "TIBET-ETHSC-XCH"
+  },
+  "TIBET-O2-XCH": {
+    "id": "e0c16fb43426c722904575b96bc68d2f98e315a108058d08864ef812a92a1041",
+    "denom": 1000,
+    "name": "TibetSwap LP O2-XCH",
+    "code": "TIBET-O2-XCH"
+  },
+  "CAPES": {
+    "name": "APES IN CHIA",
+    "id": "21ab5244a2732e01ebc0491e1cee8e0d9dc203dd63ac73ca6e523d6138e12f18",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "58895ce446f35c806bd15b2b32698f1172fc24783cb07cccdcd4ca2f83320ba3",
+    "tibet_pair_id": "df8cb01686a15090c7599f82e85d88df6795a5b2e162b2f1e31f395633ab8547",
+    "code": "CAPES"
+  },
+  "Pep3D": {
+    "id": "55a944c8cdf92d08df244af84fd334e7d2730264b88a406ce6f03f977e6d76b6",
+    "denom": 1000,
+    "name": "PEPE NFT 3D claim",
+    "code": "Pep3D"
+  },
+  "HOCK$": {
+    "name": "Hockey sticks",
+    "id": "d728cba6b5c5d5aeea91019803c6156722a91d79d3e945c74fc0d29a98379c02",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "731e60929c0afe235213ea2f9961ba02f518c0f84f6d1892eb55714851ac2fbc",
+    "tibet_pair_id": "1ffbd6ca2b7c21e9422e9bd2556065dbb0df9815a0f325b2568fdae6fde9cc13",
+    "code": "HOCK$"
+  },
+  "L33T": {
+    "id": "4ac791e72592ec2ed05a2ae871efb30e277ca10ce63ce2f07ef94c7a413095e7",
+    "denom": 1000,
+    "name": "L33T Coin",
+    "code": "L33T"
+  },
+  "KUT": {
+    "name": "KUT Token",
+    "id": "6c7b32f8f725ca4138ea1a6c3330184d3fd8a8c319946cedd4df18c848565284",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "3ffa2b25c2b646a0ffc4eb345402ae158eb78c7e1d855f76a6538a33bc61b7ef",
+    "tibet_pair_id": "9bdc11e11f5bf7af5f8c813c9dcb5e3482091105213c5989dac1af217cbacf01",
+    "code": "KUT"
+  },
+  "TIBET-BUNCH-XCH": {
+    "id": "7119038b7d7fc1e5f042fc82d44363b12f3c460229d6e361290bbe1e78115e67",
+    "denom": 1000,
+    "name": "TibetSwap LP BUNCH-XCH",
+    "code": "TIBET-BUNCH-XCH"
+  },
+  "BBT": {
+    "name": "Big Brain Token",
+    "id": "9e04d998a90bca05bdbc301548c83104d79256f1b00bb2542104e6c6c37f2421",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "c62e20ed883b79d852cba3da7bbff06542101f8b7888c3aa47ca52439fb55a79",
+    "tibet_pair_id": "636a5be72b9974d28393fbff1249e28dcdfb86b0bb92456fdd8f66101508d396",
+    "code": "BBT"
+  },
+  "PFP": {
+    "name": "PFP",
+    "id": "9adcd7a519a70471960a3e5914d7c14735925683b0e7440ffd058bd0c41ea916",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "c7047a88e2f9700e4a322d69abf029208f182f7cc08a9e246121289c6f8f6391",
+    "tibet_pair_id": "56817c6bfd37a0600942879b4f9709fc1f35aa04d209b4a386448ba76a6a06d1",
+    "code": "PFP"
+  },
+  "TIBET-wUSDT-XCH": {
+    "id": "f79205d06f40dc66cb04bf9369c31a307d70e2fab5a39e4fdce6e475ab33b575",
+    "denom": 1000,
+    "name": "TibetSwap LP wUSDT-XCH",
+    "code": "TIBET-wUSDT-XCH"
+  },
+  "TIBET-CMA-XCH": {
+    "id": "36e61f3bac9b6240ce12164acec40b7321147eb780d5c9db420def9a67713d20",
+    "denom": 1000,
+    "name": "TibetSwap LP CMA-XCH",
+    "code": "TIBET-CMA-XCH"
+  },
+  "CH21": {
+    "name": "Chia Holiday 2021",
+    "id": "509deafe3cd8bbfbb9ccce1d930e3d7b57b40c964fa33379b18d628175eb7a8f",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "3a90944e478d6bcc3d45bb5ce8b9f1edbdf1d2fb6f1106466f650a5bc22632f4",
+    "tibet_pair_id": "3bc8a62cb5d05190e4aa8d3ea738f639259402f356a99c6521011063d100580b",
+    "code": "CH21"
+  },
+  "GOT": {
+    "name": "GOT Token",
+    "id": "2f3a28ba03734b65797df5d5ff0e253606e7fea2e2ee341c39e9a405bce68aa8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8c7becf84cdb78965fced1a911ebf2d489580e94c1db842674846fe1fb2e7551",
+    "tibet_pair_id": "79d18d5e5725f397a5b025870f24b235131534e274e6183694c4548f4bb98fcf",
+    "code": "GOT"
+  },
+  "GOAT": {
+    "name": "Goat Coin",
+    "id": "01ac0cb37e80075dd028e2ceb433a79a5eb62649d5fbfd2e94650e33fa7d1cff",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "b6f058290720ce1d84384e7b5ae5165c3b355cb2bd1b5ac0772f1956d726cd29",
+    "tibet_pair_id": "e164ff2726d99e3f3adbd13badf18b9192f8d5c2611a0cf1b52edb2f0e54fc4b",
+    "code": "GOAT"
+  },
+  "TIBET-LBSS-XCH": {
+    "id": "da13224bb2805034b192fd79b29f925087d1beef87fbfa3515978d0812542dc8",
+    "denom": 1000,
+    "name": "TibetSwap LP LBSS-XCH",
+    "code": "TIBET-LBSS-XCH"
+  },
+  "ECO.29.2021": {
+    "id": "5af8db0b15e0de99ad1eff02486bb1998602053c56dfb22dc04e0f5e17ccec8d",
+    "denom": 1000,
+    "name": "Smallholder Reforestation Project 2021",
+    "code": "ECO.29.2021"
+  },
+  "💨": {
+    "name": "AirCoin",
+    "id": "34b14863f51635a20b0f4ef2b1d85280e11552498f79bd74facdca1865a58935",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "0d3cdcf5e7a1a8c240e55f43e709d9ac516f53daad470150f78f742919a68d72",
+    "tibet_pair_id": "544b5d8ca34804aa3d8790dbb9d5945b7cd8cc00f2aa64e4916bb8add690bdf1",
+    "code": "💨"
+  },
+  "EVG06": {
+    "id": "aa5a61d556dac32483a18564d45a8a1a34d7851ea098ad1f5be517e428edd7e9",
+    "denom": 1000,
+    "name": "Batch 6 Token",
+    "code": "EVG06"
+  },
+  "BNNCN": {
+    "name": "BananaCoin",
+    "id": "c03eb501e5e9eef952f000c419eeb746fcd9ad23140309e011988375e68ed9ed",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "d67bc228bf7a0b910af43b12102637bb0364bd8601daf2028ae2565a5348769a",
+    "tibet_pair_id": "125422e4f150477f50b026ce8ed0431c2a09082cd85c83540deb1823b54ddc28",
+    "code": "BNNCN"
+  },
+  "BRICK": {
+    "id": "aa3038a70653b03929fa9af938124e04954a1e10ec1d924f968e94dd6b215987",
+    "denom": 1000,
+    "name": "BRICKs",
+    "code": "BRICK"
+  },
+  "TIBET-tremp-XCH": {
+    "id": "895593f0b575975cb15e092e5a06249286a6f8263e0edbf9f4f5bf8ce1709eac",
+    "denom": 1000,
+    "name": "TibetSwap LP tremp-XCH",
+    "code": "TIBET-tremp-XCH"
+  },
+  "()": {
+    "id": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+    "denom": 1000,
+    "name": "()",
+    "code": "()"
+  },
+  "DBL": {
+    "id": "4965fb881379c5d30694e4a6df586295fbee66cb04af352f34c7ab2c19300412",
+    "denom": 1000,
+    "name": "Did BallDog learn to create CAT?",
+    "code": "DBL"
+  },
+  "ALGOLD": {
+    "name": "Abandoned Land - Gold",
+    "id": "446f5c3532929f71fa82f1c65f7e93170dcfbf8d59baf82a81b6f8e8f85e8a5c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "0246bb1c84fa6f64d6684f8ffaeb54b67796dad12dcb5a47d590d333f5a430a8",
+    "tibet_pair_id": "1506ea80d7ea74ce4bba7ff0397b61e11e13ed54195c30ebac14a7c3a2aa29d5",
+    "code": "ALGOLD"
+  },
+  "BYTE": {
+    "id": "69776ba48bada66d8be4a4dd97290e73197fe20f1cfb294429be5304bd3527ed",
+    "denom": 1000,
+    "name": "XCHDOG",
+    "code": "BYTE"
+  },
+  "TIBET-MOJO-XCH": {
+    "id": "56de7231a70a27e3137b4362214d0037d1817ff075be604be63238382b1935d1",
+    "denom": 1000,
+    "name": "TibetSwap LP MOJO-XCH",
+    "code": "TIBET-MOJO-XCH"
+  },
+  "CLN": {
+    "name": "Chia Lotto Nft",
+    "id": "2655201e2fdc84fc08ef19e4d6b971110d750a9dadac1359d4ee4d44ddf7c51f",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "e448ef666aced6dd9ffaa8a8a033bc4e810e42ec1fce1f52bc665fbe678cba7c",
+    "tibet_pair_id": "67a3ba39df6ffba7e9668bf0371dd6f400bd69c1edef449c77f8b26596e60401",
+    "code": "CLN"
+  },
+  "BEAR": {
+    "name": "BEAR",
+    "id": "7f147901d20472fab470543c5eae51309ee54d4aecfa186f7366e2676141e139",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8e2cc7adf5e2096fb76dbb15ec399539bdd5affa86a8690037708efae5dac68e",
+    "tibet_pair_id": "45646ca611c3fdf18000b6aeb50e55f4f0c3c54e9b441e451cb508fc27baebc9",
+    "code": "BEAR"
+  },
+  "TIBET-BEATS-XCH": {
+    "id": "6dd9ddbdc0f7ff9510177e49ff2407593faf5618eb4381feafd451a00965c6d1",
+    "denom": 1000,
+    "name": "TibetSwap LP BEATS-XCH",
+    "code": "TIBET-BEATS-XCH"
+  },
+  "CBDS": {
+    "id": "87492d7499e9f5a884c9c7a5db21c05a5644b7f53208a1bd8916dce056b9ec16",
+    "denom": 1000,
+    "name": "Cash Basic Defence Self",
+    "code": "CBDS"
+  },
+  "🍕": {
+    "name": "PIZZA 🍕",
+    "id": "dd37f678dda586fad9b1daeae1f7c5c137ffa6d947e1ed5c7b4f3c430da80638",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "579cf1f31744b34b18cf4b917e74c890871c9a6aac4308ed269254610f46c2f8",
+    "tibet_pair_id": "0282c2409860555f9754436aaef893d0e7e25b5bb2926ca38e7b629301ab9a3a",
+    "code": "🍕"
+  },
+  "BBC": {
+    "id": "ee00d3ccaac92cc0285c51fd63cd7b867117c69ed7a0d6a41b093633756d5c68",
+    "denom": 1000,
+    "name": "BoBo Coin",
+    "code": "BBC"
+  },
+  "TIBET-$DUMB-XCH": {
+    "id": "31a5a5f1947979ebe64b5c742e368c0b79c442d3d331db6abad97986ab86200a",
+    "denom": 1000,
+    "name": "TibetSwap LP $DUMB-XCH",
+    "code": "TIBET-$DUMB-XCH"
+  },
+  "TIBET-HDT-XCH": {
+    "id": "e899dd146ce95e51ada8967d03e087746b2ce0859614c77defbe1f08801a548a",
+    "denom": 1000,
+    "name": "TibetSwap LP HDT-XCH",
+    "code": "TIBET-HDT-XCH"
+  },
+  "TIBET-WTF2-XCH": {
+    "id": "dbec36ff11f1141598f5f9eabe3073cd2ddf13091f75b2f8079999e34166a16b",
+    "denom": 1000,
+    "name": "TibetSwap LP WTF2-XCH",
+    "code": "TIBET-WTF2-XCH"
+  },
+  "CKC": {
+    "id": "62ddc5ed7bb626baa27703c29b8523f9032292559463dade21d0f5265c8cdd37",
+    "denom": 1000,
+    "name": "CAT King Cole",
+    "code": "CKC"
+  },
+  "TIBET-DXT-XCH": {
+    "id": "4752c19d391044af2ec88f6997ee60539ec2ac28ae044d85c6c3121ef125c475",
+    "denom": 1000,
+    "name": "TibetSwap LP DXT-XCH",
+    "code": "TIBET-DXT-XCH"
+  },
+  "TIBET-XIPM-XCH": {
+    "id": "d44a36523c9163452968d7ce1d20b29a23085a4896aa0065a7fab979fe186cdc",
+    "denom": 1000,
+    "name": "TibetSwap LP XIPM-XCH",
+    "code": "TIBET-XIPM-XCH"
+  },
+  "NIO5": {
+    "id": "d7f5081c76d58c3ccf42566bf15b960784f1a686468c58eedd3fa764ef0ada45",
+    "denom": 1000,
+    "name": "NioStake5",
+    "code": "NIO5"
+  },
+  "NINJA": {
+    "name": "NINJA",
+    "id": "fe789863dd6ee42cd54f31a7ecb42dbb37554ccac0a9d03de5d67a534ddbe7af",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "3df660e538e935331a39a1c986ebda7111af06647ace0e9c345daba2b92ddf05",
+    "tibet_pair_id": "f18134d3aa28a16d2dc83f36b301db5279f5d1a6cacbb96306dd1ccf353da865",
+    "code": "NINJA"
+  },
+  "GMF": {
+    "id": "cfc6764d1c7fba23efbc79124b3f174682a1c854a803479496901ca35bcead6b",
+    "denom": 1000,
+    "name": "Good Morning Fuckers",
+    "code": "GMF"
+  },
+  "CAT6OR": {
+    "id": "1bc3bdfc30f47f01ca4ca55df8d135ed2b66ad24e8ddd2c114d40d47e5a5d02b",
+    "denom": 1000,
+    "name": "CATMOS Scissors",
+    "code": "CAT6OR"
+  },
+  "KATS": {
+    "id": "f9529c59c0cfba364671c927a60a23c3cab9dc5e2b1488ba0c7b858e99a8ae2a",
+    "denom": 1000,
+    "name": "KATS 2.0",
+    "code": "KATS"
+  },
+  "TIBET-PFP-XCH": {
+    "id": "c7047a88e2f9700e4a322d69abf029208f182f7cc08a9e246121289c6f8f6391",
+    "denom": 1000,
+    "name": "TibetSwap LP PFP-XCH",
+    "code": "TIBET-PFP-XCH"
+  },
+  "HBX": {
+    "id": "ebd153f3a00b159a0e251514866c86eafbb0e74a5304659f256a1517b7319573",
+    "denom": 1000,
+    "name": "Hardi Bux",
+    "code": "HBX"
+  },
+  "MPNY": {
+    "name": "MoneyPenny",
+    "id": "b4c8025254a1a6ffff1a05c9cb9d0521dd42f1efcb9e091ddd6b47d29150c8c3",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "54f4bf70c2219965982b9bcea4184285415353e9844167625ce08161e07f3068",
+    "tibet_pair_id": "bcbb54bcc93baa1c0f9c073a84a7a921c654a780e996837e086cfd8f207d76d9",
+    "code": "MPNY"
+  },
+  "BOBO": {
+    "id": "c65dceecf197da46fa92edd71d22b4bbbe27e52b86bdb3fc67e635aa75a7484e",
+    "denom": 1000,
+    "name": "bobo",
+    "code": "BOBO"
+  },
+  "WHUP": {
+    "name": "WHUP Token",
+    "id": "a4ad44551f7ba3f75851a4533e0e98d8d49aea7bf643180a6879245ce7fbd28c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "1231b8487b7501767b0a737dd849f80fa592dfc00a90c26c13003bf111ff7e16",
+    "tibet_pair_id": "64c150f45e3e78cb424f6266f037e6466d4d3cce1e59926b5425d53ddbc99d34",
+    "code": "WHUP"
+  },
+  "ETHS": {
+    "name": "Stably ETH ⚠️",
+    "id": "b023202719015e0065a5be9d61cbd06ea33eb27bc0f3b745980030fc57c5c396",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "265df5ddcd033ee3aa4c9fd29b99056175382d73a5618237ca9e08ace4b67313",
+    "tibet_pair_id": "5ebb6b576a68080212b9f14768438bf620ede4e0b30d4c85da8c62fe2e0b5887",
+    "code": "ETHS"
+  },
+  "TIBET-GWT-XCH": {
+    "id": "33b24e48d33ff65bdf5eb4e90780cb5510e9c132e57636d31a2b75f44255ac2e",
+    "denom": 1000,
+    "name": "TibetSwap LP GWT-XCH",
+    "code": "TIBET-GWT-XCH"
+  },
+  "KOAM": {
+    "id": "0389988a8c640c8e0006d0ad3d3055ecfb460d4c78fd9a917af8f3057e4043b0",
+    "denom": 1000,
+    "name": "King of All Mojos",
+    "code": "KOAM"
+  },
+  "CNI": {
+    "name": "CNI Stock",
+    "id": "db043fe4cd0f9f178e46774492c0969c7110ac355fcc580dd710c7fdf97881df",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ef5517b5ef4ccff1344d971f83551857a6cc3c8ab1a0044f17b5cc5e9c291d2b",
+    "tibet_pair_id": "6312207beff68bf2f18cb83ec784b846016235ba9d2db8183e017623d6e21d96",
+    "code": "CNI"
+  },
+  "BOTL2": {
+    "id": "05a6a22bd11c61a5dbfb0d1ab5ac4cfd23da775f594dabf7a04e901c9fcc728a",
+    "denom": 1000,
+    "name": "Makers Mead Bottle 2",
+    "code": "BOTL2"
+  },
+  "TIBET-DPLY3-XCH": {
+    "id": "5442e655253cf91adf96bda0a60f8b956c73234ab643275434112365cc261afb",
+    "denom": 1000,
+    "name": "TibetSwap LP DPLY3-XCH",
+    "code": "TIBET-DPLY3-XCH"
+  },
+  "LSD": {
+    "name": "Liquidity Supercharged Dollar",
+    "id": "f7f44a509faa1c354b8f78f1aef1b79bea31fc3c387ed36934039bc9de023054",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "57b6e11cc866845b9ded1d25fbd3c19cd934997b506635c4fe82087e111e791c",
+    "tibet_pair_id": "43eaa8e91669e3ec7bd5e4e462ee8922786da2bab5042723d553448e01b03828",
+    "code": "LSD"
+  },
+  "COOKIES": {
+    "name": "🍪",
+    "id": "370b11ffa9ed2934fbc4137be95053d4a97b7b65e850af3edc0b58f088a0059c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": [
+      "c8d663305435ad2ebaf8a13872d780e826cfb189a892ba1fcd8b3d5cab52e34d",
+      "7e882e3eb390635ab660c452747c9a352f991ac066b071d02f889974047e8499"
+    ],
+    "tibet_pair_id": [
+      "0d14c8271844e8ec84d8a2c5c7912369b1c2c22d1940c53a5c34e1aaf68ccb86",
+      "6c23b00fc90cdfee89703b48e4818a453a20a533175294b2cf610ff881769fee"
+    ],
+    "code": "COOKIES"
+  },
+  "SAO": {
+    "id": "9df8fc00cdd27b4951badb2662acc047a52c86617b2a1616a402770cc1c3c3eb",
+    "denom": 1000,
+    "name": "Shares DAO Governance",
+    "code": "SAO"
+  },
+  "XWOOL": {
+    "id": "769a1598eb4dbe931f7a9e98ebc8935130769b81131353d1f531ad79f5ecb6be",
+    "denom": 1000,
+    "name": "XWOOL",
+    "code": "XWOOL"
+  },
+  "RPRT": {
+    "id": "a48574f6ea4245c5e4a208576cc6b10b14a86d2b46618894fdf210c9d5bec950",
+    "denom": 1000,
+    "name": "Replicator Rations",
+    "code": "RPRT"
+  },
+  "DOGX": {
+    "id": "18cf38a8d4ebabc814b58e84163928ad39db6d3371d528f0a7a265eaac933b1e",
+    "denom": 1000,
+    "name": "Dogmatix",
+    "code": "DOGX"
+  },
+  "TIBET-CNI-XCH": {
+    "id": "ef5517b5ef4ccff1344d971f83551857a6cc3c8ab1a0044f17b5cc5e9c291d2b",
+    "denom": 1000,
+    "name": "TibetSwap LP CNI-XCH",
+    "code": "TIBET-CNI-XCH"
+  },
+  "TIBET-XCOW-XCH": {
+    "id": "a96b37350c890bfb16cafc3acd10e249a3424e7ca42510c8f92e0a9838665dd3",
+    "denom": 1000,
+    "name": "TibetSwap LP XCOW-XCH",
+    "code": "TIBET-XCOW-XCH"
+  },
+  "BBW": {
+    "id": "4e47b5051e02e20bcb42f4fdd0c0f036462df06c54c4fd539a35f411128facfc",
+    "denom": 1000,
+    "name": "Body Of Bram Wafer",
+    "code": "BBW"
+  },
+  "CRCH": {
+    "id": "abd03d855cb2c11bcb67427ad63480eec4c36091bd291018041cc1dce173a000",
+    "denom": 1000,
+    "name": "CrunchCoin",
+    "code": "CRCH"
+  },
+  "FLXG": {
+    "id": "4e34fb4247865a1a644c992a51340aa32f397f094cf1abd9663803ed4e172dfc",
+    "denom": 1000,
+    "name": "Felix Gold",
+    "code": "FLXG"
+  },
+  "TTT2": {
+    "name": "Tiny Tardigrade Token",
+    "id": "5de2b461a7257e1451bf1c331cbfc55945c39e02b2e540f05e596963c410003d",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "2e5181759cfee4399530b66d524d9b20a75415d0e1b6f056c2cebd7ec46cae34",
+    "tibet_pair_id": "553a07a252b92ba7d0b99a2d8f1fa8c8b19431bbe4aec7ffaad0307141ccf605",
+    "code": "TTT2"
+  },
+  "GPT": {
+    "id": "061cf8381b419c6ad6879e53b32d0d8c05855f2a43187fae3fcaf96def5a4247",
+    "denom": 1000,
+    "name": "Genesis Pickle Token",
+    "code": "GPT"
+  },
+  "XEGG": {
+    "id": "4c9c99becbb2b4de99e2faf7e1d79789f0b8d91e7986b18f5de73b5957a0c65b",
+    "denom": 1000,
+    "name": "XEGG",
+    "code": "XEGG"
+  },
+  "CATRCK": {
+    "id": "c012fb7c993e11075f7234066ac851b5434d7305ceda871629136dfaac4d54fe",
+    "denom": 1000,
+    "name": "CATMOS Rock",
+    "code": "CATRCK"
+  },
+  "CGC": {
+    "id": "ec70426aebe423192cf8d2b90d11f776785b62e351a1e743da6ec8b2e11e86c8",
+    "denom": 1000,
+    "name": "Ciger Coin",
+    "code": "CGC"
+  },
+  "ALWEAP": {
+    "name": "Abandoned Land - Weapon",
+    "id": "3c75c138fe2fc94c0bae3467e7ae5a457758cb058925424ec2eb327f6b231a18",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "2964aead53ded9f630682014520b6c2b674a963be8be1e8d252e8a432b7d6be0",
+    "tibet_pair_id": "bab33f3f64adb5f0096a613c11885a25c0e7f6326101bb2a96fffb3acc60689c",
+    "code": "ALWEAP"
+  },
+  "HEJI": {
+    "id": "ca17ac895f0b560b1bd0db6f794afb98c29a2cfe5c421a7370ea01b664e0416b",
+    "denom": 1000,
+    "name": "Hedgie Token",
+    "code": "HEJI"
+  },
+  "CIC": {
+    "name": "City Illusion Coin",
+    "id": "0ed71c399419b16df76ae7cde9fa257f1dbf845bef462b7f9ea6de8d181cdf97",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8f282ef9b7486ed68a4e5e5cf40627a2b6f6cdfd69a18898f73dec52e416c9b5",
+    "tibet_pair_id": "f19bd24d0d58f25ced16adcb50d295cb26d7343594dbe61711da553b9d052920",
+    "code": "CIC"
+  },
+  "TIBET-wmilliETH.b-XCH": {
+    "id": "75832d4f278b27f9e0f2d52d21e653b00ae9aa143db53f585e3a08f987c73e99",
+    "denom": 1000,
+    "name": "TibetSwap LP wmilliETH.b-XCH",
+    "code": "TIBET-wmilliETH.b-XCH"
+  },
+  "TIBET-PP-XCH": {
+    "id": "0b0eb96bbba2e53d612ad2c7406b7107f3de71105bec00bc3a4457bf9a587b0d",
+    "denom": 1000,
+    "name": "TibetSwap LP PP-XCH",
+    "code": "TIBET-PP-XCH"
+  },
+  "WEB": {
+    "id": "44479960c96118f7f83d247822a0c9916198ff7256130a7c451cb6549daf9820",
+    "denom": 1000,
+    "name": "Web3.0",
+    "code": "WEB"
+  },
+  "RAS": {
+    "id": "3555671ab090827d983a61fe0b448a66916d122528cb6e5220dba2a115e178b4",
+    "denom": 1000,
+    "name": "Rumble Ape Squad",
+    "code": "RAS"
+  },
+  "OKR1": {
+    "id": "a32cc6a45b5ade539d96b68d6323691d4437d9a951b8cce8211ae07b904af0e7",
+    "denom": 1000,
+    "name": "Okra Folk",
+    "code": "OKR1"
+  },
+  "FTK": {
+    "id": "34f64cf041a182635d467ecb24348993317fae4371ecadba35397431308c6254",
+    "denom": 1000,
+    "name": "Find The Key",
+    "code": "FTK"
+  },
+  "BDOG": {
+    "name": "BallDog",
+    "id": "efd85235c35cda41c7d58fe0ffed4c54048540d130fe8e6cd645ec5b2aebb9f8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "540c7e9bc1dd360d2f06f2269299bbbd3ba7692de766423cdff9b870edc44a05",
+    "tibet_pair_id": "3112b34bff30d1994bcf936c9cb75bc28914707a9828bffab595633d8645e934",
+    "code": "BDOG"
+  },
+  "TAILS": {
+    "id": "e014d6ad9e56181aace636b348721aee6af8a37504de8aaab6efb3aee506afc2",
+    "denom": 1000,
+    "name": "Wasteland Tails",
+    "code": "TAILS"
+  },
+  "TIBET-HOCK$-XCH": {
+    "id": "731e60929c0afe235213ea2f9961ba02f518c0f84f6d1892eb55714851ac2fbc",
+    "denom": 1000,
+    "name": "TibetSwap LP HOCK$-XCH",
+    "code": "TIBET-HOCK$-XCH"
+  },
+  "TIBET-ALORE-XCH": {
+    "id": "545d961ea53b05dae7e3779ae06dc48aac050a8f80b8e9b1eb4629cb9d425f8e",
+    "denom": 1000,
+    "name": "TibetSwap LP ALORE-XCH",
+    "code": "TIBET-ALORE-XCH"
+  },
+  "ZIG": {
+    "name": "Ziggy",
+    "id": "c695c50f19e13b0fa1b07a1513a1d1cc39fb64da31eb1ed513addc1636fcb64e",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "18b3cee443eadc1bd72ca0486ade9113a066c008348bec6cd8a5008f7e4d434b",
+    "tibet_pair_id": "5ab85d3762711394cca6b8dc518375feb2e496fda35f07cf9d4b667b779b7965",
+    "code": "ZIG"
+  },
+  "TIBET-WHUP-XCH": {
+    "id": "1231b8487b7501767b0a737dd849f80fa592dfc00a90c26c13003bf111ff7e16",
+    "denom": 1000,
+    "name": "TibetSwap LP WHUP-XCH",
+    "code": "TIBET-WHUP-XCH"
+  },
+  "MWIF": {
+    "name": "Marmot Wif Hat",
+    "id": "e233f9c0ebc092f083aaacf6295402ed0a0bb1f9acb1b56500d8a4f5a5e4c957",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "59441bb99a2765cca75fcf435a017cfe942d3131f7f68abd344ed3d8b273d0e2",
+    "tibet_pair_id": "24589c2b3315ebc0b1cad0e3ad7ffb0407de1f4e534fe21cb531de517766ed00",
+    "code": "MWIF"
+  },
+  "TIBET-ACID-XCH": {
+    "id": "eee3acd94cf44f8c545f2c40f5b6254d6cd610f535c707ddf3a25ea51820d04c",
+    "denom": 1000,
+    "name": "TibetSwap LP ACID-XCH",
+    "code": "TIBET-ACID-XCH"
+  },
+  "TVS": {
+    "id": "1065c0b2dd987e634ab3e48c1883e629bf7c475315c892e39138360606ebb00c",
+    "denom": 1000,
+    "name": "TVS",
+    "code": "TVS"
+  },
+  "XCHC": {
+    "name": "Chia Classic",
+    "id": "e590e3469100106d41170141260237adb2adb5b3110c316b2e10c13b3a5aceb8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ca7e396f76b0e7acee31bdce6ac70ca714fc9366f48f471e081c97443f4e456e",
+    "tibet_pair_id": "0c498d30502594dc4e4e7b3ae5925cdc608643158011f5c4f68c8457cc925703",
+    "code": "XCHC"
+  },
+  "HONEY": {
+    "id": "b7c0b9c3a59898a8a9e9be1e9d77d63be558bc57060257a2a667c8ca7ab687a8",
+    "denom": 1000,
+    "name": "Hairy Bear Honey",
+    "code": "HONEY"
+  },
+  "TIBET-ICE-XCH": {
+    "id": "59e109b217edc2c21919d83937d68bb7f157e73effdb7405d4cc5c0b7c08f919",
+    "denom": 1000,
+    "name": "TibetSwap LP ICE-XCH",
+    "code": "TIBET-ICE-XCH"
+  },
+  "TIBET-CHUMP-XCH": {
+    "id": "a30b9db819b73cfe6de386e231f8322462ca21e7e74966f242db68ef8ebd7fe3",
+    "denom": 1000,
+    "name": "TibetSwap LP CHUMP-XCH",
+    "code": "TIBET-CHUMP-XCH"
+  },
+  "ASON": {
+    "name": "ASON Token",
+    "id": "7e0353e36d52e8e7b3a985e493b229f10014ac86f87d4ce15f11c1a2bf963d4c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "4163cb4b370da9001750b00395702914806dc4c43c3bf9fdbd412fdeef42615d",
+    "tibet_pair_id": "8a67fa7e2f5da212b5a3e64293e50278f93cc2c8638a32525e4c177ea63184ff",
+    "code": "ASON"
+  },
+  "TIBET-TAU-XCH": {
+    "id": "0d595bef07becc2878f59f6e88168a11cb27a29c3ac6404b60a5d06708391ed7",
+    "denom": 1000,
+    "name": "TibetSwap LP TAU-XCH",
+    "code": "TIBET-TAU-XCH"
+  },
+  "VALP": {
+    "id": "dfb730b31aad9f0b00dd813bcf838579c29ecd9ba76c85ac53940335366c03ac",
+    "denom": 1000,
+    "name": "Valentine Platinum",
+    "code": "VALP"
+  },
+  "KITCAT": {
+    "id": "fda5aa3b13fa50288101c68f67a7cb3a92949ee0eecab122d1e980e74c5bd99b",
+    "denom": 1000,
+    "name": "KitCat 2.0",
+    "code": "KITCAT"
+  },
+  "FRDM": {
+    "name": "freedom",
+    "id": "8c0b6466b559d27ddbeebbdf3e031861ff613b438070284ef4f914116d96ba44",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "75e781078f75674eb006ff34cced56afb98483bddbc357f2d5486decb27ed4a7",
+    "tibet_pair_id": "9c5d0a62a32af4f2f38ba2fc51c6a9f5b590149d6fb39e3634490e4b8375937a",
+    "code": "FRDM"
+  },
+  "XCM": {
+    "id": "9da21774b07828ecf8e55081e647e1f68207f4c9888c7a18a4cb69e862c98f37",
+    "denom": 1000,
+    "name": "ChakMoon",
+    "code": "XCM"
+  },
+  "WAR": {
+    "name": "WAR",
+    "id": "cb21f3625d7b4e8f843dda59b4b7866862f16c376077134cc8735e2b3a29c011",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8e3d0fde796c57138d46c20d1cb04ea59bc4030456788914b5e5c127258be7f5",
+    "tibet_pair_id": "354e9bd958ad9e25cd06818b4ed8b69a223fb36696825141f62c44eb5e33bd4e",
+    "code": "WAR"
+  },
+  "TIBET-LKY8-XCH": {
+    "id": "9dd6c418280702dd5b5aa99396abb8ead1d5bbdff9141051c28633d991c353f7",
+    "denom": 1000,
+    "name": "TibetSwap LP LKY8-XCH",
+    "code": "TIBET-LKY8-XCH"
+  },
+  "KPC": {
+    "id": "5a91c044c2e3f992530a2334c9c8bc3448db304e17546a8ac9bcba01af062f45",
+    "denom": 1000,
+    "name": "Kiloparsec",
+    "code": "KPC"
+  },
+  "🥔": {
+    "name": "POTATO",
+    "id": "de6b7e0dec3b3b68779f9331973270f52a4172cd84f47f7742432ab85ca33458",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "c9923b86c696f35a116f2376c812a58ca3c835e68ffc128a5a51a0021f0bee81",
+    "tibet_pair_id": "892020eaff857d00b2bf811fd084b937c8c4d9a859767fff65a4e7213733c713",
+    "code": "🥔"
+  },
+  "GOP": {
+    "id": "3f346cc3122ff1634b812f43bd122fcf0d532496df16f1edacc1d0b338a55c88",
+    "denom": 1000,
+    "name": "OMGopo",
+    "code": "GOP"
+  },
+  "LT": {
+    "id": "fa78ff512fda2a53840cf125eb5db2db1ada9e9d47a6b78128ef99a37b406078",
+    "denom": 1000,
+    "name": "Leaf Token",
+    "code": "LT"
+  },
+  "TIBET-🌎-XCH": {
+    "id": "254a6ba2033ce9369ddebca5617ab3beb6db01c3dee744b8946286ca93d41552",
+    "denom": 1000,
+    "name": "TibetSwap LP 🌎-XCH",
+    "code": "TIBET-🌎-XCH"
+  },
+  "TIBET-DXTS-XCH": {
+    "id": "3b2861c9f22ef4e40bf7a4fea24b2d92b49e28c26e262867c250538461a6d4f9",
+    "denom": 1000,
+    "name": "TibetSwap LP DXTS-XCH",
+    "code": "TIBET-DXTS-XCH"
+  },
+  "UFO": {
+    "id": "953615110fa1f1a2680a5106d5c47aec35e9c0f543034c994686862e16091f99",
+    "denom": 1000,
+    "name": "Cute Aliens",
+    "code": "UFO"
+  },
+  "TIBET-BDOG-XCH": {
+    "id": "540c7e9bc1dd360d2f06f2269299bbbd3ba7692de766423cdff9b870edc44a05",
+    "denom": 1000,
+    "name": "TibetSwap LP BDOG-XCH",
+    "code": "TIBET-BDOG-XCH"
+  },
+  "TIBET-AIG-XCH": {
+    "id": "5cc3d3797aea0f6f80fb1b095c4a56e042d8846c30ccced06837539c54f3aa23",
+    "denom": 1000,
+    "name": "TibetSwap LP AIG-XCH",
+    "code": "TIBET-AIG-XCH"
+  },
+  "TIBET-SBF-XCH": {
+    "id": "e4546d755d65e22ad430d8183f08370e4f51c7e2bc9a6ddd9c147a6074e56ac7",
+    "denom": 1000,
+    "name": "TibetSwap LP SBF-XCH",
+    "code": "TIBET-SBF-XCH"
+  },
+  "BSH": {
+    "id": "6e1815ee33e943676ee437a42b7d239c0d0826902480e4c3781fee4b327e1b6b",
+    "denom": 1000,
+    "name": "Brother Shiwan",
+    "code": "BSH"
+  },
+  "BLOCK": {
+    "id": "efb8116946878cabd50804dba22a35344ef7d83fc227ee8aad4e2548b997fdde",
+    "denom": 1000,
+    "name": "BLOCK",
+    "code": "BLOCK"
+  },
+  "CHET": {
+    "id": "477285dc4f1f2f5ec42ed63ed1ce127cc56646614540fca86b8481f5b5084072",
+    "denom": 1000,
+    "name": "CHE Fan Token",
+    "code": "CHET"
+  },
+  "TIBET-DUMB-XCH": {
+    "id": "3d28ba2b0f8f1c6bd71db0fbe3bfcb8177eb56d9003f3b14f2060f40aec42470",
+    "denom": 1000,
+    "name": "TibetSwap LP DUMB-XCH",
+    "code": "TIBET-DUMB-XCH"
+  },
+  "TIBET-CPC-XCH": {
+    "id": "70b29bc28622933d9bf50b2f7c1a88023358029ce459adf1dfc1e381a182f8df",
+    "denom": 1000,
+    "name": "TibetSwap LP CPC-XCH",
+    "code": "TIBET-CPC-XCH"
+  },
+  "TIBET-PAW-XCH": {
+    "id": "7b502f7638c2dd95849546f585ef6013c52ff0b70ccd1c6ffc13b965fc88d89a",
+    "denom": 1000,
+    "name": "TibetSwap LP PAW-XCH",
+    "code": "TIBET-PAW-XCH"
+  },
+  "LFG": {
+    "name": "Let's Farmer Go",
+    "id": "a1cb22807f3a273355ebc1e9b886f8f8ca8a7f8d7716d5e40e3ddd498d6c6ae5",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "2b9f2ab9e2e7d87d2d9cc5724feb0f46fbc418d6c9c6f23434b1fc5e40921ac1",
+    "tibet_pair_id": "ea0baf74558d7f600108a87528a4398f9108cca460fb88a96899a2db4a298329",
+    "code": "LFG"
+  },
+  "TIBET-MIRROR-XCH": {
+    "id": "9cccbe22b036a1d75d31a828b20fe1906ecb5c3358e4a0358c5a2359aedd01f6",
+    "denom": 1000,
+    "name": "TibetSwap LP MIRROR-XCH",
+    "code": "TIBET-MIRROR-XCH"
+  },
+  "TIBET-PUNK-XCH": {
+    "id": "4af2d229d02d233ac8e53c66b9808593774694344729e732f0370c04064707a1",
+    "denom": 1000,
+    "name": "TibetSwap LP PUNK-XCH",
+    "code": "TIBET-PUNK-XCH"
+  },
+  "BCBLU": {
+    "id": "96b1c5fef756484b81490c2ebe97b0ac15b5871dd6900c12ca97769633196f3d",
+    "denom": 1000,
+    "name": "BCAP BLUE",
+    "code": "BCBLU"
+  },
+  "ALFOOD": {
+    "name": "Abandoned Land - Food",
+    "id": "ce9dfce94a5a65c0207bf3d57b407db559e9cd34f2050f8bd61291b42bead361",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "d1b161790df06e2339f9e1b7c550919731a0bc009fccbc87898ae12c494df652",
+    "tibet_pair_id": "fb75bea54ccdd4f3ea4d879413c6ad177b24519ce3752a363c9288425fe78abe",
+    "code": "ALFOOD"
+  },
+  "TIBET-TIBET-HOA-XCH-XCH": {
+    "id": "5d3a24241258965791e3e4fed17dd0d119940dbe3b3310f48a4a041c9801efd1",
+    "denom": 1000,
+    "name": "TibetSwap LP TIBET-HOA-XCH-XCH",
+    "code": "TIBET-TIBET-HOA-XCH-XCH"
+  },
+  "KING": {
+    "id": "f7ae5eb93781ac90632ce2429be9171b2f3615ac89f70e54a23a1386c910306a",
+    "denom": 1000,
+    "name": "Undead King",
+    "code": "KING"
+  },
+  "CF2": {
+    "id": "bd960d5a150ed1b4f2242fc5761097b017b530d19dc2943f5e1907a6be1a0d09",
+    "denom": 1000,
+    "name": "Cassandre Fairies Club",
+    "code": "CF2"
+  },
+  "MOG": {
+    "name": "MOG",
+    "id": "d1adf97f603cdec4998a63eb8ffdd19480a60e20751c8ec8386283b1d86bf3f9",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "715108d993c0b296d7754a8361222f1ace66f115cd0a2b943550471365d1670b",
+    "tibet_pair_id": "224175fb462f9242b4232981e5454b98d154da65098d86f5c225cd59f7c0a640",
+    "code": "MOG"
+  },
+  "HNTR8": {
+    "id": "96de47df2c31441efa46d049d2763c750561f0cfa1db3c8bfcb4c72db94a06f6",
+    "denom": 1000,
+    "name": "Hunter of 8",
+    "code": "HNTR8"
+  },
+  "OKRA": {
+    "name": "OKRA",
+    "id": "d2039f75557be47a2679bd870949d834c943208e2a33cc798fc8bb6d6b95af48",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ef10958177a1944ba2dfb3486a7a805bf82a22f39b97617b3bbb6a30bb3f0e16",
+    "tibet_pair_id": "1a1b06e32ffb9351bb5ff66ed3ec0a2e3c456a48585568cf5ef7a3015ed8bacc",
+    "code": "OKRA"
+  },
+  "COMIC": {
+    "id": "c3abdd9c4932b34600cd33c998ec813e5b32c6125db301637c0d7f52189fc292",
+    "denom": 1000,
+    "name": "Comic Book",
+    "code": "COMIC"
+  },
+  "TIBET-LOVE-XCH": {
+    "name": "TibetSwap LP LOVE-XCH",
+    "id": "26f25ea7538617f038d644dcdfaa7c055561ec6c1bbf32ad7db6e457217f9f25",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "258a2aaf40fbbe73d968df4a478092160e9e6a72ff20090dc6f50871a83e4f39",
+    "tibet_pair_id": "1cddda1953f40675f4362cb3de2792f555c85886a2ea285e47ed64a74c04c4ed",
+    "code": "TIBET-LOVE-XCH"
+  },
+  "TIBET-DBX-XCH": {
+    "id": "f7a975340fe224ed6e32467e4cf7ce544c9ddfc1079fc6d0e34e960dc64dbb90",
+    "denom": 1000,
+    "name": "TibetSwap LP DBX-XCH",
+    "code": "TIBET-DBX-XCH"
+  },
+  "ECO.181.2020": {
+    "id": "e257aca547a83020e537e87f8c83e9332d2c3adb729c052e6f04971317084327",
+    "denom": 1000,
+    "name": "Agricultural Reforestation Project 2020",
+    "code": "ECO.181.2020"
+  },
+  "TIBET-DMT-XCH": {
+    "id": "688c28ca0bfdd917162ecba4abeb9a370115573412dcbc1d2e5a1cf93be4857f",
+    "denom": 1000,
+    "name": "TibetSwap LP DMT-XCH",
+    "code": "TIBET-DMT-XCH"
+  },
+  "UFCG": {
+    "id": "d5cfbfadf873554d5184ebcb9dee86e69f8b11f44a0cc4e417871c4f7fb17b9a",
+    "denom": 1000,
+    "name": "UFC Genesis",
+    "code": "UFCG"
+  },
+  "TIBET-DWB-XCH": {
+    "id": "91caa456661a58e1f953e8850138ed3419a00e286e2b8f36edd77a52de60e9d9",
+    "denom": 1000,
+    "name": "TibetSwap LP DWB-XCH",
+    "code": "TIBET-DWB-XCH"
+  },
+  "TIBET-FRDM-XCH": {
+    "id": "75e781078f75674eb006ff34cced56afb98483bddbc357f2d5486decb27ed4a7",
+    "denom": 1000,
+    "name": "TibetSwap LP FRDM-XCH",
+    "code": "TIBET-FRDM-XCH"
+  },
+  "FDB": {
+    "name": "Flying Dutchman Bux",
+    "id": "bae62a38ea2e4d6fb165c6583ea57a2b28bedf73625e56073cdc53f7da1939e8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "d78fe90f1eea43a5be7b103f7dcb479e25ccdc50f09c5ef219214c8f27fa3983",
+    "tibet_pair_id": "e37e9d8d525c86c4fef5bb4b46ab1d0b5c2eebef58da1cd3e740cae26fd59417",
+    "code": "FDB"
+  },
+  "TIBET-FBX-XCH": {
+    "id": "623ee5ec5a082747154cfe60a4bffc3d0491472940c4a81d676e40f7c9d9a0dd",
+    "denom": 1000,
+    "name": "TibetSwap LP FBX-XCH",
+    "code": "TIBET-FBX-XCH"
+  },
+  "OMEGA": {
+    "id": "50ff267b6710475da8a4744879401cb111b20242803a8a6c69a0fed70c2feb50",
+    "denom": 1000,
+    "name": "Omega Molecule",
+    "code": "OMEGA"
+  },
+  "STNK": {
+    "name": "STONKS",
+    "id": "bf96d9d1a1973d41047e74d43117799d5b63b275c8f26921e6228ec84b553da9",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "41d04f9a89f12ae3b12f26f5019a6c26ed78f50f79e48e22a5063ce561bc052e",
+    "tibet_pair_id": "3c2ad49212fa38af1b62e353328fa317c1b2c8c04847c43a4f9e983c07fb550f",
+    "code": "STNK"
+  },
+  "GENINC": {
+    "id": "a1001eb23ea19fd18a6294d949aeee78e622b7bc3f92e29596a268ec0c38f9c0",
+    "denom": 1000,
+    "name": "Genesis, Inc.",
+    "code": "GENINC"
+  },
+  "STAR": {
+    "id": "daf1390497969e647289b9f596248c0b1f6d91a7ece190a8954f28cd694d5f77",
+    "denom": 1000,
+    "name": "Star Coin",
+    "code": "STAR"
+  },
+  "TICA": {
+    "name": "Taichia DAO",
+    "id": "895d30090a17116d282af37cedec585613d4ee0faec3eaa7e19eb3f2bcd236e1",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "75602bcb965c2e6fd513b23a740f8a9eabd3dfc8a84fff8a20b49a149d58c33e",
+    "tibet_pair_id": "8e4de8faa26466bbdfe8896a80d1564faf52205932db01658dd6a9d33331a71b",
+    "code": "TICA"
+  },
+  "LIVT": {
+    "id": "91ffe356c7b3fc89862ec5382cd632a6605bc9b66dc16ec5e3468125727fcfd7",
+    "denom": 1000,
+    "name": "LIV Fan Token",
+    "code": "LIVT"
+  },
+  "XMILK": {
+    "id": "f74008e2cfa9c6ebf88a3c473c2603c53b17a3c48a365fbdc752430a07e3921b",
+    "denom": 1000,
+    "name": "XMILK",
+    "code": "XMILK"
+  },
+  "TIBET-INCL2-XCH": {
+    "name": "TibetSwap LP INCL2-XCH",
+    "id": "a05880b37d4a1e5152e6398f4d66e91757924aeab13435143e747a1e6edd00dd",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "dd06261ba264dd38c2b601ec06694a3fe1ab0fbc83683d3700e1ecc457c962bb",
+    "tibet_pair_id": "6d9358519afe7f2c88e6516800c16b615f120a2a4b4a6ae4db97f75fb0435742",
+    "code": "TIBET-INCL2-XCH"
+  },
+  "MINT": {
+    "name": "🍀",
+    "id": "c03ac995d15d316a8ccdc9e3d7a0effea55ad1d26e82b71eecf73a049c3d9e61",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "3832f78f7f98ef11fce6af1047691facd2cd1d4c878df5d3e76d5b506859c6ae",
+    "tibet_pair_id": "1b61ef39d2c4b4944953d4d251c3fe933d722aacc5a5b31c7046bcccb7f76c87",
+    "code": "MINT"
+  },
+  "BIGD": {
+    "name": "Proof of Big DID",
+    "id": "ce3be095a5d9f22cf286f94ef7a95cfa4afd83267c0d76f9f0e19fc0171d15f1",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "e896692067d08edd0f1538a370b8d74a5a21b89c25837c3f03abb63b55fdb82f",
+    "tibet_pair_id": "8e53ae7c74b4724e86e653caf8001ad07229e719b807246454c70d8d1371826e",
+    "code": "BIGD"
+  },
+  "TIBET-XSHEP-XCH": {
+    "id": "7b8e3efb6292a9737aa29374a611b18103c7d3ada28a5e36db6434c2100cf671",
+    "denom": 1000,
+    "name": "TibetSwap LP XSHEP-XCH",
+    "code": "TIBET-XSHEP-XCH"
+  },
+  "MIRROR": {
+    "name": "MIRROR",
+    "id": "0957ed359f099d5846c2c74c42e7c2eb9608b58c32e320e144840e3efab0b747",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "9cccbe22b036a1d75d31a828b20fe1906ecb5c3358e4a0358c5a2359aedd01f6",
+    "tibet_pair_id": "e5bd7f889532cce4e955b8e751045571718b6717b791d76ce745a812b9d4476f",
+    "code": "MIRROR"
+  },
+  "QTLO": {
+    "id": "487d889d0000cb6d7c6c5caf2c30775ef409d3a5b4f5a544e8a6de1c511fae03",
+    "denom": 1000,
+    "name": "Quatloo",
+    "code": "QTLO"
+  },
+  "C2R": {
+    "name": "CAT 2 RESERVE TOKEN",
+    "id": "eaef46c78384488c9b0b1062e96e057ba16b9836c17960731d574b071196bb73",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "66bce98d19045fe686d133c55bc9731abed7a71a311161d79de017700fa20f0f",
+    "tibet_pair_id": "c429f43aa8b0c765ce5272c48f3a311fffd2b8c771f1c80f03a0c28f1e0194ed",
+    "code": "C2R"
+  },
+  "boss": {
+    "id": "ac403f64f21cf68acf2ee9291328f3008fc0c80c4b29115141dcef26646fba17",
+    "denom": 1000,
+    "name": "boss",
+    "code": "boss"
+  },
+  "BANANA": {
+    "name": "BANANA",
+    "id": "a66ce97b58a748b3bb2a8224713620cca0ca00cb87e75837b1f04e3a543aaa40",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "83c8fd2b3d0f80a7bca4b0021b3bee13b6b44f82303be8cb8dd61252e342704e",
+    "tibet_pair_id": "d9ca20c1396ba3955c7a1923f0837b36d9e7538bbdbf4b1b2c1b85e5fd36d47a",
+    "code": "BANANA"
+  },
+  "CPC": {
+    "name": "Capy Coin",
+    "id": "ebbe8f25d3225d41f757785ff2cbcaf8fbf4f4442407b6b0c49b20f8f57f87c9",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "70b29bc28622933d9bf50b2f7c1a88023358029ce459adf1dfc1e381a182f8df",
+    "tibet_pair_id": "3bcd7342a0aed883b4e2fa71c99e499dd214b9a910089e2c98788ec8ac476f8c",
+    "code": "CPC"
+  },
+  "TIBET-HERB-XCH": {
+    "id": "825f1038141bf7861889c0e3ce4c4e08594b8b5df9083974dbcd49432ab5e6f1",
+    "denom": 1000,
+    "name": "TibetSwap LP HERB-XCH",
+    "code": "TIBET-HERB-XCH"
+  },
+  "Bark!": {
+    "id": "167558c9bac114cbf7b58f1aa4cad43153e3b06ce292199918268b6f3f46e5bf",
+    "denom": 1000,
+    "name": "Bark!",
+    "code": "Bark!"
+  },
+  "TIBET-CLN-XCH": {
+    "id": "e448ef666aced6dd9ffaa8a8a033bc4e810e42ec1fce1f52bc665fbe678cba7c",
+    "denom": 1000,
+    "name": "TibetSwap LP CLN-XCH",
+    "code": "TIBET-CLN-XCH"
+  },
+  "ALExp": {
+    "name": "ALExp",
+    "id": "edeb87eabd6b75d08f894df4ce1cb89a78d615208f31c572f464c8511d7cc15c",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "9fada1bb28ab17a051b87a9b8392e08058a85b80f418651badecef7a92ef8824",
+    "tibet_pair_id": "f625bba4efedff9e4e0c466837d52a2c49750f5dd4af81193bff516cba899627",
+    "code": "ALExp"
+  },
+  "OFAB": {
+    "id": "ca861009baf2c825482504f359c9fc399a0a0af5ad678398eeab92551821d203",
+    "denom": 1000,
+    "name": "Outer Fields | Booster",
+    "code": "OFAB"
+  },
+  "THW": {
+    "name": "THW",
+    "id": "d3647f946788b0c29b07d8fbb23d99f1accf1cf6f8f0b2840c85105439d30e63",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "358bfe761cc7a5d4810d74b48cc9509e3bea58ea01ca7631670fd794183e0446",
+    "tibet_pair_id": "b28ddcb8401a9a1df4c5d503e4fb2f145d3ad1af4bafd5a3f6fa87f7ba97fa80",
+    "code": "THW"
+  },
+  "ZEN": {
+    "name": "ZEN",
+    "id": "84e4b6e52378b3325d5173cc9c142d51fb8159a5bd25c00a21564a2cc889d8df",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "8456727ec39de3baafa7fd1432feada91d5796d12e1a241f836ea343b92da54a",
+    "tibet_pair_id": "c4bfbef98f303ea1975960d681c4489e053a43dfc124f449fb0c739bcca7e326",
+    "code": "ZEN"
+  },
+  "LLAT": {
+    "id": "6d3d2c9709d8e89d4707fa4f5f3e69269bd0b825a22da4fa45ed517da95136e0",
+    "denom": 1000,
+    "name": "LLC Asset Token",
+    "code": "LLAT"
+  },
+  "CATPPR": {
+    "id": "af7c58b91d286376b6f3602fa18211e4a0b6abc7edf54f3fa3806730ca5f674b",
+    "denom": 1000,
+    "name": "CATMOS Paper",
+    "code": "CATPPR"
+  },
+  "THC": {
+    "id": "f9fea96774793dedb3e5f2c99497055a2e395e3161f99db0ec8956f1d308cbeb",
+    "denom": 1000,
+    "name": "Tokenized Hyper Coin",
+    "code": "THC"
+  },
+  "TIBET-BANANA-XCH": {
+    "id": "83c8fd2b3d0f80a7bca4b0021b3bee13b6b44f82303be8cb8dd61252e342704e",
+    "denom": 1000,
+    "name": "TibetSwap LP BANANA-XCH",
+    "code": "TIBET-BANANA-XCH"
+  },
+  "SCAC": {
+    "id": "49fd76384a4fced922d99d28a646dd0439ab753ad15fcfea8ef50213804112e6",
+    "denom": 1000,
+    "name": "Solar CAT",
+    "code": "SCAC"
+  },
+  "DXT": {
+    "name": "DeltaXtrade",
+    "id": "a7c8135b134e1a477563480febefd2e2091afe15d24ab567045eb8fa024ef597",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "4752c19d391044af2ec88f6997ee60539ec2ac28ae044d85c6c3121ef125c475",
+    "tibet_pair_id": "6dc7a439046ae61bf51e3af7e960ab691dbe6d58ddb289355ea318d6b4fa1ef3",
+    "code": "DXT"
+  },
+  "HERB": {
+    "name": "🌿",
+    "id": "e2edfac6692851c1a582f58835dcb086ee0d2251a6c3cd1b2550921bbac2961b",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "825f1038141bf7861889c0e3ce4c4e08594b8b5df9083974dbcd49432ab5e6f1",
+    "tibet_pair_id": "7a608019585efabd94676702e6d54b6b827298b1f7828db75081471c61c9456e",
+    "code": "HERB"
+  },
+  "TIBET-IND-XCH": {
+    "id": "a7b739313f893e26a34677fe3de43def80552faaf3b123f15864580d64920582",
+    "denom": 1000,
+    "name": "TibetSwap LP IND-XCH",
+    "code": "TIBET-IND-XCH"
+  },
+  "TIC": {
+    "id": "91a48b56d7d4e11e9419b1e2c06859f3f6d9ad4a8408c820a10b2da173abb59d",
+    "denom": 1000,
+    "name": "Terran Imperial Credit",
+    "code": "TIC"
+  },
+  "TIBET-FHW-XCH": {
+    "id": "f1381ce3175277be107b38e40f4078c125adebe4888f3ef74178d653af7b8a04",
+    "denom": 1000,
+    "name": "TibetSwap LP FHW-XCH",
+    "code": "TIBET-FHW-XCH"
+  },
+  "TIBET-MINT-XCH": {
+    "id": "3832f78f7f98ef11fce6af1047691facd2cd1d4c878df5d3e76d5b506859c6ae",
+    "denom": 1000,
+    "name": "TibetSwap LP MINT-XCH",
+    "code": "TIBET-MINT-XCH"
+  },
+  "FELIX": {
+    "id": "94621bf6d74f26866812a69b9bc7cb2b25507b9f5717ebd768c1ec0ac63796aa",
+    "denom": 1000,
+    "name": "Felix",
+    "code": "FELIX"
+  },
+  "TAIL": {
+    "id": "0bf20840681f1b1d71e54cf49f0cd5269f4cc405b347409d5e2e325a226c8804",
+    "denom": 1000,
+    "name": "CoinTail",
+    "code": "TAIL"
+  },
+  "ZOMB": {
+    "name": "Zomb",
+    "id": "29320e8cfbc13684e9f5471b65e7d99684b369c91bbadb11b0a56c20f76917c5",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ce1a5e11a731bba3e7b4cd35c3eb060d18c0e4381f81f743eabe7b8d72818728",
+    "tibet_pair_id": "63789859ead7d417fc672cadc1e52089bf8c7b6401227f56933fb45a7237ac24",
+    "code": "ZOMB"
+  },
+  "TIBET-MECH-XCH": {
+    "id": "9c341110ea40779a26de81616fbf95dec3dec5e3ee5cc4479aea99dfa8ccecae",
+    "denom": 1000,
+    "name": "TibetSwap LP MECH-XCH",
+    "code": "TIBET-MECH-XCH"
+  },
+  "BTC": {
+    "name": "BitTorrentChia",
+    "id": "c6be668127b983686af02ceb26486ead5144c958c9f450b273c4549f209a4660",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "650fad74542be77115ad1bcc3b3e59001eacb86fbfb01aa016319dc932748eae",
+    "tibet_pair_id": "c4f736be880af7fb56db3ccede44ba6259d3d4790a8abbb2181d67c985f65bab",
+    "code": "BTC"
+  },
+  "XSHEP": {
+    "name": "XSHEEP",
+    "id": "bfcfab5d13381531d45a0aa73ff846e13e7b7f90f682e939f87c38a7b57bace6",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "7b8e3efb6292a9737aa29374a611b18103c7d3ada28a5e36db6434c2100cf671",
+    "tibet_pair_id": "db4e7518207712fd72348b24fd8dab8be40462146235ab29936ce26a3d95349c",
+    "code": "XSHEP"
+  },
+  "TIBET-FDB-XCH": {
+    "id": "d78fe90f1eea43a5be7b103f7dcb479e25ccdc50f09c5ef219214c8f27fa3983",
+    "denom": 1000,
+    "name": "TibetSwap LP FDB-XCH",
+    "code": "TIBET-FDB-XCH"
+  },
+  "TIBET-🐈-XCH": {
+    "id": "d6faa42c5a554c9323f0b1de604f021d966c5ffec251adf97907f312279c1d9f",
+    "denom": 1000,
+    "name": "TibetSwap LP 🐈-XCH",
+    "code": "TIBET-🐈-XCH"
+  },
+  "TIBET-XCS-XCH": {
+    "id": "aca38d438bbe5279832f8d6e7bad54301d9c58b8a4225007614a3ef2008d6e66",
+    "denom": 1000,
+    "name": "TibetSwap LP XCS-XCH",
+    "code": "TIBET-XCS-XCH"
+  },
+  "SPORK": {
+    "id": "e9afb5ce4f89074cf84a5f3b872055e479c397e5f0acc16e917903b9991479a2",
+    "denom": 1000,
+    "name": "Spork",
+    "code": "SPORK"
+  },
+  "OFT": {
+    "id": "fa27338829703d9c195f775b28fce529f35dd185cd9df97eaba860c489ac3991",
+    "denom": 1000,
+    "name": "OnlyFansToken",
+    "code": "OFT"
+  },
+  "0000": {
+    "name": "0000... Zeros",
+    "id": "00000000024e1fb9fc47c7ec72854c6a987c4cc99f6535a4caca6154220eeda5",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "83c4c586ed0943dbe301ca31d7d50f60415e49ed76db01ad2e0a99981a99d59b",
+    "tibet_pair_id": "4d46fdc0cd2804a34606c91badf68df8657b9139fc77f8b9c3040fe65f435cdb",
+    "code": "0000"
+  },
+  "VLT": {
+    "id": "bd8331db67ba6e1343b79d6b8ad7ca9bc403bd9148bcfac9ee6a5617b9f4907f",
+    "denom": 1000,
+    "name": "Valuto",
+    "code": "VLT"
+  },
+  "GS": {
+    "id": "d8f60c8f89cb78a817e2077d1443f9c962904939da42b9a02fc06b69e44ce0db",
+    "denom": 1000,
+    "name": "Goblin Silver",
+    "code": "GS"
+  },
+  "HOOVE": {
+    "id": "e8e94a2eea7e330f0207f274761ad15bd8c3066fcf7727b7458ce6f91ef9875b",
+    "denom": 1000,
+    "name": "HooveDAO coin",
+    "code": "HOOVE"
+  },
+  "TIBET-XEG-XCH": {
+    "id": "1129f39816dc92bd225cd7eba883f07bb35ecdc639ecfc07bf4db7e58c8cfbb1",
+    "denom": 1000,
+    "name": "TibetSwap LP XEG-XCH",
+    "code": "TIBET-XEG-XCH"
+  },
+  "NIO25": {
+    "id": "2d38e7c2d98d3f5fb9cc404a8aad52dab8dc6b066ad190f1c61857ff03d17512",
+    "denom": 1000,
+    "name": "NioStake25",
+    "code": "NIO25"
+  },
+  "TIBET-🍕-XCH": {
+    "name": "TibetSwap LP 🍕-XCH",
+    "id": "579cf1f31744b34b18cf4b917e74c890871c9a6aac4308ed269254610f46c2f8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "794095e659d9529d36dd22425ad0e6aa983efb37ee8b8f10dfedc18941029efd",
+    "tibet_pair_id": "bb1fe05be7fc3f712adb4d17fd278ed2e0ebc016e8f58ad07d087170d86a5b7f",
+    "code": "TIBET-🍕-XCH"
+  },
+  "TIBET-ARA-XCH": {
+    "id": "36e3d311420e92ecda11c711395b9a2f78d0168a735fefc59617c95cc9165836",
+    "denom": 1000,
+    "name": "TibetSwap LP ARA-XCH",
+    "code": "TIBET-ARA-XCH"
+  },
+  "XST": {
+    "id": "4f50e6f88fd5765a64ed49b20bf0e81a37b1550ac92c19fbe84e41562f23e60a",
+    "denom": 1000,
+    "name": "Xtock Token",
+    "code": "XST"
+  },
+  "HonK": {
+    "name": "HonK",
+    "id": "048b1358f3b55a70c4db22114c2f52569c0398ba19e8212b8daf1cb25c90a641",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "5364c7e938cb8ed78630008ee844d9c6688dd0729fb7c72e138b277c3af19a06",
+    "tibet_pair_id": "00c2f622f0a01a672049ed52ef9406b1116853f9fcb881137b7158679b6a0fdc",
+    "code": "HonK"
+  },
+  "TIBET-GOT-XCH": {
+    "id": "8c7becf84cdb78965fced1a911ebf2d489580e94c1db842674846fe1fb2e7551",
+    "denom": 1000,
+    "name": "TibetSwap LP GOT-XCH",
+    "code": "TIBET-GOT-XCH"
+  },
+  "SHROOM": {
+    "name": "Secure High Return Officially Optimized Money",
+    "id": "35cd47116c1ec3371cca2f3e3291157d474d72476df04258da1f7284d2330aca",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "01e88bf48c96294b6f29435bfcb7f907b47bcaf736d4f128b120d2775013cbf3",
+    "tibet_pair_id": "d31f5fe2b7c8f5263a0e3b135c3631419c5e29b5945482a843063c2449a5e108",
+    "code": "SHROOM"
+  },
+  "TIBET-OUTR-XCH": {
+    "id": "588b9f46b82c98546b466549c77ac68f8e5855a03c0441f64c6f1db09cdf24a1",
+    "denom": 1000,
+    "name": "TibetSwap LP OUTR-XCH",
+    "code": "TIBET-OUTR-XCH"
+  },
+  "CATMSZ": {
+    "id": "425881d0271ff45f2b905f21d007f543d8f25ef4ff2c3e81f22a7acb73fcdbc5",
+    "denom": 1000,
+    "name": "CATMOS ZERO",
+    "code": "CATMSZ"
+  },
+  "TIBET-CAT-XCH": {
+    "id": "0290cc08748796ebe6fcf4e44b4833da10dda85068987bab7c8e32dfe87f9e88",
+    "denom": 1000,
+    "name": "TibetSwap LP CAT-XCH",
+    "code": "TIBET-CAT-XCH"
+  },
+  "TIBET-TL-XCH": {
+    "id": "a2fa900d1afc3d8bba427cefb8e6cad09c1eb8796223b35341c7ebc81929183a",
+    "denom": 1000,
+    "name": "TibetSwap LP TL-XCH",
+    "code": "TIBET-TL-XCH"
+  },
+  "RATZ": {
+    "id": "eb11cb4c71f73e4fedc7f74501b9ec4505bf960fe89924c4952d74a1a204eae1",
+    "denom": 1000,
+    "name": "Space RatZ NFT",
+    "code": "RATZ"
+  },
+  "TIBET-OKRA-XCH": {
+    "id": "ef10958177a1944ba2dfb3486a7a805bf82a22f39b97617b3bbb6a30bb3f0e16",
+    "denom": 1000,
+    "name": "TibetSwap LP OKRA-XCH",
+    "code": "TIBET-OKRA-XCH"
+  },
+  "BTCM1": {
+    "id": "54c151d078f56fe5c6a5e36d8765e43440b3dfba0054d31fc18a0bbca16ae313",
+    "denom": 1000,
+    "name": "Bitcoin Merch Batch 1 Coin",
+    "code": "BTCM1"
+  },
+  "TIBET-CNAR-XCH": {
+    "id": "ae53cf713749d347cb50a9bc92dae69348bb52e02a7c3cfd189a09ab434b8250",
+    "denom": 1000,
+    "name": "TibetSwap LP CNAR-XCH",
+    "code": "TIBET-CNAR-XCH"
+  },
+  "DXTS": {
+    "name": "DELTAXTRADES",
+    "id": "d76af742cbe799c03793c547ab535c1b776a41e19cf56adcf41d74a244a417fc",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "3b2861c9f22ef4e40bf7a4fea24b2d92b49e28c26e262867c250538461a6d4f9",
+    "tibet_pair_id": "debf0f4b85c33bee4b46c0480081e2ca7ac0a175630f51d4063dca2169605ffd",
+    "code": "DXTS"
+  },
+  "TIBET-YEBIGA-XCH": {
+    "id": "46161485996570b82faebe7504a369c23fc98cbe748110ff51275e3710d16835",
+    "denom": 1000,
+    "name": "TibetSwap LP YEBIGA-XCH",
+    "code": "TIBET-YEBIGA-XCH"
+  },
+  "TIBET-MRBL-XCH": {
+    "id": "1e8cbe903032fd32fbf5ced44ba0f9576b4903160d8b67e02c25f5ea5b8fde86",
+    "denom": 1000,
+    "name": "TibetSwap LP MRBL-XCH",
+    "code": "TIBET-MRBL-XCH"
+  },
+  "CKPO": {
+    "id": "f7d33a036caf9a111a68213d3f2307b67f09f016d8b132e37df96d250d716df4",
+    "denom": 1000,
+    "name": "HollyCoin",
+    "code": "CKPO"
+  },
+  "☕": {
+    "name": "☕",
+    "id": "14feb393ffb015b7becf2c1eea218e4fbfef0bb932366b793d7c5193a8197358",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "95ecb053f9c55055a3431026400575bd87b287035321b539f9e7b8ae751a5916",
+    "tibet_pair_id": "befb5131f538b27a7a366062bce7242354e493a3450520d3beea8ca3a445236e",
+    "code": "☕"
+  },
+  "BTF": {
+    "id": "6e55e6dde6bf3fd9e474f2c45cb63e30af64f74285b7ef0b92bbf3503aa14e42",
+    "denom": 1000,
+    "name": "BTF v1",
+    "code": "BTF"
+  },
+  "STONE": {
+    "id": "7df4ee8b1248811068debe40b94d2f78d0d1ecd5e3abe1783db1ba3f1f412f7f",
+    "denom": 1000,
+    "name": "OfferWars STONE",
+    "code": "STONE"
+  },
+  "SLOW": {
+    "name": "😩",
+    "id": "312d58cf56cb2ae8d106ec8ca2876c5cb50d19958db4838ba858e1752d5e2885",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "32f08162c1cd03cb8b4ffae586bc13303dac01d495ff51f63a079af3acfb4d3c",
+    "tibet_pair_id": "0b98488a3f6e00e3d7b7427dd9a306cc1ea923d585ce213927b4001c95b6333c",
+    "code": "SLOW"
+  },
+  "SSP": {
+    "id": "ec208bab726f6a2d9411d7330c3ea92f41c2bc9c832e1efdd1679bdcd175ba26",
+    "denom": 1000,
+    "name": "SSP 1.9 scenario",
+    "code": "SSP"
+  },
+  "METAL": {
+    "id": "4411b68bdb2d1e13a50f66b69ccbc4c4df0c8c074d092da610b5f136875eb470",
+    "denom": 1000,
+    "name": "OfferWars METAL",
+    "code": "METAL"
+  },
+  "NeckCoin": {
+    "id": "1ad673d21799c9a224014ca71f9fe07cbc836fa23fa97b3be275d46d0b8bd9da",
+    "denom": 1000,
+    "name": "NeckCoin",
+    "code": "NeckCoin"
+  },
+  "TIBET-wUSDC-XCH": {
+    "id": "4ea9037096cb1eb0fbed37bc301cdfc80c41e25d787b2afdec078392ca980988",
+    "denom": 1000,
+    "name": "TibetSwap LP wUSDC-XCH",
+    "code": "TIBET-wUSDC-XCH"
+  },
+  "TIBET-CHIEF-XCH": {
+    "id": "8f93ddb54dcc52f8c03a786d18756d6f1bd1689eb89b509b57d57c4a8af89323",
+    "denom": 1000,
+    "name": "TibetSwap LP CHIEF-XCH",
+    "code": "TIBET-CHIEF-XCH"
+  },
+  "BTCS": {
+    "name": "Stably BTC ⚠️",
+    "id": "759f4e056d21c4b6cce0f955dbdfdd12c9826e5f4b3b6e68a574c78c1b2d9076",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "94cc0fc3b49fa8bcec178b494dfd776ee321979839a9332d7ee87056d9f76cff",
+    "tibet_pair_id": "8a47627f50869b310229455a7ed984c8384380ab810bd8ff4df3a6aded469c7d",
+    "code": "BTCS"
+  },
+  "CHUMP": {
+    "name": "ChumpCoin",
+    "id": "7d4de8d69be7a3f661a04284ec96e7ca1c33bf0f5eeacf8740e8d37ff4d698a8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "a30b9db819b73cfe6de386e231f8322462ca21e7e74966f242db68ef8ebd7fe3",
+    "tibet_pair_id": "66d620a6aaa744bcca56d48d6655d4567ac81e02cb4a209b209c69dc59406c8e",
+    "code": "CHUMP"
+  },
+  "TIBET-FISH-XCH": {
+    "id": "769ba7250524b17ce00ec265587872f0c5bca943110aee5a149c02b199219e85",
+    "denom": 1000,
+    "name": "TibetSwap LP FISH-XCH",
+    "code": "TIBET-FISH-XCH"
+  },
+  "IRON": {
+    "id": "87b84c43896d43e765132572c22e6988aae59649b57d54a252d2c759f1eb8eec",
+    "denom": 1000,
+    "name": "IRON",
+    "code": "IRON"
+  },
+  "TIBET-ALGOLD-XCH": {
+    "id": "0246bb1c84fa6f64d6684f8ffaeb54b67796dad12dcb5a47d590d333f5a430a8",
+    "denom": 1000,
+    "name": "TibetSwap LP ALGOLD-XCH",
+    "code": "TIBET-ALGOLD-XCH"
+  },
+  "TIBET-TIBET-🌱-XCH-XCH": {
+    "id": "db45c586aa57f72023e1755f9ed84ae5628de27cdcf7f1b0a4a5238bf603f120",
+    "denom": 1000,
+    "name": "TibetSwap LP TIBET-🌱-XCH-XCH",
+    "code": "TIBET-TIBET-🌱-XCH-XCH"
+  },
+  "MINUTES": {
+    "name": "Minutes",
+    "id": "8fac6c37fa3bf95bdb2e473df9839fa5f50580c7bad8b6ea13ad201b695b9398",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "9a2aca2b130287259e3855a108365f527a905c591ea6f37b4d31b6b705ce1e9d",
+    "tibet_pair_id": "c833435252cc4238197e92c4b9555a8edf67c339b9ceea98de2ed17f426a573a",
+    "code": "MINUTES"
+  },
+  "HDT": {
+    "name": "Hema DAO",
+    "id": "3ee6ab1c8fcf69c8a0c68a03717d40bbc012e2b898edaa733ea8e0bf1146e9d5",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "e899dd146ce95e51ada8967d03e087746b2ce0859614c77defbe1f08801a548a",
+    "tibet_pair_id": "2f4329250140f2118f900e6054bf8af07a0f3428c7c5b7cf25137500e778f842",
+    "code": "HDT"
+  },
+  "TIBET-SBX-XCH": {
+    "id": "fbe2694f6fbc63a4d9c8a598dc70f8b6fdf468e8e595ca4c6efee5a2f1ec71a4",
+    "denom": 1000,
+    "name": "TibetSwap LP SBX-XCH",
+    "code": "TIBET-SBX-XCH"
+  },
+  "TIBET-MED-XCH": {
+    "id": "c4eda4d9f48a5f6b929a32311b3234b6e4216e932c0eb394a6a5f219b1199132",
+    "denom": 1000,
+    "name": "TibetSwap LP MED-XCH",
+    "code": "TIBET-MED-XCH"
+  },
+  "TAP": {
+    "id": "a8c46dc5d1bca99944ef6b2261998ed7bfc66459ec695f86e341283013b692a2",
+    "denom": 1000,
+    "name": "TapChia",
+    "code": "TAP"
+  },
+  "ALWOOD": {
+    "name": "Abandoned Land - Wood",
+    "id": "6daab7bb79093ef60f3b83dc3d9def25e91eae55916da8bf95268eda9ee871ea",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "fc55fd71d19ff358ab33f668ad7150740b5b932c953abdf531916106e942f600",
+    "tibet_pair_id": "a548ffb721e780feaca3b2bd7e3edca73a0a471668e442a3ede1f27ad5a4b499",
+    "code": "ALWOOD"
+  },
+  "TIBET-ZOMB-XCH": {
+    "id": "ce1a5e11a731bba3e7b4cd35c3eb060d18c0e4381f81f743eabe7b8d72818728",
+    "denom": 1000,
+    "name": "TibetSwap LP ZOMB-XCH",
+    "code": "TIBET-ZOMB-XCH"
+  },
+  "PP": {
+    "name": "PP",
+    "id": "84d31c80c619070ba45ce4dc5cc0bed2ae4341a0da1d69504e28243e6ccbef37",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": [
+      "0b0eb96bbba2e53d612ad2c7406b7107f3de71105bec00bc3a4457bf9a587b0d",
+      "78bedd10e2d4615aa2041cdae223d2f60b4e49ad93cfce73a908ab52259dcb2f"
+    ],
+    "tibet_pair_id": [
+      "01a94c732e887e5a39461b2c94ac132266931631a9b249b7b1e0b718cc5faeeb",
+      "3494b59ddc44b95301f4a0fe471c9231dc9032cadb203fdbecb09eb574661bf7"
+    ],
+    "code": "PP"
+  },
+  "SPRITE": {
+    "id": "1502c633aca69108171cba44e473cae15761f5fa7df8eb19d012a6362c4ba72e",
+    "denom": 1000,
+    "name": "Wasteland Sprites",
+    "code": "SPRITE"
+  },
+  "O2": {
+    "name": "Oxygen",
+    "id": "cf03376948a71102deb621b7e22aa41a63ec4607053e691c7f347c8093589af4",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "e0c16fb43426c722904575b96bc68d2f98e315a108058d08864ef812a92a1041",
+    "tibet_pair_id": "c71a98e0fb3fb89b7c98d2eeb22c3069e831e8a079ac92094408ebb0cd3efe03",
+    "code": "O2"
+  },
+  "BGCN": {
+    "id": "fab2f11b14c3bdfa549508494921c6518595ed0425f0a308eb40072ccd92eb9a",
+    "denom": 1000,
+    "name": "Board Game Crypto NFT",
+    "code": "BGCN"
+  },
+  "RATZ2": {
+    "id": "fc7bfd37a13bf524552a7e3c9f60fcfff8c557b1859dd59f71206396f989681e",
+    "denom": 1000,
+    "name": "Space RatZ NFT GEN2",
+    "code": "RATZ2"
+  },
+  "STRRO": {
+    "name": "STARRO FUN",
+    "id": "e1a97afddabfb1a87fb7df4f90488f44028a57173b9340a6644ae659a7575831",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "c1a01edd117f0a2bddffcbac6ee044eb1023034c119a3e31cec5d1ea45a3ec39",
+    "tibet_pair_id": "34b4c524050ffb9d6eaad1780fe8b820d51fc304fdad2453f8a2f0a2818ccf77",
+    "code": "STRRO"
+  },
+  "300": {
+    "id": "8a0208f53687ca9dfc5ea48dd14396461707848baeae6230b4977b05654ea8a0",
+    "denom": 1000,
+    "name": "The 300 Spartans",
+    "code": "300"
+  },
+  "HOOVEC": {
+    "id": "46664f9b76f388065d6c523d09797d4568b6c4cb91f3685560a795af4dfaf87c",
+    "denom": 1000,
+    "name": "HOOVE Coin classic",
+    "code": "HOOVEC"
+  },
+  "DPZT": {
+    "id": "482c11cbb96f98ca61423ad17827747a10025a265358f1ff9f7c5bbd06f5426b",
+    "denom": 1000,
+    "name": "Depozit Token",
+    "code": "DPZT"
+  },
+  "ICE": {
+    "name": "ICE",
+    "id": "456308b3e1ff54c98327742dc886f0060ec55e1169f469598d46b23fb952a4c8",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "59e109b217edc2c21919d83937d68bb7f157e73effdb7405d4cc5c0b7c08f919",
+    "tibet_pair_id": "83cbd06e4a2f3f0021680ae24680d4570c9fc06736319e83ece47838b7fe164d",
+    "code": "ICE"
+  },
+  "FLXR": {
+    "id": "36dcbca61c10913b454187cec3b98023562f225617af4d4e32c09e946ebe2a44",
+    "denom": 1000,
+    "name": "Felix Red",
+    "code": "FLXR"
+  },
+  "DC": {
+    "id": "a8838e15919621dfc8eee85640995231bbf90a025341f3aff6247e0584693777",
+    "denom": 1000,
+    "name": "DEERCODE",
+    "code": "DC"
+  },
+  "MED": {
+    "name": "MED - Games Token",
+    "id": "950ecbc2f34449c0e083bfc22b087ef3a794642acfb760d1fd00612ba1c9955f",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "c4eda4d9f48a5f6b929a32311b3234b6e4216e932c0eb394a6a5f219b1199132",
+    "tibet_pair_id": "6d45f2d7747addcd1be5c99dde285cd4ac9e9951cc72eee13bdeca6ecaac6bb6",
+    "code": "MED"
+  },
+  "XCOW": {
+    "name": "XCOW",
+    "id": "2b0b9542278bd983d292d4b335460f3ddffd911cff98276fe488bd43f5d3ef7a",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "a96b37350c890bfb16cafc3acd10e249a3424e7ca42510c8f92e0a9838665dd3",
+    "tibet_pair_id": "3878910f3b1f3bcaf281c7948c9ede3c46dc6b172d42f3a387e595eaa8d06ae4",
+    "code": "XCOW"
+  },
+  "TIBET-CBDC-XCH": {
+    "id": "173ea1f42bea14966e9b08d24587aa80e14c7b6bc36bf98ce1e1fc0e977cd519",
+    "denom": 1000,
+    "name": "TibetSwap LP CBDC-XCH",
+    "code": "TIBET-CBDC-XCH"
+  },
+  "TIBET-☕-XCH": {
+    "id": "95ecb053f9c55055a3431026400575bd87b287035321b539f9e7b8ae751a5916",
+    "denom": 1000,
+    "name": "TibetSwap LP ☕-XCH",
+    "code": "TIBET-☕-XCH"
+  },
+  "PC": {
+    "id": "e451f895ab2f499238ba60d0ee0e9a06a604def5c8f3307785959f6623d1fbbf",
+    "denom": 1000,
+    "name": "Parsec",
+    "code": "PC"
+  },
+  "DEGEN": {
+    "name": "ChiFi Degens Redemption Token",
+    "id": "320b869bc8d293cca8784187312da1a61cf43b9cf0724b47d8e027dcca1dd501",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "0f3acd842a1723d67f382a2e59875f2c1a45f86b6a3d5b7fb1682f1b8410b123",
+    "tibet_pair_id": "9dadf3673a5cb0c01fbdb3503599b4ae405a8820bd0bfaf15f14a265b7e9f3a3",
+    "code": "DEGEN"
+  },
+  "NFT": {
+    "id": "ee6ad2b7b8643d7fe944f2d94f8a14d07e94c072b75c7b74c0ca5d0a9c2c1c94",
+    "denom": 1000,
+    "name": "Need For Token 2.0",
+    "code": "NFT"
+  },
+  "TIBET-STDG-XCH": {
+    "id": "b0eb1fbe92edae487377b75d38ac0778b7fe67af868c061245230ff13cf8c106",
+    "denom": 1000,
+    "name": "TibetSwap LP STDG-XCH",
+    "code": "TIBET-STDG-XCH"
+  },
+  "CROAK": {
+    "name": "CROAK",
+    "id": "899dd11ccee41f7662997e328981ace4eed2ee90bfe51f7404c7d827b8dcee39",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "6ab843d28de9f679e1340aafdcfa3fb56d4b05a9bba64af98db1ebed52769ccd",
+    "tibet_pair_id": "4c493f1b891196dd80dddc9d1c0fea27292e9abff2c6764d5cd09054a3953638",
+    "code": "CROAK"
+  },
+  "LKY8": {
+    "name": "Lucky 8 NFT",
+    "id": "e5a8af7124c2737283838e6797b0f0a5293fc81aca1ffd2720f8506c23f2ad88",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "9dd6c418280702dd5b5aa99396abb8ead1d5bbdff9141051c28633d991c353f7",
+    "tibet_pair_id": "d73fddd5499740977be9483eeb19a6f33867978c32af100f9e1227714209adfc",
+    "code": "LKY8"
+  },
+  "BUG": {
+    "id": "0e01b1418f5b8e1c8a636ad625793803088ca1ec62a3e8d883abce05eb0101a5",
+    "denom": 1000,
+    "name": "Billybug Bounty",
+    "code": "BUG"
+  },
+  "TIBET-MINUTES-XCH": {
+    "id": "9a2aca2b130287259e3855a108365f527a905c591ea6f37b4d31b6b705ce1e9d",
+    "denom": 1000,
+    "name": "TibetSwap LP MINUTES-XCH",
+    "code": "TIBET-MINUTES-XCH"
+  },
+  "TIBET-🥔-XCH": {
+    "id": "c9923b86c696f35a116f2376c812a58ca3c835e68ffc128a5a51a0021f0bee81",
+    "denom": 1000,
+    "name": "TibetSwap LP 🥔-XCH",
+    "code": "TIBET-🥔-XCH"
+  },
+  "GOLD": {
+    "name": "GOLD",
+    "id": "14142d7922b2487d1a145db198f7cc232a99a2798ec7da90279af45270e53465",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "46efa82f52027a741714066db2293bffdc88dae793658432d1604c644d334379",
+    "tibet_pair_id": "de98db3ccbf75b51e6f0e72b303f324d1ff288adeea3fb826a2a0f059786bc7e",
+    "code": "GOLD"
+  },
+  "BRS": {
+    "id": "772a41a72c91471fcfdb6d74ddc1bd47b25de4536be770a09fe29ec063f14a33",
+    "denom": 1000,
+    "name": "Brave Seedling Coin",
+    "code": "BRS"
+  },
+  "DACH": {
+    "name": "Dachshund",
+    "id": "b121d01fe25c0f6097c269d0598c6cad99360d1674bb79bc29f8c4f7b9009951",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "49e041a0d3735343e3cfa47a885f65812862695bcd0a304c7b59c701306af103",
+    "tibet_pair_id": "1e84b06b513eb0a8bd7de70f16cbdcf581f59d9f4732de1726ad776c7cc261c7",
+    "code": "DACH"
+  },
+  "GLD": {
+    "id": "66fdffbccd18b2c91b9c2a442be203b6e732b71e225ac6ec3595bda753d780e5",
+    "denom": 1000,
+    "name": "OfferWars GOLD",
+    "code": "GLD"
+  },
+  "ROSS": {
+    "name": "Ross Ulbricht",
+    "id": "e3a68cec0ec7826af09244c9dae144b3630ea0ba1c92691d95b1b833081b11e1",
+    "denom": 1000,
+    "tibet_liquidity_asset_id": "ee972a13138c48165b1b325189c74af9d195e6b44e721fc1e047663ed81614a2",
+    "tibet_pair_id": "096882ace86469ba90a0421a6907e1b17dd2a233856418480a648422496930c3",
+    "code": "ROSS"
+  },
+  "BCGRN": {
+    "id": "7852eddc5b8a909046a8a2cbf5aac99ffb44b57940f39bd9db176dcad181d71d",
+    "denom": 1000,
+    "name": "BCAP GREEN",
+    "code": "BCGRN"
+  }
+}

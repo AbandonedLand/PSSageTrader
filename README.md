@@ -1,0 +1,2 @@
+# powerSageTrader
+PowerShell Trader
