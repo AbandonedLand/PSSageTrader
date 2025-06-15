@@ -169,7 +169,13 @@ class GridBot{
         $this.token_x = $assets.($this.token_x_id)
         $this.token_y = $assets.($this.token_y_id)
         $amount_x = Read-Host "Enter the amount of XCH you want to use (e.g. 10)"
-        $this.token_x_amount = [XCHAmount]::new($amount_x)
+        if($amount_x -ne 0){
+            $this.token_x_amount = [XCHAmount]::new($amount_x)
+        } else {
+            $amount_y = Read-Host "Enter the amount of $($this.token_y.code) you want to use (e.g. 500)"
+            $this.token_y_amount = [CATAmount]::new($amount_y)
+        }
+        
         #$bot.token_y_amount = [CATAmount]::new(500)
         Write-Host "The best way to operate this bot is to set the min or max price to the current price.   You'd create two different bots to trade from current price to min, and from current price to max."
         $this.min_price = Read-Host "Enter the minimum price you want to set (e.g. 10.00)"
@@ -180,7 +186,7 @@ class GridBot{
 
         $this.BuildGrid()
         $this.save()
-        
+
     }
 
     [pscustomobject] MakeOfferFromGrid($index, $side,[boolean]$submit=$false,[boolean]$add_to_active = $false){
