@@ -388,7 +388,7 @@ class GridBot{
         }
         foreach($offer in $this.active_offers){
             $offer_data = Get-SageOffer -offer_id $offer.offer_id -ErrorAction SilentlyContinue
-            if($offer_data -eq $null){
+            if($null -eq $offer_data){
                 write-host "Offer with ID $($offer.offer_id) not found. Skipping."
                 continue
             }

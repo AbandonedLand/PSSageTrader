@@ -185,22 +185,42 @@ Class ChiaDCABot{
     }
 
     [bool] hasValidBalance(){
+        if($this.max_token_spend -gt 0){
+            Write-SpectreHost -message "[green]Bot [/][blue]$($this.name)[/][green] has spent [/][Magenta2_1]$($this.current_token_spend) / $($this.max_token_spend)[/]."
+        } else {
+            Write-SpectreHost -message "[green]Bot [/][blue]$($this.name)[/][green] has spent [/][Magenta2_1]$($this.current_token_spend)[/]."
+        }
+        
         $ballance = $this.offered_asset.getBalance()
         if($ballance -lt $this.offered_asset.amount){
-            Write-SpectreHost -Message "[red]Insufficient balance for this bot. You need at least $($this.offered_asset.getFormattedAmount()) $($this.offered_asset.name) to run this bot.[/]"
+            Write-SpectreHost -Message "[red]Insufficient balance for bot[/][blue] $($this.name)[/][red]. You need at least [/][green]$($this.offered_asset.getFormattedAmount()) $($this.offered_asset.name)[/][red] to run this bot.[/]"
             return $false
         }
+
+        if(($this.max_token_spend -ne 0) -and (($this.current_token_spend + $this.offered_asset.amount) -gt $this.max_token_spend)){
+            Write-SpectreHost -Message "
+            [red]Bot [/][blue]$($this.name)[/][red] has reached the maximum token spend of [/][green]$($this.max_token_spend)[/].
+            [red]Disabling the bot.[/]"
+            $this.deactivate()
+            return $false
+        }
+
         return $true
     }
 
     [bool] isLoggedIn(){
         $fp = (Invoke-SageRPC -endpoint get_key -json @{})
         if($null -eq $fp){
+            Write-SpectreHost -Message "[red]Bot [/][blue]$($this.name)[/][red] does not have access to this wallet. 
+            Please log in with the fingerprint: [/][blue]$($this.fingerprint)[/]"
             return $false
         }
         if($fp.key.fingerprint -eq $this.fingerprint){
             return $true
         }
+        Write-SpectreHost -Message "
+        [red]Bot [/][blue]$($this.name)[/][red] does not have access to this wallet. 
+        Please log in with the fingerprint: [/][blue]$($this.fingerprint)[/]"
         return $false
     }
 
@@ -238,7 +258,7 @@ Class ChiaDCABot{
         $now = Get-Date
         
         if($this.next_trade_time -gt $now){
-            Write-SpectreHost -Message "[yellow]This bot is not ready to trade yet. Next trade time is $($this.next_trade_time).[/]"
+            Write-SpectreHost -Message "[yellow]Bot [/][blue]$($this.name)[/][yellow] is not ready to trade yet. Next trade time is $($this.next_trade_time).[/]"
             return $false
         }
         return $true
@@ -294,7 +314,7 @@ Class ChiaDCABot{
 
    
     [array] getLog(){
-        $file = "$env:LOCALAPPDATA\SageTrader\DCABots\$($this.id).json"
+        $file = "$env:LOCALAPPDATA\SageTrader\offerlogs\$($this.id).csv" 
         if(-not (Test-Path -Path $file)){
             Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
             return @()
@@ -311,9 +331,23 @@ Class ChiaDCABot{
         return $log
     }
 
+    [bool] isActive(){
+        if($this.active -eq $true){
+            Write-SpectreHost -Message "[green]Bot [/][blue]$($this.name)[/][green] is active.[/]"
+            return $true
+        } else {
+            Write-SpectreHost -Message "[red]Bot [/][blue]$($this.name)[/][red] is not active.[/]"
+            return $false    
+        }
+        
+    }
+    
+
     [void] Handle(){
-        if($this.isLoggedIn() -and $this.hasValidBalance() -and $this.hasValidTradeTime() -and $this.active){
-            
+        
+        
+        if($this.isLoggedIn() -and $this.hasValidBalance() -and $this.hasValidTradeTime() -and $this.isActive()){
+            Write-SpectreHost -Message "[green]Retrieving Quote for Bot [/][blue]$($this.name)[/][green][/]"
             $quote = $this.GetQuote()
             if($null -eq $quote){
                 return
@@ -322,7 +356,11 @@ Class ChiaDCABot{
                 Write-SpectreHost -Message "[red]Quote is not valid for this bot. Skipping trade.[/]"
                 return
             }
-
+            Write-SpectreHost -Message "[gray]
+            Offered: [/][green] $($quote.from.getFormattedAmount()) [/][blue]$($quote.from.name)[/]
+            [gray]Requested: [/][green] $($quote.to.getFormattedAmount()) [/][blue]$($quote.to.name)[/]
+            [gray]Price: [/][green]$($quote.price) [/]
+            "
             $quote.Build()
             if($null -eq $quote.sageoffer){
                 Write-SpectreHost -Message "[red]Failed to build the offer. Please check your assets and try again.[/]"
@@ -332,8 +370,10 @@ Class ChiaDCABot{
             $quote.sageoffer.fee = $this.default_fee
             # Create the offer in sage.
             $quote.sageoffer.createoffer()
+            write-spectrehost -Message "[green]Offer created successfully.[/]"
             $dexie = Submit-DexieSwap -offer $quote.sageoffer.offer_data.offer
             if(-not $null -eq $dexie){
+                Write-SpectreHost -Message "[green]Offer [/][blue] - $($dexie.id) - [/][green] submitted to Dexie successfully.[/]"
                 $this.current_token_spend += $quote.from.amount
                 $this.last_trade_time = Get-Date
                 $this.next_trade_time = $this.last_trade_time.AddMinutes($this.minutes_between_trades)
@@ -357,9 +397,7 @@ Class ChiaDCABot{
                 }
                 $this.logOffer($log)
 
-        } else {
-            Write-SpectreHost -Message "[red]Bot is not ready to trade.[/]"
-        }
+        } 
     }
 
     [array] showLog(){
@@ -564,7 +602,8 @@ function Get-ChiaSwapAssets {
 function New-ChiaBot {
     Clear-Host
     Write-SpectreFigletText -Text "Create a New Chia Bot" -Color green Center
-    Read-SpectreSelection -Message "What type of bot would you like to create?" -Choices @("Dollar Cost Averaging", "Active Grid Trading") -EnableSearch | Select-ChiaBotAnswer
+    Read-SpectreSelection -Message "What type of bot would you like to create?" -Choices @("Dollar Cost Averaging") -EnableSearch | Select-ChiaBotAnswer
+    
 }
 
 function Select-ChiaBotAnswer{
@@ -588,11 +627,12 @@ function Select-ChiaBotAnswer{
 
 
 
+
 function New-ChiaDCABot{
     $bot = [ChiaDCABot]::new()
     $direction_choice = ''
     Clear-Host
-    Write-SpectreFigletText -Text "Create a New Dollar Cost Averaging Bot" -Color green Center
+    Write-SpectreFigletText -Text "New DCA Bot" -Color green Center
     Write-SpectreHost -Message "Select enter the asset you want to Dollar Cost Average.
     
     "
@@ -639,8 +679,14 @@ function New-ChiaDCABot{
 
         THE CURRENT PRICE IS [green]$($dexie_quote.price)[/].
         "
-        $bot.minimum_price = Get-MinPrice 
-        $bot.maximum_price = Get-MaxPrice 
+        if($direction_choice -eq 'buy'){
+            $bot.minimum_price = Get-MinPrice
+            $bot.maximum_price = 0
+        } else {
+            $bot.minimum_price = 0
+            $bot.maximum_price = Get-MaxPrice
+        }
+        
     } 
 
     $max_spend = Get-MaxTokenSpend -asset $offered_asset
@@ -667,6 +713,53 @@ function Get-ChiaFingerprint {
 
     $fingerprint = Read-SpectreSelection -Message "Authorize Bot to access specific fingerprint." -Choices ($fingerprints.name) -EnableSearch -SearchHighlightColor purple
     return ($fingerprints | Where-Object { $_.name -eq $fingerprint }).fingerprint
+}
+
+
+
+function Connect-ChiaFingerprint {
+    $fingerprints = Get-SageKeys
+
+    $fingerprint = Read-SpectreSelection -Message "Select which wallet to log into." -Choices ($fingerprints.name) -EnableSearch -SearchHighlightColor purple
+    $selected_fingerprint = ($fingerprints | Where-Object { $_.name -eq $fingerprint }).fingerprint
+    if ($null -eq $selected_fingerprint) {
+        Write-SpectreHost -Message "[red]No fingerprint selected. Please try again.[/]"
+        return Connect-ChiaFingerprint
+    }
+    try {
+        Connect-SageFingerprint -fingerprint $selected_fingerprint
+        Write-SpectreHost -Message "[green]Successfully connected to fingerprint $selected_fingerprint.[/]"
+    } catch {
+        Write-SpectreHost -Message "[red]Failed to connect to fingerprint $selected_fingerprint. Please check your Sage configuration.[/]"
+    }
+}
+
+function Format-ChiaAssetBalance {
+    $data = @()
+    $xch = Get-SageSyncStatus
+    if ($xch -and $xch.balance) {
+        $xch_balance = [decimal]($xch.balance / 1000000000000)
+        $data += [pscustomobject]@{
+            Image = "https://icons.dexie.space/xch.webp"
+            Asset = "XCH"
+            Balance = $xch_balance
+        }
+    } 
+    $cats = Get-SageCats | Sort-Object -Property balance -Descending
+    if ($cats -and $cats.Count -gt 0) {
+        foreach ($cat in $cats) {
+            if($cat.balance -gt 0) {
+                $balance = [decimal]($cat.balance / 1000)
+                $data += [pscustomobject]@{
+                    Image = ($cat.icon_url)
+                    Asset = $cat.ticker
+                    Balance = $balance
+                }
+            } 
+            
+        }
+    }
+    return $data
 }
 
 
@@ -866,6 +959,236 @@ function New-ChiaOfferLog{
         $log | Export-Csv -Path $file -NoTypeInformation
     } else {
         $log | Export-Csv -Path $file -NoTypeInformation -Append
+    }
+
+}
+
+function Start-Bots {
+    while($true){
+        Write-SpectreHost -Message "[purple] $(Get-Date) [/]"
+        Write-SpectreRule -Color purple
+        $bots = Get-ChiaBots
+        if($null -eq $bots){
+            Write-SpectreHost -Message "[red]No bots found.[/]"
+            return
+        }
+        foreach ($bot in $bots) {
+            Write-Information "Starting bot: $($bot.name)"
+            $bot.Handle()
+        }
+        Write-SpectreHost -Message "[green]All bots have been processed. Waiting for the next cycle...[/]"
+        Write-SpectreRule -Color purple
+        Start-Sleep -Seconds 60 # Wait for 60 seconds before the next cycle 
+    }
+    
+}
+
+function Show-PanelMainMenu{
+
+    param (
+        $Item,
+        $SelectedItem
+    )
+    $itemList = $Item | ForEach-Object {
+        $name = $_.Name
+        if ($_.Name -eq $SelectedItem.Name) {
+            $name = "[green]$($name)[/]"
+        } 
+        return $name
+    } | Out-String
+    return Format-SpectrePanel -Header "[white]Main Menu[/]" -Data $itemList.Trim() -Expand -Color darkseagreen
+}
+
+function Get-PanelMainMenuItems{
+    return @(
+        [PSCustomObject]@{ 
+            Name = "Create Chia Bot" 
+            Description ="Create a new trading bot for Chia."
+            Action = { 
+                New-ChiaBot
+            }
+        },
+        [PSCustomObject]@{ 
+            Name = "Show Bots" 
+            Description = "Show all existing Chia bots."
+            Action = {
+                Show-AppMenu -Item (Get-PanelBotMenuItems) -title "Chia Bots"
+            }
+        },
+        [PSCustomObject]@{ 
+            Name = "Exit"
+            Description = "Exit the Sage Trader application."
+            Action = {
+                return
+            }
+        }
+    )
+
+}
+
+function Start-SageTrader {
+    Show-AppMenu -Item (Get-PanelMainMenuItems) -title "Sage-Trader"
+}
+
+
+function Get-PanelBotMenuItems {
+    $bots = Get-ChiaBots
+    if ($null -eq $bots) {
+        return @(
+            [PSCustomObject]@{
+                Name = "Main Menu"
+                Description = "No Chia bots found. Please create a bot first."
+                Action = {
+                    Start-SageTrader
+                }
+            }
+        )
+    }
+    $list = @()
+    $mainmenu = [PSCustomObject]@{
+        Name = "Main Menu"
+        Description = "Return to the main menu."
+        Action = {
+                    Start-SageTrader
+                }
+        
+    }
+    $list += $mainmenu
+    foreach ($bot in $bots) {
+        $name = $bot.name
+        $sb = [ScriptBlock]::Create("'$bot' = Get-ChiaBot -name '$name'")
+        $list += [PSCustomObject]@{
+            Name = $bot.name
+            Description = "
+                Bot ID: $($bot.id)
+                Type: $($bot.GetType().Name) 
+                Status: $($bot.active ? 'Active' : 'Inactive')
+                Last Trade Time: $($bot.last_trade_time)
+                Next Trade Time: $($bot.next_trade_time)        
+            "
+            Action= {
+                $bot.name
+            } 
+        } 
+    }
+    return $list
+
+}
+
+function Get-ChiaBot{
+    param($name)
+    $bots = Get-ChiaBots
+    if ($null -eq $bots) {
+        Write-SpectreHost -Message "[red]No Chia bots found.[/]"
+        return $null
+    }
+    $bot = $bots | Where-Object { $_.name -eq $name }
+    if ($null -eq $bot) {
+        Write-SpectreHost -Message "[red]Bot with name '$name' not found.[/]"
+        return $null
+    }
+    return $bot
+}
+
+function Show-AppMenu{
+
+    param(
+        [Parameter(Mandatory = $true, Position = 0, ValueFromPipeline = $true)]
+        [array]$Item,
+        [Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
+        [string]$title
+    )
+
+    $layout = New-SpectreLayout -Name "root" -Rows @(
+        # Row 1
+        (
+            New-SpectreLayout -Name "header" -MinimumSize 9 -Ratio 1 -Data ("empty")
+        ),
+        # Row 2
+        (
+            New-SpectreLayout -Name "content" -Ratio 10 -Columns @(
+                (
+                    New-SpectreLayout -Name "menu" -Ratio 2 -Data "empty" 
+                ),
+                (
+                    New-SpectreLayout -Name "preview" -Ratio 4 -Data "empty"
+                )
+            )
+        )
+        # Row 3
+        (
+            New-SpectreLayout -Name "footer" -MinimumSize 3 -Ratio 1 -Data ("empty")
+        )
+    )
+    
+    $titlePanel = Write-SpectreFigletText -Text $title -Color DarkSeaGreen -Alignment Center -PassThru | Format-SpectrePanel -Expand -Height 9 -Color darkseagreen
+    
+
+    function Get-PreviewPanel {
+        param (
+            $SelectedItem
+        )
+        
+        $result = $SelectedItem.Description
+        
+        return $result | Format-SpectrePanel -Header "[white]Description[/]" -Expand -Color darkseagreen
+    }
+
+    function Get-LastKeyPressed {
+        $lastKeyPressed = $null
+        while ([Console]::KeyAvailable) {
+            $lastKeyPressed = [Console]::ReadKey($true)
+        }
+        return $lastKeyPressed
+    }
+
+    $response = Invoke-SpectreLive -Data $layout -ScriptBlock {
+        param (
+            [Spectre.Console.LiveDisplayContext] $Context
+        )
+
+        # State
+        $itemList = $Item
+        $selectedItem = $itemList[0]
+      
+
+        while ($true) {
+            # Handle input
+            $lastKeyPressed = Get-LastKeyPressed
+            if ($null -ne $lastKeyPressed ) {
+                if ($lastKeyPressed.Key -eq "DownArrow") {
+                    $selectedItem = $itemList[($itemList.IndexOf($selectedItem) + 1) % $itemList.Count]
+                    
+                } elseif ($lastKeyPressed.Key -eq "UpArrow") {
+                    
+                    $selectedItem = $itemList[($itemList.IndexOf($selectedItem) - 1 + $itemList.Count) % $itemList.Count]
+                } elseif ($lastKeyPressed.Key -eq "Enter") {
+                    # Handle the selection
+                    return $selectedItem
+                } elseif ($lastKeyPressed.Key -eq "Escape") {
+                    return 
+                }
+            }
+
+            # Generate new data
+          
+            $menu = Show-PanelMainMenu -Item $itemList -SelectedItem $selectedItem
+            
+            $previewPanel = Get-PreviewPanel -SelectedItem $selectedItem
+
+            # Update layout
+            $layout["header"].Update($titlePanel) | Out-Null
+            $layout["menu"].Update($menu) | Out-Null
+            $layout["preview"].Update($previewPanel) | Out-Null
+
+            # Draw changes
+            $Context.Refresh()
+            Start-Sleep -Milliseconds 200
+        }
+    } 
+    
+    if ($null -ne $response) {
+        & $response.Action
     }
 
 }
