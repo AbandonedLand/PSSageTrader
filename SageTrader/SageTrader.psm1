@@ -845,7 +845,14 @@ function Get-ChiaDefaultFee{
     $asset = Get-ChiaAsset -id "xch"
     $fee = Read-SpectreText -Message "What is the default fee for this bot? (0 for no fee)" -DefaultAnswer "0"
     if ($fee -match '^\d+(\.\d{1,12})?$') {
-        return [UInt64]$fee * $asset.denom
+        if($fee -gt 0.1){
+            $confirm = Read-SpectreConfirm -Message "You are setting a high fee of $fee XCH. Are you sure you want to continue?" -DefaultAnswer "n"
+            if($confirm -eq $false){
+                return Get-ChiaDefaultFee
+            }
+        
+        }
+        return $fee * $asset.denom
     } else {
         Write-SpectreHost -Message "[red]Invalid input. Please enter a valid number.[/]"
         return Get-ChiaDefaultFee 
