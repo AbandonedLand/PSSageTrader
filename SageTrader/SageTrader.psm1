@@ -141,7 +141,9 @@ Class ChiaDCABot{
     ChiaDCABot([PSCustomobject]$props) {$this.Init([PSCustomObject]$props)}
 
     [void] destroy(){
-        $path = "$env:LOCALAPPDATA\SageTrader\DCABots\$($this.id).json"
+        $path = Get-SageTraderPath("DCABots")
+        $path = Join-Path -Path $path -ChildPath "$($this.id).json"
+        
         $check = Read-SpectreConfirm -Message "Are you sure you want to delete this bot?" -DefaultAnswer "n"
         if($check -eq $true){
             if(Test-Path -Path $path){
@@ -265,11 +267,12 @@ Class ChiaDCABot{
     }
 
     [void] Save(){
-        $path = "$env:LOCALAPPDATA\SageTrader\DCABots"
+        $path = Get-SageTraderPath("DCABots")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).json"
         if(-not (Test-Path -Path $path)){
             New-Item -Path $path -ItemType Directory | Out-Null
         }
-        $file = "$env:LOCALAPPDATA\SageTrader\DCABots\$($this.id).json"
+        
         $this | ConvertTo-Json -Depth 10 | Out-File -FilePath $file -Encoding utf8
     }
 
@@ -314,7 +317,9 @@ Class ChiaDCABot{
 
    
     [array] getLog(){
-        $file = "$env:LOCALAPPDATA\SageTrader\offerlogs\$($this.id).csv" 
+        $path = Get-SageTraderPath("offerlogs")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
+        
         if(-not (Test-Path -Path $file)){
             Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
             return @()
@@ -401,7 +406,9 @@ Class ChiaDCABot{
     }
 
     [array] showLog(){
-        $file = "$env:LOCALAPPDATA\SageTrader\offerlogs\$($this.id).csv"
+        $path = Get-SageTraderPath("offerlogs")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
+
         if(-not (Test-Path -Path $file)){
             Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
             return @()
@@ -415,9 +422,11 @@ Class ChiaDCABot{
     }
 
     [void] logOffer($log){
-        $file = "$env:LOCALAPPDATA\SageTrader\offerlogs\$($this.id).csv" 
-        if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader\offerlogs")){
-            New-Item -Path "$env:LOCALAPPDATA\SageTrader\offerlogs" -ItemType Directory | Out-Null
+        $path = Get-SageTraderPath("offerlogs")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
+        
+        if(-not (Test-Path -Path $path)){
+            New-Item -Path $path -ItemType Directory | Out-Null
         }
         if(-not (Test-Path -Path $file)){
             $log | Export-Csv -Path $file -NoTypeInformation
@@ -429,6 +438,68 @@ Class ChiaDCABot{
 }
 
 
+function Get-SageTraderPath() {
+    [CmdletBinding()]
+    param(
+        [string]$subfolder = $null
+    )
+    <#
+    .SYNOPSIS
+    Get the path to the SageTrader folder.
+    
+    .DESCRIPTION
+    Returns the path to the SageTrader folder, optionally including a subfolder.
+    
+    .PARAMETER subfolder
+    The subfolder to include in the path. If not specified, returns the main SageTrader folder.
+    
+    .EXAMPLE
+    Get-SageTraderPath -subfolder "DCABots"
+    
+    Returns the path to the DCABots subfolder within the SageTrader folder.
+    
+    #>
+    
+    if($isWindows){
+        if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader")){
+            New-Item -Path "$env:LOCALAPPDATA\SageTrader" -ItemType Directory | Out-Null
+        }
+        if($null -eq $subfolder){
+            return "$env:LOCALAPPDATA\SageTrader"
+        }
+        if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader\$subfolder")){
+            New-Item -Path "$env:LOCALAPPDATA\SageTrader\$subfolder" -ItemType Directory | Out-Null
+        }
+        return "$env:LOCALAPPDATA\SageTrader\$subfolder"
+    } 
+
+    if($IsLinux){
+        if(-not (Test-Path -Path "$HOME/.local/share/SageTrader")){
+            New-Item -Path "$HOME/.local/share/SageTrader" -ItemType Directory | Out-Null
+        }
+        if($null -eq $subfolder){
+            return "$HOME/.local/share/SageTrader"
+        }
+        if(-not (Test-Path -Path "$HOME/.local/share/SageTrader/$subfolder")){
+            New-Item -Path "$HOME/.local/share/SageTrader/$subfolder" -ItemType Directory | Out-Null
+        }
+        return "$HOME/.local/share/SageTrader/$subfolder"
+    }
+    if($IsMacOS){
+        if(-not (Test-Path -Path "$HOME/Library/Application Support/SageTrader")){
+            New-Item -Path "$HOME/Library/Application Support/SageTrader" -ItemType Directory | Out-Null
+        }
+        if($null -eq $subfolder){
+            return "$HOME/Library/Application Support/SageTrader"
+        }
+        if(-not (Test-Path -Path "$HOME/Library/Application Support/SageTrader/$subfolder")){
+            New-Item -Path "$HOME/Library/Application Support/SageTrader/$subfolder" -ItemType Directory | Out-Null
+        }
+        return "$HOME/Library/Application Support/SageTrader/$subfolder"
+    }
+
+    
+}
 
 function Get-ChiaAsset {
     <#
@@ -465,10 +536,8 @@ function Get-ChiaAsset {
 
 function Sync-ChiaAssets{
     
-    if(-NOT (Test-Path -Path "$env:LOCALAPPDATA\SageTrader")){
-        New-Item -Path "$env:LOCALAPPDATA\SageTrader" -ItemType Directory | Out-Null
-    }
-    $file = "$env:LOCALAPPDATA\SageTrader\assets.json"
+    $path = Get-SageTraderPath
+    $file = Join-Path -Path $path -ChildPath "assets.json"
 
 
     $page = 1
@@ -520,11 +589,13 @@ function Get-ChiaAssets {
     
     
     #>
+    $path = Get-SageTraderPath
+    $file = Join-Path -Path $path -ChildPath "assets.json"
     
-    if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader\assets.json")){
+    if(-not (Test-Path -Path $file)){
         Sync-ChiaAssets
     }
-    $file = "$env:LOCALAPPDATA\SageTrader\assets.json"
+    
     
     $assets = Get-Content -Path $file | ConvertFrom-Json
     $assetList = @()
@@ -550,12 +621,11 @@ function Sync-ChiaSwapAssets {
     Syncs the Chia Swap assets and saves them to a local file.
     
     #>
-    
-    if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader")){
-        New-Item -Path "$env:LOCALAPPDATA\SageTrader" -ItemType Directory | Out-Null
-    }
+    $path = Get-SageTraderPath
+    $file = Join-Path -Path $path -ChildPath "swapassets.json"
+   
     Write-SpectreHost -Message "[green]Syncing Chia Swap Assets...[/]"
-    $file = "$env:LOCALAPPDATA\SageTrader\swapassets.json"
+
     
     $uri = 'https://api.dexie.space/v1/swap/tokens'
 
@@ -582,12 +652,12 @@ function Get-ChiaSwapAssets {
     
     
     #>
-    
-    if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader\swapassets.json")){
+    $path = Get-SageTraderPath
+    $file = Join-Path -Path $path -ChildPath "swapassets.json"
+    if(-not (Test-Path -Path $file)){
         Sync-ChiaSwapAssets
     }
-    
-    $file = "$env:LOCALAPPDATA\SageTrader\swapassets.json"
+
     
     $assets = Get-Content -Path $file | ConvertFrom-Json
     $assetList = @()
@@ -705,6 +775,14 @@ function New-ChiaDCABot{
     $bot.default_fee = Get-ChiaDefaultFee
     $bot.fingerprint = Get-ChiaFingerprint
     $bot.InitialSave()
+    $act = Read-SpectreConfirm -Message "Do you want to activate this bot now?" -DefaultAnswer "y"
+    if($act -eq $true){
+        $bot.activate()
+        Write-SpectreHost -Message "[green]Bot [/][blue]$($bot.name)[/] [green]is now active.[/]"
+    } else {
+        Write-SpectreHost -Message "[yellow]Bot [/][blue]$($bot.name)[/] [yellow]is not active. You can activate it later.[/]"
+    }
+    Start-SageTrader
 }
 
 
@@ -858,7 +936,8 @@ function Get-ChiaBots {
    
 function Get-ChiaDCABots {
     $bots = @()
-    $path = "$env:LOCALAPPDATA\SageTrader\DCABots"
+    
+    $path = Get-SageTraderPath("DCABots")
     if(-not (Test-Path -Path $path)){
         Write-SpectreHost -Message "[red]No bots found.[/]"
         return
@@ -889,8 +968,10 @@ function Get-ChiaOfferLog {
 
     Retrieves and displays the Chia Offer Log.
     #>
+    $path = Get-SageTraderPath("offerlogs")
+    $file = Join-Path -Path $path -ChildPath "offers.csv"
 
-    $file = "$env:LOCALAPPDATA\SageTrader\offerlogs\offers.csv"
+
     if(-not (Test-Path -Path $file)){
         Write-SpectreHost -Message "[red]No offer logs found.[/]"
         return @()
@@ -950,11 +1031,9 @@ function New-ChiaOfferLog{
         fingerprint = $fingerprint
         dexie_id = $dexie_id
     }
+    $path = Get-SageTraderPath("offerlogs")
+    $file = Join-Path -Path $path -ChildPath "offers.csv"
     
-    $file = "$env:LOCALAPPDATA\SageTrader\offerlogs\offers.csv" 
-    if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader\offerlogs")){
-        New-Item -Path "$env:LOCALAPPDATA\SageTrader\offerlogs" -ItemType Directory | Out-Null
-    }
     if(-not (Test-Path -Path $file)){
         $log | Export-Csv -Path $file -NoTypeInformation
     } else {
@@ -1015,6 +1094,13 @@ function Get-PanelMainMenuItems{
                 Show-AppMenu -Item (Get-PanelBotMenuItems) -title "Chia Bots"
             }
         },
+        [PSCustomObject]@{
+            Name = "Run All Bots"
+            Description = "Start up all the bots.  They will start to actively trade as long as Sage is running and logged in with the correct fingerprint."
+            Action = {
+                Start-Bots
+            }
+        }
         [PSCustomObject]@{ 
             Name = "Exit"
             Description = "Exit the Sage Trader application."
@@ -1056,23 +1142,76 @@ function Get-PanelBotMenuItems {
     $list += $mainmenu
     foreach ($bot in $bots) {
         $name = $bot.name
-        $sb = [ScriptBlock]::Create("'$bot' = Get-ChiaBot -name '$name'")
-        $list += [PSCustomObject]@{
-            Name = $bot.name
+        
+        $boj = [PSCustomObject]@{
+            Name = $name
             Description = "
-                Bot ID: $($bot.id)
-                Type: $($bot.GetType().Name) 
-                Status: $($bot.active ? 'Active' : 'Inactive')
-                Last Trade Time: $($bot.last_trade_time)
-                Next Trade Time: $($bot.next_trade_time)        
+            Bot ID:          $($bot.id)
+            Bot Name:        [blue]$($bot.name)[/]
+            Fingerprint:     $($bot.fingerprint)
+            Offered Asset:   $($bot.offered_asset.code)
+            Requested Asset: $($bot.requested_asset.code)
+            Type:            $($bot.GetType().Name) 
+            Status:          $($bot.active ? '[green]Active[/]' : '[red]Inactive[/]')
+            Last Trade Time: $($bot.last_trade_time)
+            Next Trade Time: $($bot.next_trade_time)        
             "
-            Action= {
-                $bot.name
-            } 
         } 
+        
+        $boj | Add-Member -MemberType ScriptProperty -Name "Action" -Value {
+            Show-BotMenu -name $this.Name
+        }
+        $list += $boj
+
     }
     return $list
+}
 
+
+function Get-PanelBotDetails{
+    param($bot)
+
+    $items = @(
+        [pscustomobject]@{
+            Name = ".. Go Back"
+            Description = "Return to the bot list."
+            Action = {
+                Show-AppMenu -Item (Get-PanelBotMenuItems) -title "Chia Bots"
+            }
+        },
+        [pscustomobject]@{
+            Name = "Bot Details"
+            Description = "
+            
+            Bot ID:          $($bot.id)
+            Bot Name:        [blue]$($bot.name)[/]
+            Fingerprint:     $($bot.fingerprint)
+            Offered Asset:   $($bot.offered_asset.code)
+            Requested Asset: $($bot.requested_asset.code)
+            Type:            $($bot.GetType().Name)
+            Status:          $($bot.active ? '[green]Active[/]' : '[red]Inactive[/]')
+            Last Trade Time: $($bot.last_trade_time)
+            Next Trade Time: $($bot.next_trade_time)
+            "
+            Id = $bot.id
+            
+        }
+        
+
+    )
+    $activate = [PSCustomObject]@{
+            Name =  $($bot.active ? "Deactivate Bot" : "Activate Bot")
+            Description = $($bot.active ? "Deactivate this bot." : "Activate this bot.")
+            Id = $bot.id
+        }
+        
+        $activate | Add-Member -MemberType ScriptProperty -Name "Action" -Value {
+            Show-BotMenu -name $this.Name
+        }
+        $items += $activate
+
+    return $items
+    
 }
 
 function Get-ChiaBot{
@@ -1116,9 +1255,7 @@ function Show-AppMenu{
             )
         )
         # Row 3
-        (
-            New-SpectreLayout -Name "footer" -MinimumSize 3 -Ratio 1 -Data ("empty")
-        )
+        
     )
     
     $titlePanel = Write-SpectreFigletText -Text $title -Color DarkSeaGreen -Alignment Center -PassThru | Format-SpectrePanel -Expand -Height 9 -Color darkseagreen
@@ -1192,3 +1329,175 @@ function Show-AppMenu{
     }
 
 }
+
+function Show-BotMenu{
+
+    param(
+        [Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
+        [string]$name
+    )
+    $bot = Get-ChiaBot -name $name
+    
+
+    $title = $name
+    $Item = @(
+        [PSCustomObject]@{
+            Name = "Main Menu"
+            Description = "Return to the main menu."
+        
+        },
+        [PSCustomObject]@{
+            Name = "Bot Details"
+            Description = "
+            Id:              $($bot.id)
+            Name:            $($bot.name)
+            Fingerprint:     $($bot.fingerprint)
+            Offered Asset:   $($bot.offered_asset.code)
+            Requested Asset: $($bot.requested_asset.code)
+            Type:            $($bot.GetType().Name)
+            Status:          $($bot.active ? '[green]Active[/]' : '[red]Inactive[/]')
+            Last Trade Time: $($bot.last_trade_time)    
+            Next Trade Time: $($bot.next_trade_time)
+            Max Spend:       $($bot.max_token_spend / $bot.offered_asset.denom) $($bot.offered_asset.code)
+
+            "
+        },
+        [PSCustomObject]@{
+            Name = $($bot.active ? "Deactivate" : "Activate")
+            Description = $($bot.active ? "Deactivate this bot." : "Activate this bot.")
+        },
+        [PSCustomObject]@{
+            Name = "Delete Bot"
+            Description = "Delete this bot."            
+        },
+        [PSCustomObject]@{
+            Name = "Show Trades"
+            Description = "View the offer log for this bot."
+        }
+
+    )
+
+    $layout = New-SpectreLayout -Name "root" -Rows @(
+        # Row 1
+        (
+            New-SpectreLayout -Name "header" -MinimumSize 9 -Ratio 1 -Data ("empty")
+        ),
+        # Row 2
+        (
+            New-SpectreLayout -Name "content" -Ratio 10 -Columns @(
+                (
+                    New-SpectreLayout -Name "menu" -Ratio 2 -Data "empty" 
+                ),
+                (
+                    New-SpectreLayout -Name "preview" -Ratio 4 -Data "empty"
+                )
+            )
+        )
+        # Row 3
+        
+    )
+    
+    $titlePanel = Write-SpectreFigletText -Text $title -Color DarkSeaGreen -Alignment Center -PassThru | Format-SpectrePanel -Expand -Height 9 -Color darkseagreen
+    
+
+    function Get-PreviewPanel {
+        param (
+            $SelectedItem
+        )
+        
+        $result = $SelectedItem.Description
+        
+        return $result | Format-SpectrePanel -Header "[white]Description[/]" -Expand -Color darkseagreen
+    }
+
+    function Get-LastKeyPressed {
+        $lastKeyPressed = $null
+        while ([Console]::KeyAvailable) {
+            $lastKeyPressed = [Console]::ReadKey($true)
+        }
+        return $lastKeyPressed
+    }
+
+    $response = Invoke-SpectreLive -Data $layout -ScriptBlock {
+        param (
+            [Spectre.Console.LiveDisplayContext] $Context
+        )
+
+        # State
+        $itemList = $Item
+        $selectedItem = $itemList[0]
+      
+
+        while ($true) {
+            # Handle input
+            $lastKeyPressed = Get-LastKeyPressed
+            if ($null -ne $lastKeyPressed ) {
+                if ($lastKeyPressed.Key -eq "DownArrow") {
+                    $selectedItem = $itemList[($itemList.IndexOf($selectedItem) + 1) % $itemList.Count]
+                    
+                } elseif ($lastKeyPressed.Key -eq "UpArrow") {
+                    
+                    $selectedItem = $itemList[($itemList.IndexOf($selectedItem) - 1 + $itemList.Count) % $itemList.Count]
+                } elseif ($lastKeyPressed.Key -eq "Enter") {
+                    switch($selectedItem.Name) {
+                        "Main Menu" {
+                            return {Start-SageTrader}
+                            
+                        }
+                        "Activate" {
+                            Get-ChiaBot -name $title | ForEach-Object {
+                                $_.activate()
+                            }
+                            $selectedItem.Name = "Deactivate"
+                            $selectedItem.Description = "Deactivate this bot."
+                        }
+                        "Deactivate" {
+                            Get-ChiaBot -name $title | ForEach-Object {
+                                $_.deactivate()
+                            }
+                            $selectedItem.Name = "Activate"
+                            $selectedItem.Description = "Activate this bot."
+                        }
+                        "Delete Bot" {
+                            Get-ChiaBot -name $title | ForEach-Object {
+                                $_.destroy()
+                            }
+                            
+                            return {Start-SageTrader}
+                            
+                        }
+                        "Show Trades" {
+                            $bot = Get-ChiaBot -name $title
+                            $trades = $bot.showLog()
+                            $selectedItem.Description = $trades | Select-Object -Property offered_asset_id,offered_asset_amount,requested_asset_id,requested_asset_amount | Format-SpectreTable -Expand
+                        }
+                    }
+                } elseif ($lastKeyPressed.Key -eq "Escape") {
+                    return 
+                }
+            }
+
+            # Generate new data
+          
+            $menu = Show-PanelMainMenu -Item $itemList -SelectedItem $selectedItem
+            
+            $previewPanel = Get-PreviewPanel -SelectedItem $selectedItem
+
+            # Update layout
+            $layout["header"].Update($titlePanel) | Out-Null
+            $layout["menu"].Update($menu) | Out-Null
+            $layout["preview"].Update($previewPanel) | Out-Null
+
+            # Draw changes
+            $Context.Refresh()
+            Start-Sleep -Milliseconds 200
+        }
+    } 
+    
+    if ($null -ne $response) {
+        & $response
+    }
+
+}
+
+Export-ModuleMember -Function *
