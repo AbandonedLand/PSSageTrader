@@ -8,6 +8,8 @@ Class ChiaAsset {
     [string]$code
     [UInt64]$amount
     [decimal]$formatted_amount
+    [Uint16]$fee_tenthousandths
+    [UInt64]$fee_collected
 
     
     ChiaAsset(){}
@@ -16,21 +18,132 @@ Class ChiaAsset {
         $this.Init([PSCustomObject]$props)
     }
 
+
+    [ordered]makeRequestJson(){
+        $amt = $this.amount + $this.fee_collected
+        if($this.id -eq "xch"){
+            $json = [ordered]@{
+                xch = $amt
+                cats= @()
+                nfts = @()
+            }    
+        } else {
+            $json = [ordered]@{
+                xch = 0
+                cats = @(
+                    [ordered]@{
+                        asset_id = ($this.id)
+                        amount = $amt
+                    }
+                )
+                nfts = @()
+            }
+        }
+        
+        return $json
+    }
+
+    [PSCustomObject]makeOfferJson(){
+        $amt = $this.amount - $this.fee_collected
+        if($this.id -eq "xch"){
+            $json = [ordered]@{
+                xch = $amt
+                cats= @()
+                nfts = @()
+            }    
+        } else {
+            $json = [ordered]@{
+                xch = 0
+                cats = @(
+                    [ordered]@{
+                        asset_id = ($this.id)
+                        amount = $amt
+                    }
+                )
+                nfts = @()
+            }
+        }
+        
+        return $json
+    }
+    
+
+    [ChiaAsset] Clone(){
+        $clone = Get-ChiaAsset -id $this.id
+        $clone.amount = $this.amount
+        $clone.fee_tenthousandths = $this.fee_tenthousandths
+        $clone.fee_collected = $this.fee_collected
+        
+        return $clone
+    }
+
+
+
+    [Quote] Quote(){
+        if(
+        ($null -eq $this.amount) -OR 
+        ($this.amount -eq 0) -OR 
+        ($null -eq $this.tibet_pair_id) -OR
+        ($this.id -eq "XCH"))
+        {
+            return $null
+        }
+
+        return [Quote]::new((Get-DexieQuote -from ($this.id) -to xch -from_amount ($this.amount)).quote)
+    }
+
     [void] Init([PSCustomobject]$props) {
         if(-not $null -eq $props.name){
             $this.name = $props.name
         }
+
         $this.id = $props.id
         $this.denom = [UInt64]$props.denom
         if(-not $null -eq $props.tibet_liquidity_asset_id){
             $this.tibet_liquidity_asset_id = $props.tibet_liquidity_asset_id
+        }
+        if(-not $null -eq $props.tibet_pair_id){
             $this.tibet_pair_id = $props.tibet_pair_id
         }
         $this.code = $props.code
-        if(-not $null -eq $props.amount){
-            $this.amount = [UInt64]$props.amount
+        $this.fee_tenthousandths = $props.fee_tenthousandths
+        $this.fee_collected = $props.fee_collected
+        $this.formatted_amount = $props.formatted_amount
+        $this.amount = $props.amount
+        
+    }
+
+    [void] setFee([decimal]$fee){
+        if($this.amount -ge 1){
+            $this.fee_tenthousandths = $fee * 10000
+            $this.fee_collected = [UInt64]($this.amount * $fee)
         } else {
-            $this.amount = 0
+            Write-SpectreHost -Message "[red]Cannot set fee for asset with amount less than 1.[/]"
+        }
+    }
+
+    [void] addFeeToAmount(){
+        $this.amount += $this.fee_collected
+    }
+    [void] removeFeeFromAmount(){
+        $this.amount -= $this.fee_collected
+    }
+
+    [PSCustomObject] getDexieDetails(){
+        $uri = "https://dexie.space/v1/assets?type=all&filter=$($this.id)"
+        try{
+            $response = Invoke-RestMethod -Uri $uri -Method Get 
+            if($response -and $response.assets){
+                return $response.assets | Where-Object { ($_.id -eq $this.id) -or ($_.code -eq $this.code) 
+                }
+            } else {
+                Write-SpectreHost -Message "[red]No asset details found for ID: $($this.id)[/]"
+                return $null
+            }
+        }
+        catch {
+            Write-SpectreHost -Message "[red]Failed to fetch asset details from Dexie: $($_.Exception.Message)[/]"
+            return $null
         }
     }
 
@@ -40,6 +153,24 @@ Class ChiaAsset {
 
     [void] setAmountFromMojo([UInt64]$mojo){
         $this.amount = $mojo
+    }
+
+    [PSCustomObject] getSimpleQuote() {
+        
+        if($this.id -eq "XCH"){
+            return $null
+        }
+        $buy = Get-DexieQuote -from ($this.id) -to xch -to_amount 1000000000000
+        $sell = Get-DexieQuote -from xch -to ($this.id) -from_amount 1000000000000
+
+        $qbuy = [Quote]::new($buy.quote)
+        $qsell = [Quote]::new($sell.quote)
+        $avg_price = [Math]::Round(($qbuy.price + $qsell.price) / 2, 3)
+        return [PSCustomObject]@{
+            buy_quote = $qbuy
+            sell_quote = $qsell
+            avg_price = $avg_price
+        }
     }
 
     [decimal] getFormattedAmount() {
@@ -58,17 +189,72 @@ Class ChiaAsset {
         $cat = Get-SageCat -asset_id $this.id
         return $cat.balance
     }
+
+    [decimal] getFormattedBalance() { 
+        return ($this.getBalance()/$this.denom)
+    }
+
+    [bool] canCoverAmount() {
+        $balance = $this.getBalance()
+        if($null -eq $balance) {
+            Write-SpectreHost -Message "[red]Failed to retrieve balance for asset ID: $($this.id)[/]"
+            return $false
+        }
+        if($this.amount -gt $balance) {
+            Write-SpectreHost -Message "[red]Insufficient balance for asset ID: $($this.id). Required: $($this.getFormattedAmount()), Available: $([decimal]$balance / $this.denom)[/]"
+            return $false
+        }
+        return $true
+    }
+
+    [void]setAmountInteractive(){
+        $max = $this.getFormattedBalance()
+        [decimal]$amt = Read-SpectreText -Message "Enter the amount of $($this.code) you want use? (max: $($max))"
+        if($this.code -eq "XCH"){
+            $match = '^\d+(\.\d{1,12})?$'
+            $message = "[red]Invalid amount. Please enter a valid number with up to 12 decimal places.[/]"
+        } else {
+            $match = '^\d+(\.\d{1,3})?$'
+            $message = "[red]Invalid amount. Please enter a valid number with up to 3 decimal places.[/]"
+        }
+        if($amt -gt $max){
+                $message = "
+[red] Insufficient funds available Please enter an amount equal to or lower than $($max).[/]"
+            }
+        
+        if($amt -match $match -and $amt -le $max){
+            
+            $this.setAmount([decimal]$amt)
+            Write-SpectreHost -Message "[green]Amount set to $($this.getFormattedAmount()) $($this.name)[/]"
+        } else {
+            Write-SpectreHost -Message $message
+            $this.setAmountInteractive()
+        }
+    }
+    
+    [Quote] getQuote(){
+        $tmp_asset = Get-ChiaSwapAssets -asset_id $this.id
+        if($null -eq $tmp_asset){
+            Write-SpectreHost -Message "[red]Asset cannot be swapped at dexie[/]"
+            return $null
+        }
+        return [Quote]::new((Get-DexieQuote -from $this.id -to xch -from_amount $this.amount))
+    }
 }
 
-Class DexieQuote{
+
+Class Quote {
     [ChiaAsset]$from
     [ChiaAsset]$to
     [UInt64]$suggested_tx_fee
     [UInt64]$combination_fee
     [decimal]$price
     [PSObject]$sageoffer
+    
 
-    DexieQuote([PSCustomObject]$Props){
+    Quote(){}
+
+    Quote([PSCustomObject]$Props){
         $this.Init([PSCustomObject]$Props)
     }
 
@@ -83,6 +269,8 @@ Class DexieQuote{
         }
         $this.sageoffer = $offer
     }
+
+
 
     [void] Init([PSCustomobject]$props) {
     
@@ -177,13 +365,13 @@ Class ChiaDCABot{
 
 
 
-    [DexieQuote] GetQuote(){
+    [Quote] GetQuote(){
         $quote = Get-DexieQuote -from $this.offered_asset.id -to $this.requested_asset.id -from_amount $this.offered_asset.amount
         if ($null -eq $quote) {
             Write-SpectreHost -Message "[red]Failed to get a quote. Please check your assets and try again.[/]"
             return $null
         }
-        return [DexieQuote]::new($($quote.quote))
+        return [Quote]::new($($quote.quote))
     }
 
     [bool] hasValidBalance(){
@@ -299,7 +487,7 @@ Class ChiaDCABot{
         }
     }
 
-    [bool] quoteIsValid([DexieQuote]$quote){
+    [bool] quoteIsValid([Quote]$quote){
         if($null-eq $quote){
             Write-SpectreHost -Message "[red]Quote is null. Cannot validate.[/]"
             return $false
@@ -351,7 +539,7 @@ Class ChiaDCABot{
     [void] Handle(){
         
         
-        if($this.isLoggedIn() -and $this.hasValidBalance() -and $this.hasValidTradeTime() -and $this.isActive()){
+        if($this.isActive() -and $this.isLoggedIn() -and $this.hasValidBalance() -and $this.hasValidTradeTime()){
             Write-SpectreHost -Message "[green]Retrieving Quote for Bot [/][blue]$($this.name)[/][green][/]"
             $quote = $this.GetQuote()
             if($null -eq $quote){
@@ -599,7 +787,7 @@ function Get-ChiaAssets {
     
     $assets = Get-Content -Path $file | ConvertFrom-Json
     $assetList = @()
-    Foreach ($asset in $assets){$as
+    Foreach ($asset in $assets){
         $asset = [ChiaAsset]::new($asset)
         $assetList += $asset
     }
@@ -672,7 +860,7 @@ function Get-ChiaSwapAssets {
 function New-ChiaBot {
     Clear-Host
     Write-SpectreFigletText -Text "Create a New Chia Bot" -Color green Center
-    Read-SpectreSelection -Message "What type of bot would you like to create?" -Choices @("Dollar Cost Averaging") -EnableSearch | Select-ChiaBotAnswer
+    Read-SpectreSelection -Message "What type of bot would you like to create?" -Choices @("Dollar Cost Averaging","Grid Trading") -EnableSearch | Select-ChiaBotAnswer
     
 }
 
@@ -686,13 +874,26 @@ function Select-ChiaBotAnswer{
         "Dollar Cost Averaging" {
             New-ChiaDCABot
         }
-        "Active Grid Trading" {
+        "Grid Trading" {
             New-ChiaGridBot
         }
         default {
             Write-Host "Invalid selection. Please choose a valid bot type."
         }
     }
+}
+
+function New-ChiaGridBot {
+
+    Clear-Host
+    Write-SpectreFigletText -Text "New Grid Trading Bot" -Color green -Alignment Center
+    $description = Write-SpectreHost -Message "
+
+    This bot will trade between two assets in a grid trading strategy.
+    It will buy and sell assets at predefined price levels, allowing you to profit from market fluctuations.
+    It does this by creating trades on both sides of the trading pair with a spread between the buy and sell prices."
+
+    @($title, $description) | Format-SpectreRows | Format-SpectrePanel
 }
 
 
@@ -732,7 +933,7 @@ function New-ChiaDCABot{
         Write-SpectreHost -Message "[red]Failed to get a quote. Please check your assets and try again.[/]"
         return
     }
-    $dexie_quote = [DexieQuote]::new($($quote.quote))
+    $dexie_quote = [Quote]::new($($quote.quote))
     Clear-Host
     Write-SpectreHost -Message "The current price for [blue]$($offered_asset.name)[/] to [blue]$($requested_asset.name)[/] is [green]$($dexie_quote.price)[/].
     "
@@ -843,7 +1044,8 @@ function Format-ChiaAssetBalance {
 
 function Get-ChiaDefaultFee{
     $asset = Get-ChiaAsset -id "xch"
-    $fee = Read-SpectreText -Message "What is the default fee for this bot? (0 for no fee)" -DefaultAnswer "0"
+    [decimal]$fee = Get-SpectreNumber -Message "What is the default fee for this bot? (0 for no fee)" -DefaultAnswer "0.00005"
+    
     if ($fee -match '^\d+(\.\d{1,12})?$') {
         if($fee -gt 0.1){
             $confirm = Read-SpectreConfirm -Message "You are setting a high fee of $fee XCH. Are you sure you want to continue?" -DefaultAnswer "n"
@@ -852,11 +1054,12 @@ function Get-ChiaDefaultFee{
             }
         
         }
-        return $fee * $asset.denom
+        
     } else {
         Write-SpectreHost -Message "[red]Invalid input. Please enter a valid number.[/]"
         return Get-ChiaDefaultFee 
     }
+    return $asset.denom * $fee
 }
 
 function Get-MinutesBetweenTrades {
@@ -931,13 +1134,13 @@ function Select-ChiaSwapAsset {
 function Get-ChiaBots {
     $bots = @()
     $dcabots = Get-ChiaDCABots
-    if($null -eq $dcabots){
-        Write-SpectreHost -Message "[red]No DCA Bots found.[/]"
-        return
-    }
-    foreach($bot in $dcabots) {
-        $bots += $bot
-    }
+    $gridbots = Get-ChiaGridbots
+    
+    $dcabots | ForEach-Object {$bots += $_}
+    $gridbots | ForEach-Object {$bots += $_}
+
+    
+
     return $bots
 }
    
@@ -961,6 +1164,25 @@ function Get-ChiaDCABots {
     return $bots
 }
 
+function Get-ChiaGridbots(){
+    $bots = @()
+    $path = Get-SageTraderPath("GridBots")
+    if(-not (Test-Path -Path $path)){
+        Write-SpectreHost -Message "[red]No bots found.[/]"
+        return
+    }
+    $files = Get-ChildItem -Path $path -Filter "*.json"
+    if($files.Count -eq 0){
+        Write-SpectreHost -Message "[red]No bots found.[/]"
+        return
+    }
+    foreach ($file in $files) {
+        $bot = Get-Content -Path $file.FullName | ConvertFrom-Json
+        $bots += [GridBot]::new($bot)
+    }
+    return $bots
+
+}
 
 function Get-ChiaOfferLog {
     <#
@@ -1119,107 +1341,70 @@ function Get-PanelMainMenuItems{
 
 }
 
-function Start-SageTrader {
-    Show-AppMenu -Item (Get-PanelMainMenuItems) -title "Sage-Trader"
+function Get-SageTraderConfig{
+    $path = Get-SageTraderPath -subfolder config
+    $file = Join-Path -Path $path -ChildPath "config.json"
+    if(-not (Test-Path -Path $file)){
+        $config = [PSCustomObject]@{
+             colors = @{
+                default = "cornsilk1"
+                info = "aqua"
+                warning = "yellow2"
+                danger = "maroon"
+                primary = "dodgerblue3"
+             }
+        } | ConvertTo-Json -Depth 20 | Out-File -FilePath $file
+    } 
+    $config = Get-Content -Path $file | ConvertFrom-Json 
+    return $config
 }
 
 
-function Get-PanelBotMenuItems {
-    $bots = Get-ChiaBots
-    if ($null -eq $bots) {
-        return @(
-            [PSCustomObject]@{
-                Name = "Main Menu"
-                Description = "No Chia bots found. Please create a bot first."
-                Action = {
-                    Start-SageTrader
-                }
-            }
-        )
+
+
+
+function Show-STWallet {
+    Show-STHeader -title "Wallet Options"
+
+    Write-SpectreHost -Message "
+1. Main Menu
+2. Show Balances
+3. Show Offers
+4. Select a Token
+
+9. Exit
+
+"
+    $choices = @(1,2.3,4,9)
+    $choice = Read-ValidMenu -choices $choices -message "Select an option:"
+    switch ($choice) {
+        1 { Start-SageTrader}
+        2 { Show-STWalletBalances }
+        3 { Show-STWalletOffers }
+        4 { Select-STToken }
+        
+        9 { return }
+        Default {  }
     }
-    $list = @()
-    $mainmenu = [PSCustomObject]@{
-        Name = "Main Menu"
-        Description = "Return to the main menu."
-        Action = {
-                    Start-SageTrader
-                }
-        
-    }
-    $list += $mainmenu
-    foreach ($bot in $bots) {
-        $name = $bot.name
-        
-        $boj = [PSCustomObject]@{
-            Name = $name
-            Description = "
-            Bot ID:          $($bot.id)
-            Bot Name:        [blue]$($bot.name)[/]
-            Fingerprint:     $($bot.fingerprint)
-            Offered Asset:   $($bot.offered_asset.code)
-            Requested Asset: $($bot.requested_asset.code)
-            Type:            $($bot.GetType().Name) 
-            Status:          $($bot.active ? '[green]Active[/]' : '[red]Inactive[/]')
-            Last Trade Time: $($bot.last_trade_time)
-            Next Trade Time: $($bot.next_trade_time)        
-            "
-        } 
-        
-        $boj | Add-Member -MemberType ScriptProperty -Name "Action" -Value {
-            Show-BotMenu -name $this.Name
-        }
-        $list += $boj
-
-    }
-    return $list
-}
-
-
-function Get-PanelBotDetails{
-    param($bot)
-
-    $items = @(
-        [pscustomobject]@{
-            Name = ".. Go Back"
-            Description = "Return to the bot list."
-            Action = {
-                Show-AppMenu -Item (Get-PanelBotMenuItems) -title "Chia Bots"
-            }
-        },
-        [pscustomobject]@{
-            Name = "Bot Details"
-            Description = "
-            
-            Bot ID:          $($bot.id)
-            Bot Name:        [blue]$($bot.name)[/]
-            Fingerprint:     $($bot.fingerprint)
-            Offered Asset:   $($bot.offered_asset.code)
-            Requested Asset: $($bot.requested_asset.code)
-            Type:            $($bot.GetType().Name)
-            Status:          $($bot.active ? '[green]Active[/]' : '[red]Inactive[/]')
-            Last Trade Time: $($bot.last_trade_time)
-            Next Trade Time: $($bot.next_trade_time)
-            "
-            Id = $bot.id
-            
-        }
-        
-
-    )
-    $activate = [PSCustomObject]@{
-            Name =  $($bot.active ? "Deactivate Bot" : "Activate Bot")
-            Description = $($bot.active ? "Deactivate this bot." : "Activate this bot.")
-            Id = $bot.id
-        }
-        
-        $activate | Add-Member -MemberType ScriptProperty -Name "Action" -Value {
-            Show-BotMenu -name $this.Name
-        }
-        $items += $activate
-
-    return $items
     
 }
+
+function Read-ValidMenu{
+    param(
+        [Int16[]]$choices,
+        [string]$message
+    )
+    $choice = Read-SpectreText -Message $message
+    if($null -ne ($choice -as [int16])){
+        if([Int16]$choice -in $choices){
+            return [Int16]$choice
+        }
+    }
+    
+    Read-ValidMenu -choices $choices -message $message
+}
+
+
 
 function Get-ChiaBot{
     param($name)
@@ -1236,275 +1421,36 @@ function Get-ChiaBot{
     return $bot
 }
 
-function Show-AppMenu{
 
-    param(
-        [Parameter(Mandatory = $true, Position = 0, ValueFromPipeline = $true)]
-        [array]$Item,
-        [Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
-        [string]$title
-    )
+function Start-SageTrader{
+    Show-STHeader
 
-    $layout = New-SpectreLayout -Name "root" -Rows @(
-        # Row 1
-        (
-            New-SpectreLayout -Name "header" -MinimumSize 9 -Ratio 1 -Data ("empty")
-        ),
-        # Row 2
-        (
-            New-SpectreLayout -Name "content" -Ratio 10 -Columns @(
-                (
-                    New-SpectreLayout -Name "menu" -Ratio 2 -Data "empty" 
-                ),
-                (
-                    New-SpectreLayout -Name "preview" -Ratio 4 -Data "empty"
-                )
-            )
-        )
-        # Row 3
-        
-    )
-    
-    $titlePanel = Write-SpectreFigletText -Text $title -Color DarkSeaGreen -Alignment Center -PassThru | Format-SpectrePanel -Expand -Height 9 -Color darkseagreen
-    
+    Write-SpectreHost -Message "
+1. Wallet
+2. Market Orders
+3. Make Offer
+4. Bots (Automated Trading)
+5. Reports
 
-    function Get-PreviewPanel {
-        param (
-            $SelectedItem
-        )
-        
-        $result = $SelectedItem.Description
-        
-        return $result | Format-SpectrePanel -Header "[white]Description[/]" -Expand -Color darkseagreen
+9. Exit
+
+"
+    $choices = @(1,2,3,4,5,9)
+    $choice = Read-ValidMenu -choices $choices -message "Select an option:"
+    switch ($choice) {
+        1 { Show-STWallet }
+        2 { Show-STMarket }
+        3 { Show-STOffer }
+        4 { Show-STBots}
+        5 { Show-STReports }
+        9 { return }
+        Default {  }
     }
-
-    function Get-LastKeyPressed {
-        $lastKeyPressed = $null
-        while ([Console]::KeyAvailable) {
-            $lastKeyPressed = [Console]::ReadKey($true)
-        }
-        return $lastKeyPressed
-    }
-
-    $response = Invoke-SpectreLive -Data $layout -ScriptBlock {
-        param (
-            [Spectre.Console.LiveDisplayContext] $Context
-        )
-
-        # State
-        $itemList = $Item
-        $selectedItem = $itemList[0]
-      
-
-        while ($true) {
-            # Handle input
-            $lastKeyPressed = Get-LastKeyPressed
-            if ($null -ne $lastKeyPressed ) {
-                if ($lastKeyPressed.Key -eq "DownArrow") {
-                    $selectedItem = $itemList[($itemList.IndexOf($selectedItem) + 1) % $itemList.Count]
-                    
-                } elseif ($lastKeyPressed.Key -eq "UpArrow") {
-                    
-                    $selectedItem = $itemList[($itemList.IndexOf($selectedItem) - 1 + $itemList.Count) % $itemList.Count]
-                } elseif ($lastKeyPressed.Key -eq "Enter") {
-                    # Handle the selection
-                    return $selectedItem
-                } elseif ($lastKeyPressed.Key -eq "Escape") {
-                    return 
-                }
-            }
-
-            # Generate new data
-          
-            $menu = Show-PanelMainMenu -Item $itemList -SelectedItem $selectedItem
-            
-            $previewPanel = Get-PreviewPanel -SelectedItem $selectedItem
-
-            # Update layout
-            $layout["header"].Update($titlePanel) | Out-Null
-            $layout["menu"].Update($menu) | Out-Null
-            $layout["preview"].Update($previewPanel) | Out-Null
-
-            # Draw changes
-            $Context.Refresh()
-            Start-Sleep -Milliseconds 200
-        }
-    } 
     
-    if ($null -ne $response) {
-        & $response.Action
-    }
-
 }
 
-function Show-BotMenu{
 
-    param(
-        [Parameter(Mandatory = $true, Position = 2, ValueFromPipeline = $true)]
-        [string]$name
-    )
-    $bot = Get-ChiaBot -name $name
-    
 
-    $title = $name
-    $Item = @(
-        [PSCustomObject]@{
-            Name = "Main Menu"
-            Description = "Return to the main menu."
-        
-        },
-        [PSCustomObject]@{
-            Name = "Bot Details"
-            Description = "
-            Id:              $($bot.id)
-            Name:            $($bot.name)
-            Fingerprint:     $($bot.fingerprint)
-            Offered Asset:   $($bot.offered_asset.code)
-            Requested Asset: $($bot.requested_asset.code)
-            Type:            $($bot.GetType().Name)
-            Status:          $($bot.active ? '[green]Active[/]' : '[red]Inactive[/]')
-            Last Trade Time: $($bot.last_trade_time)    
-            Next Trade Time: $($bot.next_trade_time)
-            Max Spend:       $($bot.max_token_spend / $bot.offered_asset.denom) $($bot.offered_asset.code)
 
-            "
-        },
-        [PSCustomObject]@{
-            Name = $($bot.active ? "Deactivate" : "Activate")
-            Description = $($bot.active ? "Deactivate this bot." : "Activate this bot.")
-        },
-        [PSCustomObject]@{
-            Name = "Delete Bot"
-            Description = "Delete this bot."            
-        },
-        [PSCustomObject]@{
-            Name = "Show Trades"
-            Description = "View the offer log for this bot."
-        }
-
-    )
-
-    $layout = New-SpectreLayout -Name "root" -Rows @(
-        # Row 1
-        (
-            New-SpectreLayout -Name "header" -MinimumSize 9 -Ratio 1 -Data ("empty")
-        ),
-        # Row 2
-        (
-            New-SpectreLayout -Name "content" -Ratio 10 -Columns @(
-                (
-                    New-SpectreLayout -Name "menu" -Ratio 2 -Data "empty" 
-                ),
-                (
-                    New-SpectreLayout -Name "preview" -Ratio 4 -Data "empty"
-                )
-            )
-        )
-        # Row 3
-        
-    )
-    
-    $titlePanel = Write-SpectreFigletText -Text $title -Color DarkSeaGreen -Alignment Center -PassThru | Format-SpectrePanel -Expand -Height 9 -Color darkseagreen
-    
-
-    function Get-PreviewPanel {
-        param (
-            $SelectedItem
-        )
-        
-        $result = $SelectedItem.Description
-        
-        return $result | Format-SpectrePanel -Header "[white]Description[/]" -Expand -Color darkseagreen
-    }
-
-    function Get-LastKeyPressed {
-        $lastKeyPressed = $null
-        while ([Console]::KeyAvailable) {
-            $lastKeyPressed = [Console]::ReadKey($true)
-        }
-        return $lastKeyPressed
-    }
-
-    $response = Invoke-SpectreLive -Data $layout -ScriptBlock {
-        param (
-            [Spectre.Console.LiveDisplayContext] $Context
-        )
-
-        # State
-        $itemList = $Item
-        $selectedItem = $itemList[0]
-      
-
-        while ($true) {
-            # Handle input
-            $lastKeyPressed = Get-LastKeyPressed
-            if ($null -ne $lastKeyPressed ) {
-                if ($lastKeyPressed.Key -eq "DownArrow") {
-                    $selectedItem = $itemList[($itemList.IndexOf($selectedItem) + 1) % $itemList.Count]
-                    
-                } elseif ($lastKeyPressed.Key -eq "UpArrow") {
-                    
-                    $selectedItem = $itemList[($itemList.IndexOf($selectedItem) - 1 + $itemList.Count) % $itemList.Count]
-                } elseif ($lastKeyPressed.Key -eq "Enter") {
-                    switch($selectedItem.Name) {
-                        "Main Menu" {
-                            return {Start-SageTrader}
-                            
-                        }
-                        "Activate" {
-                            Get-ChiaBot -name $title | ForEach-Object {
-                                $_.activate()
-                            }
-                            $selectedItem.Name = "Deactivate"
-                            $selectedItem.Description = "Deactivate this bot."
-                        }
-                        "Deactivate" {
-                            Get-ChiaBot -name $title | ForEach-Object {
-                                $_.deactivate()
-                            }
-                            $selectedItem.Name = "Activate"
-                            $selectedItem.Description = "Activate this bot."
-                        }
-                        "Delete Bot" {
-                            Get-ChiaBot -name $title | ForEach-Object {
-                                $_.destroy()
-                            }
-                            
-                            return {Start-SageTrader}
-                            
-                        }
-                        "Show Trades" {
-                            $bot = Get-ChiaBot -name $title
-                            $trades = $bot.showLog()
-                            $selectedItem.Description = $trades | Select-Object -Property offered_asset_id,offered_asset_amount,requested_asset_id,requested_asset_amount | Format-SpectreTable -Expand
-                        }
-                    }
-                } elseif ($lastKeyPressed.Key -eq "Escape") {
-                    return 
-                }
-            }
-
-            # Generate new data
-          
-            $menu = Show-PanelMainMenu -Item $itemList -SelectedItem $selectedItem
-            
-            $previewPanel = Get-PreviewPanel -SelectedItem $selectedItem
-
-            # Update layout
-            $layout["header"].Update($titlePanel) | Out-Null
-            $layout["menu"].Update($menu) | Out-Null
-            $layout["preview"].Update($previewPanel) | Out-Null
-
-            # Draw changes
-            $Context.Refresh()
-            Start-Sleep -Milliseconds 200
-        }
-    } 
-    
-    if ($null -ne $response) {
-        & $response
-    }
-
-}
 
 Export-ModuleMember -Function *
