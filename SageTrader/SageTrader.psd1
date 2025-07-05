@@ -12,7 +12,7 @@
 RootModule = 'SageTrader.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.2'
+ModuleVersion = '0.5.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -106,10 +106,10 @@ PrivateData = @{
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/AbandonedLand/PSSageTrader'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        IconUri = 'https://github.com/AbandonedLand/PSSageTrader/blob/main/st.png?raw=true'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
