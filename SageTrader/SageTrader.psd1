@@ -12,7 +12,7 @@
 RootModule = 'SageTrader.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.5.0'
+ModuleVersion = '0.5.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -52,8 +52,8 @@ PowerShellVersion = '7.4'
 
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @(
-    'PowerSage',
-    'PowerDexie',
+    @{ ModuleName = 'PowerSage'; ModuleVersion = '1.0.5' },
+    @{ ModuleName = 'PowerDexie'; ModuleVersion = '1.0.0' },
     'PwshSpectreConsole',
     'Microsoft.PowerShell.ConsoleGuiTools'
 )
