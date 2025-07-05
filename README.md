@@ -1,7 +1,7 @@
 # Sage-Trader
-alpha release 
-
-use at your own risk ( you should create another wallet in Sage to put trading funds into and only allow the bot access to that fingerprint.)
+Market Orders
+DCA Bot
+Grid Bot
 
 
 ## Getting Started

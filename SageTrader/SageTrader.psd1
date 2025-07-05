@@ -54,7 +54,8 @@ PowerShellVersion = '7.4'
 RequiredModules = @(
     'PowerSage',
     'PowerDexie',
-    'PwshSpectreConsole'
+    'PwshSpectreConsole',
+    'Microsoft.PowerShell.ConsoleGuiTools'
 )
 
 # Assemblies that must be loaded prior to importing this module
