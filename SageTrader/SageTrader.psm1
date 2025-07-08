@@ -1712,12 +1712,12 @@ a trading pair is.  The bot will always use the following formulas for price:
 
     } else {
         $token_y = Select-ChiaAsset -cats_only -title "SELECT A TOKEN Y TO TRADE"
-        $token_y = Select-ChiaAsset -cats_only -title "SELECT A TOKEN X TO TRADE"
+        $token_x = Select-ChiaAsset -cats_only -title "SELECT A TOKEN X TO TRADE"
         if($token_x.id -eq $token_y.id){
             Write-SpectreHost -Message "
 [yellow]You cannot create a bot with the same token for both sides. Please try again.
 [/]"
-            return New-ChiaGridBot
+            return
         }
     }
     $token_y.setAmountInteractive()
@@ -1728,7 +1728,7 @@ a trading pair is.  The bot will always use the following formulas for price:
         $current_price = $token_y.getSimpleQuote()
         
         if($null -eq $current_price){
-            Write-SpectreHost "[red]Failed to fetch current price."
+            Write-SpectreHost "[red]Failed to fetch current price.[/]"
             $starting_price = Get-SpectreNumber -message "
             [green]
 Price[/] = [yellow]$($token_y.code)[/] / [blue]$($token_x.code)[/]
@@ -1746,7 +1746,7 @@ Enter the current price of the pair:" -numberOfDecimals 3 -DefaultAnswer $curren
         $x_price = $token_x.getSimpleQuote()
         $y_price = $token_y.getSimpleQuote()
         if($null -eq $x_price -or $null -eq $y_price){
-            Write-SpectreHost "[red]Failed to fetch current price."
+            Write-SpectreHost "[red]Failed to fetch current price.[/]"
             $starting_price = Get-SpectreNumber -message "
 [green]
 Price[/] = [yellow]$($token_y.code)[/] / [blue]$($token_x.code)[/]
@@ -2180,6 +2180,26 @@ Active:             $($this.active ? "[green]Yes[/]" : "[red]No[/]")
                 
             }
         }
+    }
+
+    [array] getLog(){
+        $path = Get-SageTraderPath("offerlogs")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
+        
+        if(-not (Test-Path -Path $file)){
+            Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
+            return @()
+        }
+        $log = Import-Csv -Path $file
+        if($null -eq $log){
+            Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
+            return @()
+        }
+        if($log.count -eq 0){
+            Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
+            return @()
+        }
+        return $log
     }
 
     [void] Init([PSCustomobject]$props)  {
