@@ -2157,7 +2157,7 @@ Active:             $($this.active ? "[green]Yes[/]" : "[red]No[/]")
     [void] checkOffers(){
         
         if($this.isActive() -and $this.isLoggedIn()){
-            $actives = $this.active_offers
+            $actives = $this.active_offers | Sort-Object {$_.index}
             foreach($active in $actives) {
                 $offer = Get-SageOffer -offer_id $active.offer_id
                 if($offer.status -eq "completed"){
