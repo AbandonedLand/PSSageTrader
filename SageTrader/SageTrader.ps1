@@ -2682,4 +2682,4 @@ function Format-SpectreString([string]$string){
 
 }
 
-Export-ModuleMember -Function *
+#Export-ModuleMember -Function *
