@@ -2396,9 +2396,9 @@ Active:             $($this.active ? "[green]Yes[/]" : "[red]No[/]")
 
         GridBot with ID: [green]$($this.id)[/] is ATTEMPTING to create a(n) [green]$($side)[/] offer from Index: [green]$($index) [/]
         "
-        $offer.json | Format-SpectreJson
-        $offer.createoffer()
         
+        $offer.createoffer()
+        $offer.json | Format-SpectreJson
         
         if($offer.offer_data){
             Write-SpectreHost -Message "
