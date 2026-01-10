@@ -2393,8 +2393,10 @@ Active:             $($this.active ? "[green]Yes[/]" : "[red]No[/]")
         ($this.transaction_fee -gt 0) ? $offer.setFee($this.transaction_fee) : $offer.setFee(0)
         $offer.setReceiveAddress($addresses[$index].address)
         Write-SpectreHost -Message "
+
         GridBot with ID: [green]$($this.id)[/] is ATTEMPTING to create a(n) [green]$($side)[/] offer from Index: [green]$($index) [/]
         "
+        $offer.json | Format-SpectreJson
         $offer.createoffer()
         
         
