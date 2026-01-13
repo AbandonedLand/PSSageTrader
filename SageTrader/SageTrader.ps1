@@ -1,4 +1,389 @@
 
+class SilentBot {
+    [string]$id
+    [string]$fingerprint
+    [string]$name
+    $token_x
+    $token_y
+    [decimal]$pa # Mininum Price (all tokens in X)
+    [decimal]$pb # Maximum Price (all tokens in Y)
+    [decimal]$spread_percentage 
+    [boolean]$x_is_spread_token  = $true
+    [boolean]$x_is_default = $true
+    [boolean]$invert_price = $false
+    [decimal]$xv
+    [decimal]$yv
+    [decimal]$xr
+    [decimal]$yr 
+    [decimal]$liquidity_squared
+    [decimal]$liquidity
+    [decimal]$fee_accumulated = 0
+    [array]$attempts = @()
+    [array]$trades = @()
+    [bool]$active
+
+
+    SilentBot(){
+        $this.id = ((New-Guid).Guid)
+        $this.active = $false
+    }
+    
+    SilentBot([PSCustomobject]$props){
+        $this.Init([PSCustomObject]$props)    
+    }
+
+    [void] Init([PSCustomobject]$props)  {
+        $this.id = $props.id
+        if($props.token_x){
+            $this.token_x = (Get-SageToken -id ($props.token_x.ticker))
+        }
+        if($props.token_y){
+            $this.token_y = (Get-SageToken -id ($props.token_y.ticker))
+        }
+        $this.name = $props.name
+        $this.fingerprint = $props.fingerprint
+        $this.pa = $props.pa
+        $this.pb = $props.pb
+        $this.spread_percentage = $props.spread_percentage
+        $this.x_is_spread_token  = $props.x_is_spread_token    
+        $this.x_is_default = $props.x_is_default
+        $this.invert_price = $props.invert_price
+        $this.xv = $props.xv
+        $this.yv = $props.yv
+        $this.xr = $props.xr
+        $this.yr = $props.yr
+        $this.liquidity_squared = $props.liquidity_squared
+        $this.liquidity = $props.liquidity
+        $this.fee_accumulated = $props.fee_accumulated
+        $this.attempts = $props.attempts
+        $this.trades = $props.trades
+        $this.active = $props.active
+    
+    }
+
+    [pscustomobject]GetDexieQuoteFromDx($dx){
+        if($dx -lt 0) {
+            
+            $from = $this.token_x.ticker
+            $to = $this.token_y.ticker
+            $from_amount = [math]::abs(($dx*([Math]::pow(10,($this.token_x.precision)))))
+            return Get-DexieQuote -from $from -to $to -from_amount $from_amount
+        } else {
+            $to = $this.token_x.ticker
+            $from = $this.token_y.ticker
+            $to_amount = [math]::abs($dx*([Math]::pow(10,($this.token_x.precision))))
+            return Get-DexieQuote -from $from -to $to -to_amount $to_amount
+        }
+        
+    }
+
+    [void] logOffer($log){
+        $path = Get-SageTraderPath("offerlogs")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
+        
+        if(-not (Test-Path -Path $path)){
+            New-Item -Path $path -ItemType Directory | Out-Null
+        }
+        if(-not (Test-Path -Path $file)){
+            $log | Export-Csv -Path $file -NoTypeInformation
+        } else {
+            $log | Export-Csv -Path $file -NoTypeInformation -Append
+        }
+
+    }
+
+    [void] updateLogOffer($offer_id,$status){
+        $path = Get-SageTraderPath("offerlogs")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
+        $offers = Import-Csv -Path $file
+        $offer = $offers | Where-Object {$_.offer_id -eq $offer_id}
+        if($offer){
+            $offer.status = $status
+            $offers | Export-Csv -Path $file -NoTypeInformation
+        }
+    }
+
+    [bool] isLoggedIn(){
+        $fp = (Invoke-SageRPC -endpoint get_key -json @{})
+        if($null -eq $fp){
+            Write-SpectreHost -Message "[red]Bot [/][blue]$($this.name)[/][red] does not have access to this wallet. 
+            Please log in with the fingerprint: [/][blue]$($this.fingerprint)[/]"
+            return $false
+        }
+        if($fp.key.fingerprint -eq $this.fingerprint){
+            return $true
+        }
+        Write-SpectreHost -Message "
+        [red]Bot [/][blue]$($this.name)[/][red] does not have access to this wallet. 
+        Please log in with the fingerprint: [/][blue]$($this.fingerprint)[/]"
+        return $false
+    }
+
+    [bool] isActive(){
+        if($this.active -eq $true){
+            Write-SpectreHost -Message "[green]Bot [/][blue]$($this.name)[/][green] is active.[/]"
+            return $true
+        } else {
+            Write-SpectreHost -Message "[red]Bot [/][blue]$($this.name)[/][red] is not active.[/]"
+            return $false    
+        }
+        
+    }
+
+    [void] showMenu(){
+    $choice=0
+    do{
+        Clear-Host
+        
+        Write-SpectreHost -message ($this.summary())
+
+        Write-SpectreHost -Message "
+[cyan]BOT MENU
+---------------------------------
+1. $($this.active ? "[red]Deactivate Bot[/]" : "[green]Activate Bot[/]")
+2. Destroy Bot
+
+9. Back to main menu
+[/]
+
+"
+
+$choices = @(1,2,9)
+$choice = Read-ValidMenu -choices $choices -message "Select an option:"
+
+    switch ($choice) {
+        1 {
+            if ($this.active) {
+                $this.deactivate()
+                Write-SpectreHost -Message "[red]Bot [/][blue]$($this.name)[/] [red]is now deactivated.[/]"
+                
+            } else {
+                $this.activate()
+                Write-SpectreHost -Message "[green]Bot [/][blue]$($this.name)[/] [green]is now active.[/]"
+                
+            }
+        }
+        2 {$this.destroy()
+            $choice = 9
+        }
+        }}until ($choice -eq 9)
+        
+        (Show-Screen -name Home)
+    }
+
+    [void] deactivate(){
+        $this.active = $false
+        $this.save()
+    }
+
+    [void] activate(){
+       
+        $this.active = $true
+        $this.save()
+    }
+
+    [void] Handle(){
+        $this.checkOffers()
+    }
+
+    [array] getLog(){
+        $path = Get-SageTraderPath("offerlogs")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
+        
+        if(-not (Test-Path -Path $file)){
+            Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
+            return @()
+        }
+        $log = Import-Csv -Path $file
+        if($null -eq $log){
+            Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
+            return @()
+        }
+        if($log.count -eq 0){
+            Write-SpectreHost -Message "[red]No logs found for this bot.[/]"
+            return @()
+        }
+        return $log
+    }
+
+    [decimal]Calculate_yv(){
+        return ($this.liquidity * ([math]::Sqrt($this.pa)))
+    }
+
+    [decimal]Calculate_xv(){
+        return ($this.liquidity / ([math]::Sqrt($this.pb)))
+    }
+
+    [void]save(){
+        $path = Get-SageTraderPath("SilentBots")
+        $file = Join-Path -Path $path -ChildPath "$($this.id).json"
+        $this | ConvertTo-Json -Depth 20 | Out-File -FilePath $file -Encoding utf8
+    }
+
+
+    [void]Starting_Token_Amount($amount){
+        if($this.xv -or $this.yv -or $this.xr -or $this.yr -or $this.liquidity -or $this.liquidity_squared){
+            throw "Starting_Token_Amount can only be called once per instance."
+        }
+        if($this.x_is_default){
+            $this.xr = $amount
+            $solve = $amount / ((1/[math]::Sqrt($this.pa))-(1/[math]::Sqrt($this.pb)))
+            $this.liquidity = $solve
+            $this.liquidity_squared = $solve * $solve
+            $this.xv = $this.Calculate_xv()
+            $this.yv = $this.Calculate_yv()
+            
+        } else {
+            $solve = $amount / (([math]::Sqrt($this.pb))-([math]::Sqrt($this.pa)))
+            $this.yr = $amount
+            $this.liquidity = $solve
+            $this.liquidity_squared = $solve * $solve
+            $this.xv = $this.Calculate_xv()
+            $this.yv = $this.Calculate_yv()
+            
+        }
+        $this.save()
+    }
+
+    [void] destroy(){
+        $path = Get-SageTraderPath("SilentBots")
+        $path = Join-Path -Path $path -ChildPath "$($this.id).json"
+        
+        $check = Read-SpectreConfirm -Message "Are you sure you want to delete this bot?" -DefaultAnswer "n"
+        if($check -eq $true){
+            if(Test-Path -Path $path){
+                Remove-Item -Path $path -Force
+                Write-SpectreHost -Message "[green]Bot deleted successfully.[/]"
+            } else {
+                Write-SpectreHost -Message "[red]Bot not found.[/]"
+            }
+        } else {
+            Write-SpectreHost -Message "[yellow]Bot deletion cancelled.[/]"
+        }
+    }
+
+    [decimal]Get_Price(){
+        if($this.invert_price){
+            $price = ($this.xv + $this.xr) / ($this.yv + $this.yr)
+        } else {
+            $price = ($this.yv + $this.yr) / ($this.xv + $this.xr)
+        }
+        return [math]::Round($price,3)
+    }
+
+
+
+    
+    [ordered]Adjust_X_Amount([decimal]$amount){
+        $_xr = $this.xr 
+        $newxr = $_xr + $amount
+        $_xv = $this.xv
+        $_yv = $this.yv
+        $_yr = $this.yr
+        $_y = $this.liquidity_squared / ($newxr + $_xv)
+        $newyr = [math]::round($_y - $_yv,3)
+        
+        if($this.x_is_spread_token){
+            $fee_token = $this.token_x.ticker
+            $dy = $newyr - $_yr
+            $_fee = [math]::Abs([math]::Round($amount * ($this.spread_percentage / 2),12))
+            if($amount -lt 0){
+                $dx = $amount + $_fee
+            } else {
+                $dx = $amount + $_fee
+            }
+        } else {
+            $fee_token = $this.token_y.ticker
+            $dx = $newxr - $_xr
+            $_fee = [math]::Abs([math]::Round(($newyr - $_yr) * ($this.spread_percentage / 2),12))
+            if($amount -lt 0){
+                $dy = $newyr - $_yr + $_fee
+            } else {
+                $dy = $newyr - $_yr + $_fee
+            }
+            
+        }
+
+
+        $trade = [ordered]@{
+            'price' = [math]::Round(([math]::Abs($dy) / [math]::Abs($dx)),3)
+            'fee_token' = $fee_token
+            'fee' = ([math]::Abs($_fee))
+            'newyr' = $newyr
+            'newxr' = $newxr
+            'amount' = $amount
+            'yr' = $_yr
+            'xr' = $_xr
+            'dx' = $dx
+            'dy' = $dy
+        }
+
+        return $trade
+        
+    }
+
+    [ordered]Adjust_Y_Amount([decimal]$amount){
+        $_yr = $this.yr 
+        $newyr = $_yr + $amount
+        $_xv = $this.xv
+        $_yv = $this.yv
+        $_xr = $this.xr
+        $_x = $this.liquidity_squared / ($newyr + $_yv)
+        $newxr = [math]::round($_x - $_xv,12)
+        if(-not $this.x_is_spread_token){
+            
+            $fee_token = $this.token_y.ticker
+            $dx = $newxr - $_xr
+            $_fee = [math]::Abs([math]::Round($dx * ($this.spread_percentage / 2),3))
+            if($amount -lt 0){
+                $dy = $amount + $_fee
+            } else {
+                $dy = $amount + $_fee
+            }
+        } else {
+            $fee_token = $this.token_x.ticker
+            $dy = $newyr - $_yr
+            $_fee = [math]::Abs([math]::Round(($newxr - $_xr) * ($this.spread_percentage / 2),3))
+            if($amount -lt 0){
+                $dx = $newxr - $_xr - $_fee
+            } else {
+                $dx = $newxr - $_xr - $_fee
+            }
+            
+        }
+
+
+        $trade = [ordered]@{
+            'price' = [math]::Round(([math]::Abs($dy) / [math]::Abs($dx)),3)
+            'fee_token' = $fee_token
+            'fee' = ([math]::Abs($_fee))
+            'newyr' = $newyr
+            'newxr' = $newxr
+            'amount' = $amount
+            'yr' = $_yr
+            'xr' = $_xr
+            'dx' = $dx
+            'dy' = $dy
+            
+        }
+
+        return $trade
+        
+    }
+
+    [PSCustomObject]Swap_From_X([decimal]$amount){
+        $from = $this.token_x.ticker
+        $to = $this.token_y.ticker
+        $from_amount = [math]::round(($amount * [math]::Pow(10, $this.token_x.precision)),0)
+        
+        return Get-DexieQuote -from $from -to $to -from_amount $from_amount
+        
+    }
+
+}
+
+
+
 Class ChiaAsset {
     [string]$name
     [string]$id
@@ -1256,10 +1641,11 @@ function Get-ChiaBots {
     $bots = @()
     $dcabots = Get-ChiaDCABots
     $gridbots = Get-ChiaGridbots
+    $silentBots = Get-SilentBots
     
     $dcabots | ForEach-Object {$bots += $_}
     $gridbots | ForEach-Object {$bots += $_}
-
+    $silentBots | ForEach-Object {$bots += $_}
     
 
     return $bots
@@ -1302,6 +1688,24 @@ function Get-ChiaGridbots(){
     }
     return $bots
 
+}
+
+function Get-SilentBots {
+ $bots = @()
+    $path = Get-SageTraderPath("SilentBots")
+    if(-not (Test-Path -Path $path)){
+        
+        return
+    }
+    $files = Get-ChildItem -Path $path -Filter "*.json"
+    if($files.Count -eq 0){
+        return
+    }
+    foreach ($file in $files) {
+        $bot = Get-Content -Path $file.FullName | ConvertFrom-Json
+        $bots += [SilentBot]::new($bot)
+    }
+    return $bots
 }
 
 function Get-ChiaOfferLog {
@@ -2157,7 +2561,7 @@ Active:             $($this.active ? "[green]Yes[/]" : "[red]No[/]")
     [void] checkOffers(){
         
         if($this.isActive() -and $this.isLoggedIn()){
-            $actives = $this.active_offers
+            $actives = $this.active_offers | Sort-Object {$_.index}
             foreach($active in $actives) {
                 $offer = Get-SageOffer -offer_id $active.offer_id
                 if($offer.status -eq "completed"){
@@ -2393,10 +2797,12 @@ Active:             $($this.active ? "[green]Yes[/]" : "[red]No[/]")
         ($this.transaction_fee -gt 0) ? $offer.setFee($this.transaction_fee) : $offer.setFee(0)
         $offer.setReceiveAddress($addresses[$index].address)
         Write-SpectreHost -Message "
+
         GridBot with ID: [green]$($this.id)[/] is ATTEMPTING to create a(n) [green]$($side)[/] offer from Index: [green]$($index) [/]
         "
-        $offer.createoffer()
         
+        $offer.createoffer()
+        $offer.json | Format-SpectreJson
         
         if($offer.offer_data){
             Write-SpectreHost -Message "
@@ -2682,4 +3088,3 @@ function Format-SpectreString([string]$string){
 
 }
 
-#Export-ModuleMember -Function *
