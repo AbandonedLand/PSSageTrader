@@ -5,12 +5,14 @@ class SilentBot {
     [string]$name
     $token_x
     $token_y
-    [decimal]$pa # Mininum Price (all tokens in X)
-    [decimal]$pb # Maximum Price (all tokens in Y)
+    [decimal]$pa # Mininum Price
+    [decimal]$pb # Maximum Price
     [decimal]$spread_percentage 
     [boolean]$x_is_spread_token  = $true
     [boolean]$x_is_default = $true
     [boolean]$invert_price = $false
+    [decimal]$starting_x_amount
+    [decimal]$starting_y_amount
     [decimal]$xv
     [decimal]$yv
     [decimal]$xr
@@ -24,7 +26,7 @@ class SilentBot {
 
 
     SilentBot(){
-        $this.id = ((New-Guid).Guid)
+        $this.id = (New-Guid).Guid
         $this.active = $false
     }
     
@@ -44,6 +46,8 @@ class SilentBot {
         $this.fingerprint = $props.fingerprint
         $this.pa = $props.pa
         $this.pb = $props.pb
+        $this.starting_x_amount = $props.starting_x_amount
+        $this.starting_y_amount = $props.starting_y_amount
         $this.spread_percentage = $props.spread_percentage
         $this.x_is_spread_token  = $props.x_is_spread_token    
         $this.x_is_default = $props.x_is_default
@@ -59,23 +63,9 @@ class SilentBot {
         $this.trades = $props.trades
         $this.active = $props.active
     
+
     }
 
-    [pscustomobject]GetDexieQuoteFromDx($dx){
-        if($dx -lt 0) {
-            
-            $from = $this.token_x.ticker
-            $to = $this.token_y.ticker
-            $from_amount = [math]::abs(($dx*([Math]::pow(10,($this.token_x.precision)))))
-            return Get-DexieQuote -from $from -to $to -from_amount $from_amount
-        } else {
-            $to = $this.token_x.ticker
-            $from = $this.token_y.ticker
-            $to_amount = [math]::abs($dx*([Math]::pow(10,($this.token_x.precision))))
-            return Get-DexieQuote -from $from -to $to -to_amount $to_amount
-        }
-        
-    }
 
     [void] logOffer($log){
         $path = Get-SageTraderPath("offerlogs")
@@ -176,16 +166,143 @@ $choice = Read-ValidMenu -choices $choices -message "Select an option:"
         $this.save()
     }
 
+    
+
+    [void] destroy(){
+        $path = Get-SageTraderPath("SilentBots")
+        $path = Join-Path -Path $path -ChildPath "$($this.id).json"
+        
+        $check = Read-SpectreConfirm -Message "Are you sure you want to delete this bot?" -DefaultAnswer "n"
+        if($check -eq $true){
+            if(Test-Path -Path $path){
+                Remove-Item -Path $path -Force
+                Write-SpectreHost -Message "[green]Bot deleted successfully.[/]"
+            } else {
+                Write-SpectreHost -Message "[red]Bot not found.[/]"
+            }
+        } else {
+            Write-SpectreHost -Message "[yellow]Bot deletion cancelled.[/]"
+        }
+
+    }
+
     [void] activate(){
        
         $this.active = $true
         $this.save()
     }
 
-    [void] Handle(){
-        $this.checkOffers()
+    [void] GetQuoteToXCH($amount){
+        if($this.yr -gt 0){
+            $try = $this.Adjust_X_Amount($amount)
+            if($try.newyr -gt 0){
+                $dq = Get-DexieQuote -from ($this.token_y.ticker) -to xch -to_amount ($try.dx | ConvertTo-XchMojo)
+                if(($dq.quote.from_amount) -le ([Math]::Abs(($try.dy | ConvertTo-catMojo)) )){
+                    $offer = Build-SageOffer
+                    $offer.requestXch(($dq.quote.to_amount))
+                    $offer.offercat(($this.token_y.asset_id),([Math]::Abs($try.dy) | ConvertTo-CatMojo))
+                    $offer.createoffer()
+                    $this.attempts += @{
+                        fee_available = ($try.fee | ConvertTo-XchMojo)
+                        offer = ($offer)
+                        buildStructure = $try
+                        submitted = $false
+                    }     
+                    $this.save()                                   
+                } else {
+                    Write-Host "Should not take trade"
+                }
+            }
+        }
     }
 
+    [void] GetQuoteFromXCH($amount){
+        if($this.xr -gt 0){
+            $try = $this.Adjust_X_Amount(-$amount)
+            if($try.newxr -gt 0){
+                $dq = Get-DexieQuote -from xch -to ($this.token_y.ticker) -to_amount ($try.dy | ConvertTo-CatMojo)
+                if(($dq.quote.from_amount) -le ([Math]::Abs(($try.dx | ConvertTo-xchMojo)) )){
+                    $offer = Build-SageOffer
+                    $offer.offerXch(($dq.quote.from_amount))
+                    $offer.requestCat(($this.token_y.asset_id),($try.dy | ConvertTo-CatMojo))
+                    $offer.createoffer()
+                    $this.attempts += @{
+                        fee_available = (([Math]::Abs(($try.dx))|  ConvertTo-XchMojo)-($dq.quote.from_amount ))
+                        offer = ($offer)
+                        buildStructure = $try
+                        submitted = $false
+                    }     
+                    $this.save()                                   
+                } else {
+                    Write-Host "Should not take trade"
+                }
+            }
+        }
+    }
+
+    [void]SubmitAttempt(){
+        
+        $submit = Submit-DexieSwap -offer (attempts[0].offer.offer_data.offer)
+        
+        if($submit.success){
+            Write-Host "Submitted to DexieSwap"
+            $this.attempts[0].submitted = $true
+            $this.save()
+        } else {
+            Write-Host "Faild to Submitted to DexieSwap"
+        }
+        
+    }
+
+
+    [void]CheckOffer(){
+            $offer_id = $this.attempts[0].offer.offer_data.offer_id
+            $offer = get-sageoffer -offer_id $offer_id
+            if($offer.status -eq 'completed'){
+                 $this.trades += ($this.attempts[0])
+            $this.fee_accumulated += ($this.attempts[0].fee_available)
+            $this.xr = $this.attempts[0].buildStructure.newxr
+            $this.yr = $this.attempts[0].buildStructure.newyr
+            $this.attempts = @()
+            $this.save()
+            }
+           
+    }
+
+    [void] Handle(){
+        
+
+        if($this.attempts.count -eq 0){
+            $this.GetQuoteFromXCH(0.5)
+            
+        }
+        if($this.attempts.count -eq 0){
+            $this.GetQuoteToXCH(0.5)
+        }
+
+        if($this.attempts.count -eq 1 ){
+            $this.CheckOffer()
+            $this.SubmitAttempt()
+        }
+        $sleep = (Get-Random -Minimum 60 -Maximum 300)
+        Write-SpectreHost -Message "
+Name: $($this.name)
+XCH : $($this.xr)
+$($this.token_y.ticker): $($this.yr)
+------------------------------------
+Fees: $($this.fee_accumulated / 1000000000000)
+Trades: $($this.trades.count)
+------------------------------------
+
+Sleeping for $sleep
+        "
+        
+        start-sleep $sleep
+    }
+
+    
+
+    
     [array] getLog(){
         $path = Get-SageTraderPath("offerlogs")
         $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
@@ -241,24 +358,6 @@ $choice = Read-ValidMenu -choices $choices -message "Select an option:"
             $this.xv = $this.Calculate_xv()
             $this.yv = $this.Calculate_yv()
             
-        }
-        $this.save()
-    }
-
-    [void] destroy(){
-        $path = Get-SageTraderPath("SilentBots")
-        $path = Join-Path -Path $path -ChildPath "$($this.id).json"
-        
-        $check = Read-SpectreConfirm -Message "Are you sure you want to delete this bot?" -DefaultAnswer "n"
-        if($check -eq $true){
-            if(Test-Path -Path $path){
-                Remove-Item -Path $path -Force
-                Write-SpectreHost -Message "[green]Bot deleted successfully.[/]"
-            } else {
-                Write-SpectreHost -Message "[red]Bot not found.[/]"
-            }
-        } else {
-            Write-SpectreHost -Message "[yellow]Bot deletion cancelled.[/]"
         }
     }
 
@@ -1229,7 +1328,7 @@ function Sync-ChiaAssets{
             code = "BYC"
             id = "ae1536f56760e471ad85ead45f00d680ff9cca73b8cc3407be778f1c0c606eac"
             denom = 1000
-            
+            tibet_pair_id = "9a3ac0d59d02e25410425626bede3ac20506cd0889fedb683e464013ade23fae"
         }
         $pair = $pairs | Where-Object { $_.asset_id -eq $byc.id}
         if($pair){
@@ -3088,3 +3187,135 @@ function Format-SpectreString([string]$string){
 
 }
 
+function New-ChiaSilentBot{
+
+    $bot = [SilentBot]::new()
+
+    
+    Write-SpectreFigletText -Text SilentBot -Alignment Center -Color green -PassThru | Out-SpectreHost
+   
+"
+A SilentBot will trade a Cat token against XCH by using market orders on dexie.
+
+This bot uses the same formula as Uniswap V3.
+(x virtual + x real)(y virtual + y real) = liquidity^2
+
+This is a simpler bot because it does not require as much coin management as the grid bot.
+" | Format-SpectrePadded -Padding 1 |Format-SpectrePanel -Header "SilentBot" -Border Square -Color blue -Expand | Out-Spectrehost
+
+Read-SpectrePause -Message "Select token to trade against XCH"
+
+$bot.token_x = Get-sagetoken -id xch
+
+$token_y = Select-ChiaAsset -cats_only -title "Select the token to trade"
+
+# return if none selected
+if(-not $token_y){
+    return
+} else {
+    $bot.token_y = Get-SageToken -id $token_y.id
+}
+$p = Invoke-SpectreCommandWithStatus -Spinner Aesthetic -Title "Fetching Current Price" -ScriptBlock {
+    
+    return $token_y.getSimpleQuote()
+} 
+$price = Get-SpectreNumber -message "Enter the current price" -DefaultAnswer ($p.avg_price) -numberOfDecimals 2
+
+
+Write-Spectrehost -Message"
+The current price is [green]$($price)[/]
+
+Do you want to set a:
+
+[green]Max Price[/] [gray]Trade XCH for $($bot.token_y.ticker) by assigning up to[/] [green]$([Math]::Round(($bot.token_x.DisplayBalance()),3))[/] XCH
+[yellow]Min Price[/] [gray]Trade $($bot.token_y.ticker) for XCH by assigning up to[/] [green]$($bot.token_y.DisplayBalance())[/] $($bot.token_y.ticker) 
+
+If you want to trade with both tokens, you will need to create a second bot to trade the other direction.
+
+" -PassThru | Format-SpectrePanel -Header "Price" -Border Square -Color blue -Expand
+
+$choices = @(
+    [pscustomobject]@{
+        id = 0
+        name = "Set Max Price - Assign XCH"
+    }
+    [pscustomobject]@{
+        id = 1
+        name = "Set Min Price - Assign $($bot.token_y.ticker)"
+    }
+) 
+
+
+$assigned = Read-SpectreSelection -Message "Choose token to assign" -Choices $choices -ChoiceLabelProperty name
+
+# exit if not chosen
+if($null -eq $assigned){
+    return
+}
+
+if($assigned.id -eq 0){
+    <# 
+    XCH is assigned.  
+    Setting min price (pa) to current price
+    Setting max price (pb) to chosen max price
+    #>
+    $bot.x_is_default = $true
+    $amount_assigned = Get-SpectreNumber -message "
+[yellow]Max assignable is $($bot.token_x.DisplayBalance()) XCH[/]
+How much XCH do you want to assign to this bot?" -numberOfDecimals 12 
+    
+    $bot.pa = $price
+    $bot.pb = Get-SpectreNumber -Message "[yellow]Must be above $($bot.pa)[/]
+Set the max price of the bot.
+    " -numberOfDecimals 2 -DefaultAnswer ([Math]::Round($bot.pa * 1.10,2))
+
+    if($bot.pb -le $bot.pa){
+        Write-SpectreHost "[red]Pricing error[/]"
+        return
+    }
+     
+    $bot.spread_percentage = Get-SpectreNumber -message "Enter the minimum XCH fee you want to collect on each trade" -numberOfDecimals 3 -DefaultAnswer 0.003
+    
+    $bot.x_is_spread_token = $true
+    
+    $bot.Starting_Token_Amount($amount_assigned)
+    $bot.starting_x_amount = $amount_assigned
+    $bot.save()
+
+} else {
+     <# 
+    CAT is assigned.  
+    Setting min price (pa) to current price
+    Setting max price (pb) to chosen max price
+    #>
+    $bot.x_is_default = $false
+    $amount_assigned = Get-SpectreNumber -message "
+[yellow]Max assignable is $($bot.token_y.DisplayBalance()) XCH[/]
+How much $($bot.token_y.ticker) do you want to assign to this bot?" -numberOfDecimals 3
+    
+    $bot.pb = $p.avg_price
+    $bot.pa = Get-SpectreNumber -Message "[yellow]Must be below $($bot.pb)[/]
+Set the max price of the bot.
+    " -numberOfDecimals 2 -DefaultAnswer ([Math]::Round($bot.pb / 1.10,2))
+
+    if($bot.pb -le $bot.pa){
+        Write-SpectreHost "[red]Pricing error[/]"
+        return
+    }
+    
+
+    $bot.spread_percentage = Get-SpectreNumber -message "Enter the minimum fee you want to collect on each trade" -numberOfDecimals 3 -DefaultAnswer 0.003
+
+    $bot.x_is_spread_token = $true
+    
+    $bot.Starting_Token_Amount($amount_assigned)
+    $bot.starting_y_amount = $amount_assigned
+    
+}
+$bot.name = Read-SpectreText -Message "Name the bot: " -DefaultAnswer "SilentBot $($bot.token_y.ticker)"
+$bot.fingerprint = Get-ChiaFingerprint
+$bot.save()
+return $bot
+}
+
+#Export-ModuleMember -Function *
