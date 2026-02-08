@@ -2716,7 +2716,13 @@ Active:             $($this.active ? "[green]Yes[/]" : "[red]No[/]")
                     $this.active_offers = $this.active_offers | Where-Object {$_.offer_id -ne $active.offer_id}
                     $index = $active.index
                     $isAsk = ($active.side -eq "ask") ? $true : $false
-                    $this.CreateOfferFromGridIndex($index,(-not $isAsk))
+                    try {
+                        $this.CreateOfferFromGridIndex($index,(-not $isAsk))    
+                    }
+                    catch {
+                        Write-SpectreHost -Message "[red]Failed to create new offer from grid index $index after completing offer $($active.offer_id). Error: $($_.Exception.Message)[/]"
+                    }
+                    
                 }
                 
             }
