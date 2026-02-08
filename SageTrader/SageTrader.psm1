@@ -195,7 +195,7 @@ $choice = Read-ValidMenu -choices $choices -message "Select an option:"
     [void] GetQuoteToXCH($amount){
         if($this.yr -gt 0){
             $try = $this.Adjust_X_Amount($amount)
-            $do = Get-DexieOffers -offered ($this.token_y.ticker) -requested xch
+            #$do = Get-DexieOffers -offered ($this.token_y.ticker) -requested xch
             if($try.newyr -gt 0){
                 $dq = Get-DexieQuote -from ($this.token_y.ticker) -to xch -to_amount ($try.dx | ConvertTo-XchMojo)
                 if(($dq.quote.from_amount) -le ([Math]::Abs(($try.dy | ConvertTo-catMojo)) )){
