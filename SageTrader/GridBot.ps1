@@ -1,8 +1,8 @@
 class GridBot{
     [string]$id
     [string]$name
-    [SageToken]$offeredToken
-    [SageToken]$requestedToken
+    $offeredToken
+    $requestedToken
     [decimal]$offeredTokenAmount
     [decimal]$startingPrice
     [decimal]$currentPrice
@@ -16,9 +16,9 @@ class GridBot{
     [decimal]$feePercentage
     [bool]$isPrepped
     [bool]$isActive
-    
-    
-    
+    [bool]$isStableCoinPair
+    [array]$pendingCreateOffers
+    [array]$addresses
 
     GridBot(){
         $this.id = (New-Guid).Guid
@@ -28,7 +28,8 @@ class GridBot{
         $this.activeOffers = @()
         $this.completedOffers = @()
         $this.cancelledOffers = @()
-
+        $this.isStableCoinPair = $false
+        $this.pendingCreateOffers = @()
         
     }
 
@@ -70,15 +71,26 @@ class GridBot{
 
     [void] Handle(){
         $this.checkOffers()
+        $this.makePendingOffers()
+    }
+
+    [void] makePendingOffers(){
+        
+        $poffers = $this.pendingCreateOffers 
+
+        foreach($pof in $poffers){
+            $this.CreateOfferFromGridIndex($pof.index,$pof.isActive)
+            $this.pendingCreateOffers = $this.pendingCreateOffers | Where-Object {$_.trigger_offer_id -ne $pof.trigger_offer_id}
+            $this.save()
+        }
+
     }
 
     [void] checkOffers(){
         
         if($this.isActive() -and $this.isLoggedIn()){
-            $bids = $this.active_offers | Where-Object {$_.side -eq "bid"} | Sort-Object index -Descending
-            $asks = $this.active_offers |  Where-Object {$_.side -eq "ask"} | Sort-Object {$_.index}
-            #$actives = $this.active_offers | Sort-Object {$_.index}
-            foreach($active in $bids) {
+            $actives = $this.activeOffers | Sort-Object {$_.index}
+            foreach($active in $actives) {
                 $offer = Get-SageOffer -offer_id $active.offer_id
                 if($offer.status -eq "completed"){
                     $this.updateLogOffer($active.offer_id,"completed")
@@ -88,45 +100,41 @@ class GridBot{
                         grid = $this.grid[($active.index)].($active.side)
                         offer_id = ($active.offer_id)
                     }
-                    $this.x_fee_collected += $this.grid[($active.index)].x_fee_amount
-                    $this.y_fee_collected += $this.grid[($active.index)].y_fee_amount
+
+                    $this.completedOffers += $completed
+                    $this.activeOffers = $this.activeOffers | Where-Object {$_.offer_id -ne $active.offer_id}
                     
-                    $this.completed_offers += $completed
-                    $this.active_offers = $this.active_offers | Where-Object {$_.offer_id -ne $active.offer_id}
-                    $index = $active.index
                     $isAsk = ($active.side -eq "ask") ? $true : $false
-                    try {
-                        $this.CreateOfferFromGridIndex($index,(-not $isAsk))    
-                    }
-                    catch {
-                        Write-SpectreHost -Message "[red]Failed to create new offer from grid index $index after completing offer $($active.offer_id). Error: $($_.Exception.Message)[/]"
-                    }
-                    
+                    $tmpside = ($isAsk) ? "ask" : "bid"
+                    $this.pendingCreateOffers += @{                        
+                        trigger_offer_id = $offer.offer_id
+                        index = $active.index
+                        side=$tmpside
+                        grid = $this.grid[($active.index)].($tmpside)   
+                        isAsk = $isAsk                                  
+                    }    
                 }
-                
             }
-            foreach($active in $asks) {
-                $offer = Get-SageOffer -offer_id $active.offer_id
-                if($offer.status -eq "completed"){
-                    $this.updateLogOffer($active.offer_id,"completed")
-                    
-                    #remove this offer
-                    $completed = @{
-                        grid = $this.grid[($active.index)].($active.side)
-                        offer_id = ($active.offer_id)
-                    }
-                    $this.x_fee_collected += $this.grid[($active.index)].x_fee_amount
-                    $this.y_fee_collected += $this.grid[($active.index)].y_fee_amount
-                    
-                    $this.completed_offers += $completed
-                    $this.active_offers = $this.active_offers | Where-Object {$_.offer_id -ne $active.offer_id}
-                    $index = $active.index
-                    $isAsk = ($active.side -eq "ask") ? $true : $false
-                    $this.CreateOfferFromGridIndex($index,(-not $isAsk))
-                }
-                
-            }
+            $this.save()
         }
+    }
+
+    static [array] All() {
+        $tmp = [GridBot]::new()
+        $path = $tmp.path()
+        $files = Get-ChildItem -Path $path -Filter *.json -Recurse
+        $bots = @()
+        $files | ForEach-Object {
+            $content = Get-Content -Path ($_.FullName) | ConvertFrom-Json
+            $bots += $content
+        }
+        return $bots
+    }
+
+    [void]addSteps($count){
+        $this.addresses = (Get-SageDerivations -offset 0 -limit ($count)).derivations
+        $this.steps = $count
+        $this.save()
     }
 
     [array] getLog(){
@@ -153,10 +161,10 @@ class GridBot{
         $this.id = $props.id
         $this.name = $props.name
         if($props.offeredToken){
-            $this.offeredToken = [SageToken]::new($props.offeredToken)
+            $this.offeredToken = Get-SageToken -id ($props.offeredToken.asset_id)
         }
         if($props.requestedToken){
-            $this.requestedToken = [SageToken]::new($props.requestedToken)
+            $this.requestedToken = Get-SageToken -id ($props.requestedToken.asset_id)
         }
         $this.startingPrice = $props.startingPrice
         $this.currentPrice = $props.currentPrice
@@ -173,9 +181,12 @@ class GridBot{
         $this.isActive = $props.isActive
         $this.isPrepped = $props.isPrepped
         $this.offeredTokenAmount = $props.offeredTokenAmount
-
+        $this.isStableCoinPair = $props.isStableCoinPair
+        $this.pendingCreateOffers = $props.pendingCreateOffers
     }
 
+
+    
 
     [array] forcePrep(){
         if($this.isPrepped){
@@ -197,19 +208,19 @@ class GridBot{
         $array = @()
     
         
-        $addresses = (Get-SageDerivations -offset 0 -limit ($this.steps*2)).derivations
+        
         if($this.offeredToken.id -eq 'xch' -and $this.offeredTokenAmount -gt 0){
             
             $payments = Build-SageBulkPayments
             1..($this.steps) | ForEach-Object {
-                $payments.addXchPayment($addresses[$_].address,($this.offeredTokenAmount/$this.steps))
+                $payments.addXchPayment($this.addresses[$_].address,($this.offeredTokenAmount/$this.steps))
                 }
             $payments.submit()
             $array += ($payments.response )
         } elseif($this.offeredToken.id -ne 'xch' -and $this.offeredTokenAmount -gt 0){
             $payments = Build-SageBulkPayments
             1..($this.steps) | ForEach-Object {
-                $payments.addCatPayment($this.offeredToken.id,$addresses[$_].address,($this.offeredTokenAmount/$this.steps))
+                $payments.addCatPayment($this.offeredToken.id,$this.addresses[$_].address,($this.offeredTokenAmount/$this.steps))
             }
             $payments.submit()
             $array += ($payments.response )
@@ -284,10 +295,34 @@ class GridBot{
         }
     }
 
+    [Array]getCoins($id,$amount){
+        $endpoint = "get_coins"
+        $json = @{
+                ascending = $true
+                filter_mode = 'selectable'
+                offset = 0
+                limit = 1000
+                sort_mode = 'amount'
+            }
+        if($id -eq 'xch'){
+            $json.add('asset_id', $null)
+        } else {
+            $json.add('asset_id',$id)
+        }
+        
+        $coins = Invoke-SageRpc -endpoint $endpoint -json $json
+        $possible_coins = ($coins.coins) | Where-Object {$_.amount -ge $amount}
+        if($possible_coins.count -ge 1){
+            return @($possible_coins[0].coin_id)
+        } else {
+            return @()
+        }
+    }
+
     [void]makeInitialOffers(){
-        if($this.isLoggedIn() -and $this.active_offers.Count -eq 0){
+        if($this.isLoggedIn() -and $this.activeOffers.Count -eq 0){
             $this.grid | ForEach-Object {
-                $this.CreateOfferFromGridIndex($_.index,$true)
+                $this.CreateOfferFromGridIndex($_.index,$false)
             }
         }
     }
@@ -300,7 +335,6 @@ class GridBot{
             $side = "bid"
         }
         
-        $addresses = (Get-SageDerivations -offset 0 -limit ($this.steps*2)).derivations
         $row = $this.grid | Where-Object {$_.index -eq $index}
         $buildData = $row.$side
         if($null -eq $buildData){
@@ -308,10 +342,12 @@ class GridBot{
             return
         }
         $offer = Build-SageOffer
+        $offer.coin_ids = $this.getCoins($buildData.offered_asset_id,$buildData.offered_asset_amount)
+        
         ($buildData.requested_asset_id -eq "xch") ? $offer.requestXch($buildData.requested_asset_amount) : $offer.requestCat($buildData.requested_asset_id,$buildData.requested_asset_amount)
         ($buildData.offered_asset_id -eq "xch") ? $offer.offerXch($buildData.offered_asset_amount) : $offer.offerCat($buildData.offered_asset_id,$buildData.offered_asset_amount)
         ($this.transaction_fee -gt 0) ? $offer.setFee($this.transaction_fee) : $offer.setFee(0)
-        $offer.setReceiveAddress($addresses[$index].address)
+        $offer.setReceiveAddress($this.addresses[$index].address)
         Write-SpectreHost -Message "
 
         GridBot with ID: [green]$($this.id)[/] is ATTEMPTING to create a(n) [green]$($side)[/] offer from Index: [green]$($index) [/]
@@ -327,9 +363,10 @@ class GridBot{
             $active_offer = [PSCustomObject]@{
                 offer_id = $offer.offer_data.offer_id
                 index = $index
-                side = $side                
+                side = $side  
+                        
             }
-            $this.active_offers += $active_offer
+            $this.activeOffers += $active_offer
             $this.save()
             $dexie = Submit-DexieOffer -offer $offer.offer_data.offer -claim_rewards
 
@@ -360,48 +397,10 @@ class GridBot{
 
     }
     
-    [pscustomobject] MakeOfferFromGrid($index, $side,[boolean]$submit=$false,[boolean]$add_to_active = $false){
-
-
-        if($index -lt 0 -or $index -ge $this.grid.count){
-            write-host "Index out of range. Please provide a valid index."
-            return $null
-        }
-        if($side -ne "bid" -and $side -ne "ask"){
-            write-host "Invalid side specified. Use 'bid' or 'ask'."
-            return $null
-        }
-        $addresses = (Get-SageDerivations -offset 0 -limit ($this.steps)).derivations
-        $send_to = $addresses[$index].address
-        
-        $json = $this.grid[$index].$side
-        $json | Add-Member -MemberType NoteProperty -Name "receive_address" -Value $send_to
-        
-            $offer = Invoke-SageRPC -endpoint make_offer -json $json
-            $details = @{
-                offer_id = $offer.offer_id
-                side = $side
-                price = $this.grid[$index].price
-                index = $index
-            }
-            if($submit){
-                $this.SubmitOffer($offer.offer_id)
-            }
-            if($add_to_active){
-                $this.active_offers += [pscustomobject]$details
-                $this.save()
-            }
-           
-            
-            
-        return [pscustomobject]$details
-    }
-
-    
     CancelOffers(){
         try {
             if($this.isLoggedIn()){
-            $this.active_offers | ForEach-Object {
+            $this.activeOffers | ForEach-Object {
             
                 $offer_id = $_.offer_id
                 $this.updateLogOffer($offer_id,"cancelled")
@@ -426,46 +425,82 @@ class GridBot{
     }
 
     BuildGrid(){
+        # How much of Offered Token is applied to each run of the ladder
         $step_amount = $this.offeredTokenAmount / $this.steps
+
+        # Amount to Increase/Decrease each time
         $step_size = ($this.targetPrice - $this.startingPrice) / ($this.steps-1)
+
+
         $invert = $false
         if($step_size -lt 0){
             $invert = $true
         }
 
         if($step_amount -eq 0 -OR $step_size -eq 0){
-            return
+            throw "There are no steps"
         }
-        for ($i = 0; $i -lt $this.steps; $i++){
-            if($invert){
-                $tPrice = [System.Math]::Round($this.targetPrice - ($step_size * $i),3)
-            } else {
-                $tPrice = [System.Math]::Round($this.startingPrice + ($step_size * $i),3)
-            }
-            
-            [UInt64]$offered_amount = (($step_amount * [System.Math]::Pow(10,($this.offeredToken.precision))))
-            [UInt64]$requested_amount = ($tPrice * $step_amount * [System.Math]::Pow(10,($this.requestedToken.precision)))
-            $fee_amount = [UInt64]($requested_amount * $this.feePercentage)
-            
-            
-            $row = [pscustomobject]@{
-                index = ($i)
-                price = [decimal]$tPrice
-                fee_amount = $fee_amount
-                ask = [ordered]@{
-                    requested_asset_id = $this.offeredToken.asset_id
-                    requested_asset_amount = $offered_amount
-                    offered_asset_id = $this.requestedToken.asset_id
-                    offered_asset_amount = $requested_amount
+
+         if($this.isStableCoinPair){
+            for ($i =0; $i -lt $this.steps; $i++){
+                $tprice = 1                
+                [UInt64]$offered_amount = (($step_amount * [System.Math]::Pow(10,($this.offeredToken.precision))))
+                $fee_amount = [uint64]($offered_amount * $this.feePercentage)
+                $row = [pscustomobject]@{
+                    index = ($i)
+                    price = [decimal]$tprice
+                    fee_amount = $fee_amount
+                    ask = [ordered]@{
+                        requested_asset_id = $this.offeredToken.asset_id
+                        requested_asset_amount = ($offered_amount + $fee_amount)
+                        offered_asset_id = $this.requestedToken.asset_id
+                        offered_asset_amount = $offered_amount
+                    }
+                    bid = [ordered]@{
+                        requested_asset_id = $this.requestedToken.asset_id
+                        requested_asset_amount = $offered_amount + $fee_amount
+                        offered_asset_id = $this.offeredToken.asset_id
+                        offered_asset_amount = $offered_amount
+                    }
                 }
-                bid = [ordered]@{
-                    requested_asset_id = $this.requestedToken.asset_id
-                    requested_asset_amount = $requested_amount + $fee_amount
-                    offered_asset_id = $this.offeredToken.asset_id
-                    offered_asset_amount = $offered_amount
-                }
+                $this.grid += $row
             }
-            $this.grid += $row
+        } else {
+
+            for ($i = 0; $i -lt $this.steps; $i++){
+
+
+
+                if($invert){
+                    $tPrice = [System.Math]::Round($this.targetPrice - ($step_size * $i),3)
+                } else {
+                    $tPrice = [System.Math]::Round($this.startingPrice + ($step_size * $i),3)
+                }
+                
+                [UInt64]$offered_amount = (($step_amount * [System.Math]::Pow(10,($this.offeredToken.precision))))
+                [UInt64]$requested_amount = ($tPrice * $step_amount * [System.Math]::Pow(10,($this.requestedToken.precision)))
+                $fee_amount = [UInt64]($requested_amount * $this.feePercentage)
+                
+                
+                $row = [pscustomobject]@{
+                    index = ($i)
+                    price = [decimal]$tPrice
+                    fee_amount = $fee_amount
+                    ask = [ordered]@{
+                        requested_asset_id = $this.offeredToken.asset_id
+                        requested_asset_amount = $offered_amount
+                        offered_asset_id = $this.requestedToken.asset_id
+                        offered_asset_amount = $requested_amount
+                    }
+                    bid = [ordered]@{
+                        requested_asset_id = $this.requestedToken.asset_id
+                        requested_asset_amount = $requested_amount + $fee_amount
+                        offered_asset_id = $this.offeredToken.asset_id
+                        offered_asset_amount = $offered_amount
+                    }
+                }
+                $this.grid += $row
+            }
         }
     }
 
@@ -530,12 +565,13 @@ class GridBot{
 
 $grid = [GridBot]::new()
 $grid.name = "Test Grid Bot"
-$grid.offeredToken = [SageToken]::new("xch")
-$grid.requestedToken = [SageToken]::new("byc")
-$grid.offeredTokenAmount = 200
+$grid.offeredToken = Get-SageToken -id xch
+$grid.requestedToken = Get-SageToken -id byc
+#$grid.isStableCoinPair = $true
+$grid.offeredTokenAmount = 10
 $grid.startingPrice = 2.40
-$grid.targetPrice = 3.00
-$grid.steps  = 100
+$grid.targetPrice = 2.20
+$grid.addSteps(10)
 $grid.fingerprint = 2591181559
 $grid.feePercentage = 0.003
 $grid.BuildGrid()
