@@ -1,11 +1,11 @@
-class GridBot{
+
+class ChiaBot{
     [string]$id
     [string]$name
     $offeredToken
     $requestedToken
     [decimal]$offeredTokenAmount
     [decimal]$startingPrice
-    [decimal]$currentPrice
     [decimal]$targetPrice
     [int]$steps
     [array]$grid
@@ -19,8 +19,10 @@ class GridBot{
     [bool]$isStableCoinPair
     [array]$pendingCreateOffers
     [array]$addresses
+    [datetime]$lastHandled
+    [datetime]$LastTradedAt
 
-    GridBot(){
+    ChiaBot(){
         $this.id = (New-Guid).Guid
         $this.isActive = $false
         $this.isPrepped = $false
@@ -30,10 +32,11 @@ class GridBot{
         $this.cancelledOffers = @()
         $this.isStableCoinPair = $false
         $this.pendingCreateOffers = @()
-        
+        $this.lastHandled = Get-Date
+        $this.LastTradedAt = Get-Date
     }
 
-    GridBot([PSCustomobject]$props){
+    ChiaBot([PSCustomobject]$props){
         $this.Init([PSCustomObject]$props)
         
     }
@@ -47,15 +50,6 @@ class GridBot{
             return $true
         }
         return $false
-    }
-
-    [bool] isActive(){
-        if($this.isActive -eq $true){
-            return $true
-        } else {
-            return $false    
-        }
-        
     }
 
 
@@ -79,7 +73,7 @@ class GridBot{
         $poffers = $this.pendingCreateOffers 
 
         foreach($pof in $poffers){
-            $this.CreateOfferFromGridIndex($pof.index,$pof.isActive)
+            $this.CreateOfferFromGridIndex($pof.index,$pof.isAsk)
             $this.pendingCreateOffers = $this.pendingCreateOffers | Where-Object {$_.trigger_offer_id -ne $pof.trigger_offer_id}
             $this.save()
         }
@@ -87,12 +81,13 @@ class GridBot{
     }
 
     [void] checkOffers(){
-        
-        if($this.isActive() -and $this.isLoggedIn()){
+        $this.lastHandled = Get-Date
+        if($this.isActive -and $this.isLoggedIn()){
             $actives = $this.activeOffers | Sort-Object {$_.index}
             foreach($active in $actives) {
                 $offer = Get-SageOffer -offer_id $active.offer_id
                 if($offer.status -eq "completed"){
+                    $this.LastTradedAt = Get-Date
                     $this.updateLogOffer($active.offer_id,"completed")
                     
                     #remove this offer
@@ -104,8 +99,13 @@ class GridBot{
                     $this.completedOffers += $completed
                     $this.activeOffers = $this.activeOffers | Where-Object {$_.offer_id -ne $active.offer_id}
                     
+                    # Determine Side of current offer
                     $isAsk = ($active.side -eq "ask") ? $true : $false
+                    
+                    # Flip side for new offer
+                    $isAsk = (-not $isAsk)
                     $tmpside = ($isAsk) ? "ask" : "bid"
+
                     $this.pendingCreateOffers += @{                        
                         trigger_offer_id = $offer.offer_id
                         index = $active.index
@@ -120,25 +120,49 @@ class GridBot{
     }
 
     static [array] All() {
-        $tmp = [GridBot]::new()
+        $tmp = [ChiaBot]::new()
         $path = $tmp.path()
         $files = Get-ChildItem -Path $path -Filter *.json -Recurse
         $bots = @()
         $files | ForEach-Object {
             $content = Get-Content -Path ($_.FullName) | ConvertFrom-Json
-            $bots += $content
+            $bots += [ChiaBot]::new($content)
         }
         return $bots
     }
 
     [void]addSteps($count){
-        $this.addresses = (Get-SageDerivations -offset 0 -limit ($count)).derivations
+        $this.addresses = (Get-SageDerivations -offset 0 -limit ($count*2)).derivations
         $this.steps = $count
         $this.save()
     }
 
+    [void]refreshBalances(){
+        if($this.isLoggedIn()){
+            $this.offeredToken = Get-SageToken -id $this.offeredToken.asset_id
+            $this.requestedToken = Get-SageToken -id $this.requestedToken.asset_id
+        }
+    }
+
+    [PSCustomObject]stats(){
+        $this.refreshBalances()
+        
+        $stats = [PSCustomObject]@{
+            last_handled = $this.lastHandled
+            last_traded_at = $this.LastTradedAt
+            active_offers = $this.activeOffers.Count
+            completed_offers = $this.completedOffers.Count
+            pending_offers = $this.pendingCreateOffers.Count
+            offered_token = $this.offeredToken.asset_id
+            offered_token_balance = $this.offeredToken.balance
+            requested_token = $this.requestedToken.asset_id
+            requested_token_balance = $this.requestedToken.balance
+        }
+        return $stats
+    }
+
     [array] getLog(){
-        $path = Get-SageTraderPath("offerlogs")
+        $path = $this.path()
         $file = Join-Path -Path $path -ChildPath "$($this.id).csv"
         
         if(-not (Test-Path -Path $file)){
@@ -157,6 +181,21 @@ class GridBot{
         return $log
     }
 
+    static [Array]AllStats(){
+        $bots = [ChiaBot]::All()
+        $allstats = @()
+        foreach($bot in $bots){
+            $stat = [PSCustomObject]@{
+                'Name' = ($bot.name)
+                'Offered Token' = ($bot.offeredToken.ticker)
+                'Requested Token' = ($bot.requestedToken.ticker)
+                'Is Active' = ($bot.isActive)
+            }
+            $allstats += $stat
+        }
+        return $allstats
+    }
+
     [void] Init([PSCustomobject]$props)  {
         $this.id = $props.id
         $this.name = $props.name
@@ -167,15 +206,12 @@ class GridBot{
             $this.requestedToken = Get-SageToken -id ($props.requestedToken.asset_id)
         }
         $this.startingPrice = $props.startingPrice
-        $this.currentPrice = $props.currentPrice
-        $this.maxPrice = $props.maxPrice
+        $this.targetPrice = $props.targetPrice
         $this.steps = $props.steps
         $this.grid = $props.grid
         $this.activeOffers = $props.activeOffers
         $this.completedOffers = $props.completedOffers
         $this.fingerprint = $props.fingerprint
-        $this.fee_percentage = $props.fee_percentage
-        $this.fee_token_id = $props.fee_token_id
         $this.cancelledOffers = $props.cancelledOffers
         $this.feePercentage = $props.feePercentage
         $this.isActive = $props.isActive
@@ -183,6 +219,9 @@ class GridBot{
         $this.offeredTokenAmount = $props.offeredTokenAmount
         $this.isStableCoinPair = $props.isStableCoinPair
         $this.pendingCreateOffers = $props.pendingCreateOffers
+        $this.addresses = $props.addresses
+        $this.lastHandled = (Get-Date $props.lastHandled)
+        $this.LastTradedAt = (Get-Date $props.LastTradedAt)
     }
 
 
@@ -208,29 +247,33 @@ class GridBot{
         $array = @()
     
         
-        
-        if($this.offeredToken.id -eq 'xch' -and $this.offeredTokenAmount -gt 0){
-            
-            $payments = Build-SageBulkPayments
+        $payments = Build-SageBulkPayments
+        if($this.offeredToken.asset_id -eq 'xch' -and $this.offeredTokenAmount -gt 0){
             1..($this.steps) | ForEach-Object {
-                $payments.addXchPayment($this.addresses[$_].address,($this.offeredTokenAmount/$this.steps))
-                }
-            $payments.submit()
-            $array += ($payments.response )
-        } elseif($this.offeredToken.id -ne 'xch' -and $this.offeredTokenAmount -gt 0){
-            $payments = Build-SageBulkPayments
-            1..($this.steps) | ForEach-Object {
-                $payments.addCatPayment($this.offeredToken.id,$this.addresses[$_].address,($this.offeredTokenAmount/$this.steps))
+                $amt = ($this.offeredTokenAmount / $this.steps ) | ConvertTo-XchMojo
+                $payments.addXchPayment($this.addresses[$_].address,$amt)
             }
-            $payments.submit()
-            $array += ($payments.response )
+
+        } elseif($this.offeredToken.asset_id -ne 'xch' -and $this.offeredTokenAmount -gt 0){
+            $payments = Build-SageBulkPayments
+            1..($this.steps) | ForEach-Object {
+                $amt = ($this.offeredTokenAmount / $this.steps ) | ConvertTo-CatMojo
+                $payments.addCatPayment($this.offeredToken.asset_id,$this.addresses[$_].address,$amt)
+            }                        
         }
+
+        $payments 
+        pause
+        $payments.submit()
+        $array += ($payments.response )
+        
         if($array.count -gt 0){
             $this.isPrepped = $true
             $this.save()
         }
         return $array
     }
+    
 
     [array] prepCoins(){
         if($this.isPrepped){
@@ -247,15 +290,15 @@ class GridBot{
 
     [void] destroy(){
         $path = $this.path()
-        $path = Join-Path -Path $path -ChildPath "$($this.id).json"
+        $file = Join-Path -Path $path -ChildPath "$($this.id).json"
         
         $check = Read-SpectreConfirm -Message "Are you sure you want to delete this bot?" -DefaultAnswer "n"
         
         if($check -eq $true){
             
-                if(Test-Path -Path $path){
+                if(Test-Path -Path $file){
                     $this.CancelOffers()
-                    Remove-Item -Path $path -Force
+                    Remove-Item -Path $file -Force
                     Write-SpectreHost -Message "[green]Bot deleted successfully.[/]"
                     
                 } else {
@@ -563,15 +606,30 @@ class GridBot{
 
 }
 
-$grid = [GridBot]::new()
-$grid.name = "Test Grid Bot"
-$grid.offeredToken = Get-SageToken -id xch
-$grid.requestedToken = Get-SageToken -id byc
-#$grid.isStableCoinPair = $true
-$grid.offeredTokenAmount = 10
-$grid.startingPrice = 2.40
-$grid.targetPrice = 2.20
-$grid.addSteps(10)
-$grid.fingerprint = 2591181559
-$grid.feePercentage = 0.003
-$grid.BuildGrid()
+
+function Show-HomeScreen{
+    Clear-Host
+    
+
+}
+
+
+$makeBot = $false
+if($makeBot){
+
+    $grid = [ChiaBot]::new()
+    $grid.name = "Test Grid Bot"
+    $grid.offeredToken = Get-SageToken -id xch
+    $grid.requestedToken = Get-SageToken -id byc
+    #$grid.isStableCoinPair = $true
+    $grid.offeredTokenAmount = 20
+    $grid.startingPrice = 2.50
+    $grid.targetPrice = 2.70
+    $grid.addSteps(20)
+    $grid.fingerprint = 1763257157
+    $grid.feePercentage = 0.003
+    $grid.BuildGrid()
+    $grid.save()
+}
+$bots = [ChiaBot]::All()
+$bot = $bots[0]
