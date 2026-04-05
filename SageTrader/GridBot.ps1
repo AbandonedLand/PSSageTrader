@@ -516,12 +516,14 @@ class ChiaBot{
 
                 if($invert){
                     $tPrice = [System.Math]::Round($this.targetPrice - ($step_size * $i),3)
+                    [UInt64]$requested_amount = (($step_amount /$tprice)* [System.Math]::Pow(10,($this.requestedToken.precision)))
                 } else {
                     $tPrice = [System.Math]::Round($this.startingPrice + ($step_size * $i),3)
+                    [UInt64]$requested_amount = ($tPrice * $step_amount * [System.Math]::Pow(10,($this.requestedToken.precision)))
                 }
                 
                 [UInt64]$offered_amount = (($step_amount * [System.Math]::Pow(10,($this.offeredToken.precision))))
-                [UInt64]$requested_amount = ($tPrice * $step_amount * [System.Math]::Pow(10,($this.requestedToken.precision)))
+                
                 $fee_amount = [UInt64]($requested_amount * $this.feePercentage)
                 
                 
