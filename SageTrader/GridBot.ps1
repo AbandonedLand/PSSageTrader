@@ -147,16 +147,21 @@ class ChiaBot{
     [PSCustomObject]stats(){
         $this.refreshBalances()
         
-        $stats = [PSCustomObject]@{
-            last_handled = $this.lastHandled
-            last_traded_at = $this.LastTradedAt
-            active_offers = $this.activeOffers.Count
-            completed_offers = $this.completedOffers.Count
-            pending_offers = $this.pendingCreateOffers.Count
-            offered_token = $this.offeredToken.asset_id
-            offered_token_balance = $this.offeredToken.balance
-            requested_token = $this.requestedToken.asset_id
-            requested_token_balance = $this.requestedToken.balance
+        $stats = [PSCustomObject]@{            
+            'Name' = $this.name
+            'Offered Token' = $this.offeredToken.ticker
+            'Requested Token' = $this.requestedToken.ticker
+            'Is Active' = $this.isActive
+            'Offered Amount' = ($this.offeredTokenAmount)
+            'Starting Price' = $this.startingPrice
+            'Target Price' = $this.targetPrice
+            'Steps' = $this.steps
+            'Active Offers' = $this.activeOffers.Count
+            'Completed Offers' = $this.completedOffers.Count
+            'Pending Offers' = $this.pendingCreateOffers.Count
+            'Last Checked' = $this.lastHandled
+            'Last Traded' = $this.LastTradedAt
+            
         }
         return $stats
     }
@@ -220,8 +225,14 @@ class ChiaBot{
         $this.isStableCoinPair = $props.isStableCoinPair
         $this.pendingCreateOffers = $props.pendingCreateOffers
         $this.addresses = $props.addresses
-        $this.lastHandled = (Get-Date $props.lastHandled)
-        $this.LastTradedAt = (Get-Date $props.LastTradedAt)
+        if($props.lastHandled){
+            $this.lastHandled = (Get-Date $props.lastHandled)
+        }
+        if($props.LastTradedAt){
+            $this.LastTradedAt = (Get-Date $props.LastTradedAt)
+        }     
+        
+        
     }
 
 
