@@ -118,7 +118,7 @@ function Show-ContinueCreateBot{
     $script:botCreationData.offeredToken = Select-SageToken
     Reset-BotScreen
     "
-    Enter the amount of [green]$($script:botCreationData.offeredToken.ticker)[/] you want to offer. (up to 2 decimal places, e.g. 100.00)
+    Enter the Max Amount of [green]$($script:botCreationData.offeredToken.ticker)[/] available to the Bot. (up to 2 decimal places, e.g. 100.00)
     " | Format-SpectrePanel -Header "Step 3" -Color Blue -Expand
     Write-SpectreHost -Message "$($Script:botCreationData.offeredToken.ticker) Balance: [yellow]$($script:botCreationData.offeredToken.DisplayBalance())[/]"
     $script:botCreationData.offeredTokenAmount = Read-SpectreDecimal
@@ -304,7 +304,7 @@ function Show-BotManagementMenu{
 function Read-SpectreDecimal {
     $decimal = Read-SpectreText -Message "Enter a decimal number:"
     if ([decimal]::TryParse($decimal, [ref]$null)) {
-        return [math]::Round([decimal]$decimal, 2)
+        return [math]::Round([decimal]$decimal, 3)
     } else {
         Write-SpectreHost -Message "Invalid input. Please enter a valid decimal number." 
         Read-SpectreDecimal
