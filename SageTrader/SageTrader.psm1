@@ -11,6 +11,7 @@ function Start-SageTrader {
     ")
 
     $msg  | Format-SpectrePanel -Header Home -Color Blue -Expand
+     
     
     $choices = @(
         [pscustomobject]@{
