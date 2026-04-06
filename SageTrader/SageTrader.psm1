@@ -8,6 +8,11 @@ function Start-SageTrader {
     
     [green]Sage Trader[/] is a terminal interface that can help design different types of bots to provide liquidity to the Chia eco system.
 
+    Join my [SlateBlue3_1]Discord Server[/] for assitance with this program.
+
+    [DodgerBlue2]https:/discord.com/invite/7TTSDfSYP2[/]  
+    [Grey54]CTRL + Click to open[/]
+
         
     ")
 
@@ -79,6 +84,13 @@ function Show-TradingBotMenu{
 function Show-CreateBot{
     $script:botCreationData = [ChiaBot]::new()
     Reset-BotScreen
+
+    "
+    [green]Grid Bot:[/] The most common option. This bot has a varies the price of each offer between two prices and is best for providing liqudity for dissimilar tokens.
+
+    [green]Stable Bot:[/] Best for tradding across different stable coins [[BYC, wUSDC.b, wUSDC ]].  It is best to set the price to 1 and then add the fee
+    "
+
     $choice = Read-SpectreSelection -Choices @(
         [pscustomobject]@{
             Name = "Grid Bot"
@@ -115,18 +127,33 @@ function Show-ContinueCreateBot{
     "
     Choose the token to offer. This should be a token you own and want to trade away.
     "  | Format-SpectrePanel -Header "Step 2" -Color Blue -Expand
-    $script:botCreationData.offeredToken = Select-SageToken
+    if($Script:botCreationData.isStableCoinPair){
+        $stableChoice = @("byc","wusdc.b","wusdc")
+        $stableSelected = Read-SpectreSelection -Message "Select the your first stable coin in the pair" -Choices $stableChoice
+        $script:botCreationData.offeredToken = (Get-SageToken -id $stableSelected)
+        
+    } else {
+        $script:botCreationData.offeredToken = Select-SageToken
+    }
+    
     Reset-BotScreen
     "
-    Enter the Max Amount of [green]$($script:botCreationData.offeredToken.ticker)[/] available to the Bot. (up to 2 decimal places, e.g. 100.00)
+    Enter the Max Amount of [green]$($script:botCreationData.offeredToken.ticker)[/] available to the Bot.
     " | Format-SpectrePanel -Header "Step 3" -Color Blue -Expand
     Write-SpectreHost -Message "$($Script:botCreationData.offeredToken.ticker) Balance: [yellow]$($script:botCreationData.offeredToken.DisplayBalance())[/]"
-    $script:botCreationData.offeredTokenAmount = Read-SpectreDecimal
+    $script:botCreationData.offeredTokenAmount = Read-SpectreDecimal -message "Max amount available to bot:" -precision 12
     Reset-BotScreen
     "
     Now choose the token you want to request in return.
     " | Format-SpectrePanel -Header "Step 4" -Color Blue -Expand
-    $script:botCreationData.requestedToken = Read-SageToken
+    if($Script:botCreationData.isStableCoinPair){
+        $stableChoice = @("byc","wusdc.b","wusdc") | Where-Object {$_ -ne $Script:botCreationData.offeredToken.ticker}
+        $stableSelected = Read-SpectreSelection -Message "Select the second stable coin" -Choices $stableChoice
+        $script:botCreationData.requestedToken = (Get-SageToken -id $stableSelected)
+        
+    } else {
+        $script:botCreationData.requestedToken = Read-SageToken
+    }
     Reset-BotScreen
     "
     Enter the [green]Starting price.[/] 
@@ -182,8 +209,6 @@ function Show-ContinueCreateBot{
     $script:botCreationData.fingerprint = $fingerprint.fingerprint
     Reset-BotScreen
     "
-    Enter the spread you want to set for this bot (e.g. 0.005 for 0.05% fee):
-
     This will make a spread between your selling and buying price to ensure you make a profit on the trade.
 
     For example, if you are offering 100 XCH with 20 steps, each step will offer 5 XCH.  If the starting price was 2.5 and target price was 3.0 with a spread of 0.005, then your pricing would look like this:
@@ -206,17 +231,28 @@ function Show-ContinueCreateBot{
 
 
     " | Format-SpectrePanel -Header "Step 9" -Color Blue -Expand
-    $script:botCreationData.feePercentage = Read-SpectreDecimal
+    $script:botCreationData.feePercentage = Read-SpectreDecimal -message "Enter the spread you want to set for this bot (e.g. 0.005 for 0.05% fee):" -defaultAnswer 0.005 -precision 3
     Reset-BotScreen
     $script:botCreationData.BuildGrid()
-    $script:botCreationData.Save()
     
+    Clear-Host
+    Write-SpectreFigletText -Text "Review Bot" -Alignment Center -Color green
+
     "
     Your Grid Bot has been created with the following parameters:
     " | Format-SpectrePanel -Header "Bot Created" -Color Green -Expand
     $script:botCreationData.stats()
+
+    $createbot = Read-SpectreConfirm -Message "Do you wish to save this bot?" 
+    if($createbot -eq 'y'){
+        $script:botCreationData.Save()
+        Show-BotManagementMenu -Bot $Script:botCreationData
+    } else {
+
+        Start-SageTrader
+    }
+
     
-    Show-ManageBots
 }
 
 function Show-ManageBots{
@@ -302,9 +338,17 @@ function Show-BotManagementMenu{
 
 
 function Read-SpectreDecimal {
-    $decimal = Read-SpectreText -Message "Enter a decimal number:"
+    param(
+        $message = "Enter a decimal number:",
+        $defaultAnswer = $null,
+        $precision =3
+    )
+    if($defaultAnswer){
+        $decimal = Read-SpectreText -Message "Enter a decimal number:" -DefaultAnswer $defaultAnswer    
+    }
+    $decimal = Read-SpectreText -Message "Enter a decimal number:" 
     if ([decimal]::TryParse($decimal, [ref]$null)) {
-        return [math]::Round([decimal]$decimal, 3)
+        return [math]::Round([decimal]$decimal, $precision)
     } else {
         Write-SpectreHost -Message "Invalid input. Please enter a valid decimal number." 
         Read-SpectreDecimal
@@ -523,7 +567,7 @@ class ChiaBot{
     [void]addSteps($count){
         $this.addresses = (Get-SageDerivations -offset 0 -limit ($count*2)).derivations
         $this.steps = $count
-        $this.save()
+        
     }
 
     [void]refreshBalances(){
@@ -1036,4 +1080,4 @@ function Start-Bots{
     
 }
 
-Export-ModuleMember -Function Start-SageTrader, Get-ChiaBots, Start-SageBotJob, Stop-SageBotJob, Start-Bots
+Export-ModuleMember -Function Start-SageTrader, Get-ChiaBots, Start-Bots
