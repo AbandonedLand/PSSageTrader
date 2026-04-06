@@ -1,5 +1,6 @@
 function Start-SageTrader {
     
+    
     Clear-Host
     Write-SpectreFigletText -Text "Sage Trader v2" -Color Green -Alignment Center
     $msg = Format-SpectreString("
@@ -1006,6 +1007,31 @@ function Get-ChiaBots{
     return [ChiaBot]::All()
 }
 
+function Start-Bots{
+    
+    while($true){
+        clear-host  
+        Write-SpectreFigletText -Text "SageTrader is Running" -Color Green -Alignment Center
+        $data = @()
+        $bots = [ChiaBot]::All()
+        foreach($bot in $bots){
+            if($bot.isActive){
+                $data += $bot.stats()    
+                $bot.Handle()
+            }
+        }
+        $data | Format-SpectreTable
+        $key = Read-SpectreText -Message "
+        [gray]Screen will refresh every 60 seconds.[/]
+        Press [yellow]Q[/] to quit or any other key to refresh." -TimeoutSeconds 60
+        if($key -eq "Q" -or $key -eq "q"){
+            break;
+        }
+    }
+    
+}
+
+Export-ModuleMember -Function Start-SageTrader, Get-ChiaBots, Start-SageBotJob, Stop-SageBotJob, Start-Bots
 function Start-Bots{
     
     while($true){
