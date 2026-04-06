@@ -1,3 +1,186 @@
+function Start-Bootstrap{
+
+    Invoke-SpectreCommandWithStatus -Title "Fetching asset list from dexie.space" -ScriptBlock {
+        if(-not $Global:assets){
+            Get-xchAssets
+        }
+    } -Spinner Toggle10
+    
+}
+
+function Start-STOfferDex{
+    
+    Show-OfferDexHeader
+    Start-Bootstrap
+    Show-OfferDexMenu
+}
+
+function Show-OfferDexHeader{
+    Clear-Host
+    Write-SpectreFigletText -Text "offerDEX" -Color green -Alignment Center
+    Write-SpectreRule -Title "Combine offers from dexie" -LineColor green 
+"Combine offers found on dexie to get the most for you trade!  offerDex will get upto 100 offers from dexie at a time that match your requirements.  
+
+It will combine as many offers as it can together for you under your max spend amount and copy the offer file to your clipbord." |  Format-SpectrePanel -Expand -Color green -Height 4 
+
+}
+
+function Show-OfferDexMenu{
+    
+    $choices = @(
+    @{
+        message = "Get Quote"
+        action = { Get-NewOffer}
+    }
+    @{
+        message = "Back"
+        action = { Start-SageTrader }
+    }
+    
+    )
+    
+    $selection = Read-SpectreSelection -Message "Menu:" -Choices $choices -ChoiceLabelProperty message
+    &($selection.action)
+}
+
+function Get-xchAssets {
+    $uri = "https://api.dexie.space/v3/prices/tickers"
+    $data = Invoke-RestMethod -Uri $uri
+    $assets = @()
+    $assets += @{
+        asset_id = "xch"
+        ticker = "XCH"
+        name = "Chia"
+        volume = 1000000000000
+    }
+    if($data.success){
+        $data.tickers | ForEach-Object {
+            $assets += @{
+                asset_id = ($_.base_currency)
+                ticker = ($_.base_code)
+                name = ($_.base_name)
+                volume = ($_.target_volume -as [Decimal])
+            }
+        }
+        
+    }
+    $Global:assets = ( $assets | Sort-Object -Property volume -Descending)
+}
+
+function Read-SpectreNumber{
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$message,
+        
+        [Parameter(Mandatory=$true)]
+        [Int16]$numberOfDecimals,
+        $DefaultAnswer
+    )
+    if($null -eq $DefaultAnswer){
+        $dinput = Read-SpectreText -Message $message
+    } else {
+        $dinput = Read-SpectreText -Message $message -DefaultAnswer $DefaultAnswer
+    }
+    
+    if($numberOfDecimals -lt 1){
+        $match = '^\d+$'
+    } else {
+        $match = '^\d+(\.\d{1,'+"$($numberOfDecimals)"+'})?$'
+    }
+    
+    if($dinput -match $match){
+        return [decimal]$dinput
+    } else {
+        
+        Write-Host "Invalid input. Please enter a valid number with up to $numberOfDecimals decimal places."
+        return Read-SpectreNumber -message $message  -numberOfDecimals $numberOfDecimals
+    }
+}
+
+function Get-NewOffer{
+    Show-OfferDexHeader
+    $offered = Read-SpectreSelection -Message "What asset are you offering?" -Choices ($Global:assets) -ChoiceLabelProperty ticker -EnableSearch -SearchHighlightColor blue -PageSize 10
+    $offerAsset = (Get-SageToken -id $offered.ticker)
+    if($offerAsset.balance -gt 0){
+        $displayBal = $offerAsset.DisplayBalance()
+    } else {
+        $displayBal = 0
+    }
+    $requested = Read-SpectreSelection -Message "What asset do you want?" -Choices (($Global:assets | Where-Object {$_.asset_id -ne $offered.asset_id})) -ChoiceLabelProperty ticker -EnableSearch -SearchHighlightColor blue -PageSize 10
+    $decimals = ($offered.ticker -eq "XCH") ? 12 : 3
+    $offered_amount = Read-SpectreNumber -message "How much [red]$($offered.name)[/] do you want to spend on [green]$($requested.name)[/]" -numberOfDecimals $decimals
+    $dexie_uri = "https://api.dexie.space/v1/offers?offered=$($requested.ticker)&requested=$($offered.ticker)&page_size=100"
+    $offers = Invoke-SpectreCommandWithStatus -Title "Searching [blue]dexie.space[/]!" -ScriptBlock {
+        $tmp_offers = Invoke-RestMethod -Uri $dexie_uri -Method Get
+        $amount_spent = (($decimals -eq 12) ? 0.001 : 0.03)
+        $collected = @()
+        $amount_received = 0
+        $tmp_offers.offers | ForEach-Object {
+            $tmp_amt = $amount_spent + $_.requested[0].amount
+            if($tmp_amt -le $offered_amount){
+                $amount_spent = $tmp_amt
+                $amount_received += $_.offered[0].amount
+                
+                $collected += @{
+                    offered = $_.offered[0].code
+                    offered_amount = $_.offered[0].amount
+                    requested = $_.requested[0].code
+                    requested_amount = $_.requested[0].amount
+                    offer = $_.offer
+                }
+            }
+        }
+        start-sleep 1
+        return [ordered]@{
+            fee_asset_id = ($offered.asset_id)
+            spent_asset = ($offered.ticker)
+            spent_amount = $amount_spent
+            received_asset = ($requested.ticker)
+            received_amount = $amount_received
+            offers = ($collected.offer)
+            display = [PSCustomObject]@{
+                "Id" = [System.DateTimeOffset]::Now.ToUnixTimeSeconds()
+                "Spent Asset" = ($offered.ticker)
+                "Spent Amount" = $amount_spent
+                "Received Asset" = ($requested.ticker)
+                "Received Amount" = $amount_received
+                "# of Combined Offers"=($collected.offer.count)
+                "Price S/R" = ([Math]::Round($amount_spent/$amount_received,3))
+                "Price R/S" = ([Math]::Round($amount_received/$amount_spent,3))
+            }
+        }
+    
+    }
+    if($offers){
+        
+
+        [PSCustomObject]$offers.display | Format-SpectreTable -Color green
+        $response = Invoke-RestMethod -uri "https://offer.watch/api/combine" -body ($offers | ConvertTo-Json) -Method Post -ContentType "application/json"
+
+        if($response){
+            Write-SpectreHost "You have $($displayBal) $($offered.ticker) available."
+            $take = Read-SpectreConfirm -message "Do you want to take this offer?" -DefaultAnswer n 
+            if($take){
+                Complete-SageOffer -offer $response
+                    while($true){   
+                        $transaction = Invoke-SageRPC -endpoint get_pending_transactions -json @{}
+                        if($transaction.transactions.count -eq 0){
+                            break 
+                        } else {
+                            Write-SpectreHost "[yellow]Transaction is PENDING please wait[/]"
+                        }
+                        start-sleep 10
+                    }
+            } else {
+                Write-SpectreHost -Message "[red]Offer not accepted.[/]"   
+                start-sleep 1
+            }               
+        }    
+    }
+    Clear-Host
+
+    Start-STOfferDex
+}
 function Wait-PendingTransaction{
     while($true){
         
@@ -24,7 +207,7 @@ function Show-MyVault {
     if(-not $vault){
         
         $confirm = Read-SpectreConfirm -Message "No Vault found.  Would you like to deposit some XCH to start one?"
-        if($confirm -eq 'y'){
+        if($confirm){
             Show-CircuitDeposit
         } else {
             Start-SageTrader
@@ -103,7 +286,7 @@ function Show-CircuitBorrow {
 
     $response = Read-SpectreDecimal -message "How much BYC do you wish to borrow?" -precision 3
     $confirm = Read-SpectreConfirm -Message "Are you sure you want to borrow [green]$($response) BYC[/]"
-    if($confirm -eq 'y'){
+    if($confirm){
         Invoke-CDVaultAction -operation borrow -amount ($response | ConvertTo-CatMojo) -submit
         Wait-PendingTransaction
         Show-MyVault
@@ -125,7 +308,7 @@ function Show-CircuitDeposit {
 
     $response = Read-SpectreDecimal -message "How much XCH do you wish to deposit?" -precision 3
     $confirm = Read-SpectreConfirm -Message "Are you sure you want to deposit [green]$($response) XCH[/]"
-    if($confirm -eq 'y'){
+    if($confirm){
         Invoke-CDVaultAction -operation deposit -amount ($response | ConvertTo-XchMojo) -submit
         Wait-PendingTransaction
         Show-MyVault
@@ -147,7 +330,7 @@ function Show-CircuitRepay {
 
     $response = Read-SpectreDecimal -message "How much BYC do you wish to repay?" -precision 3 
     $confirm = Read-SpectreConfirm -Message "Are you sure you want to repay [green]$($response) BYC[/]"
-    if($confirm -eq 'y'){
+    if($confirm){
         Invoke-CDVaultAction -operation repay -amount ($response | ConvertTo-CatMojo) -submit
         Wait-PendingTransaction
         Show-MyVault
@@ -169,7 +352,7 @@ Clear-Host
 
     $response = Read-SpectreDecimal -message "How much XCH do you wish to withdraw?" -precision 12
     $confirm = Read-SpectreConfirm -Message "Are you sure you want to withdraw [green]$($response) XCH[/]"
-    if($confirm -eq 'y'){
+    if($confirm){
         Invoke-CDVaultAction -operation withdraw -amount ($response | ConvertTo-XchMojo) -submit
         Wait-PendingTransaction
         Show-MyVault
@@ -208,9 +391,9 @@ function Start-SageTrader {
             Name = "Circuit Dao Lending"
             Action = { Show-MyVault }
         }
-        [pscustomobject]@{
-            Name = "Run Bots"
-            Action = { Start-Bots }
+        [PSCustomObject]@{
+            Name = "Trade on Dexie"
+            Action = { Start-STOfferDex }
         }
         [pscustomobject]@{
             Name = "Exit"
@@ -253,6 +436,10 @@ function Show-TradingBotMenu{
             Action = { Show-ManageBots }
         }
         [pscustomobject]@{
+            Name = "Run Bots"
+            Action = { Start-Bots }
+        }
+        [pscustomobject]@{
             Name = "Back"
             Action = { Start-SageTrader }   
         }
@@ -266,10 +453,13 @@ function Show-CreateBot{
     Reset-BotScreen
 
     "
+    Types of Bots:
+
     [green]Grid Bot:[/] The most common option. This bot has a varies the price of each offer between two prices and is best for providing liqudity for dissimilar tokens.
 
     [green]Stable Bot:[/] Best for tradding across different stable coins [[BYC, wUSDC.b, wUSDC ]].  It is best to set the price to 1 and then add the fee
-    "
+    " | Format-SpectrePanel -Expand -Color blue
+
 
     $choice = Read-SpectreSelection -Choices @(
         [pscustomobject]@{
@@ -342,7 +532,7 @@ function Show-ContinueCreateBot{
 
     For a GridBot, the current price is usually a good starting price.
     " | Format-SpectrePanel -Header "Step 5" -Color Blue -Expand
-    $script:botCreationData.startingPrice = Read-SpectreDecimal
+    $script:botCreationData.startingPrice = Read-SpectreDecimal -message "Starting price:" -precision 12
     Reset-BotScreen
     if(-not $script:botCreationData.isStableCoinPair){
         "
@@ -355,7 +545,7 @@ function Show-ContinueCreateBot{
     But if you offering BYC and requesting XCH with a Starting Price of 2.5 and a target price of 2.0, you will buy XCH with your BYC.  Each step of the grid you will receive more XCH per BYC until you reach your max allowed BYC to sell.
 
     " | Format-SpectrePanel -Header "Step 6" -Color Blue -Expand
-        $script:botCreationData.targetPrice = Read-SpectreDecimal
+        $script:botCreationData.targetPrice = Read-SpectreDecimal -message "Target Price:" -precision 12
         Reset-BotScreen
     }
     
@@ -384,7 +574,9 @@ function Show-ContinueCreateBot{
     What wallet is authorized to use this bot?
     " | Format-SpectrePanel -Header "Step 8" -Color Blue -Expand
 
-    $fingerprint = Read-SpectreSelection -Message "Select a wallet fingerprint to use for this bot:" -Choices $fps -ChoiceLabelProperty name -Color aqua
+    $fp = (Get-SageKeys).keys[0].fingerprint
+    Write-SpectreHost -Message "You are currently logged in with [green]$fp[/]"
+    $fingerprint = Read-SpectreSelection -Message "Select a wallet fingerprint to use for this bot:" -Choices $fps -ChoiceLabelProperty name -Color aqua 
     
     $script:botCreationData.fingerprint = $fingerprint.fingerprint
     Reset-BotScreen
@@ -424,7 +616,7 @@ function Show-ContinueCreateBot{
     $script:botCreationData.stats()
 
     $createbot = Read-SpectreConfirm -Message "Do you wish to save this bot?" 
-    if($createbot -eq 'y'){
+    if($createbot){
         $script:botCreationData.Save()
         Show-BotManagementMenu -Bot $Script:botCreationData
     } else {
@@ -499,7 +691,7 @@ function Show-BotManagementMenu{
                     Name = "Delete Bot"
                     Action = { 
                         $confirm = Read-SpectreConfirm -Message "Are you sure you want to delete this bot? This action cannot be undone." 
-                        if($confirm -eq "y"){
+                        if($confirm){
                             $Bot.destroy()
                             Show-ManageBots
                         } else {
@@ -548,26 +740,7 @@ function Read-SpectreInt {
 function Reset-BotScreen{
     Clear-Host
     Write-SpectreFigletText -Text "Create Bot" -Color Green -Alignment Center
-    $message = Format-SpectreString("
-    
-    Types of bots:
-
-    [green]Grid Bot[/] - Buys and sells between a price range with a specified number of trades in that range. 
-    If selecting this bot, you will start with choosing a token you own and then the token you want.  You sent the starting price 
-    which is usually the current price. Then you set the target price you want to trade to. 
-
-    [grey]Example 1: If you Offer XCH and Request BYC with a starting price of 2.5 and target price of 3.0, you will sell your XCH for BYC.  
-    Each Step will sell an equal amount of XCH until you reach your max allowed XCH to sell. [/]
-    
-    [green]Stable Bot[/] - This bot simply makes a spread around the current price. 
-
-    [grey]Example 2: If you Offer USDC and Request BYC with a spread of 0.003, you'll create offers that request 0.003% more than you offer in each direction of the trade.[/]
-    
-    " ) 
-
-    $message | Format-SpectrePanel -Header "Bot Types" -Color Blue -Expand
-
-    
+   
 }
 
 
@@ -582,7 +755,7 @@ function Read-SageToken{
         
             
             $confirm = Read-SpectreConfirm -Message "You chose ([green]$($token.ticker)[/] - [yellow]$($token.asset_id)[/]). Is this correct?" 
-            if($confirm -eq "y"){
+            if($confirm){
                 return $token
             } else {
                 return Read-SageToken
@@ -600,8 +773,12 @@ function Select-SageToken{
     $tokens = @()
     $tokens += (Get-Sagetoken -id 'xch')
     ((Get-SageCats).cats) | Sort-object -Property ticker | ForEach-Object {
-        $tokens += (Get-SageToken -id $_.asset_id)
+        if($_.visible -and $_.ticker -ne "" -and $_.balance -gt 0){
+            $tokens += (Get-SageToken -id $_.asset_id)
+        }
+        
     }
+    $tokens = $tokens | Where-Object {$_.ticker -ne ''}
     $choice = Read-SpectreSelection -Choices $tokens -Prompt "Select a token:" -ChoiceLabelProperty ticker -Color aqua
     return $choice
 }
@@ -917,7 +1094,7 @@ class ChiaBot{
         
         $check = Read-SpectreConfirm -Message "Are you sure you want to delete this bot?" -DefaultAnswer "n"
         
-        if($check -eq $true){
+        if($check){
             
                 if(Test-Path -Path $file){
                     $this.CancelOffers()
@@ -1262,7 +1439,7 @@ function Start-Bots{
 
 function Remove-AllBots(){
     $confirm = Read-SpectreConfirm -Message "Are you sure you want to delete all bot files?"
-    if($confirm -eq 'y'){
+    if($confirm){
         $bot = [ChiaBot]::new()
         $path = $bot.path()
         $items = Get-ChildItem -Path $path -Filter *.json -Recurse
