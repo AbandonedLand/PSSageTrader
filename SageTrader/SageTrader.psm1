@@ -273,7 +273,7 @@ function Show-BotManagementMenu{
             }
         }
     }
-    if($bot.grid.count -lt 1){
+    if($bot.activeOffers.count -lt 1){
         $choices += [pscustomobject]@{
             Name = "Make Offers"
             Action = { $bot.makeInitialOffers(); Show-BotManagementMenu -Bot $Bot}
