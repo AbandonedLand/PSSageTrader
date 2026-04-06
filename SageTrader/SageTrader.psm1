@@ -1,3 +1,183 @@
+function Wait-PendingTransaction{
+    while($true){
+        
+        $transaction = Invoke-SageRPC -endpoint get_pending_transactions -json @{}
+        if($transaction.transactions.count -eq 0){
+            break 
+        } else {
+            Write-SpectreHost "[yellow]Transaction is PENDING please wait[/]"
+        }
+        start-sleep 10
+    }
+}
+
+function Get-MyLoanVault {
+    Invoke-SpectreCommandWithStatus -Spinner Aesthetic -Title "Fetching Vault... " -ScriptBlock {
+        $fetch = Get-CDMyVault
+        return $fetch
+    }
+}
+
+function Show-MyVault {
+    Clear-Host
+    $vault = Get-MyLoanVault
+    if(-not $vault){
+        
+        $confirm = Read-SpectreConfirm -Message "No Vault found.  Would you like to deposit some XCH to start one?"
+        if($confirm -eq 'y'){
+            Show-CircuitDeposit
+        } else {
+            Start-SageTrader
+        }
+        
+
+    } else {
+        $locked = [math]::round((($vault.collateral - $vault.max_withdraw) | ConvertFrom-XchMojo),2)
+        $maxw = [math]::round(($vault.max_withdraw | ConvertFrom-XchMojo),2)
+       
+        $xchchart = @(
+            New-SpectreChartItem -Label "Locked XCH" -Value $locked -Color red
+            New-SpectreChartItem -Label "Withdrawable XCH" -Value $maxw -Color green
+        ) | Format-SpectreBreakdownChart
+ 
+        $bycchart = @(
+            New-SpectreChartItem -Label "Debt Owed" -Value ($vault.debt_owed_to_vault | ConvertFrom-CatMojo) -Color blue
+            New-SpectreChartItem -Label "Max Borrowable" -Value ($vault.max_borrow | ConvertFrom-CatMojo) -Color yellow
+        ) | Format-SpectreBreakdownChart
+ 
+        clear-host
+        Write-SpectreFigletText -Text "Circuit Dao Vault"
+        Write-SpectreHost -message "
+Deposited XCH: $([math]::round(($vault.collateral | ConvertFrom-XchMojo),3))"
+        $xchchart
+        Write-SpectreHost -Message "
+        
+        
+BYC Loan/Borrow"
+        $bycchart
+
+        $choices = @(
+            [pscustomobject]@{
+                Name = "Back"
+                Action = {Start-SageTrader}
+            }
+            [pscustomobject]@{
+                Name = "Borrow BYC"
+                Action = {Show-CircuitBorrow}
+            }
+            [pscustomobject]@{
+                Name = "Deposit XCH"
+                Action = {Show-CircuitDeposit}
+            }
+            [pscustomobject]@{
+                Name = "Repay BYC"
+                Action = {Show-CircuitRepay}
+            }
+            [pscustomobject]@{
+                Name = "Withdraw XCH"
+                Action = {Show-CircuitWithdraw}
+            }
+
+        )
+    }
+
+    $select = Read-SpectreSelection -Message "
+    
+    
+Interact with your vault:" -Choices $choices -ChoiceLabelProperty Name
+&$select.Action
+
+
+}
+
+function Show-CircuitBorrow {
+    Clear-Host
+    $vault = Get-MyLoanVault
+    $max = ($vault.max_borrow | ConvertFrom-CatMojo)
+
+    "
+    
+    You have [green]$max BYC[/]  available to borrow.
+
+    " | Format-SpectrePanel -Header "Circuit Dao - Borrow BYC" -Expand
+
+    $response = Read-SpectreDecimal -message "How much BYC do you wish to borrow?" -precision 3
+    $confirm = Read-SpectreConfirm -Message "Are you sure you want to borrow [green]$($response) BYC[/]"
+    if($confirm -eq 'y'){
+        Invoke-CDVaultAction -operation borrow -amount ($response | ConvertTo-CatMojo) -submit
+        Wait-PendingTransaction
+        Show-MyVault
+    } else {
+        Show-MyVault
+    }
+}
+
+function Show-CircuitDeposit {
+    Clear-Host
+    $max = (Get-SageToken -id xch).DisplayBalance()
+    
+    
+    "
+    
+    You have [green]$max XCH[/]  available to deposit.
+
+    " | Format-SpectrePanel -Header "Circuit Dao - Deposit XCH" -Expand
+
+    $response = Read-SpectreDecimal -message "How much XCH do you wish to deposit?" -precision 3
+    $confirm = Read-SpectreConfirm -Message "Are you sure you want to deposit [green]$($response) XCH[/]"
+    if($confirm -eq 'y'){
+        Invoke-CDVaultAction -operation deposit -amount ($response | ConvertTo-XchMojo) -submit
+        Wait-PendingTransaction
+        Show-MyVault
+    } else {
+        Show-MyVault
+    }
+}
+
+function Show-CircuitRepay {
+    Clear-Host
+    $max = (Get-SageToken -id byc).DisplayBalance()
+    
+    
+    "
+    
+    You have [green]$max BYC[/]  available to repay loan.
+
+    " | Format-SpectrePanel -Header "Circuit Dao - Repay BYC loan" -Expand
+
+    $response = Read-SpectreDecimal -message "How much BYC do you wish to repay?" -precision 3 
+    $confirm = Read-SpectreConfirm -Message "Are you sure you want to repay [green]$($response) BYC[/]"
+    if($confirm -eq 'y'){
+        Invoke-CDVaultAction -operation repay -amount ($response | ConvertTo-CatMojo) -submit
+        Wait-PendingTransaction
+        Show-MyVault
+    } else {
+        Show-MyVault
+    }
+}
+
+function Show-CircuitWithdraw {
+Clear-Host
+    $vault = Get-MyLoanVault    
+    $max = ($vault.max_withdraw | ConvertFrom-XchMojo)
+    
+    "
+    
+    You have [green]$max XCH[/]  available to withdraw.
+
+    " | Format-SpectrePanel -Header "Circuit Dao - Withdraw" -Expand
+
+    $response = Read-SpectreDecimal -message "How much XCH do you wish to withdraw?" -precision 12
+    $confirm = Read-SpectreConfirm -Message "Are you sure you want to withdraw [green]$($response) XCH[/]"
+    if($confirm -eq 'y'){
+        Invoke-CDVaultAction -operation withdraw -amount ($response | ConvertTo-XchMojo) -submit
+        Wait-PendingTransaction
+        Show-MyVault
+    } else {
+        Show-MyVault
+    }
+}
+
 function Start-SageTrader {
     
     
@@ -25,8 +205,8 @@ function Start-SageTrader {
             Action = { Show-TradingBotMenu }
         }
         [pscustomobject]@{
-            Name = "Circuit Dao"
-            Action = { Write-Host "Comming soon..."; start-sleep 1; Start-SageTrader }
+            Name = "Circuit Dao Lending"
+            Action = { Show-MyVault }
         }
         [pscustomobject]@{
             Name = "Run Bots"
@@ -296,7 +476,7 @@ function Show-BotManagementMenu{
                     Show-BotManagementMenu -Bot $Bot
                 } else {
                     $Bot.prepCoins()
-                     while($true){
+                    while($true){
                         Write-SpectreHost "[yellow]Transaction is PENDING please wait[/]"
                         $transaction = Invoke-SageRPC -endpoint get_pending_transactions -json @{}
                         if($transaction.transactions.count -eq 0){
@@ -344,9 +524,9 @@ function Read-SpectreDecimal {
         $precision =3
     )
     if($defaultAnswer){
-        $decimal = Read-SpectreText -Message "Enter a decimal number:" -DefaultAnswer $defaultAnswer    
+        $decimal = Read-SpectreText -Message $message -DefaultAnswer $defaultAnswer    
     }
-    $decimal = Read-SpectreText -Message "Enter a decimal number:" 
+    $decimal = Read-SpectreText -Message $message
     if ([decimal]::TryParse($decimal, [ref]$null)) {
         return [math]::Round([decimal]$decimal, $precision)
     } else {
@@ -1077,6 +1257,21 @@ function Start-Bots{
         }
     }
     Start-SageTrader
+    
+}
+
+function Remove-AllBots(){
+    $confirm = Read-SpectreConfirm -Message "Are you sure you want to delete all bot files?"
+    if($confirm -eq 'y'){
+        $bot = [ChiaBot]::new()
+        $path = $bot.path()
+        $items = Get-ChildItem -Path $path -Filter *.json -Recurse
+        $items | Remove-Item -Force
+        Write-SpectreHost -Message "Deleted files $($items.FullName)"
+    } else {
+        Write-SpectreHost -Message "No files deleted"
+    }
+    
     
 }
 
