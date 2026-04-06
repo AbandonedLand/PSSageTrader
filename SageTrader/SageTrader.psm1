@@ -249,7 +249,9 @@ function Show-BotManagementMenu{
                 Show-BotManagementMenu -Bot $Bot
             }
         }
-        [pscustomobject]@{
+    )
+    if(-not $bot.isPrepped){
+        $choices += [pscustomobject]@{
             Name = "Prep Coins"
             Action = { 
                 if($bot.isPrepped){
@@ -270,27 +272,29 @@ function Show-BotManagementMenu{
                 }
             }
         }
-        [pscustomobject]@{
+    }
+    if($bot.grid.count -lt 1){
+        $choices += [pscustomobject]@{
             Name = "Make Offers"
             Action = { $bot.makeInitialOffers(); Show-BotManagementMenu -Bot $Bot}
         }
-            [pscustomobject]@{
-                Name = "Delete Bot"
-                Action = { 
-                    $confirm = Read-SpectreConfirm -Message "Are you sure you want to delete this bot? This action cannot be undone." 
-                    if($confirm -eq "y"){
-                        $Bot.destroy()
-                        Show-ManageBots
-                    } else {
-                        Show-BotManagementMenu -Bot $Bot
+    }
+    $choices += [pscustomobject]@{
+                    Name = "Delete Bot"
+                    Action = { 
+                        $confirm = Read-SpectreConfirm -Message "Are you sure you want to delete this bot? This action cannot be undone." 
+                        if($confirm -eq "y"){
+                            $Bot.destroy()
+                            Show-ManageBots
+                        } else {
+                            Show-BotManagementMenu -Bot $Bot
+                        }
                     }
                 }
-            }
-            [pscustomobject]@{
+    $choices +=[pscustomobject]@{
                 Name = "Back"
                 Action = { Show-TradingBotMenu }
             }
-    )
 
     $choice = Read-SpectreSelection -Choices $choices -Prompt "Select an option:" -ChoiceLabelProperty Name -Color aqua
     &$choice.Action
@@ -1008,8 +1012,8 @@ function Get-ChiaBots{
 }
 
 function Start-Bots{
-    
-    while($true){
+    $run = $true
+    while($run){
         clear-host  
         Write-SpectreFigletText -Text "SageTrader is Running" -Color Green -Alignment Center
         $data = @()
@@ -1025,34 +1029,10 @@ function Start-Bots{
         [gray]Screen will refresh every 60 seconds.[/]
         Press [yellow]Q[/] to quit or any other key to refresh." -TimeoutSeconds 60
         if($key -eq "Q" -or $key -eq "q"){
-            break;
+            $run = $false
         }
     }
-    
-}
-
-Export-ModuleMember -Function Start-SageTrader, Get-ChiaBots, Start-SageBotJob, Stop-SageBotJob, Start-Bots
-function Start-Bots{
-    
-    while($true){
-        clear-host  
-        Write-SpectreFigletText -Text "SageTrader is Running" -Color Green -Alignment Center
-        $data = @()
-        $bots = [ChiaBot]::All()
-        foreach($bot in $bots){
-            if($bot.isActive){
-                $data += $bot.stats()    
-                $bot.Handle()
-            }
-        }
-        $data | Format-SpectreTable
-        $key = Read-SpectreText -Message "
-        [gray]Screen will refresh every 60 seconds.[/]
-        Press [yellow]Q[/] to quit or any other key to refresh." -TimeoutSeconds 60
-        if($key -eq "Q" -or $key -eq "q"){
-            break;
-        }
-    }
+    Start-SageTrader
     
 }
 
