@@ -1,3 +1,12 @@
+function Get-SageTraderVersion{
+    return @{
+        Version = "2.1.3"
+        Major = 2
+        Minor = 1
+        Patch = 3
+    }
+}
+
 function Start-Bootstrap{
 
     Invoke-SpectreCommandWithStatus -Title "Fetching asset list from dexie.space" -ScriptBlock {
@@ -306,7 +315,7 @@ function Show-CircuitDeposit {
 
     " | Format-SpectrePanel -Header "Circuit Dao - Deposit XCH" -Expand
 
-    $response = Read-SpectreDecimal -message "How much XCH do you wish to deposit?" -precision 3
+    $response = Read-SpectreDecimal -message "How much XCH do you wish to deposit?" -precision 12
     $confirm = Read-SpectreConfirm -Message "Are you sure you want to deposit [green]$($response) XCH[/]"
     if($confirm){
         Invoke-CDVaultAction -operation deposit -amount ($response | ConvertTo-XchMojo) -submit
@@ -373,13 +382,13 @@ function Start-SageTrader {
 
     Join my [SlateBlue3_1]Discord Server[/] for assitance with this program.
 
-    [DodgerBlue2]https:/discord.com/invite/7TTSDfSYP2[/]  
-    [Grey54]CTRL + Click to open[/]
+    [link=https:/discord.com/invite/7TTSDfSYP2] [DodgerBlue2] XCHPlayground Discord Server [/] [/]
+    
 
         
     ")
 
-    $msg  | Format-SpectrePanel -Header Home -Color Blue -Expand
+    $msg  | Format-SpectrePanel -Header "Home v" -Color Blue -Expand
      
     
     $choices = @(
@@ -396,8 +405,37 @@ function Start-SageTrader {
             Action = { Start-STOfferDex }
         }
         [pscustomobject]@{
+            Name = "Check for Update"
+            Action = {
+                Clear-Host
+                Write-SpectreHost -Message "Checking for update..."
+                # Get local version
+                $localVersion = (Get-InstalledModule -Name "SageTrader").Version
+
+                # Find latest online version
+                $onlineVersion = (Find-Module -Name "SageTrader").Version
+
+                if ($onlineVersion -ne $localVersion) {
+                    Write-SpectreHost -Message "[green]Update available![/]"
+                    
+                    Write-SpectreHost -Message "
+Type the following command to update:                    
+
+
+[yellow]Update-Module -name SageTrader[/]
+
+"
+                } else {
+                    Write-Host "You are up to date."
+                    start-sleep 1
+                    Start-SageTrader
+                }
+
+            }
+        }
+        [pscustomobject]@{
             Name = "Exit"
-            Action = { Write-Host "Exiting..."; exit }
+            Action = { Write-Host "Exiting..." }
         }
     )
 
@@ -452,12 +490,11 @@ function Show-CreateBot{
     $script:botCreationData = [ChiaBot]::new()
     Reset-BotScreen
 
-    "
-    Types of Bots:
+    "Types of Bots:
 
-    [green]Grid Bot:[/] The most common option. This bot has a varies the price of each offer between two prices and is best for providing liqudity for dissimilar tokens.
+[green]Grid Bot:[/] The most common option. This bot has a varies the price of each offer between two prices and is best for providing liqudity for dissimilar tokens.
 
-    [green]Stable Bot:[/] Best for tradding across different stable coins [[BYC, wUSDC.b, wUSDC ]].  It is best to set the price to 1 and then add the fee
+[green]Stable Bot:[/] Best for tradding across different stable coins [[BYC, wUSDC.b, wUSDC ]].  It is best to set the price to 1 and then add the fee
     " | Format-SpectrePanel -Expand -Color blue
 
 
@@ -526,44 +563,85 @@ function Show-ContinueCreateBot{
     }
     Reset-BotScreen
     "
-    Enter the [green]Starting price.[/] 
+Enter the [green]Starting price.[/] 
 
-    If this is a stable coin pair, you should choose 1 or very close to 1.
+[yellow]INFO: There are two ways to think of price.  The example below explains:[/]
 
-    For a GridBot, the current price is usually a good starting price.
-    " | Format-SpectrePanel -Header "Step 5" -Color Blue -Expand
-    $script:botCreationData.startingPrice = Read-SpectreDecimal -message "Starting price:" -precision 12
-    Reset-BotScreen
-    if(-not $script:botCreationData.isStableCoinPair){
-        "
-    Enter the [green]Target Price.[/]
+EXAMPLE: 
+Offered:   [red]2.5 BYC   [/]
+Requested: [green]1 XCH [/]
 
-    This concept can be difficult to understand at first, but the target price is the price you want your bot to trade towards.
-    
-    For example, if you are offering XCH and requesting BYC with a starting price of 2.5 and target price of 3.0, you will sell your XCH for BYC.  Each step of the grid you will receive more BYC per XCH until you reach your max allowed XCH to sell.
+[Fuchsia]Price[/] : [red]2.5[/] / [green]1[/] = [Fuchsia]2.5[/]
+or
+[Purple_1]Price[/] : [green]1[/] / [red]2.5[/] = [Purple_1]0.4[/]
 
-    But if you offering BYC and requesting XCH with a Starting Price of 2.5 and a target price of 2.0, you will buy XCH with your BYC.  Each step of the grid you will receive more XCH per BYC until you reach your max allowed BYC to sell.
+
+
+If you are offering BYC and Requesting XCH.  
+[yellow]You can enter 2.5 as your starting price and 2.0 as your target price to get more XCH in each step.
+
+OR
+
+You can enter 0.4 as your starting price and 0.5 as your target price to get more XCH in each step.
+[/]
+
 
     " | Format-SpectrePanel -Header "Step 6" -Color Blue -Expand
-        $script:botCreationData.targetPrice = Read-SpectreDecimal -message "Target Price:" -precision 12
-        Reset-BotScreen
+
+    if($Script:botCreationData.offeredToken.ticker -eq 'xch'){
+        $qa = Get-DexieQuote -from xch -to ($Script:botCreationData.requestedToken.ticker) -from_amount 1000000000000
+        $qb = Get-DexieQuote -from ($Script:botCreationData.requestedToken.ticker) -to xch -to_amount 1000000000000
+        if($qa.success -and $qb.success){
+            if($Script:botCreationData.requestedToken.ticker -eq 'xch') {
+                $defaultStart = 1000 / ((($qa.quote.to_amount) + ($qb.quote.from_amount))/2)
+            } else {
+                $defaultStart = ((($qa.quote.to_amount) + ($qb.quote.from_amount))/2) /1000
+            }
+                
+            Write-SpectreHost "Current Price from dexie is: $defaultStart"
+        } else {
+            $defaultStart = 0
+        }
+    }
+    if($Script:botCreationData.requestedToken.ticker -eq 'xch'){
+        $qa = Get-DexieQuote -from xch -to ($Script:botCreationData.offeredToken.ticker) -from_amount 1000000000000
+        $qb = Get-DexieQuote -from ($Script:botCreationData.offeredToken.ticker) -to xch -to_amount 1000000000000
+        if($qa.success -and $qb.success){
+            if($Script:botCreationData.requestedToken.ticker -eq 'xch') {
+                $defaultStart = 1000 / ((($qa.quote.to_amount) + ($qb.quote.from_amount))/2)
+            } else {
+                $defaultStart = ((($qa.quote.to_amount) + ($qb.quote.from_amount))/2) /1000
+            }
+                
+            Write-SpectreHost "Current Price from dexie is: $defaultStart"
+        } else {
+            $defaultStart = 0
+        }
     }
     
+
+    $Script:botCreationData.startingPrice = Read-SpectreDecimal -message "Starting Price:" -precision 12
+
+    Write-SpectreHost "Starting price is: $($Script:botCreationData.startingPrice) +5% = $($Script:botCreationData.startingPrice * 1.05)"
+    $script:botCreationData.targetPrice = Read-SpectreDecimal -message "Target Price:" -precision 12
+    Reset-BotScreen
+    
+    
     "
-    Enter the number of [green]Steps[/] for your bot.
+Enter the number of [green]Steps[/] for your bot.
 
-    A STEP is a price level in the grid. The more steps you have, the more price levels your bot will have between the starting price and target price.  Each step you will offer [green]Max Offered Amount / Steps[/] of your offered token. 
+A STEP is a price level in the grid. The more steps you have, the more price levels your bot will have between the starting price and target price.  Each step you will offer [green]Max Offered Amount / Steps[/] of your offered token. 
 
-    For example, if you are offering 100 XCH with 20 steps, each step will offer 5 XCH.  If the starting price was 2.5 and target price was 3.0, then your pricing would look like this:
-    [blue]
-    Step 1: Offer 5 XCH at 2.5 for 12.5 BYC
-    Step 2: Offer 5 XCH at 2.525 for 12.625 BYC
-    Step 3: Offer 5 XCH at 2.55 for 12.75 BYC
-    ...
-    Step 20: Offer 5 XCH at 3.0 for 15 BYC
-    [/]
+For example, if you are offering 100 XCH with 20 steps, each step will offer 5 XCH.  If the starting price was 2.5 and target price was 3.0, then your pricing would look like this:
+[blue]
+Step 1: Offer 5 XCH at 2.5 for 12.5 BYC
+Step 2: Offer 5 XCH at 2.525 for 12.625 BYC
+Step 3: Offer 5 XCH at 2.55 for 12.75 BYC
+...
+Step 20: Offer 5 XCH at 3.0 for 15 BYC
+[/]
 
-    " | Format-SpectrePanel -Header "Step 7" -Color Blue -Expand
+" | Format-SpectrePanel -Header "Step 7" -Color Blue -Expand
     
     $steps = Read-SpectreInt
     $script:botCreationData.addSteps($steps)
@@ -571,39 +649,43 @@ function Show-ContinueCreateBot{
     $fps = (get-sagekeys).keys
 
     "
-    What wallet is authorized to use this bot?
+What wallet is authorized to use this bot?
     " | Format-SpectrePanel -Header "Step 8" -Color Blue -Expand
 
-    $fp = (Get-SageKeys).keys[0].fingerprint
-    Write-SpectreHost -Message "You are currently logged in with [green]$fp[/]"
+    $fp = (Get-SageKey).key[0].name
+Write-SpectreHost -Message "
+You are currently logged in with [green]$fp[/]
+
+
+"
     $fingerprint = Read-SpectreSelection -Message "Select a wallet fingerprint to use for this bot:" -Choices $fps -ChoiceLabelProperty name -Color aqua 
     
     $script:botCreationData.fingerprint = $fingerprint.fingerprint
     Reset-BotScreen
-    "
-    This will make a spread between your selling and buying price to ensure you make a profit on the trade.
+"
+This will make a spread between your selling and buying price to ensure you make a profit on the trade.
 
-    For example, if you are offering 100 XCH with 20 steps, each step will offer 5 XCH.  If the starting price was 2.5 and target price was 3.0 with a spread of 0.005, then your pricing would look like this:
-    [blue]
-    Step 1: Offer 5 XCH at 2.5 for [/][yellow](12.5 BYC * (1 + 0.005))[/][blue] = 12.5625 BYC
-    Step 2: Offer 5 XCH at 2.525 for [/][yellow](12.625 BYC * (1 + 0.005))[/][blue] = 12.688125 BYC
-    Step 3: Offer 5 XCH at 2.55 for [/][yellow](12.75 BYC * (1 + 0.005))[/][blue] = 12.81375 BYC
-    ...
-    Step 20: Offer 5 XCH at 3.0 for [/][yellow](15 BYC * (1 + 0.005))[/][blue] = 15.075 BYC
-    [/]
+For example, if you are offering 100 XCH with 20 steps, each step will offer 5 XCH.  If the starting price was 2.5 and target price was 3.0 with a spread of 0.005, then your pricing would look like this:
+[blue]
+Step 1: Offer 5 XCH at 2.5 for [/][yellow](12.5 BYC * (1 + 0.005))[/][blue] = 12.5625 BYC
+Step 2: Offer 5 XCH at 2.525 for [/][yellow](12.625 BYC * (1 + 0.005))[/][blue] = 12.688125 BYC
+Step 3: Offer 5 XCH at 2.55 for [/][yellow](12.75 BYC * (1 + 0.005))[/][blue] = 12.81375 BYC
+...
+Step 20: Offer 5 XCH at 3.0 for [/][yellow](15 BYC * (1 + 0.005))[/][blue] = 15.075 BYC
+[/]
 
-    But you you are offering BYC and requesting XCH with a Starting Price of 2.5 and a target price of 2.0 with a spread of 0.005, then your pricing would look like this:
-    [blue]
-    Step 1: Offer 12.5 BYC for 5 XCH
-    Step 2: Offer 12.625 BYC for 5 XCH
-    Step 3: Offer 12.75 BYC for 5 XCH
-    ...
-    Step 20: Offer 15 BYC for 5 XCH
-    [/]
+But you you are offering BYC and requesting XCH with a Starting Price of 2.5 and a target price of 2.0 with a spread of 0.005, then your pricing would look like this:
+[blue]
+Step 1: Offer 12.5 BYC for 5 XCH
+Step 2: Offer 12.625 BYC for 5 XCH
+Step 3: Offer 12.75 BYC for 5 XCH
+...
+Step 20: Offer 15 BYC for 5 XCH
+[/]
 
 
     " | Format-SpectrePanel -Header "Step 9" -Color Blue -Expand
-    $script:botCreationData.feePercentage = Read-SpectreDecimal -message "Enter the spread you want to set for this bot (e.g. 0.005 for 0.05% fee):" -defaultAnswer 0.005 -precision 3
+    $script:botCreationData.feePercentage = Read-SpectreDecimal -message "Enter the spread you want to set for this bot (e.g. 0.005 for 0.05% fee):" -precision 3
     Reset-BotScreen
     $script:botCreationData.BuildGrid()
     
@@ -641,9 +723,35 @@ function Show-ManageBots{
 
 function Show-BotManagementMenu{
     param($Bot)
+    
     Clear-Host
     Write-SpectreFigletText -Text "Manage Bot" -Color Green -Alignment Center
-    $Bot.stats() 
+    if($bot){
+       
+    if(-not $Bot.isActive){
+        Write-SpectreHost "[red]Not Active[/]"
+    } else {
+        Write-SpectreHost "[green]Active[/]"
+    }
+
+    if(-not $bot.isPrepped -or -not $bot.isValidated){
+        Write-Spectrehost -Message '
+[yellow]NOTE:
+
+Prepare Bot:[/] will prep your wallet to run the bot by splitting the coins needed to create the offers and Creating offers in your wallet.
+
+Once finished, please review Sage Wallet to make sure the offers look correct before you continue.
+
+"[yellow]Verify Bot:[/] will send the created offers to dexie"
+'
+        
+
+    }
+
+    
+    if($bot.isPrepped -and $bot.isValidated){
+    $bot.stats()
+}
 
     $choices = @(
         [pscustomobject]@{
@@ -658,11 +766,24 @@ function Show-BotManagementMenu{
             }
         }
     )
+    if(-not $bot.isValidated -and $bot.isPrepped){
+        $choices += [pscustomobject]@{
+            Name = "Verify Bot"
+            Action = { 
+                $confirm = Read-SpectreConfirm -Message "I have checked the offers and everything looks correct to submit?" -DefaultAnswer n
+                if($confirm){
+                    ($Bot.ValidateBot())
+                }
+                Show-BotManagementMenu -Bot $Bot
+            }
+        }
+    }
+
     if(-not $bot.isPrepped){
         $choices += [pscustomobject]@{
-            Name = "Prep Coins"
+            Name = "Prepare Bot"
             Action = { 
-                if($bot.isPrepped){
+                if($Bot.isPrepped){
                     Write-SpectreHost -Message "Bot is already prepped." 
                     Start-Sleep -Seconds 2
                     Show-BotManagementMenu -Bot $Bot
@@ -676,36 +797,40 @@ function Show-BotManagementMenu{
                         }   
                         start-sleep 10
                         }
+                    $Bot.makeInitialOffers()
                     Show-BotManagementMenu -Bot $Bot
                 }
             }
         }
     }
-    if($bot.activeOffers.count -lt 1){
-        $choices += [pscustomobject]@{
-            Name = "Make Offers"
-            Action = { $bot.makeInitialOffers(); Show-BotManagementMenu -Bot $Bot}
+    
+    $choices += [pscustomobject]@{
+        Name = "Delete Bot"
+        Action = { 
+            $confirm = Read-SpectreConfirm -Message "Are you sure you want to delete this bot? This action cannot be undone." 
+            if($confirm){
+                $Bot.destroy()
+                Show-ManageBots
+            } else {
+                Show-BotManagementMenu -Bot $Bot
+            }
         }
     }
     $choices += [pscustomobject]@{
-                    Name = "Delete Bot"
-                    Action = { 
-                        $confirm = Read-SpectreConfirm -Message "Are you sure you want to delete this bot? This action cannot be undone." 
-                        if($confirm){
-                            $Bot.destroy()
-                            Show-ManageBots
-                        } else {
-                            Show-BotManagementMenu -Bot $Bot
-                        }
-                    }
-                }
-    $choices +=[pscustomobject]@{
-                Name = "Back"
-                Action = { Show-TradingBotMenu }
-            }
+        Name = "Back"
+        Action = { Show-TradingBotMenu }
+    }
 
     $choice = Read-SpectreSelection -Choices $choices -Prompt "Select an option:" -ChoiceLabelProperty Name -Color aqua
     &$choice.Action
+ } else {
+     Write-SpectreHost "No bots available.  Please create a bot"
+     start-sleep 1
+     Show-TradingBotMenu
+        
+    }
+ 
+
 }
 
 
@@ -807,6 +932,7 @@ class ChiaBot{
     [bool]$isPrepped
     [bool]$isActive
     [bool]$isStableCoinPair
+    [bool]$isValidated
     [array]$pendingCreateOffers
     [array]$addresses
     [datetime]$lastHandled
@@ -816,6 +942,7 @@ class ChiaBot{
         $this.id = (New-Guid).Guid
         $this.isActive = $false
         $this.isPrepped = $false
+        $this.isValidated = $false
         $this.grid = @()
         $this.activeOffers = @()
         $this.completedOffers = @()
@@ -830,6 +957,8 @@ class ChiaBot{
         $this.Init([PSCustomObject]$props)
         
     }
+
+
 
     [bool] isLoggedIn(){
         $fp = (Invoke-SageRPC -endpoint get_key -json @{})
@@ -999,6 +1128,16 @@ class ChiaBot{
         }
         if($props.requestedToken){
             $this.requestedToken = Get-SageToken -id ($props.requestedToken.asset_id)
+        }
+        if($props.isValidated){
+            $this.isValidated = $props.isValidated
+        } else {
+            if($this.activeOffers.count -gt 0)
+            {
+                $this.isValidated = $true
+            } else {
+                $this.isValidated = $false
+            }
         }
         $this.startingPrice = $props.startingPrice
         $this.targetPrice = $props.targetPrice
@@ -1211,13 +1350,14 @@ class ChiaBot{
             }
             $this.activeOffers += $active_offer
             $this.save()
-            $dexie = Submit-DexieOffer -offer $offer.offer_data.offer -claim_rewards
+            if($this.isValidated){
+                $dexie = Submit-DexieOffer -offer $offer.offer_data.offer -claim_rewards
 
-            if(-not $null -eq $dexie){
-                Write-SpectreHost -Message "[green]Offer [/][blue] - $($dexie.id) - [/][green] submitted to Dexie successfully.[/]"                
-                
-            }
-            $log = [PSCustomObject]@{
+                if(-not $null -eq $dexie){
+                    Write-SpectreHost -Message "[green]Offer [/][blue] - $($dexie.id) - [/][green] submitted to Dexie successfully.[/]"                
+                    
+                }
+                $log = [PSCustomObject]@{
                 offer_id = $offer.offer_data.offer_id    
                 bot_type = $this.GetType().Name
                 bot_id = $this.id
@@ -1231,15 +1371,29 @@ class ChiaBot{
                 updated_at = (Get-Date)
                 fingerprint = $this.fingerprint
                 dexie_id = ($dexie.id)
+                }
+
+                $this.logOffer($log)
             }
-
-            $this.logOffer($log)
-
 
         }
 
     }
     
+    [void]ValidateBot(){
+        $this.activeOffers | ForEach-Object {
+            $offer = get-sageoffer -offer_id $_.offer_id
+            $dexie = Submit-DexieOffer -offer $offer.offer -claim_rewards
+
+            if(-not $null -eq $dexie){
+                Write-SpectreHost -Message "[green]Offer [/][blue] - $($dexie.id) - [/][green] submitted to Dexie successfully.[/]"                
+                
+            }
+        }
+        $this.isValidated = $true
+        $this.save()
+    }
+
     CancelOffers(){
         try {
             if($this.isLoggedIn()){
@@ -1315,10 +1469,10 @@ class ChiaBot{
 
 
                 if($invert){
-                    $tPrice = [System.Math]::Round($this.targetPrice - ($step_size * $i),3)
+                    $tPrice = [System.Math]::Round($this.targetPrice - ($step_size * $i),12)
                     [UInt64]$requested_amount = (($step_amount /$tprice)* [System.Math]::Pow(10,($this.requestedToken.precision)))
                 } else {
-                    $tPrice = [System.Math]::Round($this.startingPrice + ($step_size * $i),3)
+                    $tPrice = [System.Math]::Round($this.startingPrice + ($step_size * $i),12)
                     [UInt64]$requested_amount = ($tPrice * $step_amount * [System.Math]::Pow(10,($this.requestedToken.precision)))
                 }
                 
