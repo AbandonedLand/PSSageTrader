@@ -1,6 +1,6 @@
 @{
     RootModule = 'SageTrader.psm1'
-    ModuleVersion = '2.1.2'
+    ModuleVersion = '2.1.3'
     GUID = 'dfc0ed88-44b8-4f71-b169-c07b02d1109b'
     Author = 'MayorAbandoned'
     Copyright = '(c) MayorAbandoned. All rights reserved.'
@@ -10,9 +10,9 @@
     RequiredModules = @(
         @{ ModuleName = 'PowerSage'; ModuleVersion = '1.0.19' },
         @{ ModuleName = 'PowerDexie'; ModuleVersion = '1.0.0' },
-        'PwshSpectreConsole',
+        @{ ModuleName ='PwshSpectreConsole'; ModuleVersion = '2.6.3'},
         'CircuitSage'
-        'Microsoft.PowerShell.ConsoleGuiTools'
+        
     )
 
     FunctionsToExport = @('*')
