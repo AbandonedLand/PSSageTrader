@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../CircuitSage"
+		},
+		{
+			"path": "../../OfferDex/OfferDex"
+		}
+	],
+	"settings": {}
+}
