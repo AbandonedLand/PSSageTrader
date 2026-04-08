@@ -1,6 +1,6 @@
 @{
     RootModule = 'SageTrader.psm1'
-    ModuleVersion = '2.1.5'
+    ModuleVersion = '2.1.6'
     GUID = 'dfc0ed88-44b8-4f71-b169-c07b02d1109b'
     Author = 'MayorAbandoned'
     Copyright = '(c) MayorAbandoned. All rights reserved.'
