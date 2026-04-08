@@ -622,9 +622,12 @@ You can enter 0.4 as your starting price and 0.5 as your target price to get mor
 
     $Script:botCreationData.startingPrice = Read-SpectreDecimal -message "Starting Price:" -precision 12
 
-    Write-SpectreHost "Starting price is: $($Script:botCreationData.startingPrice) +5% = $($Script:botCreationData.startingPrice * 1.05)"
+    if(-not $script:botCreationData.isStableCoinPair){
+        Write-SpectreHost "Starting price is: $($Script:botCreationData.startingPrice) +5% = $($Script:botCreationData.startingPrice * 1.05)"
     $script:botCreationData.targetPrice = Read-SpectreDecimal -message "Target Price:" -precision 12
     Reset-BotScreen
+    }
+    
     
     
     "
