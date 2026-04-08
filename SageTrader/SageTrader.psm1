@@ -1010,7 +1010,7 @@ class ChiaBot{
                 $offer = Get-SageOffer -offer_id $active.offer_id
                 if($offer.status -eq "completed"){
                     $this.LastTradedAt = Get-Date
-                    $this.updateLogOffer($active.offer_id,"completed")
+                    #$this.updateLogOffer($active.offer_id,"completed")
                     
                     #remove this offer
                     $completed = @{
@@ -1403,7 +1403,7 @@ class ChiaBot{
             $this.activeOffers | ForEach-Object {
             
                 $offer_id = $_.offer_id
-                $this.updateLogOffer($offer_id,"cancelled")
+                #$this.updateLogOffer($offer_id,"cancelled")
                 $response = Revoke-SageOffer -offer_id $offer_id
                 if($response){
                     write-host "Offer $offer_id cancelled successfully."
