@@ -1601,8 +1601,64 @@ function Remove-AllBots(){
         Write-SpectreHost -Message "Deleted files $($items.FullName)"
     } else {
         Write-SpectreHost -Message "No files deleted"
+    }       
+}
+
+function write-nft($nft){
+    $name = "$($nft.launcher_id).png"
+    $path = Join-Path -Path (Get-SageTraderPath) -ChildPath $name
+    if(-not (Test-Path $path)){
+        [IO.File]::WriteAllBytes("$path", [Convert]::FromBase64String(($nft.icon_url.split("base64,")[1])))
     }
-    
+    return $path
+}
+
+function Get-SageTraderPath {
+     $subfolder = "GridBots"
+        if([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform(
+            [System.Runtime.InteropServices.OSPlatform]::Windows
+        )){
+            if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader")){
+                New-Item -Path "$env:LOCALAPPDATA\SageTrader" -ItemType Directory | Out-Null
+            }
+            if($null -eq $subfolder){
+                return "$env:LOCALAPPDATA\SageTrader"
+            }
+            if(-not (Test-Path -Path "$env:LOCALAPPDATA\SageTrader\$subfolder")){
+                New-Item -Path "$env:LOCALAPPDATA\SageTrader\$subfolder" -ItemType Directory | Out-Null
+            }
+            return "$env:LOCALAPPDATA\SageTrader\$subfolder"
+        } 
+
+        if([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform(
+            [System.Runtime.InteropServices.OSPlatform]::Linux
+        )){
+            if(-not (Test-Path -Path "$([System.Environment]::GetFolderPath('UserProfile'))/.local/share/SageTrader")){
+                New-Item -Path "$([System.Environment]::GetFolderPath('UserProfile'))/.local/share/SageTrader" -ItemType Directory | Out-Null
+            }
+            if($null -eq $subfolder){
+                return "$([System.Environment]::GetFolderPath('UserProfile'))/.local/share/SageTrader"
+            }
+            if(-not (Test-Path -Path "$([System.Environment]::GetFolderPath('UserProfile'))/.local/share/SageTrader/$subfolder")){
+                New-Item -Path "$([System.Environment]::GetFolderPath('UserProfile'))/.local/share/SageTrader/$subfolder" -ItemType Directory | Out-Null
+            }
+            return "$([System.Environment]::GetFolderPath('UserProfile'))/.local/share/SageTrader/$subfolder"
+        }
+        if([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform(
+            [System.Runtime.InteropServices.OSPlatform]::OSX
+        )){
+            if(-not (Test-Path -Path "$([System.Environment]::GetFolderPath('UserProfile'))/Library/Application Support/SageTrader")){
+                New-Item -Path "$([System.Environment]::GetFolderPath('UserProfile'))/Library/Application Support/SageTrader" -ItemType Directory | Out-Null
+            }
+            if($null -eq $subfolder){
+                return "$([System.Environment]::GetFolderPath('UserProfile'))/Library/Application Support/SageTrader"
+            }
+            if(-not (Test-Path -Path "$([System.Environment]::GetFolderPath('UserProfile'))/Library/Application Support/SageTrader/$subfolder")){
+                New-Item -Path "$([System.Environment]::GetFolderPath('UserProfile'))/Library/Application Support/SageTrader/$subfolder" -ItemType Directory | Out-Null
+            }
+            return "$([System.Environment]::GetFolderPath('UserProfile'))/Library/Application Support/SageTrader/$subfolder"
+        }
+        return ""
     
 }
 
